@@ -1,21 +1,34 @@
-import React from 'react';
-// import Areas from './components/Areas';
-// import Schedule from './components/Schedule';
-// import Form from './components/Form';
-// import Top from './components/Top';
-// import Personalized from './components/Personalized';
-import ScheduleOverview from './components/ScheduleOverview';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import * as React from 'react';
+import Navbar from './components/navBar';
+// import PrinciplesSection from './components/Principles';
+// import GetInTouchSection from './components/GetInTouchSection';
+// import SessionBookingSection from './components/BookingSection';
+// import LocationSection from './components/LocationSection';
+// import AboutSection from './components/AboutSection';
+// import Footer from './components/footer/contact'
+// import Types from './components/footer/Logo';
+// import HeroSection from './components/Hero'
+
 
 function App() {
   return (
-    <div>
-      {/* <Areas /> */}
-      {/* <Schedule /> */}
-      {/* <Form /> */}
-      {/* <Top/> */}
-      {/* <Personalized/> */}
-      <ScheduleOverview/>
-    </div>
+
+    <Navbar />
+
+    // <PrinciplesSection />
+    // <GetInTouchSection />
+    // <SessionBookingSection />
+    // <LocationSection />
+    // <AboutSection />
+    // <HeroSection variant="dark" />
+
+    // <Footer variant="dark" />
+    // <Types variant="light" />
+
   );
 }
 
