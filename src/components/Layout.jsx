@@ -6,8 +6,7 @@ const Layout = ({ children }) => {
     return (
         <>
             <Navbar />
-            <Box mt="60px">{children}</Box>cd path/to/mental-health
-
+            <Box mt="60px">{children}</Box>
         </>
     );
 };
