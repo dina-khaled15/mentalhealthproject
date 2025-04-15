@@ -4,7 +4,7 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import * as React from 'react';
 // import ScheduleSection from './components/ScheduleSection';
-import Contact from './Pages/contact';
+// import Contact from './Pages/contact';
 // import ContactForm from './components/Comesoon';
 // import Navbar from './components/navBar';
 // import PrinciplesSection from './components/Principles';
@@ -15,16 +15,16 @@ import Contact from './Pages/contact';
 // import Footer from './components/footer/contact'
 // import Types from './components/footer/Logo';
 // import HeroSection from './components/Hero';
-
+import Cards from './Pages/HomePage'
 
 
 function App() {
   return (
 
 
+    <Cards />
 
-
-    <Contact />
+    // <Contact />
 
     // <Navbar />
     // <PrinciplesSection />
