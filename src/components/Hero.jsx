@@ -1,10 +1,6 @@
-
-
 import React from "react";
-
 import { Box, Grid, Typography, Button, Stack } from "@mui/material";
 import Types from "./footer/Logo";
-
 function CustomPlayArrowIcon() {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
@@ -12,10 +8,9 @@ function CustomPlayArrowIcon() {
         </svg>
     );
 }
-
 export default function HeroSection() {
     return (
-        <Box sx={{ px: 10, py: 10, backgroundColor: "#FCFCFB" }}>
+        <Box sx={{ px: 6, py: 6, backgroundColor: "#FCFCFB" }}>
             <Grid
                 container
                 columns={12}
@@ -23,9 +18,7 @@ export default function HeroSection() {
                 rowSpacing={4}
                 alignItems="center"
             >
-
                 <Grid item xs={12} md={6}>
-
                     <Box sx={{
                         position: "relative",
                         left: "11rem",
@@ -34,12 +27,10 @@ export default function HeroSection() {
                         <Typography variant="h2" fontWeight="bold" gutterBottom sx={{ marginBottom: "0" }}>
                             Find Peace of Mind
                         </Typography>
-
                         <Typography variant="h2" fontWeight="bold" gutterBottom sx={{ display: "block", marginTop: "0rem" }}>
                             with Wellthy
                         </Typography>
                     </Box>
-
                     {/* ******* */}
                     <Box sx={{
                         position: "relative",
@@ -59,7 +50,6 @@ export default function HeroSection() {
                             and renewed vitality in
                             every aspect of your life.
                         </Typography>
-
                         <Typography variant="body1" color="text.secondary" sx={{
                             fontSize: "1.2rem",
                             marginTop: "0rem",
@@ -67,7 +57,6 @@ export default function HeroSection() {
                             resilience, and renewed vitality in
                             every aspect
                         </Typography>
-
                         <Typography variant="body1" color="text.secondary" sx={{
                             fontSize: "1.2rem",
                             marginTop: "0rem",
@@ -75,7 +64,6 @@ export default function HeroSection() {
                             your life.
                         </Typography>
                     </Box>
-
                     <Stack direction="row" spacing={2} mt={2}>
                         <Button
                             variant="contained"
@@ -105,8 +93,6 @@ export default function HeroSection() {
                         </Button>
                     </Stack>
                 </Grid>
-
-
                 <Grid item xs={12} md={6}>
                     <Box
                         component="img"
@@ -134,9 +120,9 @@ export default function HeroSection() {
                     // backgroundColor: "#FCFCFB"
                 }}
             >
-                <Types variant="light" />
+                <Types variant="light"
+                />
             </Box>
-
         </Box>
     );
 }

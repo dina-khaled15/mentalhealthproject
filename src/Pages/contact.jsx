@@ -1,12 +1,26 @@
-import Layout from "../components/Layout";
-
-const AboutPage = () => {
+import React from "react";
+import GetInTouchSection from "../components/GetInTouchSection";
+import ContactForm from "../components/Comesoon";
+import LocationSection from "../components/LocationSection";
+import Navbar from "../components/NavBar";
+import Footer from "../components/footer/contact";
+import ScheduleSection from '../components/ScheduleSection';
+import CTASection from "../components/FindDocter";
+const Contact = () => {
     return (
-        <Layout>
-            <h1>About Page</h1>
-            <p>Welcome to about section!</p>
-        </Layout>
+        <div>
+            <Navbar />
+            <div style={{ marginTop: "60px" }}>
+                <GetInTouchSection />
+                <ContactForm />
+                <ScheduleSection />
+                <LocationSection />
+                <CTASection />
+                <Footer variant="dark" />
+
+            </div>
+        </div>
     );
 };
 
-export default AboutPage;
+export default Contact;
