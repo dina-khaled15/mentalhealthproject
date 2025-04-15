@@ -9,7 +9,7 @@ import FooterComponent from "./footer/contact";
 const DoctorsPage = () => {
   console.log("DoctorsPage rendered");
   return (
-    <Box sx={{ margin: "auto", width: "1400px" }}>
+    <Box sx={{ margin: "auto", width: "1400px", styleoverflow: "hidden" }}>
       <Box sx={{ bgcolor: "#fff" }}>
         <Navbar />
 

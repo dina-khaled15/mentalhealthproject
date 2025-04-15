@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+import React from 'react';
+import DoctorPage from './page/DoctorPage';
+
+function App() {
+  return (
+    <div style={{ overflowX: 'hidden' }}>
+      <DoctorPage />
+    </div>
+=======
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
@@ -38,6 +48,7 @@ function App() {
     // <Footer variant="dark" />
     // <Types variant="light" />
 
+>>>>>>> e63040417bade07ec892f058bc995992a859acf5
   );
 }
 
