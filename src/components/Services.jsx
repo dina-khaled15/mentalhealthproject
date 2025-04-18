@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  Box,
-  Typography,
-  Grid,
-  Button,
-  Card,
-  CardMedia,
-  IconButton
-} from "@mui/material";
+import {Box,Typography,Grid,Button,Card,CardMedia,IconButton} from "@mui/material";
 import PolylineIcon from '@mui/icons-material/Polyline';
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
@@ -45,26 +37,13 @@ const services = [
 
 export default function MentalHealthServices() {
   return (
-    <Box
-      p={5}
-      sx={{
-        fontFamily: "'Inter', sans-serif",
-        backgroundColor: "#fff"
-      }}
-    >
+    <Box p={5} sx={{fontFamily: "Manrope",backgroundColor: "#fff"}}>
       <Grid container spacing={4} alignItems="flex-start">
         {/* Left Section */}
         <Grid item xs={12} md={6}>
           <Box ml={{ xs: 4, md: 15 }} mt={5}>
-            <Button
-              variant="outlined"
-              sx={{ 
-                borderRadius: 10, 
-                textTransform: "none", 
-                mb: 2, 
-                fontFamily: "Manrope", 
-                borderColor: '#D3D3D3', 
-                color: '#222222', 
+            <Button variant="outlined" sx={{ borderRadius: 10,textTransform: "none",mb: 2,fontFamily: "Manrope", 
+                borderColor: '#D3D3D3',color: '#222222', 
                 '&:hover': { 
                   borderColor: '#D3D3D3', 
                   backgroundColor: 'rgba(211, 211, 211, 0.2)' 
@@ -79,12 +58,7 @@ export default function MentalHealthServices() {
               Mental Health Services
             </Typography>
 
-            <Typography
-              variant="body1"
-              color="text.secondary"
-              mb={4}
-              sx={{ maxWidth: 400 }}
-            >
+            <Typography variant="body1" color="text.secondary" mb={4} sx={{ maxWidth: 400 }}>
               A complete range of services to support mental health, including
               therapy, medication, and crisis help.
             </Typography>
@@ -101,26 +75,10 @@ export default function MentalHealthServices() {
                   <Card elevation={1} sx={{ borderRadius: 3 }}>
                     {/* Display image if available, else show gray background */}
                     {service.image ? (
-                      <CardMedia
-                        component="img"
-                        image={service.image}
-                        alt={service.title}
-                        sx={{
-                          borderRadius: 3,
-                          objectFit: "cover",
-                          width: 270,
-                          height: 200,
-                         
-                        }}
-                      />
+                      <CardMedia component="img" image={service.image} alt={service.title}
+                        sx={{borderRadius: 3,objectFit: "cover",width: 270, height: 200}}/>
                     ) : (
-                      <Box
-                        sx={{
-                          backgroundColor: "#D3D3D3", // Gray background for missing image
-                          width: "100%",
-                          height: 200,
-                        }}
-                      />
+                      <Box sx={{backgroundColor: "#D3D3D3",width: "100%",height: 200}}/>
                     )}
                   </Card>
                   <Box mt={1}>
@@ -143,61 +101,33 @@ export default function MentalHealthServices() {
 
           {/* Second Row */}
           <Box ml={{ xs: 5, md: 18 }} mt={7}>
-  <Grid container spacing={18}>
-    {services.slice(2).map((service, index) => (
-      <Grid item xs={12} sm={6} key={index}>
+            <Grid container spacing={18}>
+             {services.slice(2).map((service, index) => (
+              <Grid item xs={12} sm={6} key={index}>
         <Box>
-          <Card
-            elevation={1}
-            sx={{
-              borderRadius: 3,
-              width: service.title === "Group Therapy"  ? 270
+          <Card elevation={1}
+            sx={{borderRadius: 3,width: service.title === "Group Therapy"  ? 270
               : service.title === "Mindfulness and Meditation"
               ? 280
-              : "100%" // تعديل العرض
-            }}
-          >
+              : "100%"}}>
             {service.image ? (
               <CardMedia
                 component="img"
                 image={service.image}
                 alt={service.title}
-                sx={{
-                  borderRadius: 3,
-                  objectFit: "cover",
-                  width: "100%",
-                  height: 200
-                }}
-              />
+                sx={{borderRadius: 3,objectFit: "cover",width: "100%",height: 200}}/>
             ) : (
               <Box
-                sx={{
-                  backgroundColor: "#D3D3D3",
-                  width: "100%",
-                  height: 200
-                }}
-              />
+                sx={{backgroundColor: "#D3D3D3",width: "100%",height: 200}}/>
             )}
           </Card>
           <Box mt={1}>
-            <Typography
-              variant="subtitle1"
-              fontWeight={600}
-              fontFamily={"Manrope"}
-              fontSize={20}
-              sx={{ whiteSpace: "normal", wordBreak: "break-word" }}
->
-            
+            <Typography variant="subtitle1" fontWeight={600} fontFamily={"Manrope"} fontSize={20}
+              sx={{ whiteSpace: "normal", wordBreak: "break-word" }}>
               {service.title}
             </Typography>
-            <Typography
-              variant="body2"
-              color="text.secondary"
-              fontFamily={"Manrope"}
-              fontWeight={400}
-              fontSize={15}
-              sx={{ maxWidth: 200 }}
-            >
+            <Typography variant="body2" color="text.secondary" fontFamily={"Manrope"} fontWeight={400} fontSize={15}
+              sx={{ maxWidth: 200 }}>
               {service.description}
             </Typography>
           </Box>
@@ -210,34 +140,18 @@ export default function MentalHealthServices() {
       </Grid>
 
       <Box mt={5} display="flex" justifyContent="flex-end" gap={1}>
-  <IconButton
-    sx={{
-      backgroundColor: "#fff",
-      color: "#000",
-      fontWeight: "100",
-      borderRadius: "4px",
-    
-      border: "1px solid black",
+        <IconButton sx={{backgroundColor: "#fff",color: "#000",fontWeight: "100",borderRadius: "4px",border: "1px solid black",
       "&:hover": {
         backgroundColor: "#f0f0f0"
       }
-    }}
-  >
+    }}>
     <ArrowBackIosNewIcon fontSize="small" />
   </IconButton>
-
-  <IconButton
-    sx={{
-      backgroundColor: "#000",
-      color: "#fff",
-      fontWeight: "100",
-      border: "1px solid white",
-      borderRadius: "4px",
+  <IconButton sx={{backgroundColor: "#000",color: "#fff",fontWeight: "100",border: "1px solid white",borderRadius: "4px",
       "&:hover": {
         backgroundColor: "#222"
       }
-    }}
-  >
+    }}>
     <ArrowForwardIosIcon fontSize="small" />
   </IconButton>
 </Box>
