@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {Box,Grid,Typography,Card,CardMedia,CssBaseline,} from '@mui/material';
-
 import depressionImg from './Depression.png';
 import stressImg from './Stress.png';
 import anxietyImg from './Anxeity.png';
@@ -34,7 +33,7 @@ const Issues = () => (
 
       <Grid container spacing={2}>
         {services.map((service, idx) => (
-          <Grid item xs={12} sm={6} md={service.title === 'Substance Abuse' ? 2 : 3} key={idx} sx={{ml: 4, mt: 4 }}>
+          <Grid item xs={12} sm={6} md={service.title === 'Substance Abuse' ? 2 : 3} key={idx} sx={{ml: 4, mt: 3 }}>
             <Link to={`/service/${encodeURIComponent(service.title)}`} style={{ textDecoration: 'none' }}>
               <Card sx={{position: 'relative',borderRadius: 2,boxShadow: 3,overflow: 'hidden',fontFamily: 'Manrope',
                   width: '90%',marginLeft: 'auto',marginRight: 'auto',display: 'block',}}>

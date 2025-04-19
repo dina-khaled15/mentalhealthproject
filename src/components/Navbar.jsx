@@ -1,14 +1,14 @@
 import React from "react";
 import {AppBar,Toolbar,Typography,Button,Box,Container,} from "@mui/material";
 import { Link } from "react-router-dom";
-// import FavoriteIcon from "@mui/icons-material/Favorite";
+import PeopleIcon from '@mui/icons-material/People';
 
 const Navbar = () => {
     return (
         <AppBar position="static" color="transparent" elevation={0}>
             <Container maxWidth="lg">
                 <Toolbar disableGutters sx={{ justifyContent: "space-between" }}>
-                    <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                    <Box sx={{ display: "flex", alignItems: "center", gap: 1 ,mr: 2}}>
                         
                         <Box component="span" dangerouslySetInnerHTML={{
                             __html: `<svg width="42" height="36" viewBox="0 0 42 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -48,25 +48,32 @@ const Navbar = () => {
         sx={{color: "inherit",fontSize: "16px",fontWeight: "400",fontFamily: "Manrope",textTransform: "none"}}>
             Issues
         </Button>
+        <Button component={Link}to="/pharmacies" sx={{color: "inherit",fontSize: "16px",fontWeight: "400",fontFamily: "Manrope",textTransform: "none"}}>          Pharmacies
+        </Button>
         <Button component={Link} to="/contact"
         sx={{color: "inherit",fontSize: "16px",fontWeight: "400",fontFamily: "Manrope",textTransform: "none"}}>
             Contact us
         </Button>
         </Box>
+        <Box sx={{ display: "flex", gap: 2, alignItems: "center", marginLeft: "auto" }}>
+    <Button variant="outlined"
+      sx={{borderRadius: "4px",textTransform: "none",fontFamily: "Manrope",fontWeight: 600,borderColor: "black",color: "black",}}>
+      Register
+    </Button>
 
-        <Box sx={{ display: "flex", gap: 2 }}>
-            <Button variant="outlined"
-                sx={{borderRadius: "4px",textTransform: "none",fontFamily: "Manrope", fontWeight: 600,borderColor: "black",color: "black"}}>
-                    Register
-            </Button>
-            <Button variant="contained"
-                sx={{ backgroundColor: "black",color: "white",borderRadius: "4px",fontFamily: "Manrope",fontWeight: 600,textTransform: "none",
-                                "&:hover": { backgroundColor: "#333" },}}>
-                    Log in
-                    </Button>
-                    </Box>
-                </Toolbar>
-            </Container>
+    <Button variant="contained"
+      sx={{backgroundColor: "black",color: "white",borderRadius: "4px",fontFamily: "Manrope",fontWeight: 600,textTransform: "none",
+        "&:hover": { backgroundColor: "#333" },
+        }}>
+      Log in
+    </Button>
+
+    <Link to="/profile" style={{ color: "#222" }}>
+      <PeopleIcon sx={{ fontSize: 28 }} />
+    </Link>
+  </Box>
+        </Toolbar>
+         </Container>
         </AppBar>
     );
 };
