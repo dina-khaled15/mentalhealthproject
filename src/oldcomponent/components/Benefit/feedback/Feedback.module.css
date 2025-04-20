@@ -1,0 +1,72 @@
+/* Feedback.module.css */
+.container {
+  background-color: #1e1e1e; /* الخلفية سوداء */
+  color: #fff;
+  padding: 3rem 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+.iconButton {
+  border: 1px solid #fff !important;
+  border-radius: 10px !important;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.iconButton:hover {
+  border: #fff;
+}
+
+.icon {
+  color: #fff;
+  margin-right: 1rem;
+}
+
+.title {
+  font-weight: bold;
+  margin-top: 2rem !important;
+  margin-bottom: 3rem;
+}
+
+.cardsContainer {
+  margin: 2rem !important;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.card {
+  border-radius: 40px !important;
+  background-color: #fff;
+  color: #000;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  width: 350px;
+  box-sizing: border-box;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.avatar {
+  width: 56px;
+  height: 56px;
+  margin-right: 1rem;
+}
+
+.cardContent {
+  padding: 0;
+}
+
+.text {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.name {
+  font-weight: bold;
+}

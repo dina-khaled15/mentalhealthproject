@@ -1,0 +1,84 @@
+.contact-form-container {
+  padding: 40px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 32px !important;
+  align-items: flex-start !important;
+}
+
+@media (min-width: 768px) {
+  .contact-form-container {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+  }
+}
+
+.left-section {
+  flex: 1 !important;
+  max-width: 40% !important;
+}
+
+.right-section {
+  flex: 1 !important;
+  max-width: 55% !important;
+}
+
+.chip {
+  width: fit-content !important;
+  margin-bottom: 16px !important;
+}
+
+.title-section {
+  display: flex !important;
+  align-items: baseline !important;
+  flex-wrap: wrap !important;
+  margin-bottom: 16px !important;
+}
+
+.title-bold {
+  font-weight: bold !important;
+  margin-right: 8px !important;
+}
+
+.title-black {
+  color: black !important;
+}
+
+.title-gray {
+  color: gray !important;
+}
+
+.contact-info {
+  display: flex !important;
+  gap: 16px !important;
+  flex-wrap: wrap !important;
+  margin-top: 16px !important;
+}
+
+.input-field {
+  width: 100% !important;
+}
+
+.input-label {
+  margin-bottom: 4px !important;
+  font-weight: 500 !important;
+  color: #555 !important;
+  display: block !important;
+}
+
+.message-section {
+  grid-column: span 2 !important;
+}
+
+.submit-button {
+  background-color: black !important;
+  color: white !important;
+  text-transform: none !important;
+  padding: 10px 24px !important;
+  font-weight: bold !important;
+  margin-top: 16px !important;
+}
+
+.submit-button:hover {
+  background-color: #333 !important;
+}
