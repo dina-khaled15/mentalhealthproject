@@ -5,9 +5,11 @@ import styles from "./ExpertTeamSection.module.css";
 
 const ExpertTeamSection = () => {
   return (
-    <Box className={styles.container}>
-      <Container maxWidth="lg">
-        {/* زرار فوق */}
+    <Box className={styles.container} sx={{alignItems: "center"}}>
+      <Container
+        maxWidth="lg"
+        sx={{ display: "flex", flexDirection: "column", alignItems: "start" }}
+      >
         <Box className={styles.buttonContainer}>
           <Button
             variant="outlined"
@@ -17,7 +19,6 @@ const ExpertTeamSection = () => {
             Our Experts
           </Button>
         </Box>
-
         {/* العنوان والكلام في نفس السطر */}
         <Box className={styles.contentContainer}>
           {/* العنوان */}

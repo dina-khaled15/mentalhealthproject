@@ -1,18 +1,21 @@
 /* ExpertTeamSection.module.css */
-.container {
-  padding-top: 7rem;
-  padding-bottom: 7rem;
-  background-color: #ffffff;
-  width: 100% !important;
-  align-items: center !important;
-  
-}
 
+.container {
+  padding-top: 7rem !important;
+  padding-bottom: 7rem !important;
+  background-color: #ffffff !important;
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important; /* vertically center */
+  justify-content: center !important; 
+}
 .buttonContainer {
+  align-items: start !important;
   margin-bottom: 1rem;
 }
 
 .button {
+ 
   border-radius: 5px;
   text-transform: none;
   font-weight: 500;
@@ -28,8 +31,10 @@
 .contentContainer {
   display: flex;
   flex-direction: row;
-
   align-items: center;
+  justify-content: space-between;
+  gap: 2rem; 
+  flex-wrap: wrap;
 }
 
 .titleContainer {
