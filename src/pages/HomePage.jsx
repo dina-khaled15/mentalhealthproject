@@ -9,7 +9,8 @@ import Hero from "../components/Hero";
 import Benefit from "../components/Benefit";
 import FooterComponent from "../components/footer/contact";
 import Titlee from "../components/Titlee";
-import Schedule from "../components/Schedule";
+// import Schedule from "../components/Schedule";
+import Schedule from "../components/Schedule/Schedule";
 export default function HomePage() {
   return (
     <div>
