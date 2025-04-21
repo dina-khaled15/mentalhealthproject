@@ -34,7 +34,7 @@
 .image {
   width: 600px;
   height: 700px;
-  border-radius: 2px;
+  border-radius: 20px;
   object-fit: cover;
   display: block;
 }
@@ -48,7 +48,7 @@
   max-width: 300px;
   display: none;
   background-color: white;
-  border-radius: 2px;
+  border-radius: 10px;
   text-align: left;
 }
 
