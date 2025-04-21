@@ -9,7 +9,7 @@ import Navbar from "../components/navmodule/Navbar";
 import VisionMission from "../components/VissionMission/vission&mission";
 
 import PricingSection from "../components/Pricingmodule/PricingSection";
-import MentalHealthServices from "../components/service";
+import MentalHealthServices from "../components/servicesss/service";
 
 function About() {
   return (
