@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Button, Typography } from "@mui/material";
+import Image6 from "../images/6.png";
 
 const SessionBookingSection = () => {
   return (
@@ -11,16 +12,16 @@ const SessionBookingSection = () => {
         width: "100%",
         display: "flex",
         flexDirection: "column",
-        alignItems: "center", // علشان نخلي الصورة في النص بس الكلام شمال
+        alignItems: "center",
       }}
     >
       <Box
         component="img"
-        src="../images/6.png"
+        src={Image6}
         alt="Therapy session"
         sx={{
           width: "100%",
-          maxWidth: "1100px", // كبرنا شوية
+          maxWidth: "1100px",
           height: 350,
           objectFit: "cover",
           mb: 4,
@@ -32,7 +33,7 @@ const SessionBookingSection = () => {
         sx={{
           width: "100%",
           maxWidth: "1100px",
-          textAlign: "left", // خلي النص شمال
+          textAlign: "left",
         }}
       >
         <Typography variant="h5" fontWeight="bold" mb={1}>
