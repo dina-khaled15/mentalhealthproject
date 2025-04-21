@@ -1,0 +1,47 @@
+/* components/RecordingUI/RecordingUI.module.css */
+.recordingContainer {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #F2F0E9;
+    border-bottom: 1px solid #E0E0E0;
+  }
+  
+  .recordingInfo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .recordingIndicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #FF3B30;
+    margin-right: 8px;
+    animation: pulse 1.5s infinite;
+  }
+  
+  .recordingText {
+    margin-right: 16px;
+  }
+  
+  .deleteButton {
+    color: #FF3B30;
+    margin-right: 8px;
+  }
+  
+  .sendButton {
+    background-color: #000000;
+    color: #FFFFFF;
+  }
+  
+  .sendButton:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  @keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+  }
