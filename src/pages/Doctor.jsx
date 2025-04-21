@@ -22,7 +22,7 @@ import {
   ArrowBack,
 } from "@mui/icons-material";
 
-import Navbar from "../components/navbar";
+import Navbar from "../components/navmodule/Navbar";
 import FooterComponent from "../components/footer/contact";
 import Feedback from "../components/feedback";
 import WeeklySchedule from "../components/SehdualOverVeiw";

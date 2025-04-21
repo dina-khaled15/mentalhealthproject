@@ -16,7 +16,7 @@ const SessionBookingSection = () => {
     >
       <Box
         component="img"
-        src="/images/6.png"
+        src="../images/6.png"
         alt="Therapy session"
         sx={{
           width: "100%",

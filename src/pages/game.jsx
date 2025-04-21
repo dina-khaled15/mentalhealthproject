@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import { Link } from "react-router-dom"; // استيراد Link
-import Navbar from "../components/navbar";
+import Navbar from "../components/navmodule/Navbar";
 import FooterComponent from "../components/footer/contact";
 
 const games = [

@@ -17,25 +17,25 @@ const services = [
     title: "Individual Therapy",
     description:
       "Personalized one-on-one sessions with licensed therapists to address your unique mental health needs.",
-    image: "/images/Picture1.png",
+    image: "../images/Picture1.png",
   },
   {
     title: "Online Counseling",
     description:
       "Convenient and confidential virtual therapy sessions that you can attend from the comfort of your home.",
-    image: "/images/Picture2.png",
+    image: "../images/Picture2.png",
   },
   {
     title: "Group Therapy",
     description:
       "Supportive group sessions where individuals can share experiences and learn from another in a safe place.",
-    image: "/images/Picture3.jpg",
+    image: "../images/Picture3.jpg",
   },
   {
     title: "Mindfulness and Meditation",
     description:
       "Techniques and practices to help you stay present, reduce stress, and enhance emotional regulation.",
-    image: "/images/Picture.png",
+    image: "../images/Picture.png",
   },
 ];
 

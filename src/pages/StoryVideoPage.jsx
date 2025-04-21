@@ -9,7 +9,7 @@ import {
   Container,
 } from "@mui/material";
 import { Link } from "react-router-dom";
-import Navbar from "../components/navbar";
+import Navbar from "../components/navmodule/Navbar";
 import FooterComponent from "../components/footer/contact";
 import "../App.css";
 

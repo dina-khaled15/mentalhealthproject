@@ -1,6 +1,6 @@
 import React from "react";
 import { Box } from "@mui/material";
-import Navbar from "../components/navbar";
+import Navbar from "../components/navmodule/Navbar";
 import PsychologyBanner from "../components/PsychologyBanner";
 import ExpertTeamSection from "../components/ExpertTeam";
 import TeamGrid from "../components/TeamGrid";
