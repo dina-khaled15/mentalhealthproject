@@ -59,7 +59,7 @@ const Areas = () => {
         {/* Right section */}
         <div className={styles.rightSection}>
         <div className={styles.personalIssuesButtonContainer}>
-        <button className={`${styles.personalIssuesButton} ${styles.customPersonalIssuesButton}`}>
+        <button className= { ` ${styles.personalIssuesButton} ${styles.customPersonalIssuesButton} `}>
             <RadioButtonCheckedIcon className={styles.radioIcon} />
             Personal Issues
           </button>
@@ -71,4 +71,4 @@ const Areas = () => {
   );
 };
 
-export default Areas;
+export default Areas;

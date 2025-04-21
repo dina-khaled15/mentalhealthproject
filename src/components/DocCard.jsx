@@ -14,7 +14,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { useNavigate } from "react-router-dom";
 
-export default function DoctorCard() {
+export default function DoctorCard({ name, des, img }) {
   const navigate = useNavigate();
 
   const handleBookingClick = () => {
@@ -45,7 +45,7 @@ export default function DoctorCard() {
         <CardMedia
           component="img"
           height="400"
-          image="/images/doc.jpg"
+          image={img}
           alt="Doctor"
           sx={{ borderRadius: "20px" }}
         />
@@ -86,7 +86,7 @@ export default function DoctorCard() {
           component="div"
           sx={{ fontFamily: "Manrope", fontWeight: 600, marginTop: 1 }}
         >
-          John Ramirez, LCSW
+          {name}
         </Typography>
         <Typography
           variant="body2"
@@ -97,7 +97,7 @@ export default function DoctorCard() {
             marginTop: 2,
           }}
         >
-          Family Counseling, Trauma, Marriage and Relationship Issues
+         {des}
         </Typography>
       </CardContent>
 

@@ -1,0 +1,114 @@
+/* components/Sidebar/Sidebar.module.css */
+.sidebar {
+    width: 300px;
+    background-color: #FFFFFF;
+    border-right: 1px solid #E0E0E0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .userProfile {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid #E0E0E0;
+    background-color: #FFFFFF;
+  }
+  
+  .avatar {
+    background-color: #000000;
+  }
+  
+  .userInfo {
+    margin-left: 16px;
+  }
+  
+  .userName {
+    color: #000000;
+  }
+  
+  .userRole {
+    color: #555555;
+  }
+  
+  .searchContainer {
+    padding: 16px;
+    border-bottom: 1px solid #E0E0E0;
+    background-color: #FFFFFF;
+  }
+  
+  .searchField :global(.MuiOutlinedInput-root) :global(.MuiOutlinedInput-notchedOutline) {
+    border-color: #E0E0E0;
+  }
+  
+  .searchField :global(.MuiOutlinedInput-root:hover) :global(.MuiOutlinedInput-notchedOutline) {
+    border-color: #555555;
+  }
+  
+  .searchField :global(.MuiOutlinedInput-root.Mui-focused) :global(.MuiOutlinedInput-notchedOutline) {
+    border-color: #000000;
+  }
+  
+  .searchIcon {
+    color: #555555;
+  }
+  
+  .tabs {
+    border-bottom: 1px solid #E0E0E0;
+  }
+  
+  .tabs :global(.MuiTab-root) {
+    color: #555555;
+  }
+  
+  .tabs :global(.Mui-selected) {
+    color: #000000;
+  }
+  
+  .tabs :global(.MuiTabs-indicator) {
+    background-color: #000000;
+  }
+  
+  .listContainer {
+    flex-grow: 1;
+    overflow: auto;
+    background-color: #FFFFFF;
+  }
+  
+  .listItem {
+    transition: background-color 0.2s;
+  }
+  
+  .listItem:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  .activeItem {
+    background-color: #F2F0E9 !important;
+  }
+  
+  .activeItem:hover {
+    background-color: #F2F0E9 !important;
+  }
+  
+  .listAvatar {
+    background-color: #000000;
+  }
+  
+  .primaryText {
+    color: #000000;
+  }
+  
+  .secondaryText {
+    color: #555555;
+  }
+  
+  .iconButton {
+    color: #000000;
+  }
+  
+  .noResults {
+    text-align: center;
+    color: #555555;
+    padding: 16px;
+  }
