@@ -1,7 +1,7 @@
 import React from "react";
 import { Box } from "@mui/material";
 import Navbar from "../components/navmodule/Navbar";
-import PsychologyBanner from "../components/PsychologyBanner";
+import PsychologyBanner from "../components/Pbanner/PsychologyBanner";
 import ExpertTeamSection from "../components/ExpertTeam/ExpertTeam";
 import TeamGrid from "../components/ourteam/TeamGrid";
 import FooterComponent from "../components/footer/contact";
