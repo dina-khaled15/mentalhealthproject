@@ -151,7 +151,11 @@
 
 .customPersonalIssuesButton {
   background-color: #AAA;
+<<<<<<< HEAD
   border-radius: 30px;
+=======
+ border: 1 solid #FCFCFC;
+>>>>>>> 5cdf1026f97a93604e82a0eed898a6cf3043e738
   padding: 8px 20px;
   color: black;
   font-size: 14px;
