@@ -6,7 +6,7 @@ import Cta from "../components/Cta";
 import FooterComponent from "../components/footer/contact";
 import { Container, Box } from "@mui/material";
 import Navbar from "../components/navmodule/Navbar";
-import VisionMission from "../components/vission&mission";
+import VisionMission from "../components/VissionMission/vission&mission";
 
 import PricingSection from "../components/Pricingmodule/PricingSection";
 import MentalHealthServices from "../components/service";

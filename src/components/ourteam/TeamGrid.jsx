@@ -16,7 +16,52 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useNavigate } from "react-router-dom";
 import styles from "./TeamGrid.module.css";
 
-import doctors from "../../data/teamGrid";
+
+const doctors = [
+  {
+    id: 1,
+    name: "Dr. Sarah Thompson",
+    title: "Anxiety Disorders / Cognitive Therapy",
+    image: require("../../images/d2.png"),
+    link: "/doctorDetails/1",
+  },
+  {
+    id: 2,
+    name: "John Ramirez, LCSW",
+    title: "Family Counseling / Stress Management",
+    image: require("../../images/d1.png"),
+    link: "/doctorDetails/2",
+  },
+  {
+    id: 3,
+    name: "Emily Chen, PsyD",
+    title: "Grief Recovery / PTSD",
+    image: require("../../images/d4.png"),
+    link: "/doctorDetails/3",
+  },
+  {
+    id: 4,
+    name: "Dr. Liam Carter",
+    title: "Child & Adolescent Therapy",
+    image: require("../../images/d6.png"),
+    link: "/doctorDetails/4",
+  },
+  {
+    id: 5,
+    name: "Dr. Sophia Hughes",
+    title: "Mindfulness & Trauma Therapy",
+    image: require("../../images/d5.png"),
+    link: "/doctorDetails/5",
+  },
+  {
+    id: 6,
+    name: "Dr. Marcus Lee",
+    title: "Cognitive Behavioral Therapy (CBT)",
+    image: require("../../images/d7.png"),
+    link: "/doctorDetails/6",
+  },
+];
+
 
 const TeamGrid = () => {
   const navigate = useNavigate();

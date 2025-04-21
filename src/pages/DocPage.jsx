@@ -2,8 +2,8 @@ import React from "react";
 import { Box } from "@mui/material";
 import Navbar from "../components/navmodule/Navbar";
 import PsychologyBanner from "../components/PsychologyBanner";
-import ExpertTeamSection from "../components/ExpertTeam";
-import TeamGrid from "../components/TeamGrid";
+import ExpertTeamSection from "../components/ExpertTeam/ExpertTeam";
+import TeamGrid from "../components/ourteam/TeamGrid";
 import FooterComponent from "../components/footer/contact";
 
 const DoctorsPage = () => {
@@ -38,8 +38,6 @@ const DoctorsPage = () => {
         >
           <ExpertTeamSection />
         </Box>
-
-        {/* Cards Section */}
         <Box
           sx={{
             pt: 4,
@@ -51,8 +49,6 @@ const DoctorsPage = () => {
         >
           <TeamGrid />
         </Box>
-
-        {/* Footer */}
         <Box
           sx={{ pt: 4, maxWidth: "100%", mx: "auto", fontFamily: "Manrope" }}
         >
