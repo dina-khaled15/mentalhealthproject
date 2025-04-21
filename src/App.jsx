@@ -19,6 +19,7 @@ import DoctorDetails from "./pages/Doctor";
 import About from "./pages/About";
 import Issues from "./pages/Issues";
 import Details from "./pages/IssuesDetails";
+import PartnerPharmaciesPage from "./pages/Pharmasy";
 import Chatbot from "./pages/Chatbot";
 import ChatUIComponent from "./pages/community";
 
@@ -41,6 +42,7 @@ function App() {
         <Route path="/bubble" element={<Bubble />} />
         <Route path="/issues" element={<Issues />} />
         <Route path="/service/:title" element={<Details />} />
+        <Route path="/pharmacies" element={<PartnerPharmaciesPage />} />
         <Route path="/card-matching" element={<CardMatchGame />} />
         <Route path="/stories" element={<StoryVideosPage />} />
         <Route path="/story/:videoId" element={<VideoPlayerPage />} />
