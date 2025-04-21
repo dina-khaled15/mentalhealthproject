@@ -5,7 +5,7 @@ const PsychologyBanner = () => {
   return (
     <div className={styles.bannerWrapper}>
       <div className={styles.textBox}>
-        {/* Wrap the text inside the inner box */}
+     
         <span className={styles.innerBox}>
           <h1 className={styles.bannerText}>
             Exploring various psychological concepts, theories, and research findings in an accessible way.

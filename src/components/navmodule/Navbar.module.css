@@ -1,4 +1,4 @@
-/* Base styles */
+
 .appBar {
   background-color: transparent !important;
   box-shadow: none !important;
@@ -10,7 +10,7 @@
   padding: 0 !important;
 }
 
-/* Logo styles */
+
 .logoContainer {
   display: flex !important;
   align-items: center !important;
@@ -25,7 +25,7 @@
   font-weight: 800 !important;
 }
 
-/* Navigation links */
+
 .navLinks {
   display: flex !important;
   gap: 16px !important;
@@ -54,7 +54,7 @@
   min-width: unset !important;
 }
 
-/* Auth container */
+
 .authContainer {
   display: flex !important;
   gap: 16px !important;
@@ -165,7 +165,7 @@
   background-color: #333 !important;
 }
 
-/* Social login/register section */
+
 .dividerContainer {
   margin-top: 24px !important;
   margin-bottom: 16px !important;
@@ -185,7 +185,7 @@
   display: flex !important;
   flex-direction: column !important;
   gap: 16px !important;
-  width: 100% !important; /* Ensure full width */
+  width: 100% !important;
 }
 
 .socialButton {
@@ -195,18 +195,18 @@
   font-weight: 500 !important;
   border-color: #DDDDDD !important;
   color: #333333 !important;
-  width: 100% !important; /* Ensure full width */
+  width: 100% !important; 
 }
 
 .socialButton:hover {
   border-color: #BBBBBB !important;
 }
 
-/* Dialog footer */
+
 .dialogFooter {
   margin-top: 24px !important;
   text-align: center !important;
-  width: 100% !important; /* Ensure full width */
+  width: 100% !important; 
 }
 
 .switchAuthText {
@@ -219,7 +219,7 @@
   font-weight: 600 !important;
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 960px) {
   .navLinks {
     gap: 8px !important;

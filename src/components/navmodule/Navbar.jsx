@@ -29,29 +29,29 @@ const Navbar = () => {
 
   const handleLoginSubmit = (event) => {
     event.preventDefault();
-    // Add your login logic here
+    
     console.log("Login submitted");
     handleLoginClose();
   };
 
   const handleRegisterSubmit = (event) => {
     event.preventDefault();
-    // Add your registration logic here
+  
     console.log("Registration submitted");
     handleRegisterClose();
   };
 
   const handleGoogleLogin = () => {
-    // Add Google login logic here
+    
     console.log("Google login initiated");
   };
 
   const handleMicrosoftLogin = () => {
-    // Add Microsoft login logic here
+    
     console.log("Microsoft login initiated");
   };
 
-  // Logo SVG components for reuse
+ 
   const LogoMain = () => (
     <Box
       component="span"
@@ -77,7 +77,7 @@ const Navbar = () => {
       <AppBar position="static" color="transparent" elevation={0} className={styles.appBar}>
         <Container maxWidth="lg">
           <Toolbar disableGutters className={styles.toolbar}>
-            {/* Logo and wellthy on the far left */}
+          
             <Box className={styles.logoContainer}>
               <LogoMain />
               <LogoCircle />
@@ -86,7 +86,6 @@ const Navbar = () => {
               </Typography>
             </Box>
 
-            {/* Navigation in the middle */}
             <Box className={styles.navLinks}>
               <Button component={Link} to="/" className={styles.activeNavLink}>
                 Home
@@ -111,7 +110,7 @@ const Navbar = () => {
               </Button>
             </Box>
 
-            {/* Login / Register / Profile Icon on the far right */}
+           
             <Box className={styles.authContainer}>
               <Button variant="outlined" onClick={handleRegisterOpen} className={styles.registerButton}>
                 Register
@@ -127,7 +126,7 @@ const Navbar = () => {
         </Container>
       </AppBar>
 
-      {/* Login Modal */}
+
       <Dialog open={openLogin} onClose={handleLoginClose}
         PaperProps={{className: styles.dialogPaper,}} maxWidth="xs" fullWidth>
         <Box className={styles.dialogHeader}>
@@ -139,7 +138,7 @@ const Navbar = () => {
           </IconButton>
         </Box>
 
-        {/* Logo in Login Modal */}
+    
         <Box className={styles.dialogLogo}>
           <Box className={styles.logoContainer}>
             <LogoMain />
@@ -167,7 +166,6 @@ const Navbar = () => {
           </DialogActions>
         </form>
 
-        {/* Social login options */}
         <Box className={styles.dividerContainer}>
           <Divider className={styles.divider}>
             <Typography variant="body2" className={styles.dividerText}>

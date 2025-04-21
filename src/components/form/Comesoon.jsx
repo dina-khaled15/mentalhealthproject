@@ -6,7 +6,7 @@ import styles from "./ContactForm.module.css";
 export default function ContactForm() {
   return (
     <Box className={styles["contact-form-container"]}>
-      {/* Left Section */}
+      
       <Box className={styles["left-section"]}>
         <Chip icon={<EditOutlinedIcon />} label="Form" variant="outlined"  className={styles["chip"]}/>
 
@@ -30,7 +30,6 @@ export default function ContactForm() {
         </Box>
       </Box>
 
-      {/* Right Section - Form */}
       <Box component="form" className={styles["right-section"]}>
         <Box display="grid" gridTemplateColumns="repeat(2, 1fr)" gap={3}>
           <Box>
