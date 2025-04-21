@@ -1,7 +1,11 @@
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-const theme = createTheme({});
+import io from "socket.io-client";
+
 import "./App.css";
+
+// Pages & Components
 import DoctorsPage from "./pages/DocPage";
 import HomePage from "./pages/HomePage";
 import Children from "./pages/Children";
@@ -17,10 +21,11 @@ import Issues from "./pages/Issues";
 import Details from "./pages/IssuesDetails";
 import Chatbot from "./pages/Chatbot";
 import ChatUIComponent from "./pages/community";
-import io from "socket.io-client";
 
-// اتصالات Socket.IO
-const socket = io("http://localhost:3000"); // عنوان السيرفر إذا كنت حابة تستخدمه مستقبلاً
+const theme = createTheme();
+
+
+const socket = io("http://localhost:3000");
 
 function App() {
   return (
