@@ -1,10 +1,11 @@
 import React from "react";
 import { Typography, Chip, Box, Paper } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import benefitImg from "/images/benefit.png";
+
 
 const Benefit = () => {
   return (
+    
     <Box
       sx={{
         display: "flex",

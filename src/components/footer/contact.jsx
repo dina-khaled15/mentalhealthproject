@@ -9,7 +9,7 @@ import {
   IconButton,
   Paper,
 } from "@mui/material";
-import Types from "./Logo";
+import Types from "./logo";
 
 export default function FooterComponent({ variant = "light" }) {
   const isDark = variant === "dark";
