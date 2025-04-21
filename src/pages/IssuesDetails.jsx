@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../components/navbar";
+import Navbar from "../components/navmodule/Navbar";
 import FooterComponent from "../components/footer/contact";
 import "../App.css";
 import { useParams } from "react-router-dom";

@@ -5,6 +5,7 @@ import benefitImg from "../images/benefit.png";
 
 const Benefit = () => {
   return (
+    
     <Box
       sx={{
         display: "flex",

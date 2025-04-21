@@ -1,7 +1,7 @@
 import React from "react";
 import { Box } from "@mui/material";
 import DocCard from "../components/DocCard";
-import NavBar from "../components/navbar";
+import NavBar from "../components/navmodule/Navbar";
 import AboutSection from "../components/AboutSection";
 import Card from "../components/Card";
 import Title from "../components/Title";

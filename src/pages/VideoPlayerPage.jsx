@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { Box, Container, Typography, Paper, Grid } from "@mui/material";
 
-import Navbar from "../components/navbar";
+import Navbar from "../components/navmodule/Navbar";
 import FooterComponent from "../components/footer/contact";
 import "../App.css";
 

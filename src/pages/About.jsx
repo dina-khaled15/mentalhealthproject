@@ -5,10 +5,10 @@ import Milestone from "../components/Milestone";
 import Cta from "../components/Cta";
 import FooterComponent from "../components/footer/contact";
 import { Container, Box } from "@mui/material";
-import Navbar from "../components/navbar";
+import Navbar from "../components/navmodule/Navbar";
 import VisionMission from "../components/vission&mission";
 
-import PricingSection from "../components/PricingSection";
+import PricingSection from "../components/Pricingmodule/PricingSection";
 import MentalHealthServices from "../components/service";
 
 function About() {
