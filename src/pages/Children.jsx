@@ -11,8 +11,7 @@ const Children = () => {
     <>
       <Navbar />
       <Box
-        sx={{ bgcolor: "#fff", pt: 4, px: 4, maxWidth: "1400px", mx: "auto" }}
-      >
+        sx={{ bgcolor: "#fff", pt: 4, px: 4, maxWidth: "1400px", mx: "auto" }}>
         <SafeMessage />
         <HomeCards />
       </Box>

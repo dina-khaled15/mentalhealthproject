@@ -196,8 +196,6 @@ const Details = () => {
             </Typography>
           </Box>
         </Box>
-
-        {/* Benefits Section */}
         <Box mt={6} ml={13} mb={10}>
           <Typography
             variant="h5"
@@ -329,8 +327,6 @@ const Details = () => {
             </Grid>
           </Grid>
         </Box>
-
-        {/* Image + How it works + Steps with Icons */}
         <Box mt={4} ml={13}>
           <Grid container spacing={9}>
             <Grid item xs={12} md={6}>
@@ -397,7 +393,6 @@ const Details = () => {
               flexDirection="column"
               justifyContent="center"
             >
-              {/* Step 1 */}
               <Grid
                 item
                 xs={12}
@@ -406,7 +401,6 @@ const Details = () => {
                 flexDirection="column"
                 justifyContent="center"
               >
-                {/* Step 1 */}
                 <Box
                   mb={4}
                   display="flex"
@@ -457,8 +451,6 @@ const Details = () => {
                     </Typography>
                   </Box>
                 </Box>
-
-                {/* Step 2 */}
                 <Box
                   mb={4}
                   display="flex"
@@ -510,8 +502,6 @@ const Details = () => {
                     </Typography>
                   </Box>
                 </Box>
-
-                {/* Step 3 */}
                 <Box
                   display="flex"
                   alignItems="flex-start"
@@ -567,7 +557,6 @@ const Details = () => {
             </Grid>
           </Grid>
         </Box>
-        {/* Testimonials Section */}
         <Box mt={8} sx={{ backgroundColor: "#F2F0E9", p: 4, borderRadius: 1 }}>
           <Box sx={{ display: "flex", justifyContent: "center", mb: 2 }}>
             <Button

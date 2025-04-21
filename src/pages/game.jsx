@@ -7,7 +7,7 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import { Link } from "react-router-dom"; // استيراد Link
+import { Link } from "react-router-dom"; 
 import Navbar from "../components/navmodule/Navbar";
 import FooterComponent from "../components/footer/contact";
 
@@ -19,8 +19,8 @@ const games = [
   },
   {
     title: "brain game",
-    image: require("../images/brain.png"), // الصورة الموجودة في public
-    link: "/card-matching", // الرابط للعبة
+    image: require("../images/brain.png"), 
+    link: "/card-matching", 
   },
 ];
 
@@ -29,19 +29,19 @@ const GameCard = ({ title, image, link }) => {
     <Link to={link} style={{ textDecoration: "none" }}>
       <Card
         sx={{
-          maxWidth: 450, // تكبير الكرت
+          maxWidth: 450, 
           boxShadow: 3,
-          borderRadius: 4, // إضافة حواف دائرية للكرت
+          borderRadius: 4, 
           mx: "auto",
           transition: "transform 0.3s ease-in-out",
           "&:hover": {
-            transform: "scale(1.05)", // تكبير الكرت عند التمرير عليه
+            transform: "scale(1.05)", 
           },
         }}
       >
         <CardMedia
           component="img"
-          height="200" // زيادة الارتفاع قليلاً
+          height="200" 
           image={image}
           alt={title}
           sx={{ objectFit: "cover", borderRadius: "8px 8px 0 0" }}
@@ -60,50 +60,20 @@ const GamesPage = () => {
   return (
     <>
       <Navbar />
-
-      {/* المحتوى الرئيسي */}
       <Box
         sx={{
-          bgcolor: "#fff",
-          pt: 20, // المسافة من الأعلى
-          pb: 12, // المسافة من الأسفل
-          width: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          overflowX: "hidden", // منع التمرير الأفقي
-        }}
-      >
+          bgcolor: "#fff",pt: 20,  pb: 12, width: "100%",display: "flex",flexDirection: "column",alignItems: "center",overflowX: "hidden", }}>
         <Typography
           variant="h4"
           gutterBottom
-          sx={{ textAlign: "center", mb: 4, color: "black" }}
-        >
+          sx={{ textAlign: "center", mb: 4, color: "black" }}>
           Hello Heroes! lets have fun
         </Typography>
-
-        <Grid
-          container
-          spacing={4}
-          justifyContent="center"
-          sx={{
-            maxWidth: "1000px",
-            gap: 6,
-          }}
-        >
+        <Grid container spacing={4} justifyContent="center"sx={{maxWidth: "1000px",gap: 6, }}>
           {games.map((game, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
-              <GameCard
-                title={game.title}
-                image={game.image}
-                link={game.link} // تمرير الرابط لكل لعبة
-              />
-            </Grid>
-          ))}
-        </Grid>
+              <GameCard title={game.title} image={game.image} link={game.link} /></Grid> ))}</Grid>
       </Box>
-
-      {/* الفوتر */}
       <Box sx={{ mt: 4 }}>
         <FooterComponent variant="dark" />
       </Box>

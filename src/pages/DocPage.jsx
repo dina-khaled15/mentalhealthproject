@@ -11,8 +11,6 @@ const DoctorsPage = () => {
     <Box sx={{ margin: "auto", width: "100%", overflow: "hidden" }}>
       <Box sx={{ bgcolor: "#fff" }}>
         <Navbar />
-
-        {/* Banner Section */}
         <Box sx={{ pt: 18, pb: 4 }}>
           <Box
             sx={{
@@ -25,28 +23,10 @@ const DoctorsPage = () => {
             <PsychologyBanner />
           </Box>
         </Box>
-
-        {/* Expert Team Section */}
-        <Box
-          sx={{
-            pt: 1,
-            maxWidth: "1200px",
-            mx: "auto",
-            marginLeft: "145px",
-            fontFamily: "Manrope",
-          }}
-        >
+        <Box sx={{  pt: 1, maxWidth: "1200px", mx: "auto",marginLeft: "145px", fontFamily: "Manrope",}}>
           <ExpertTeamSection />
         </Box>
-        <Box
-          sx={{
-            pt: 4,
-            maxWidth: "1200px",
-            mx: "auto",
-            marginLeft: "250px",
-            fontFamily: "Manrope",
-          }}
-        >
+        <Box sx={{ pt: 4, maxWidth: "1200px", mx: "auto", marginLeft: "250px", fontFamily: "Manrope", }} >
           <TeamGrid />
         </Box>
         <Box

@@ -23,9 +23,6 @@ import d1 from "../images/d1.png";
 import d4 from "../images/d4.png";
 import d5 from "../images/d5.png";
 
-
-
-// import Schedule from "../components/Schedule";
 import Schedule from "../components/Schedule/Schedule";
 import Areas from "../components/Areas/Areas";
 export default function HomePage() {
@@ -36,7 +33,6 @@ export default function HomePage() {
       <AboutSection />
       <Areas/>  
       <div className="container mb-5">
-        {/* <Benefit /> */}
         <Title />
         <div className="d-flex justify-content-center gap-4 mb-4">
         <Card name="Individual Therapy" des="Personalized one-on-one sessions with licensed therapists to address your unique mental health needs." img= {dd1} />
