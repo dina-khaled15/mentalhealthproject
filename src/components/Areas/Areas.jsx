@@ -35,7 +35,7 @@ const Areas = () => {
           <div className={styles.listItem}>
             <h3 className={styles.listItemTitleBold}>Depression</h3>
             <p className={styles.listItemDescription}>
-              Comprehensive care and support for individuals struggling with depression.
+              Comprehensive care and support for individuals struggling with<br /> depression.
             </p>
             <div className={styles.divider}></div>
           </div>

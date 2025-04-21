@@ -7,7 +7,7 @@ import styles from "./Personalized.module.css";
 const Personalized = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.topSection}>
+      <div className={styles.topSection} >
         <div className={styles.leftBox}>
           <Stack direction="column" spacing={2}>
             <Paper elevation={1} className={styles.paperStyle}>
