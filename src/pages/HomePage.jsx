@@ -11,13 +11,14 @@ import FooterComponent from "../components/footer/contact";
 import Titlee from "../components/Titlee";
 // import Schedule from "../components/Schedule";
 import Schedule from "../components/Schedule/Schedule";
+import Areas from "../components/Areas/Areas";
 export default function HomePage() {
   return (
     <div>
       <Navbar/>
       <Hero />
       <AboutSection />
-      {/* <Areas/>   */}
+       <Areas/>   
       <div className="container mb-5">
         <Benefit />
         <Title />
