@@ -1,0 +1,66 @@
+.container {
+    width: 100%;
+    background-color: #ffffff;
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+  
+  .contentWrapper {
+    max-width: 1300px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  
+  .title {
+    margin-bottom: 32px;
+    font-weight: bold;
+    color: #1E1E1E;
+    font-size: 2.2rem;
+  }
+  
+  .cardContainer {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    padding-bottom: 16px;
+  }
+  
+  .card {
+    width: 280px;
+    border-radius: 24px;
+    overflow: hidden;
+    background-color: #ffffff;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+  
+  .cardImage {
+    height: 280px;
+    width: 100%;
+    object-fit: cover;
+    border-bottom-left-radius: 50% 20%;
+    border-bottom-right-radius: 50% 20%;
+  }
+  
+  .doctorName {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #1E1E1E;
+    margin-top: 12px;
+    margin-bottom: 8px;
+  }
+  
+  .doctorSpecialty {
+    font-size: 0.95rem;
+    color: #555;
+    padding: 0 16px 16px;
+  }
+  
