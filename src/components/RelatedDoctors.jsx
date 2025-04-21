@@ -7,25 +7,25 @@ const RelatedDoctors = () => {
       id: 1,
       name: "Dr. Liam Carter",
       specialty: "Grief Counseling, Substance Abuse, Addiction Recovery",
-      image: "/images/7.png",
+      image: "../images/7.png",
     },
     {
       id: 2,
       name: "Dr. Sophia Hughes",
       specialty: "Adolescent Therapy, Bullying, Peer Relationships",
-      image: "/images/8.png",
+      image: "../images/8.png",
     },
     {
       id: 3,
       name: "Dr. Marcus Lee",
       specialty: "Cognitive Behavioral Therapy (CBT), Process Work, Depression",
-      image: "/images/9.png",
+      image: "../images/9.png",
     },
     {
       id: 4,
       name: "Dr. Isabella Collins",
       specialty: "Marriage Counseling, Relationship Therapy, Couples Therapy",
-      image: "/images/d2.png",
+      image: "../images/d2.png",
     },
   ];
 

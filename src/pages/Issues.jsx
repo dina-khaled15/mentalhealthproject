@@ -12,15 +12,15 @@ import {
   CssBaseline,
 } from "@mui/material";
 
-import depressionImg from "/images/Depression.png";
-import stressImg from "/images/Stress.png";
-import anxietyImg from "/images/Anxeity.png";
-import relationshipImg from "/images/Relationship.png";
-import griefImg from "/images/Loss.jpg";
-import selfconfidenceImg from "/images/Confidence.png";
-import eatingImg from "/images/Eating.png";
-import substanceImg from "/images/Abuse.png";
-import socialImg from "/images/Social.png";
+import depressionImg from "../images/Depression.png";
+import stressImg from "../images/Stress.png";
+import anxietyImg from "../images/Anxeity.png";
+import relationshipImg from "../images/Relationship.png";
+import griefImg from "../images/Loss.jpg";
+import selfconfidenceImg from "../images/Confidence.png";
+import eatingImg from "../images/Eating.png";
+import substanceImg from "../images/Abuse.png";
+import socialImg from "../images/Social.png";
 
 const services = [
   { title: "Depression", image: depressionImg, category: "Personal Issues" },

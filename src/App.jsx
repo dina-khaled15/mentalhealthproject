@@ -2,32 +2,31 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 const theme = createTheme({});
 import "./App.css";
-import DoctorsPage from "./page/DocPage";
-import HomePage from "./page/HomePage";
-import Children from "./page/Children";
-import EmotionAdventure from "./page/EmotionAdventure";
-import Game from "./page/game";
-import Bubble from "./page/Bubble";
-import CardMatchGame from "./page/Matching";
-import StoryVideosPage from "./page/StoryVideoPage";
-import VideoPlayerPage from "./page/VideoPlayerPage";
-import DoctorDetails from "./page/Doctor";
-import About from "./page/About";
-import Issues from "./page/Issues";
-import Details from "./page/IssuesDetails";
-import Chatbot from "./page/chatbot";
-import ChatUIComponent from "./page/community";
-import io from 'socket.io-client';
-
+import DoctorsPage from "./pages/DocPage";
+import HomePage from "./pages/HomePage";
+import Children from "./pages/Children";
+import EmotionAdventure from "./pages/EmotionAdventure";
+import Game from "./pages/game";
+import Bubble from "./pages/Bubble";
+import CardMatchGame from "./pages/Matching";
+import StoryVideosPage from "./pages/StoryVideoPage";
+import VideoPlayerPage from "./pages/VideoPlayerPage";
+import DoctorDetails from "./pages/Doctor";
+import About from "./pages/About";
+import Issues from "./pages/Issues";
+import Details from "./pages/IssuesDetails";
+import Chatbot from "./pages/Chatbot";
+import ChatUIComponent from "./pages/community";
+import io from "socket.io-client";
 
 // اتصالات Socket.IO
-const socket = io('http://localhost:3000'); // عنوان السيرفر إذا كنت حابة تستخدمه مستقبلاً
+const socket = io("http://localhost:3000"); // عنوان السيرفر إذا كنت حابة تستخدمه مستقبلاً
 
 function App() {
   return (
     <Router>
       <Routes>
-      <Route path="/profile" element={<ChatUIComponent socket={socket} />} />
+        <Route path="/profile" element={<ChatUIComponent socket={socket} />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/doctors" element={<DoctorsPage />} />
         <Route path="/doctorDetails/:doctorId" element={<DoctorDetails />} />
@@ -42,7 +41,7 @@ function App() {
         <Route path="/story/:videoId" element={<VideoPlayerPage />} />
         <Route path="/feelings" element={<EmotionAdventure />} />
       </Routes>
-      <Chatbot/>
+      <Chatbot />
     </Router>
   );
 }
