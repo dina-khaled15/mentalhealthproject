@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Typography, Button, Avatar } from "@mui/material";
 import { Visibility, Groups, Business } from "@mui/icons-material";
-import visionImage from "/images/vission.png";
+import visionImage from "../images/vission.png";
 
 const VisionMission = () => {
   return (

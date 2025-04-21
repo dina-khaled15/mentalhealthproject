@@ -17,11 +17,11 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import TipsAndUpdatesIcon from "@mui/icons-material/TipsAndUpdates";
 import BatteryAlertIcon from "@mui/icons-material/BatteryAlert";
-import managementImg from "/images/Management.png";
-import groupImg from "/images/Group.png";
-import aloneImg from "/images/Alone.png";
-import image from "/images/1.png";
-import black from "/images/black.png";
+import managementImg from "../images/Management.png";
+import groupImg from "../images/Group.png";
+import aloneImg from "../images/Alone.png";
+import image from "../images/1.png";
+import black from "../images/black.png";
 
 const Details = () => {
   const { title } = useParams();
