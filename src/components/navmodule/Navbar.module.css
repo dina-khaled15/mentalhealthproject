@@ -233,7 +233,7 @@
 
 @media (max-width: 768px) {
   .navLinks {
-    display: none !important; /* Hide nav links on smaller screens */
+    display: none !important; 
   }
   
   .logoContainer, .authContainer {

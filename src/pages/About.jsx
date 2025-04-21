@@ -1,6 +1,6 @@
 import React from "react";
 import Top from "../components/Top";
-import Personalized from "../components/Personalized";
+import Personalized from "../components/Personalized/Personalized";
 import Milestone from "../components/Milestone";
 import Cta from "../components/Cta";
 import FooterComponent from "../components/footer/contact";
