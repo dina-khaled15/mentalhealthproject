@@ -24,7 +24,7 @@ import {
 
 import Navbar from "../components/navmodule/Navbar";
 import FooterComponent from "../components/footer/contact";
-import Feedback from "../components/feedback";
+import Feedback from "../components/feedback/feedback";
 import WeeklySchedule from "../components/SehdualOverVeiw";
 import SessionBookingSection from "../components/SessionBookingSection";
 import RelatedDoctors from "../components/RelatedDoctors";

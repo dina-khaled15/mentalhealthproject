@@ -6,7 +6,7 @@ import AboutSection from "../components/AboutSection";
 import Card from "../components/Card";
 import Title from "../components/Title";
 import Hero from "../components/Hero";
-import Benefit from "../components/Benefit";
+import Benefit from "../components/Benefit/Benefit";
 import FooterComponent from "../components/footer/contact";
 import Titlee from "../components/Titlee";
 // import Schedule from "../components/Schedule";

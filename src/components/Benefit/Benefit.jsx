@@ -1,13 +1,12 @@
 import React from "react";
 import { Typography, Chip, Box, Paper } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import benefitImg from "/images/benefit.png";
-import styles from "./Benefit.module.css"; // استيراد CSS Module
+import benefitImg from "../../images/benefit.png";
+import styles from "./Benefit.module.css"; 
 
 const Benefit = () => {
   return (
     <Box className={`${styles.container} ${styles.containerRow}`}>
-      {/* Image with Overlay */}
       <Box className={styles.imageContainer}>
         <Box className={styles.imageWrapper}>
           <Box
@@ -16,8 +15,6 @@ const Benefit = () => {
             alt="benefit"
             className={styles.image}
           />
-
-          {/* Overlay box */}
           <Paper
             elevation={3}
             className={`${styles.overlay} ${styles.overlayShow}`}
