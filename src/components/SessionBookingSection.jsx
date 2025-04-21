@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Button, Typography } from "@mui/material";
+import Image6 from "../images/6.png";
 
 const SessionBookingSection = () => {
   return (
@@ -16,11 +17,11 @@ const SessionBookingSection = () => {
     >
       <Box
         component="img"
-        src="../images/6.png"
+        src={Image6}
         alt="Therapy session"
         sx={{
           width: "100%",
-          maxWidth: "1100px", // كبرنا شوية
+          maxWidth: "1100px",
           height: 350,
           objectFit: "cover",
           mb: 4,

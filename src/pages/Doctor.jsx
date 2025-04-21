@@ -29,13 +29,12 @@ import WeeklySchedule from "../components/SehdualOverVeiw";
 import SessionBookingSection from "../components/SessionBookingSection";
 import RelatedDoctors from "../components/RelatedDoctors";
 
-// This would ideally come from an API or context
 const doctorsData = [
   {
     id: 1,
     name: "Dr. Sarah Thompson",
     title: "Anxiety Disorders / Cognitive Therapy",
-    image: "/images/d2.png",
+    image: require("../images/d2.png"),
     role: "Psychiatrist",
     bio: "Dr. Sarah Thompson specializes in anxiety disorders and cognitive therapy with over 15 years of experience helping patients overcome anxiety, panic disorders, and phobias. Her approach combines evidence-based techniques with compassionate care.",
     phone: "(123) 456-7890",
@@ -65,7 +64,7 @@ const doctorsData = [
     id: 2,
     name: "John Ramirez, LCSW",
     title: "Family Counseling / Stress Management",
-    image: "/images/d1.png",
+    image: require("../images/d1.png"),
     role: "Licensed Clinical Social Worker",
     bio: "A Licensed Clinical Social Worker (LCSW) with over 12 years of experience in providing compassionate counseling and therapy for individuals and families. He specializes in trauma recovery, family dynamics, and supporting individuals through life transitions. John's approach is rooted in empathy, with a focus on fostering healing and resilience.",
     phone: "(123) 456-7890",
@@ -96,7 +95,7 @@ const doctorsData = [
     id: 3,
     name: "Emily Chen, PsyD",
     title: "Grief Recovery / PTSD",
-    image: "/images/d4.png",
+    image: require("../images/d4.png"),
     role: "Clinical Psychologist",
     bio: "A Licensed Clinical Social Worker (LCSW) with over 12 years of experience in providing compassionate counseling and therapy for individuals and families. He specializes in trauma recovery, family dynamics, and supporting individuals through life transitions. John's approach is rooted in empathy, with a focus on fostering healing and resilience.",
     phone: "(123) 456-7890",
@@ -127,7 +126,7 @@ const doctorsData = [
     id: 4,
     name: "Dr. Liam Carter",
     title: "Child & Adolescent Therapy",
-    image: "/images/d6.png",
+    image: require("../images/d6.png"),
     role: "Child Psychologist",
     bio: "A Licensed Clinical Social Worker (LCSW) with over 12 years of experience in providing compassionate counseling and therapy for individuals and families. He specializes in trauma recovery, family dynamics, and supporting individuals through life transitions. John's approach is rooted in empathy, with a focus on fostering healing and resilience.",
     phone: "(123) 456-7890",
@@ -158,7 +157,7 @@ const doctorsData = [
     id: 5,
     name: "Dr. Sophia Hughes",
     title: "Mindfulness & Trauma Therapy",
-    image: "/images/d5.png",
+    image: require("../images/d5.png"),
     role: "Trauma Specialist",
     bio: "A Licensed Clinical Social Worker (LCSW) with over 12 years of experience in providing compassionate counseling and therapy for individuals and families. He specializes in trauma recovery, family dynamics, and supporting individuals through life transitions. John's approach is rooted in empathy, with a focus on fostering healing and resilience.",
     phone: "(123) 456-7890",
@@ -189,7 +188,7 @@ const doctorsData = [
     id: 6,
     name: "Dr. Marcus Lee",
     title: "Cognitive Behavioral Therapy (CBT)",
-    image: "/images/d7.png",
+    image: require("../images/d7.png"),
     role: "CBT Specialist",
     bio: "A Licensed Clinical Social Worker (LCSW) with over 12 years of experience in providing compassionate counseling and therapy for individuals and families. He specializes in trauma recovery, family dynamics, and supporting individuals through life transitions. John's approach is rooted in empathy, with a focus on fostering healing and resilience.",
     phone: "(123) 456-7890",
