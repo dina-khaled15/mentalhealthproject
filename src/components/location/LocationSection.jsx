@@ -1,6 +1,7 @@
 import React from 'react';
-import { Box, Typography, Grid, Card, CardMedia, CardContent, Container, Chip } from '@mui/material';
+import { Box, Typography, Card, CardMedia, CardContent, Container, Chip } from '@mui/material';
 import RoomIcon from '@mui/icons-material/Room';
+import styles from '../location/LocationSection.module.css';
 
 const locations = [
     {
@@ -31,60 +32,55 @@ const locations = [
 
 const LocationSection = () => {
     return (
-        <Box sx={{ backgroundColor: '#fff', py: 10 }}>
+        <Box className={styles.container}>
             <Container>
-                <Box textAlign="center" mb={5}>
+                <Box className={styles.header}>
                     <Chip
                         icon={<RoomIcon />}
                         label="On-site Office"
                         color="default"
                         sx={{ mb: 2 }}
                     />
-                    <Typography variant="h4" fontWeight="bold" gutterBottom>
+                    <Typography variant="h4" className={styles.title} gutterBottom>
                         Location
                     </Typography>
                     <Typography color="text.secondary">
-                        What are you waiting for? Let’s build your journey together
+                        What are you waiting for? Let's build your journey together
                     </Typography>
                 </Box>
 
-                <Grid container spacing={7} justifyContent="center">
+                <div className={styles.gridContainer}>
                     {locations.map((loc) => (
-                        <Grid item xs={12} md={4} key={loc.city}>
-                            <Card sx={{ borderRadius: 3, boxShadow: 3 }}>
+                        <div className={styles.gridItem} key={loc.city}>
+                            <Card className={styles.card}>
                                 <CardMedia
                                     component="img"
                                     height="200"
                                     image={loc.image}
                                     alt={loc.city}
-                                    sx={{
-                                        height: 200,
-                                        width: '100%',
-                                        objectFit: 'cover',
-                                        borderRadius: '12px 12px 0 0',
-                                    }}
+                                    className={styles.cardMedia}
                                 />
-                                <CardContent>
-                                    <Typography variant="body2" color="text.secondary">
+                                <CardContent className={styles.cardContent}>
+                                    <Typography variant="body2" className={styles.country}>
                                         {loc.country}
                                     </Typography>
-                                    <Typography variant="h6" fontWeight="bold" gutterBottom>
+                                    <Typography variant="h6" className={styles.city} gutterBottom>
                                         {loc.city}
                                     </Typography>
-                                    <Typography variant="body2" color="text.secondary" gutterBottom>
+                                    <Typography variant="body2" className={styles.address} gutterBottom>
                                         {loc.address}
                                     </Typography>
-                                    <Typography variant="body2" color="text.secondary">
+                                    <Typography variant="body2" className={styles.phone}>
                                         {loc.phone}
                                     </Typography>
-                                    <Typography variant="body2" color="text.secondary">
+                                    <Typography variant="body2" className={styles.email}>
                                         {loc.email}
                                     </Typography>
                                 </CardContent>
                             </Card>
-                        </Grid>
+                        </div>
                     ))}
-                </Grid>
+                </div>
             </Container>
         </Box>
     );

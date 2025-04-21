@@ -1,0 +1,63 @@
+.container {
+    background-color: #fff;
+    padding: 80px 0;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.title {
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.gridContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 56px;
+}
+
+.gridItem {
+    width: 100%;
+}
+
+@media (min-width: 900px) {
+    .gridItem {
+        width: calc(33.333% - 38px);
+    }
+}
+
+.card {
+    border-radius: 24px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cardMedia {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+}
+
+.cardContent {
+    padding: 16px;
+}
+
+.country {
+    color: #6B7280;
+}
+
+.city {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.address,
+.phone,
+.email {
+    color: #6B7280;
+    margin-bottom: 8px;
+}
