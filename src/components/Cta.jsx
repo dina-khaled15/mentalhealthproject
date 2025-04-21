@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Container, Typography, Button } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { Link } from "react-router-dom";
 
 export default function CallToAction() {
   return (
@@ -42,6 +43,8 @@ export default function CallToAction() {
           <br /> happier mind.
         </Typography>
         <Button
+          component={Link}
+          to="/booking"
           variant="contained"
           sx={{
             backgroundColor: "#000000",
@@ -55,7 +58,7 @@ export default function CallToAction() {
             "&:hover": {
               backgroundColor: "#333333",
             },
-            fontFamily: "Manrope", // إضافة الخط هنا
+            fontFamily: "Manrope",
           }}
           endIcon={<ArrowForwardIcon />}
         >

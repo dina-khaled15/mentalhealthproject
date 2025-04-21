@@ -1,9 +1,7 @@
 import React from "react";
 import {Box,Typography,TextField,Button,Grid,Paper} from "@mui/material";
-
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import Navbar from "../components/navbar";
-import FooterComponent from "../components/footer/contact";
+
 
 const Form = () => {
   return (

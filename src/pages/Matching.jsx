@@ -20,14 +20,14 @@ const CardMatchGame = () => {
   const [gameOver, setGameOver] = useState(false);
 
   const cardImages = [
-    "/images/cat1.jpg",
-    "/images/cat2.jpg",
-    "/images/cat3.jpg",
-    "/images/cat4.jpg",
-    "/images/cat5.jpg",
-    "/images/cat6.jpg",
-    "/images/cat7.jpg",
-  ];
+  require("../images/cat1.jpg"),
+  require("../images/cat2.jpg"),
+  require("../images/cat3.jpg"),
+  require("../images/cat4.jpg"),
+  require("../images/cat5.jpg"),
+  require("../images/cat6.jpg"),
+  require("../images/cat7.jpg"),
+];
 
   const shuffleCards = () => {
     const deck = [...cardImages, ...cardImages];
