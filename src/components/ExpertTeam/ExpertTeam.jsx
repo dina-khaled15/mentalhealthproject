@@ -6,7 +6,7 @@ import styles from "./ExpertTeamSection.module.css";
 const ExpertTeamSection = () => {
   return (
     <Box className={styles.container}>
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
         {/* زرار فوق */}
         <Box className={styles.buttonContainer}>
           <Button

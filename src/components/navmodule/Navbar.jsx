@@ -151,6 +151,8 @@ const Navbar = () => {
         PaperProps={{
           className: styles.dialogPaper,
         }}
+        maxWidth="xs"
+        fullWidth
       >
         <Box className={styles.dialogHeader}>
           <DialogTitle className={styles.dialogTitle}>
@@ -266,6 +268,8 @@ const Navbar = () => {
         PaperProps={{
           className: styles.dialogPaper,
         }}
+        maxWidth="xs"
+        fullWidth
       >
         <Box className={styles.dialogHeader}>
           <DialogTitle className={styles.dialogTitle}>
