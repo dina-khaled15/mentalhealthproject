@@ -34,7 +34,7 @@ export default function HomePage() {
       <Navbar/>
       <Hero />
       <AboutSection />
-      {/* <Areas/>   */}
+      <Areas/>  
       <div className="container mb-5">
         {/* <Benefit /> */}
         <Title />
