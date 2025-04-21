@@ -10,9 +10,9 @@ const SafeMessage = () => {
       sx={{
         bgcolor: "#F8F7F4",
         borderRadius: "16px",
-        padding: "32px",
-        maxWidth: "600px",
-        height: 520,
+        padding: "24px 32px",
+        maxWidth: "660px",
+        height: "78vh",
         mx: "auto",
         textAlign: "center",
         my: 3,

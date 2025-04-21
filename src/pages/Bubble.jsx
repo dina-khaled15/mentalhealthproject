@@ -68,44 +68,15 @@ const Bubble = () => {
   };
 
   return (
-    <Container
-      maxWidth="xl"
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        minHeight: "80vh",
-        backgroundColor: "#F8F7F4", // لون الخلفية الرئيسي
-        padding: 0,
-      }}
-    >
-      <Box
-        sx={{
-          width: "100%",
-          maxWidth: "100%",
-          background: "#F2F0E9", // لون الخلفية الفرعي
-          borderRadius: "20px",
-          boxShadow: "0 0 15px #ccc",
-          padding: 2,
-        }}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-around",
-            backgroundColor: "#000", // أسود للشريط العلوي
-            color: "#fff", // أبيض للنصوص
-            padding: 2,
-            flexWrap: "wrap",
-          }}
-        >
+    <Container maxWidth="xl"sx={{ display: "flex",flexDirection: "column", alignItems: "center", justifyContent: "center", minHeight: "80vh", backgroundColor: "#F8F7F4",padding: 0, }} >
+      <Box sx={{ width: "100%",maxWidth: "100%", background: "#F2F0E9",borderRadius: "20px",boxShadow: "0 0 15px #ccc", padding: 2,  }} >
+        <Box sx={{ display: "flex", justifyContent: "space-around",backgroundColor: "#000", color: "#fff", padding: 2, flexWrap: "wrap",  }}>
           <Box sx={{ textAlign: "center", margin: 1 }}>
             <Typography variant="h6">الهدف</Typography>
             <Box
               sx={{
-                backgroundColor: "#fff", // أبيض
-                color: "#000", // أسود
+                backgroundColor: "#fff", 
+                color: "#000", 
                 fontWeight: "bold",
                 fontSize: 24,
                 borderRadius: 1,
@@ -118,88 +89,27 @@ const Bubble = () => {
           </Box>
           <Box sx={{ textAlign: "center", margin: 1 }}>
             <Typography variant="h6">الوقت</Typography>
-            <Box
-              sx={{
-                backgroundColor: "#fff", // أبيض
-                color: "#000", // أسود
-                fontWeight: "bold",
-                fontSize: 24,
-                borderRadius: 1,
-                padding: 2,
-                marginTop: 1,
-              }}
-            >
+            <Box sx={{  backgroundColor: "#fff", color: "#000", fontWeight: "bold",fontSize: 24, borderRadius: 1,padding: 2,marginTop: 1, }} >
               {timer}
             </Box>
           </Box>
           <Box sx={{ textAlign: "center", margin: 1 }}>
             <Typography variant="h6">النتيجة</Typography>
-            <Box
-              sx={{
-                backgroundColor: "#fff", // أبيض
-                color: "#000", // أسود
-                fontWeight: "bold",
-                fontSize: 24,
-                borderRadius: 1,
-                padding: 2,
-                marginTop: 1,
-              }}
-            >
+            <Box sx={{ backgroundColor: "#fff", color: "#000", fontWeight: "bold",  fontSize: 24, borderRadius: 1, padding: 2, marginTop: 1,}} >
               {score}
             </Box>
           </Box>
           <Box sx={{ textAlign: "center", margin: 1 }}>
             <Typography variant="h6">أعلى نتيجة</Typography>
             <Box
-              sx={{
-                backgroundColor: "#fff", // أبيض
-                color: "#000", // أسود
-                fontWeight: "bold",
-                fontSize: 24,
-                borderRadius: 1,
-                padding: 2,
-                marginTop: 1,
-              }}
-            >
+              sx={{  backgroundColor: "#fff",  color: "#000",  fontWeight: "bold",  fontSize: 24, borderRadius: 1, padding: 2, marginTop: 1, }}  >
               {maxScore}
             </Box>
           </Box>
         </Box>
 
-        <Box
-          sx={{
-            padding: 2,
-            textAlign: "center",
-            backgroundColor: "#F2F0E9", // درجة فاتحة للخلفية
-            minHeight: "400px",
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            overflow: "hidden",
-          }}
-        >
-          {bubbles.map((count, index) => (
-            <Box
-              key={index}
-              className="bubble"
-              onClick={() => handleBubbleClick(count)}
-              sx={{
-                backgroundColor: "#fff", // أبيض للفقاعات
-                color: "#000", // أسود للنصوص
-                width: 60,
-                height: 60,
-                margin: 1,
-                borderRadius: "50%",
-                fontSize: 24,
-                fontWeight: "bold",
-                lineHeight: "60px",
-                cursor: "pointer",
-                transition: "all 0.2s",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
+        <Box sx={{   padding: 2,  textAlign: "center", backgroundColor: "#F2F0E9",  minHeight: "400px", display: "flex", flexWrap: "wrap", justifyContent: "center", overflow: "hidden", }} >
+          {bubbles.map((count, index) => ( <Box key={index} className="bubble"  onClick={() => handleBubbleClick(count)} sx={{backgroundColor: "#fff",  color: "#000",  width: 60,  height: 60,  margin: 1, borderRadius: "50%", fontSize: 24, fontWeight: "bold", lineHeight: "60px", cursor: "pointer",transition: "all 0.2s", display: "flex", justifyContent: "center",  alignItems: "center",}} >
               {count}
             </Box>
           ))}
@@ -222,10 +132,10 @@ const Bubble = () => {
             color="primary"
             onClick={restartGame}
             sx={{
-              backgroundColor: "#000", // أسود للزر
-              color: "#fff", // أبيض للنص
+              backgroundColor: "#000", 
+              color: "#fff", 
               "&:hover": {
-                backgroundColor: "#333", // تأثير عند التحويم
+                backgroundColor: "#333", 
               },
             }}
           >

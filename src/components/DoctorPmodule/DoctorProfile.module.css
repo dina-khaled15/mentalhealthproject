@@ -73,7 +73,7 @@
   color: #555;
 }
 
-/* Updated booking button styles - now black */
+
 .bookingButton {
   background-color: #000000; 
   color: white;
@@ -147,7 +147,7 @@
   margin-bottom: 8px;
 }
 
-/* Media query for responsive design */
+
 @media (max-width: 768px) {
   .profileContainer {
     flex-direction: column;

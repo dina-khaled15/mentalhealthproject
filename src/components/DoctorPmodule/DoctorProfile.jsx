@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./DoctorProfile.module.css";
-import { useNavigate } from "react-router-dom"; // For navigation
+import { useNavigate } from "react-router-dom"; 
 import {Phone,Email,LinkedIn,Facebook,Twitter,Instagram,School,Work,Assignment} from "@mui/icons-material";
 
 const iconMap = {
@@ -13,14 +13,14 @@ const iconMap = {
 export default function DoctorProfile({ doctor }) {
   const navigate = useNavigate();
   
-  // Function to handle booking button click
+ 
   const handleBookingClick = () => {
     navigate('/booking');
   };
 
   return (
     <div className={styles.profileContainer}>
-      {/* Left side */}
+   
       <div className={styles.leftSection}>
         <div className={styles.avatarContainer}>
           <img src={doctor.avatar} alt="Doctor" className={styles.avatar}/>
@@ -56,13 +56,13 @@ export default function DoctorProfile({ doctor }) {
           ))}
         </div>
         
-        {/* Black booking button with navigation */}
+       
         <button className={styles.bookingButton} onClick={handleBookingClick} >
           Book an Appointment
         </button>
       </div>
 
-      {/* Right side */}
+   
       <div className={styles.rightSection}>
         <h1 className={styles.doctorName}>{doctor.name}</h1>
         <h2 className={styles.doctorTitle}>{doctor.title}</h2>

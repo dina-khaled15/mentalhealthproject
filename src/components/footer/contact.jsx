@@ -11,7 +11,7 @@ export default function FooterComponent({ variant = "light" }) {
         <Container maxWidth="lg">
           
           <Grid container spacing={8} justifyContent="space-between">
-            {/* Contact Us */}
+        
             <Grid item xs={12} sm={4}>
               <Typography variant="subtitle1" fontWeight="bold"
               sx={{ fontSize: "16px", mb: 2 ,fontFamily: "Manrope", fontSize: "16px",fontWeight: 600}}>
@@ -30,7 +30,7 @@ export default function FooterComponent({ variant = "light" }) {
               </Typography>
               </Grid>
 
-          {/* Quick Links */}
+  
           <Grid item xs={12} sm={4} sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
             <Typography variant="subtitle1" fontWeight="bold" sx={{ fontSize: "16px", mb: 2 ,fontFamily: "Manrope",fontWeight: 600}}>
               Quick Links
@@ -57,7 +57,7 @@ export default function FooterComponent({ variant = "light" }) {
                 </Grid>
                 </Grid>
 
-          {/* Stay Connected */}
+      
           <Grid item xs={12} sm={4}>
             <Typography variant="subtitle1" fontWeight="bold" sx={{fontSize: "16px", mb: 2, fontFamily: "Manrope",fontWeight: 600}}>
               Stay Connected
@@ -81,7 +81,7 @@ export default function FooterComponent({ variant = "light" }) {
           <Types variant={isDark ? "dark" : "light"} />
         </Box>
 
-        {/* Bottom Links */}
+   
         <Box mt={2} display="flex" justifyContent="space-between"alignItems="center"flexWrap="wrap">
           <Box display="flex" gap={3}>
             {["Contact", "Privacy policy", "Sitemap", "Terms of Use"].map((text, i) => (

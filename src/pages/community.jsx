@@ -4,21 +4,21 @@ import { Send, AttachFile, Mic, Search, VideoCall, PersonAdd, Close, Call, Stop,
 import io from 'socket.io-client';
 import Peer from 'peerjs';
 
-// Connect to Socket.IO server
+
 const socket = io('http://localhost:3000');
 
 const ChatUIComponent = () => {
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
-  const [friends, setFriends] = useState([]); // Friends list
-  const [peer, setPeer] = useState(null); // PeerJS instance
-  const [call, setCall] = useState(null); // For incoming calls
-  const [activeTab, setActiveTab] = useState(0); // 0 for chats, 1 for friends
-  const [videoCallActive, setVideoCallActive] = useState(false); // Video call status
-  const [activeChat, setActiveChat] = useState('Dianne Johnson'); // Current active chat
+  const [friends, setFriends] = useState([]); 
+  const [peer, setPeer] = useState(null); 
+  const [call, setCall] = useState(null); 
+  const [activeTab, setActiveTab] = useState(0);
+  const [videoCallActive, setVideoCallActive] = useState(false);
+  const [activeChat, setActiveChat] = useState('Dianne Johnson'); 
   
-  // Recording states
+ 
   const [isRecording, setIsRecording] = useState(false);
   const [audioStream, setAudioStream] = useState(null);
   const [mediaRecorder, setMediaRecorder] = useState(null);
@@ -26,35 +26,34 @@ const ChatUIComponent = () => {
   const [audioChunks, setAudioChunks] = useState([]);
   const recordingTimer = useRef(null);
   
-  const localVideoRef = useRef(null); // Reference for local video
-  const remoteVideoRef = useRef(null); // Reference for remote video
+  const localVideoRef = useRef(null); 
+  const remoteVideoRef = useRef(null); 
 
-  // List of people (or chats)
   const people = ['Lisa Roy', 'Jamie Taylor', 'Jason Roy', 'Amy Frost', 'Paul Wilson', 'Ana Williams'];
 
-  // Listen for messages from the server
+  
   useEffect(() => {
     socket.on('message', (msg) => {
       setMessages((prevMessages) => [...prevMessages, { text: msg, received: true }]);
     });
 
-    // Create PeerJS connection
+
     const peerInstance = new Peer();
     setPeer(peerInstance);
 
-    // Listen for incoming calls
+ 
     peerInstance.on('call', (incomingCall) => {
       setVideoCallActive(true);
       navigator.mediaDevices.getUserMedia({ video: true, audio: true })
         .then((stream) => {
-          incomingCall.answer(stream); // Answer the call
+          incomingCall.answer(stream); 
           setCall(incomingCall);
           
           if (localVideoRef.current) {
             localVideoRef.current.srcObject = stream;
           }
 
-          // Connect remote video
+      
           incomingCall.on('stream', (remoteStream) => {
             if (remoteVideoRef.current) {
               remoteVideoRef.current.srcObject = remoteStream;
@@ -67,15 +66,15 @@ const ChatUIComponent = () => {
     return () => {
       socket.off('message');
       if (peer) {
-        peer.destroy(); // Clean up peer when leaving page
+        peer.destroy(); 
       }
       
-      // Stop any active media streams
+
       if (audioStream) {
         audioStream.getTracks().forEach(track => track.stop());
       }
       
-      // Clear timer
+    
       if (recordingTimer.current) {
         clearInterval(recordingTimer.current);
       }
@@ -84,72 +83,71 @@ const ChatUIComponent = () => {
 
   const sendMessage = () => {
     if (message.trim()) {
-      // Send message to server
+     
       socket.emit('message', message);
-      setMessages((prevMessages) => [...prevMessages, { text: message, received: false }]); // Add new message to UI
-      setMessage(''); // Clear text field
+      setMessages((prevMessages) => [...prevMessages, { text: message, received: false }]); 
+      setMessage(''); 
     }
   };
 
   const handleSearchChange = (e) => {
-    setSearchQuery(e.target.value); // Update search state
+    setSearchQuery(e.target.value); 
   };
 
-  // Filter people based on search input
+
   const filteredPeople = people.filter((name) =>
     name.toLowerCase().includes(searchQuery.toLowerCase())
   );
   
-  // Filter friends based on search input
+  
   const filteredFriends = friends.filter((name) =>
     name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  // Add a friend
+ 
   const addFriend = (friendName) => {
     if (!friends.includes(friendName)) {
       setFriends((prevFriends) => [...prevFriends, friendName]);
     }
   };
 
-  // Change active chat
+ 
   const changeActiveChat = (personName) => {
     setActiveChat(personName);
-    setMessages([]); // Reset messages when changing chat
+    setMessages([]); 
   };
 
-  // Video calls
+ 
   const startVideoCall = () => {
     setVideoCallActive(true);
     navigator.mediaDevices.getUserMedia({ video: true, audio: true })
       .then((stream) => {
         if (localVideoRef.current) {
-          localVideoRef.current.srcObject = stream; // Display local video
+          localVideoRef.current.srcObject = stream; 
         }
 
-        // Assuming there's a friend's ID
+        
         if (peer) {
-          // The following code is for illustration only - should be replaced with a real ID
-          // peer.call('friendPeerId', stream);
+          
         }
       })
       .catch((err) => console.error('Error accessing media devices:', err));
   };
 
-  // Make a video call
+  
   const makeCall = (friendPeerId) => {
     setVideoCallActive(true);
     navigator.mediaDevices.getUserMedia({ video: true, audio: true })
       .then((stream) => {
         if (localVideoRef.current) {
-          localVideoRef.current.srcObject = stream; // Display local video
+          localVideoRef.current.srcObject = stream; 
         }
 
         if (peer) {
           const call = peer.call(friendPeerId, stream);
           setCall(call);
 
-          // Display remote video
+          
           call.on('stream', (remoteStream) => {
             if (remoteVideoRef.current) {
               remoteVideoRef.current.srcObject = remoteStream;
@@ -160,11 +158,11 @@ const ChatUIComponent = () => {
       .catch((err) => console.error('Error accessing media devices:', err));
   };
 
-  // End video call
+  
   const endVideoCall = () => {
     setVideoCallActive(false);
     
-    // Stop video streams
+    
     if (localVideoRef.current && localVideoRef.current.srcObject) {
       localVideoRef.current.srcObject.getTracks().forEach(track => track.stop());
       localVideoRef.current.srcObject = null;
@@ -180,7 +178,7 @@ const ChatUIComponent = () => {
     }
   };
 
-  // Start audio recording
+
   const startRecording = () => {
     setAudioChunks([]);
     setRecordingDuration(0);
@@ -196,11 +194,11 @@ const ChatUIComponent = () => {
           setAudioChunks(chunks => [...chunks, e.data]);
         };
         
-        // Start recording
-        recorder.start(200); // Collect data every 200ms
+     
+        recorder.start(200); 
         setIsRecording(true);
         
-        // Start timer
+  
         recordingTimer.current = setInterval(() => {
           setRecordingDuration(prev => prev + 1);
         }, 1000);
@@ -208,28 +206,25 @@ const ChatUIComponent = () => {
       .catch((err) => console.error('Error accessing microphone:', err));
   };
 
-  // Stop audio recording and send
+
   const stopRecordingAndSend = () => {
     if (mediaRecorder && isRecording) {
       mediaRecorder.stop();
       setIsRecording(false);
       
-      // Stop timer
+     
       clearInterval(recordingTimer.current);
       recordingTimer.current = null;
       
-      // Stop audio tracks
       if (audioStream) {
         audioStream.getTracks().forEach(track => track.stop());
       }
-      
-      // Process the audio after a slight delay to ensure all data is collected
+
       setTimeout(() => {
         if (audioChunks.length > 0) {
           const audioBlob = new Blob(audioChunks, { type: 'audio/mp3' });
           const audioUrl = URL.createObjectURL(audioBlob);
           
-          // Send the audio as a message
           setMessages((prevMessages) => [
             ...prevMessages, 
             { 
@@ -240,48 +235,42 @@ const ChatUIComponent = () => {
             }
           ]);
           
-          // Reset recording related states
+    
           setAudioChunks([]);
           setRecordingDuration(0);
           
-          // You could also upload the audio to a server here
-          // const formData = new FormData();
-          // formData.append('audio', audioBlob, 'recording.mp3');
-          // fetch('/api/upload-audio', { method: 'POST', body: formData });
+        
         }
       }, 300);
     }
   };
   
-  // Cancel recording
+ 
   const cancelRecording = () => {
     if (mediaRecorder && isRecording) {
       mediaRecorder.stop();
       setIsRecording(false);
       
-      // Stop timer
+
       clearInterval(recordingTimer.current);
       recordingTimer.current = null;
       
-      // Stop audio tracks
+
       if (audioStream) {
         audioStream.getTracks().forEach(track => track.stop());
       }
       
-      // Reset recording related states
       setAudioChunks([]);
       setRecordingDuration(0);
     }
   };
 
-  // Format recording time
   const formatTime = (seconds) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
     return `${mins}:${secs < 10 ? '0' + secs : secs}`;
   };
 
-  // Theme colors
   const theme = {
     background: {
       primary: '#F8F7F4',
@@ -563,7 +552,6 @@ const ChatUIComponent = () => {
             </Box>
           )}
           
-          {/* Regular message input */}
           <Box sx={{ display: 'flex', alignItems: 'center', p: 2 }}>
             {!isRecording ? (
               <IconButton 

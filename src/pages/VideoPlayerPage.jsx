@@ -34,7 +34,6 @@ const VideoPlayerPage = () => {
 
   return (
     <Box sx={{ bgcolor: "#F8F7F4", minHeight: "100vh" }}>
-      {/* Navbar */}
       <Navbar />
 
       <Container sx={{ pt: 12, pb: 10 }}>
@@ -65,7 +64,7 @@ const VideoPlayerPage = () => {
                 controls
                 sx={{
                   width: "100%",
-                  height: "auto", // تم تعديل الحجم ليكون متناسبًا مع الوصف
+                  height: "auto",
                   display: "block",
                   borderRadius: 2,
                 }}
@@ -96,8 +95,6 @@ const VideoPlayerPage = () => {
           </Typography>
         </Paper>
       </Container>
-
-      {/* Footer */}
       <FooterComponent variant="dark" />
     </Box>
   );

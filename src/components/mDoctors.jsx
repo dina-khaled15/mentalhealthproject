@@ -1,4 +1,3 @@
-// File: components/TitleSection.jsx
 import React from 'react';
 
 export default function TitleSection() {

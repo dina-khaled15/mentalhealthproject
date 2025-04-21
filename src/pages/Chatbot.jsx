@@ -30,8 +30,6 @@ export default function Chatbot() {
   const [isChatMode, setIsChatMode] = useState(false);
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
-  
-  // Color theme
   const colors = {
     primary: "#000000",
     lightBg: "#F8F7F4",
@@ -45,8 +43,6 @@ export default function Chatbot() {
     buttonPrimary: "#000000",
     buttonSecondary: "#F2F0E9"
   };
-  
-  // Stage definitions with inline buttons
   const stages = {
     initial: {
       greeting: "Hello! How can I assist you today?",
@@ -99,20 +95,14 @@ export default function Chatbot() {
       ]
     }
   };
-
-  // Initial greeting when chat opens
   useEffect(() => {
     if (open && messages.length === 0) {
       displayGreetingWithOptions("initial");
     }
   }, [open]);
-
-  // Auto scroll to bottom of messages
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
-
-  // Focus input when chat mode is activated
   useEffect(() => {
     if (isChatMode && inputRef.current) {
       setTimeout(() => {
@@ -143,21 +133,14 @@ export default function Chatbot() {
       window.location.href = url;
     }
   };
-
   const handleChatInputSubmit = (e) => {
     e.preventDefault();
     if (input.trim() === "") return;
-
-    // Add user message
     setMessages(prev => [
       ...prev,
       { from: "user", text: input }
     ]);
-    
-    // Clear input
     setInput("");
-    
-    // Bot response
     setIsTyping(true);
     setTimeout(() => {
       setIsTyping(false);
@@ -183,19 +166,14 @@ export default function Chatbot() {
   };
 
   const handleOptionClick = (option) => {
-    // Add user selection to chat
     setMessages(prev => [
       ...prev,
       { from: "user", text: option.text }
     ]);
-    
-    // Check for special actions
     if (option.action === "startChat") {
       startChatMode();
       return;
     }
-    
-    // If this option has a page URL, navigate to that page after a delay
     if (option.pageUrl) {
       setIsTyping(true);
       
@@ -205,17 +183,13 @@ export default function Chatbot() {
           ...prev,
           { from: "bot", text: `Redirecting you to ${option.pageUrl}...` }
         ]);
-        
-        // Navigate after showing the redirect message
         setTimeout(() => {
           navigateToPage(option.pageUrl);
         }, 1000);
       }, 1000);
     }
-    // If this option leads to a next stage
     else if (option.nextStage) {
       setIsTyping(true);
-      
       setTimeout(() => {
         displayGreetingWithOptions(option.nextStage);
       }, 1000);
@@ -230,7 +204,6 @@ export default function Chatbot() {
 
   return (
     <>
-      {/* Chat Button */}
       <Fab
         color="default"
         aria-label="chat"
@@ -250,8 +223,6 @@ export default function Chatbot() {
       >
         <ChatIcon />
       </Fab>
-
-      {/* Chat Window */}
       {open && (
         <Paper
           elevation={4}
@@ -271,7 +242,6 @@ export default function Chatbot() {
             boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.1)",
           }}
         >
-          {/* Header */}
           <Box
             style={{
               padding: "12px 16px",
@@ -311,7 +281,6 @@ export default function Chatbot() {
 
           {!isMinimized && (
             <>
-              {/* Messages Area */}
               <Box
                 style={{
                   flexGrow: 1,
@@ -364,8 +333,6 @@ export default function Chatbot() {
                       >
                         <Typography variant="body2">{msg.text}</Typography>
                       </Box>
-                      
-                      {/* Inline message buttons */}
                       {msg.from === "bot" && msg.buttons && msg.buttons.length > 0 && (
                         <Box sx={{ mt: 1, display: "flex", flexDirection: "column", gap: 1 }}>
                           {msg.buttons.map((button, btnIdx) => (
@@ -452,8 +419,6 @@ export default function Chatbot() {
                 )}
                 <div ref={messagesEndRef} />
               </Box>
-
-              {/* Options Buttons or Chat Input */}
               {isChatMode ? (
                 <Box component="form" onSubmit={handleChatInputSubmit} sx={{ p: 2, bgcolor: colors.mediumBg, display: "flex", alignItems: "center" }}>
                   <TextField
