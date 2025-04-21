@@ -18,11 +18,7 @@ export default function HomePage() {
       <Navbar/>
       <Hero />
       <AboutSection />
-<<<<<<< HEAD
-       <Areas/>   
-=======
       <Areas/>   
->>>>>>> 6b2af6a1d3862694ea0036ba47fa3b97b6153b00
       <div className="container mb-5">
         <Benefit />
         <Title />
