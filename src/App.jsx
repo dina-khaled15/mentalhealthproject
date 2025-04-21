@@ -22,6 +22,7 @@ import Details from "./pages/IssuesDetails";
 import PartnerPharmaciesPage from "./pages/Pharmasy";
 import Chatbot from "./pages/Chatbot";
 import ChatUIComponent from "./pages/community";
+import Form from "./components/Booking";
 
 const theme = createTheme();
 
@@ -32,6 +33,7 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/booking" element={<Form />} />
         <Route path="/profile" element={<ChatUIComponent socket={socket} />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/doctors" element={<DoctorsPage />} />
