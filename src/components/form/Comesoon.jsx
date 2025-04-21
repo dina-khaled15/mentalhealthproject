@@ -8,21 +8,13 @@ export default function ContactForm() {
     <Box className={styles["contact-form-container"]}>
       {/* Left Section */}
       <Box className={styles["left-section"]}>
-        <Chip
-          icon={<EditOutlinedIcon />}
-          label="Form"
-          variant="outlined"
-          className={styles["chip"]}
-        />
+        <Chip icon={<EditOutlinedIcon />} label="Form" variant="outlined"  className={styles["chip"]}/>
 
         <Box className={styles["title-section"]}>
           <Typography variant="h4" className={styles["title-bold"]}>
             Fill out the
           </Typography>
-          <Typography
-            variant="h4"
-            className={`${styles["title-bold"]} ${styles["title-black"]}`}
-          >
+          <Typography variant="h4" className={`${styles["title-bold"]} ${styles["title-black"]}`}>
             form,
           </Typography>
           <Typography variant="h4" className={styles["title-gray"]}>
@@ -31,18 +23,10 @@ export default function ContactForm() {
         </Box>
 
         <Box className={styles["contact-info"]}>
-          <TextField
-            label="Phone"
-            value="(123) 456-7890"
-            InputProps={{ readOnly: true }}
-            className={styles["input-field"]}
-          />
-          <TextField
-            label="E-mail"
-            value="support@wellthymentalhealth.com"
-            InputProps={{ readOnly: true }}
-            className={styles["input-field"]}
-          />
+          <TextField label="Phone" value="(123) 456-7890" InputProps={{ readOnly: true }}
+            className={styles["input-field"]}/>
+          <TextField label="E-mail" value="support@wellthymentalhealth.com" InputProps={{ readOnly: true }}
+            className={styles["input-field"]}/>
         </Box>
       </Box>
 
@@ -53,60 +37,27 @@ export default function ContactForm() {
             <Typography className={styles["input-label"]}>
               First Name*
             </Typography>
-            <TextField
-              fullWidth
-              required
-              placeholder="First Name"
-              size="medium"
-              className={styles["input-field"]}
-            />
+            <TextField fullWidth required placeholder="First Name" size="medium" className={styles["input-field"]}/>
           </Box>
           <Box>
             <Typography className={styles["input-label"]}>
               Last Name*
             </Typography>
-            <TextField
-              fullWidth
-              required
-              placeholder="Last Name"
-              size="medium"
-              className={styles["input-field"]}
-            />
+            <TextField fullWidth required placeholder="Last Name" size="medium" className={styles["input-field"]}/>
           </Box>
           <Box>
             <Typography className={styles["input-label"]}>E-mail*</Typography>
-            <TextField
-              fullWidth
-              required
-              type="email"
-              placeholder="example@email.com"
-              size="medium"
-              className={styles["input-field"]}
-            />
+            <TextField fullWidth required type="email" placeholder="example@email.com" size="medium" className={styles["input-field"]} />
           </Box>
           <Box>
             <Typography className={styles["input-label"]}>
               Phone Number*
             </Typography>
-            <TextField
-              fullWidth
-              required
-              placeholder="+62 800234756"
-              size="medium"
-              className={styles["input-field"]}
-            />
+            <TextField fullWidth required placeholder="+62 800234756" size="medium" className={styles["input-field"]}/>
           </Box>
           <Box className={styles["message-section"]}>
             <Typography className={styles["input-label"]}>Message*</Typography>
-            <TextField
-              fullWidth
-              required
-              multiline
-              minRows={5}
-              placeholder="Leave us a message..."
-              size="medium"
-              className={styles["input-field"]}
-            />
+            <TextField fullWidt required multiline minRows={5} placeholder="Leave us a message..." size="medium" className={styles["input-field"]}/>
           </Box>
           <Box gridColumn="span 2">
             <Button className={styles["submit-button"]}>Submit Inquiry</Button>

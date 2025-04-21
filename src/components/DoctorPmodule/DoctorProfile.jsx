@@ -1,17 +1,7 @@
 import React from "react";
 import styles from "./DoctorProfile.module.css";
 import { useNavigate } from "react-router-dom"; // For navigation
-import {
-  Phone,
-  Email,
-  LinkedIn,
-  Facebook,
-  Twitter,
-  Instagram,
-  School,
-  Work,
-  Assignment,
-} from "@mui/icons-material";
+import {Phone,Email,LinkedIn,Facebook,Twitter,Instagram,School,Work,Assignment} from "@mui/icons-material";
 
 const iconMap = {
   LinkedIn: <LinkedIn fontSize="large" />,
@@ -21,12 +11,11 @@ const iconMap = {
 };
 
 export default function DoctorProfile({ doctor }) {
-  // For navigation to booking page
   const navigate = useNavigate();
   
   // Function to handle booking button click
   const handleBookingClick = () => {
-    navigate('/booking'); // Navigate to booking page
+    navigate('/booking');
   };
 
   return (
@@ -34,11 +23,7 @@ export default function DoctorProfile({ doctor }) {
       {/* Left side */}
       <div className={styles.leftSection}>
         <div className={styles.avatarContainer}>
-          <img
-            src={doctor.avatar}
-            alt="Doctor"
-            className={styles.avatar}
-          />
+          <img src={doctor.avatar} alt="Doctor" className={styles.avatar}/>
         </div>
         
         <h3 className={styles.sectionTitle}>Expertise</h3>
@@ -72,10 +57,7 @@ export default function DoctorProfile({ doctor }) {
         </div>
         
         {/* Black booking button with navigation */}
-        <button 
-          className={styles.bookingButton}
-          onClick={handleBookingClick}
-        >
+        <button className={styles.bookingButton} onClick={handleBookingClick} >
           Book an Appointment
         </button>
       </div>
@@ -87,7 +69,6 @@ export default function DoctorProfile({ doctor }) {
         <p className={styles.doctorDescription}>{doctor.description}</p>
         
         <div className={styles.divider}></div>
-        
         <h3 className={styles.categoryTitle}>
           <School className={styles.categoryIcon} fontSize="small" /> Education
         </h3>
@@ -98,7 +79,6 @@ export default function DoctorProfile({ doctor }) {
         ))}
         
         <div className={styles.divider}></div>
-        
         <h3 className={styles.categoryTitle}>
           <Work className={styles.categoryIcon} fontSize="small" /> Experiences
         </h3>
@@ -109,7 +89,6 @@ export default function DoctorProfile({ doctor }) {
         ))}
         
         <div className={styles.divider}></div>
-        
         <h3 className={styles.categoryTitle}>
           <Assignment className={styles.categoryIcon} fontSize="small" /> Certificates
         </h3>

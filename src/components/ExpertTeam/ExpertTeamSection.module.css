@@ -1,12 +1,10 @@
-/* ExpertTeamSection.module.css */
-
 .container {
   padding-top: 7rem !important;
   padding-bottom: 7rem !important;
   background-color: #ffffff !important;
   width: 100% !important;
   display: flex !important;
-  align-items: center !important; /* vertically center */
+  align-items: center !important; 
   justify-content: center !important; 
 }
 .buttonContainer {
@@ -15,7 +13,6 @@
 }
 
 .button {
- 
   border-radius: 5px;
   text-transform: none;
   font-weight: 500;
