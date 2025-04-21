@@ -12,7 +12,7 @@ const SessionBookingSection = () => {
         width: "100%",
         display: "flex",
         flexDirection: "column",
-        alignItems: "center", // علشان نخلي الصورة في النص بس الكلام شمال
+        alignItems: "center",
       }}
     >
       <Box
@@ -33,7 +33,7 @@ const SessionBookingSection = () => {
         sx={{
           width: "100%",
           maxWidth: "1100px",
-          textAlign: "left", // خلي النص شمال
+          textAlign: "left",
         }}
       >
         <Typography variant="h5" fontWeight="bold" mb={1}>
