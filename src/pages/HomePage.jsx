@@ -31,11 +31,7 @@ export default function HomePage() {
       <Navbar />
       <Hero />
       <AboutSection />
-<<<<<<< HEAD
       <Areas />
-=======
-      <Areas/>  
->>>>>>> b35c5f5efcaa90700028711c3c8c47c822ed92a3
       <div className="container mb-5">
         <Title />
         <div className="d-flex justify-content-center gap-4 mb-4">
