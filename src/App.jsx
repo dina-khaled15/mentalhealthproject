@@ -1,7 +1,11 @@
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-const theme = createTheme({});
+import io from "socket.io-client";
+
 import "./App.css";
+
+// Pages & Components
 import DoctorsPage from "./pages/DocPage";
 import HomePage from "./pages/HomePage";
 import Children from "./pages/Children";
@@ -15,12 +19,14 @@ import DoctorDetails from "./pages/Doctor";
 import About from "./pages/About";
 import Issues from "./pages/Issues";
 import Details from "./pages/IssuesDetails";
+import PartnerPharmaciesPage from "./pages/Pharmasy";
 import Chatbot from "./pages/Chatbot";
 import ChatUIComponent from "./pages/community";
-import io from "socket.io-client";
 
-// اتصالات Socket.IO
-const socket = io("http://localhost:3000"); // عنوان السيرفر إذا كنت حابة تستخدمه مستقبلاً
+const theme = createTheme();
+
+
+const socket = io("http://localhost:3000");
 
 function App() {
   return (
@@ -36,6 +42,7 @@ function App() {
         <Route path="/bubble" element={<Bubble />} />
         <Route path="/issues" element={<Issues />} />
         <Route path="/service/:title" element={<Details />} />
+        <Route path="/pharmacies" element={<PartnerPharmaciesPage />} />
         <Route path="/card-matching" element={<CardMatchGame />} />
         <Route path="/stories" element={<StoryVideosPage />} />
         <Route path="/story/:videoId" element={<VideoPlayerPage />} />
