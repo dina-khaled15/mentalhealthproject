@@ -6,35 +6,21 @@ import styles from "./ExpertTeamSection.module.css";
 const ExpertTeamSection = () => {
   return (
     <Box className={styles.container} >
-      <Container
-        maxWidth="lg"
-        sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
-      >
+      <Container maxWidth="lg" sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
         <Box className={styles.buttonContainer}>
-          <Button
-            variant="outlined"
-            startIcon={<LocalHospitalIcon />}
-            className={`${styles.button} ${styles.buttonHover}`}
-          >
+          <Button variant="outlined" startIcon={<LocalHospitalIcon />} className={`${styles.button} ${styles.buttonHover}`} >
             Our Experts
           </Button>
         </Box>
-        {/* العنوان والكلام في نفس السطر */}
         <Box className={styles.contentContainer}>
-          {/* العنوان */}
           <Box className={styles.titleContainer}>
-            <Typography
-              variant="h3"
-              component="h2"
-              className={`${styles.title} ${styles.subtitle}`}
-            >
+            <Typography variant="h3" component="h2" className={`${styles.title} ${styles.subtitle}`} >
               Meet Our Expert
               <br />
               Team of Doctors
             </Typography>
           </Box>
 
-          {/* الكلام */}
           <Box className={styles.textContainer}>
             <Typography variant="body1" className={styles.text}>
               Experienced professionals specializing in mental health and

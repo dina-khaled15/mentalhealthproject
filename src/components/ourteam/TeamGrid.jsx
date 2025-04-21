@@ -1,14 +1,5 @@
 import React from "react";
-import {
-  Box,
-  Grid,
-  Card,
-  CardContent,
-  CardMedia,
-  Typography,
-  Button,
-  IconButton,
-} from "@mui/material";
+import {Box,Grid,Card,CardContent,CardMedia,Typography,Button,IconButton,} from "@mui/material";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -75,38 +66,28 @@ const TeamGrid = () => {
       <Typography variant="h4" className={styles.title}>
         Meet Our Expert Team of Doctors
       </Typography>
-
+      
       <Grid container spacing={4}>
         {doctors.map((doctor) => (
           <Grid item xs={12} sm={6} md={3} key={doctor.id}>
             <Card className={styles.card}>
               <Box className={styles.imageContainer}>
-                <CardMedia
-                  component="img"
-                  className={styles.cardMedia}
-                  image={doctor.image}
-                  alt={doctor.name}
-                />
-                <Box className={`${styles.overlay} ${styles.overlayVisible}`}>
-                  <IconButton sx={{ color: "white" }}>
-                    <FacebookIcon />
-                  </IconButton>
-                  <IconButton sx={{ color: "white" }}>
-                    <InstagramIcon />
-                  </IconButton>
-                  <IconButton sx={{ color: "white" }}>
-                    <LinkedInIcon />
-                  </IconButton>
+                <CardMedia component="img" className={styles.cardMedia} image={doctor.image}ةalt={doctor.name}/>
+              <Box className={`${styles.overlay} ${styles.overlayVisible}`}>
+                <IconButton sx={{ color: "white" }}>
+                  <FacebookIcon />
+                </IconButton>
+                <IconButton sx={{ color: "white" }}>
+                  <InstagramIcon />
+                </IconButton>
+                <IconButton sx={{ color: "white" }}>
+                  <LinkedInIcon />
+                </IconButton>
                 </Box>
               </Box>
 
               <CardContent className={styles.cardContent}>
-                <Typography
-                  gutterBottom
-                  variant="h5"
-                  component="div"
-                  className={styles.doctorName}
-                >
+                <Typography gutterBottom variant="h5" component="div" className={styles.doctorName}>
                   {doctor.name}
                 </Typography>
                 <Typography variant="body2" className={styles.doctorTitle}>
@@ -115,15 +96,8 @@ const TeamGrid = () => {
               </CardContent>
 
               <Box className={styles.buttonContainer}>
-                <Button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleDoctorClick(doctor.id);
-                  }}
-                  variant="contained"
-                  disableElevation
-                  className={styles.button}
-                >
+                <Button onClick={(e) => {e.stopPropagation();handleDoctorClick(doctor.id);}}
+                  variant="contained" disableElevation className={styles.button}>
                   More-Details
                   <ArrowForwardIcon sx={{ fontSize: 20 }} />
                 </Button>

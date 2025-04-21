@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Box,
-  Typography,
-  Avatar,
-  Card,
-  CardContent,
-  IconButton,
-} from "@mui/material";
+import {Box,Typography,Avatar,Card,CardContent,IconButton,} from "@mui/material";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 
 import styles from "./Feedback.module.css";
@@ -54,11 +47,7 @@ const Feedback = () => {
       <Box className={styles.cardsContainer}>
         {feedback.map((item, index) => (
           <Card key={index} className={styles.card}>
-            <Avatar
-              src={item.image}
-              alt={item.name}
-              className={styles.avatar}
-            />
+            <Avatar src={item.image} alt={item.name} className={styles.avatar}/>
             <CardContent className={styles.cardContent}>
               <Typography variant="body2" gutterBottom className={styles.text}>
                 {item.text}
