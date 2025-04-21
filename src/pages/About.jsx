@@ -1,5 +1,5 @@
 import React from "react";
-import Top from "../components/Top";
+import Top from "../components/Top/Top";
 import Personalized from "../components/Personalized";
 import Milestone from "../components/Milestone";
 import Cta from "../components/Cta";

@@ -5,8 +5,8 @@
     border-radius: 0; /* No rounded corners */
     border: none; /* No borders */
     width: 100%; /* Full screen width */
-    padding: 60px 0; /* Vertical padding for spacing */
-    margin: 0 auto; /* Center the banner if needed */
+    padding: 80px 0; 
+    /* margin: 40px auto; */
     text-align: center; /* Center the content horizontally */
     margin-bottom: 20px; /* Add a small margin at the bottom */
   }
