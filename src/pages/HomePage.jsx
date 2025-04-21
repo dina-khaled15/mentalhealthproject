@@ -18,11 +18,7 @@ export default function HomePage() {
       <Navbar/>
       <Hero />
       <AboutSection />
-<<<<<<< HEAD
-       <Areas/>   
-=======
       <Areas/>   
->>>>>>> 6b2af6a1d3862694ea0036ba47fa3b97b6153b00
       <div className="container mb-5">
         <Benefit />
         <Title />
@@ -89,22 +85,9 @@ export default function HomePage() {
           <Schedule />
         </div>
       </div>
-      <Benefit/>
-      <Titlee/>
-      <div className='row gap-4 justify-content-center mb-5'>
-        <DocCard name="Dr. Sarah Thompson" des="Anxiety, Depression, Grief Support, CBT Specialist" img="/images/d2.png"/>
-        <DocCard name="John Ramirez, LCSW" des="Family Counseling, Trauma, Marriage and Relationship Issues" img="/images/d1.png"/>
-        <DocCard name="Emily Chen, PsyD" des="Stress Management, Mindfulness, PTSD Specialist" img="/images/d4.png"/>
-        <DocCard name="Michael Patel, PhD" des="Child Psychology, Behavioral Disorders, ADHD Specialist" img="/images/d5.png"/>
-      </div>                
-    <div className='mt-5'>
-        <Schedule />
+      <Box sx={{ mt: 4, width: "100%" }}>
+        <FooterComponent variant="dark" />
+      </Box>
     </div>
-
-            </div>
-            <Footer variant="dark" />
-
-
-        </div>
-    );
+  );
 }

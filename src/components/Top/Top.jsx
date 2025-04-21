@@ -6,7 +6,7 @@ import "@fontsource/manrope/400.css";
 import "@fontsource/manrope/500.css";
 import "@fontsource/manrope/700.css";
 import styles from "./Top.module.css";
-import topImage from "../../images/top.png"; 
+import topImage from "../../images/Top.png"; 
 
 const Top = () => {
   return (
