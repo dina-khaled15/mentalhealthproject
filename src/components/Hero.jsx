@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Grid, Typography, Button, Stack } from "@mui/material";
-
+import Hero from "../images/Hero.png";
 function CustomPlayArrowIcon() {
   return (
     <svg
@@ -64,7 +64,7 @@ export default function HeroSection() {
 
       <Box
         component="img"
-        src="/images/Hero.png"
+        src= {Hero}
         alt="Happy Woman"
         sx={{
           width: "100%",
