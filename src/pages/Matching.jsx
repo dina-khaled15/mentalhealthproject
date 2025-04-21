@@ -32,12 +32,7 @@ const CardMatchGame = () => {
   const shuffleCards = () => {
     const deck = [...cardImages, ...cardImages];
     deck.sort(() => Math.random() - 0.5);
-    return deck.map((image, index) => ({
-      image,
-      flipped: false,
-      id: index,
-      matched: false,
-    }));
+    return deck.map((image, index) => ({image,flipped: false, id: index, matched: false,}));
   };
 
   useEffect(() => {
@@ -58,10 +53,7 @@ const CardMatchGame = () => {
 
   const flipCard = (index) => {
     if (
-      flippedIndices.length === 2 ||
-      cards[index].flipped ||
-      cards[index].matched ||
-      gameOver
+      flippedIndices.length === 2 ||cards[index].flipped ||cards[index].matched || gameOver
     )
       return;
 
@@ -111,7 +103,7 @@ const CardMatchGame = () => {
     <Box
       sx={{
         minHeight: "100vh",
-        backgroundColor: "#F8F7F4", // درجة فاتحة للخلفية الرئيسية
+        backgroundColor: "#F8F7F4", 
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -125,7 +117,7 @@ const CardMatchGame = () => {
           padding: 3,
           borderRadius: 4,
           textAlign: "center",
-          backgroundColor: "#F2F0E9", // درجة فاتحة للمحتوى
+          backgroundColor: "#F2F0E9", 
           width: "100%",
           maxWidth: 1000,
         }}
@@ -135,7 +127,7 @@ const CardMatchGame = () => {
           sx={{
             fontWeight: "bold",
             mb: 2,
-            color: "#000", // أسود للنص
+            color: "#000", 
           }}
         >
           🃏 Card Matching Game
@@ -154,7 +146,7 @@ const CardMatchGame = () => {
           <Typography
             variant="h6"
             sx={{
-              color: "#000", // أسود للنصوص
+              color: "#000", 
             }}
           >
             Moves: {moves}
@@ -162,7 +154,7 @@ const CardMatchGame = () => {
           <Typography
             variant="h6"
             sx={{
-              color: "#000", // أسود للنصوص
+              color: "#000",
             }}
           >
             <AccessTimeIcon sx={{ verticalAlign: "middle" }} /> Time: {timer}s
@@ -170,7 +162,7 @@ const CardMatchGame = () => {
           <Typography
             variant="h6"
             sx={{
-              color: "#000", // أسود للنصوص
+              color: "#000", 
             }}
           >
             Score: {score}
@@ -192,7 +184,7 @@ const CardMatchGame = () => {
                   borderRadius: 2,
                   boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
                   backgroundColor:
-                    card.flipped || card.matched ? "transparent" : "#F2F0E9", // درجة فاتحة للخلفية
+                    card.flipped || card.matched ? "transparent" : "#F2F0E9", 
                   transition: "transform 0.3s",
                   transform: card.flipped ? "rotateY(180deg)" : "rotateY(0deg)",
                 }}
@@ -213,7 +205,7 @@ const CardMatchGame = () => {
                   <Typography
                     variant="h4"
                     sx={{
-                      color: "#000", // أسود للعلامة (?)
+                      color: "#000", 
                     }}
                   >
                     ?
@@ -230,8 +222,8 @@ const CardMatchGame = () => {
               variant="h4"
               color={
                 matchedPairs.length === cardImages.length
-                  ? "#000" // أسود عند الفوز
-                  : "#000" // أسود عند انتهاء الوقت
+                  ? "#000" 
+                  : "#000" 
               }
               sx={{ fontWeight: "bold", mb: 1 }}
             >
@@ -242,7 +234,7 @@ const CardMatchGame = () => {
             <Typography
               variant="h6"
               sx={{
-                color: "#000", // أسود للنصوص
+                color: "#000", 
               }}
             >
               Final Score: {score}
@@ -253,10 +245,10 @@ const CardMatchGame = () => {
                 mt: 2,
                 fontWeight: "bold",
                 borderRadius: "20px",
-                backgroundColor: "#000", // أسود للزر
-                color: "#fff", // أبيض للنص
+                backgroundColor: "#000", 
+                color: "#fff", 
                 "&:hover": {
-                  backgroundColor: "#333", // تأثير عند التحويم
+                  backgroundColor: "#333", 
                 },
               }}
               onClick={resetGame}

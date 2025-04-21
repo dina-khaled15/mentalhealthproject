@@ -31,7 +31,6 @@ const Details = () => {
       <Navbar />
 
       <Box sx={{ p: 4 }}>
-        {/* Hero Section */}
         <Grid container spacing={3} alignItems="center">
           <Grid item xs={12} md={6}>
             <Typography
@@ -92,10 +91,7 @@ const Details = () => {
             </Box>
           </Grid>
         </Grid>
-
-        {/* New Stats Section */}
         <Grid container spacing={4} mt={4} ml={12}>
-          {/* Group Image */}
           <Grid item xs={12} md={2}>
             <Box sx={{ display: "flex", justifyContent: "center" }}>
               <Box
@@ -111,8 +107,6 @@ const Details = () => {
               />
             </Box>
           </Grid>
-
-          {/* Text Card with Black Background */}
           <Grid item xs={12} md={2}>
             <Card
               sx={{
@@ -149,8 +143,6 @@ const Details = () => {
               </CardContent>
             </Card>
           </Grid>
-
-          {/* Alone Image */}
           <Grid item xs={12} md={9}>
             <Box sx={{ display: "flex", justifyContent: "center" }}>
               <Box
@@ -167,8 +159,6 @@ const Details = () => {
             </Box>
           </Grid>
         </Grid>
-
-        {/* What is it Section */}
         <Box mt={10} ml={13}>
           <Typography
             variant="h5"
