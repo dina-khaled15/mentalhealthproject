@@ -12,7 +12,7 @@ const SafeMessage = () => {
         borderRadius: "16px",
         padding: "10px 32px",
         maxWidth: "660px",
-        height:"70vh",
+        height: "90vh",
         mx: "auto",
         textAlign: "center",
         my: 3,

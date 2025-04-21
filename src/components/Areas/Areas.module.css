@@ -147,9 +147,9 @@
   gap: 6px;
 }
 .personalIssuesButtonContainer {
-  display: flex; /* تأكد من أن الحاوية تستخدم flex */
-  justify-content: flex-end; /* إذا كنت ترغب في محاذاة الزر في نهاية العنصر الأب */
-  align-items: flex-end; /* يضمن محاذاة العنصر إلى أسفل الحاوية */
+  display: flex; 
+  justify-content: flex-end; 
+  align-items: flex-end; 
 }
 
 .customPersonalIssuesButton {

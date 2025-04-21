@@ -5,7 +5,6 @@
     margin: 0 auto;
     font-family: "Manrope";
   }
-  
   .topSection {
     display: flex;
     flex-direction: column;
@@ -13,28 +12,24 @@
     margin-bottom: 48px;
     transform: translateX(70px);
   }
-  
   @media (min-width: 900px) {
     .topSection {
       flex-direction: row;
       align-items: flex-start;
     }
-  }
-  
+  } 
   .leftBox {
     flex: 1;
     margin-top: -45px;
     margin-right: -32px;
     margin-left: -32px;
   }
-  
   @media (min-width: 1200px) {
     .leftBox {
       margin-right: -184px;
       margin-left: -184px;
     }
   }
-  
   .paperStyle {
     width: fit-content;
     padding: 4px 16px;
@@ -43,7 +38,6 @@
     display: flex;
     align-items: center;
   }
-  
   .headingText {
     font-size: 40px !important;
     font-weight: 600 !important; 
@@ -52,11 +46,9 @@
     margin-top: 5px !important;
     margin-right: 5px !important;
   }
-  
   .rightBox {
     flex: 1;
   }
-  
   .description {
     font-family: "Manrope" !important;
     font-weight: 400 !important; 
@@ -68,19 +60,13 @@
   
   .statsContainer {
     display: flex;
-    justify-content: flex-start; /* خلى العناصر كلها تبدا من الشمال */
+    justify-content: flex-start;
     flex-wrap: nowrap;
     gap: 40px;
     padding: 0 48px;
-    margin-left: -100px; /* دي اللي بتحرك الصف كله شمال */
+    margin-left: -100px; 
     box-sizing: border-box;
   }
-    flex: 1;
-    max-width: 220px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* تخلي المحتوى جوا كل بوكس شمال */
-  
   .statBox {
     min-width: 180px;
   }
