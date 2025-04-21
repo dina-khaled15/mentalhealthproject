@@ -1,16 +1,17 @@
 .container {
     padding: 80px 32px;
     background-color: #fff;
-    max-width: 3000px;
+    max-width: 1000px;
     margin: 0 auto;
-    font-family: "Manrope", sans-serif;
+    font-family: "Manrope";
   }
   
   .topSection {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 250px;
     margin-bottom: 48px;
+    transform: translateX(70px);
   }
   
   @media (min-width: 900px) {
@@ -22,7 +23,7 @@
   
   .leftBox {
     flex: 1;
-    margin-top: -40px;
+    margin-top: -45px;
     margin-right: -32px;
     margin-left: -32px;
   }
@@ -37,7 +38,7 @@
   .paperStyle {
     width: fit-content;
     padding: 4px 16px;
-    border-radius: 50px;
+    border-radius: 50px !important;
     border: 1px solid #d3d3d3;
     display: flex;
     align-items: center;
@@ -67,10 +68,18 @@
   
   .statsContainer {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 16px;
+    justify-content: flex-start; /* خلى العناصر كلها تبدا من الشمال */
+    flex-wrap: nowrap;
+    gap: 40px;
+    padding: 0 48px;
+    margin-left: -100px; /* دي اللي بتحرك الصف كله شمال */
+    box-sizing: border-box;
   }
+    flex: 1;
+    max-width: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* تخلي المحتوى جوا كل بوكس شمال */
   
   .statBox {
     min-width: 180px;

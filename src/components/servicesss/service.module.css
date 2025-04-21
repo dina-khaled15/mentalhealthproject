@@ -1,19 +1,19 @@
 .container {
     padding: 40px;
-    font-family: "Manrope", sans-serif;
+    font-family: "Manrope" ! important;
     background-color: #fff;
     justify-items: center;
     margin:auto;
   }
 .cont{
   padding: 40px;
-  font-family: "Manrope", sans-serif;
+  font-family: "Manrope";
   background-color: #fff;
   justify-items: center;
 
 }
   .leftSection {
-    margin-left: 60px;
+    margin-left: 50px;
     margin-top: 40px;
   }
   .outerWrapper {
@@ -22,11 +22,11 @@
   }
   
   .consultationButton {
-    border-radius: 10px;
-    text-transform: none;
-    margin-bottom: 16px;
-    font-family: "Manrope", sans-serif;
-    border: 1px solid #D3D3D3;
+    border-radius: 50px ! important;
+    text-transform: none ! important;
+    margin-bottom: 10px;
+    font-family: "Manrope";
+    border: 1px solid #D3D3D3 ! important;
     color: #222222;
   }
   
@@ -36,16 +36,22 @@
   }
   
   .mainTitle {
-    
-    font-weight: 600;
+    font-weight: 600 ! important;
+    font-size: 45px;
     padding-top: 15px;
-    margin-bottom: 16px;
+    font-family: "Manrope" ! important;
+    margin-bottom: 8px ! important; 
+    line-height: 1.2;
   }
   
   .description {
     color: #888;
-    margin-bottom: 32px;
+    margin-bottom: 36px ! important;
     max-width: 400px;
+    font-family: "Manrope" ! important;
+    font-weight: 400;
+    font-size: 17px ! important;
+    line-height: 1.5 ! important;
   }
   
   .cardContainer {
@@ -77,8 +83,8 @@
   
   .cardTitle {
     font-weight: 600;
-    font-family: "Manrope", sans-serif;
-    font-size: 20px;
+    font-family: "Manrope";
+    font-size: 18px;
     max-width: 250px;
     word-break: break-word;
   }
@@ -86,9 +92,9 @@
   .cardDescription {
     color: #666;
     font-size: 14px;
-    font-family: "Manrope", sans-serif;
+    font-family: "Manrope";
     font-weight: 400;
-    max-width: 200px;
+    max-width: 300px;
   }
   
   .secondRow {
@@ -97,10 +103,11 @@
   }
   
   .arrowButtons {
-    margin-top: 40px;
+    margin-top: 3px;
     display: flex;
     justify-content: flex-end;
     gap: 8px;
+    margin-right: -1300px;
   }
   
   .backButton {

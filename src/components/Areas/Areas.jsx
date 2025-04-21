@@ -35,7 +35,7 @@ const Areas = () => {
           <div className={styles.listItem}>
             <h3 className={styles.listItemTitleBold}>Depression</h3>
             <p className={styles.listItemDescription}>
-              Comprehensive care and support for individuals struggling with depression.
+              Comprehensive care and support for individuals struggling with<br /> depression.
             </p>
             <div className={styles.divider}></div>
           </div>
@@ -59,7 +59,7 @@ const Areas = () => {
         {/* Right section */}
         <div className={styles.rightSection}>
         <div className={styles.personalIssuesButtonContainer}>
-        <button className= { ` ${styles.personalIssuesButton} ${styles.customPersonalIssuesButton} `}>
+        <button className={`${styles.personalIssuesButton} ${styles.customPersonalIssuesButton}`}>
             <RadioButtonCheckedIcon className={styles.radioIcon} />
             Personal Issues
           </button>
@@ -71,4 +71,4 @@ const Areas = () => {
   );
 };
 
-export default Areas;
+export default Areas;

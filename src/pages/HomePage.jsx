@@ -23,7 +23,7 @@ import d1 from "../images/d1.png";
 import d4 from "../images/d4.png";
 import d5 from "../images/d5.png";
 
-import Schedule from "../components/Schedule/Schedule";
+import Schedule from "../components/Schedule";
 import Areas from "../components/Areas/Areas";
 export default function HomePage() {
   return (

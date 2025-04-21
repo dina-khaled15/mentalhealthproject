@@ -61,7 +61,7 @@ export default function MentalHealthServices() {
             </Button>
 
             <Typography variant="h4" className={styles.mainTitle} >
-              Mental Health Services
+              Mental Health<br />Services
             </Typography>
 
             <Typography variant="body1" className={styles.description}>
