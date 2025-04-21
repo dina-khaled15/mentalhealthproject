@@ -9,16 +9,8 @@ const Benefit = () => {
     <Box className={`${styles.container} ${styles.containerRow}`}>
       <Box className={styles.imageContainer}>
         <Box className={styles.imageWrapper}>
-          <Box
-            component="img"
-            src={benefitImg}
-            alt="benefit"
-            className={styles.image}
-          />
-          <Paper
-            elevation={3}
-            className={`${styles.overlay} ${styles.overlayShow}`}
-          >
+          <Box component="img" src={benefitImg} alt="benefit"className={styles.image}/>
+          <Paper elevation={3} className={`${styles.overlay} ${styles.overlayShow}`}>
             <Typography variant="h6" fontWeight={600}>
               Experience Professionals
             </Typography>
@@ -32,11 +24,7 @@ const Benefit = () => {
 
       {/* Text Content */}
       <Box className={styles.textContent}>
-        <Chip
-          icon={<FavoriteIcon />}
-          label="Benefits"
-          className={styles.chip}
-        />
+        <Chip icon={<FavoriteIcon />} label="Benefits" className={styles.chip} />
         <Typography variant="h4" className={styles.title}>
           The Benefits of Choosing Wellthy
         </Typography>
@@ -46,16 +34,7 @@ const Benefit = () => {
           that meet your unique needs, ensuring privacy, comfort, and lasting
           support.
         </Typography>
-        <Box
-          component="ul"
-          sx={{
-            pl: 0,
-            listStyle: "underline",
-            fontFamily: "Manrope,bold",
-            paddingLeft: "1rem",
-            m: 0,
-          }}
-        >
+        <Box component="ul" sx={{pl: 0,listStyle: "underline",fontFamily: "Manrope,bold",paddingLeft: "1rem",m: 0,}}>
           {[
             "Experience Professionals",
             "Personalized Care",
@@ -63,10 +42,7 @@ const Benefit = () => {
             "Comprehensive Service",
             "Supportive Community",
           ].map((item, index) => (
-            <Box
-              key={index}
-              component="li"
-              className={`${styles.listItem} ${
+            <Box key={index} component="li" className={`${styles.listItem} ${
                 index === 0 ? styles.listItemStrong : ""
               }`}
             >
