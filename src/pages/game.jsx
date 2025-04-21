@@ -14,12 +14,12 @@ import FooterComponent from "../components/footer/contact";
 const games = [
   {
     title: "focusing game",
-    image: "/images/bubble.png", // الصورة موجودة في مجلد public
-    link: "/bubble", // الرابط للعبة
+    image: require("../images/bubble.png"),
+    link: "/bubble",
   },
   {
     title: "brain game",
-    image: "/images/brain.png", // الصورة الموجودة في public
+    image: require("../images/brain.png"), // الصورة الموجودة في public
     link: "/card-matching", // الرابط للعبة
   },
 ];
