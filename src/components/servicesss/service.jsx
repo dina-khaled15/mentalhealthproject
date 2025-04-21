@@ -61,7 +61,7 @@ export default function MentalHealthServices() {
             </Button>
 
             <Typography variant="h4" className={styles.mainTitle} >
-              Mental Health Services
+              Mental Health<br />Services
             </Typography>
 
             <Typography variant="body1" className={styles.description}>
@@ -72,7 +72,7 @@ export default function MentalHealthServices() {
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <Grid container spacing={0}>
+          <Grid container spacing={5}>
             {services.slice(0, 2).map((service, index) => (
               <Grid item xs={12} sm={6} key={index}>
                 <Box className={styles.cardContainer}>
@@ -134,7 +134,7 @@ export default function MentalHealthServices() {
         </Grid>
       </Grid>
     </Box>
-    <Box className={styles.arrowButtons}>
+    <Box className={styles.arrowButtons} >
     <IconButton className={styles.backButton}>
       <ArrowBackIosNewIcon fontSize="small" />
     </IconButton>

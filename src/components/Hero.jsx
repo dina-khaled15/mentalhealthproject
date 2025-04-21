@@ -74,8 +74,6 @@ export default function HeroSection() {
           my: 5,
         }}
       />
-
-      {/* Optional WELLTHY logo or wordmark here */}
       <Box textAlign="center">
         <Typography variant="h2" fontWeight="bold">
           WELLTHY

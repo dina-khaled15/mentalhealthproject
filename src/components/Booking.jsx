@@ -9,15 +9,12 @@ const Form = () => {
       container
       spacing={4}
       sx={{minHeight: "100vh",p: 4,backgroundColor: "#fafaf8",alignItems: "center",justifyContent: "center",fontFamily: "Manrope"}}>
-      {/* Full-width header and form container */}
       <Grid item xs={12}>
         <Grid container spacing={4}>
-          {/* Left side text */}
           <Grid item xs={12} md={6}>
             <Typography variant="h3" fontWeight={500}
               sx={{fontFamily: "Manrope",fontSize: "75px",lineHeight: "78px",}}
-              gutterBottom
-            >
+              gutterBottom>
               Schedule a <br />
               session with <Box component="span" sx={{ color: "#6e6c68" }}>our</Box> <br />
               <Box component="span" sx={{ color: "#6e6c68" }}>
@@ -28,8 +25,6 @@ const Form = () => {
               </Box>
             </Typography>
           </Grid>
-
-          {/* Right side form */}
           <Grid item xs={12} md={6}>
             <Paper
               elevation={1}
@@ -42,49 +37,42 @@ const Form = () => {
               </Typography>
 
               <Box component="form" noValidate autoComplete="off">
-                {/* Full Name */}
                 <Typography variant="subtitle2" sx={{ mb: 0.5, fontFamily: "Manrope",fontWeight: 600 }}>
                   Full Name
                 </Typography>
                 <TextField fullWidth placeholder="First name" margin="dense" variant="outlined"
                   sx={{backgroundColor: "#FFFFFF", borderRadius: "12px", 
                     "& .MuiOutlinedInput-root": {
-                      borderRadius: "12px", // Ensuring it's applied to the input
+                      borderRadius: "12px", 
                       "& fieldset": {
                         borderColor: "#EEEEEE", 
                       },
                     },
                   }}/>
-
-                {/* Email */}
                 <Typography variant="subtitle2" sx={{ mt: 2, mb: 0.5, fontFamily: "Manrope",fontWeight: 600}}>
                   E-mail
                 </Typography>
                 <TextField fullWidth placeholder="you@gmail.com" margin="dense" variant="outlined"
                   sx={{backgroundColor: "#FFFFFF",borderRadius: "12px", 
                     "& .MuiOutlinedInput-root": {
-                      borderRadius: "12px", // Ensuring it's applied to the input
+                      borderRadius: "12px",
                       "& fieldset": {
                         borderColor: "#EEEEEE", 
                       },
                     },
                   }}/>
-
-                {/* Phone Number */}
                 <Typography variant="subtitle2" sx={{ mt: 2, mb: 0.5, fontFamily: "Manrope",fontWeight: 600}}>
                   Phone Number
                 </Typography>
                 <TextField fullWidth placeholder="+62 800234756" margin="dense" variant="outlined"
                   sx={{backgroundColor: "#FFFFFF",borderRadius: "12px", 
                     "& .MuiOutlinedInput-root": {
-                      borderRadius: "12px", // Ensuring it's applied to the input
+                      borderRadius: "12px", 
                       "& fieldset": {
                         borderColor: "#EEEEEE", 
                       },
                     },
                   }}/>
-
-                {/* Service & Session */}
                 <Grid container spacing={2} sx={{ mt: 2 }}>
                   <Grid item xs={6}>
                     <Typography variant="subtitle2" sx={{ mb: 0.5, fontFamily: "Manrope",fontWeight: 600}}>
@@ -93,7 +81,7 @@ const Form = () => {
                     <TextField fullWidth placeholder="Choose service" margin="dense" variant="outlined"
                       sx={{backgroundColor: "#FFFFFF", borderRadius: "12px",
                         "& .MuiOutlinedInput-root": {
-                          borderRadius: "12px", // Ensuring it's applied to the input
+                          borderRadius: "12px", 
                           "& fieldset": {
                             borderColor: "#DDDDDD", 
                           },
@@ -107,7 +95,7 @@ const Form = () => {
                     <TextField fullWidth placeholder="Session available" margin="dense" variant="outlined"
                       sx={{backgroundColor: "#FFFFFF",borderRadius: "12px", 
                         "& .MuiOutlinedInput-root": {
-                          borderRadius: "12px", // Ensuring it's applied to the input
+                          borderRadius: "12px", 
                           "& fieldset": {
                             borderColor: "#EEEEEE", 
                           },
@@ -115,8 +103,6 @@ const Form = () => {
                       }}/>
                   </Grid>
                 </Grid>
-
-                {/* Button */}
                 <Box textAlign="right" sx={{ mt: 4 }}>
                   <Button variant="contained" size="large"
                     endIcon={<ArrowForwardIcon />}

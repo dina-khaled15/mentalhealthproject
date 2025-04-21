@@ -72,7 +72,7 @@ const PartnerPharmaciesPage = () => {
     </Typography>
 
     <Paper elevation={1} sx={{ mb: 3, mt:-3, p: 2, borderRadius: 3 }}>
-        <Typography variant="h6" fontWeight="medium" gutterBottom fontFamily={'Manrope'} fontWeight={600} fontSize={25}>
+        <Typography variant="h6"  gutterBottom fontFamily={'Manrope'} fontWeight={600} fontSize={25}>
         List of Pharmacies
         </Typography>
         <List>
@@ -101,7 +101,7 @@ const PartnerPharmaciesPage = () => {
 
     <Divider sx={{ mb: 2 }} />
 
-    <Typography variant="h6" fontWeight="medium" gutterBottom fontFamily={'Manrope'} fontWeight={600}>
+    <Typography variant="h6" gutterBottom fontFamily={'Manrope'} fontWeight={600}>
     Request Medication
     </Typography>
 
@@ -121,8 +121,8 @@ const PartnerPharmaciesPage = () => {
         },
         }}
         InputLabelProps={{
-            sx: {fontSize: '16px',fontWeight: '400',fontFamily:'Manrope',color: 'black', // Label color when not focused
-                "&.Mui-focused": {color: 'black', // Label color when the field is focused
+            sx: {fontSize: '16px',fontWeight: '400',fontFamily:'Manrope',color: 'black',
+                "&.Mui-focused": {color: 'black', 
             },
         },
     }}
@@ -221,7 +221,7 @@ const PartnerPharmaciesPage = () => {
     </Paper>
 
       <Box sx={{ mt: 4 }}>
-        <Typography variant="h6" gutterBottom fontWeight="medium" fontFamily={'Manrope'} fontWeight={600} fontSize={20}>
+        <Typography variant="h6" gutterBottom  fontFamily={'Manrope'} fontWeight={600} fontSize={20}>
           How It Works
         </Typography>
         <Grid container spacing={3}>

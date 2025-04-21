@@ -41,7 +41,7 @@ export default function Timeline() {
             textTransform: "none",
             boxShadow: "none",
             "&:hover": {
-              bgcolor: "#c0c0c0", // لون أغمق بسيط عند الـ hover
+              bgcolor: "#c0c0c0", 
             },
           }}
         >
