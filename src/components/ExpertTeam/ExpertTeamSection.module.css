@@ -6,7 +6,7 @@
   background-color: #ffffff !important;
   width: 100% !important;
   display: flex !important;
-  align-items: center !important; /* vertically center */
+  align-items: center !important; 
   justify-content: center !important; 
 }
 .buttonContainer {
