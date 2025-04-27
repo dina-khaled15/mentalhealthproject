@@ -1,0 +1,85 @@
+.sectionContainer {
+    background-color: #222222;
+    padding: 48px 40px;
+}
+
+.centerText {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.bookButton {
+    color: white;
+    border: 1px solid white;
+    margin-bottom: 16px;
+}
+
+.heading {
+    font-weight: bold;
+    color: white;
+}
+
+.card {
+    border-radius: 16px;
+    padding: 16px;
+    background-color: #f8f8f8;
+    min-height: 250px;
+}
+
+.cardTitle {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.cardDate,
+.cardTime {
+    margin-bottom: 8px;
+}
+
+.chip {
+    margin-bottom: 16px;
+}
+
+.progress {
+    height: 6px;
+    border-radius: 5px;
+    margin-bottom: 8px;
+}
+
+.consultationButton {
+    margin-top: 8px;
+    color: black;
+    border: 1px solid black;
+    transition: all 0.3s ease;
+}
+
+.consultationButton:hover:enabled {
+    background-color: rgba(0, 0, 0, 0.07);
+    border-color: black;
+}
+
+.bookButton {
+    color: rgb(199, 81, 81);
+    border: 2px solid #9ca0a3;
+    background-color: #2a2c2e;
+    margin-bottom: 16px;
+    transition: all 0.3s ease;
+}
+
+.bookButton:hover {
+    background-color: #383c3f;
+    border-color: #393b3c;
+}
+
+.consultationButton {
+    margin-top: 8px;
+    color: white;
+    border: 2px solid #69746a;
+    background-color: #474947;
+    transition: all 0.3s ease;
+}
+
+.consultationButton:hover:enabled {
+    background-color: #2e322e;
+    border-color: #303330;
+}
