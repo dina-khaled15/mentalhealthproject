@@ -26,17 +26,9 @@ const services = [
   { title: "Depression", image: depressionImg, category: "Personal Issues" },
   { title: "Anxiety", image: anxietyImg, category: "Personal Issues" },
   { title: "Grief & Loss", image: griefImg, category: "Personal Issues" },
-  {
-    title: "Self-Confidence",
-    image: selfconfidenceImg,
-    category: "Personal Issues",
-  },
+  { title: "Self-Confidence",image: selfconfidenceImg,category: "Personal Issues",},
   { title: "Stress Management", image: stressImg, category: "Work Issues" },
-  {
-    title: "Relationship Issues",
-    image: relationshipImg,
-    category: "Couple Issue",
-  },
+  { title: "Relationship Issues",image: relationshipImg,category: "Couple Issue",},
   { title: "Eating Disorder", image: eatingImg, category: "Medical Issues" },
   { title: "Substance Abuse", image: substanceImg, category: "Medical Issues" },
   { title: "Social Anxiety", image: socialImg, category: "Social Issues" },
@@ -80,7 +72,7 @@ const Issues = () => {
               margin={"auto"}
             >
               <Link
-                to={`/service/${encodeURIComponent(service.title)}`}
+                to={`/details/${encodeURIComponent(service.title)}`}
                 style={{ textDecoration: "none" }}
               >
                 <Card

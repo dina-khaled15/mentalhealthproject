@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Typography, Grid, IconButton, Paper } from "@mui/material";
 import PlayCircleFilledWhiteIcon from "@mui/icons-material/PlayCircleFilledWhite";
 
 const AboutSection = () => {
+  const [showVideo, setShowVideo] = useState(false);
+
+  const handlePlayClick = () => {
+    setShowVideo(true);
+  };
+
   return (
     <Box
       sx={{
@@ -63,35 +69,53 @@ const AboutSection = () => {
             sx={{
               position: "relative",
               left: "10rem",
-              Overflow: "hidden",
+              overflow: "hidden",
               borderRadius: "16px",
             }}
           >
-            <img
-              src="/Videos.jpg"
-              alt="Main Video"
-              style={{
-                width: "100%",
-                maxHeight: "400px",
-                objectFit: "contain",
-                borderRadius: "16px",
-              }}
-            />
-            <IconButton
-              sx={{
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-                backgroundColor: "#fff",
-                color: "#000",
-                width: 80,
-                height: 80,
-                borderRadius: "50%",
-              }}
-            >
-              <PlayCircleFilledWhiteIcon sx={{ fontSize: 48 }} />
-            </IconButton>
+            {!showVideo ? (
+              <>
+                <img
+                  src={require("../images/Videos.jpg")}
+                  alt="Main Video"
+                  style={{
+                    width: "100%",
+                    maxHeight: "400px",
+                    objectFit: "contain",
+                    borderRadius: "16px",
+                  }}
+                />
+                <IconButton
+                  sx={{
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                    backgroundColor: "#fff",
+                    color: "#000",
+                    width: 80,
+                    height: 80,
+                    borderRadius: "50%",
+                  }}
+                  onClick={handlePlayClick}
+                >
+                  <PlayCircleFilledWhiteIcon sx={{ fontSize: 48 }} />
+                </IconButton>
+              </>
+            ) : (
+              <iframe
+                width="640px"
+                height="400"
+                src="https://www.youtube.com/embed/1i9OktVsTWo?autoplay=1"
+                title="Meditation Video"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                style={{
+                  borderRadius: "16px",
+                }}
+              ></iframe>
+            )}
           </Paper>
         </Grid>
 
@@ -113,30 +137,52 @@ const AboutSection = () => {
                 backgroundColor: "#e0e0e0",
                 borderRadius: "16px",
                 height: "190px",
-                width: "100%",
+                width: "300px",
                 maxWidth: "700px",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
+                overflow: "hidden",
               }}
             >
-              <PlayCircleFilledWhiteIcon sx={{ fontSize: 48, color: "#fff" }} />
+              {/* Therapy Session Image */}
+              <img
+                src={require("../images/session.jpeg")}
+                alt="Therapy Session"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  borderRadius: "16px",
+                }}
+              />
             </Box>
           </Grid>
           <Grid item xs={12}>
             <Box
               sx={{
                 backgroundColor: "transparent",
-                border: "3.5px solid white",
+                
                 borderRadius: "16px",
-                width: "380px",
-                height: "470%",
+                width: "300px",
+                height: "190px",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
+                overflow: "hidden",
               }}
             >
-              <PlayCircleFilledWhiteIcon sx={{ fontSize: 32, color: "#fff" }} />
+              {/* Friends Outing Image */}
+              <img
+                src={require("../images/group2.jpeg")}
+                alt="Friends Outing"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  borderRadius: "16px",
+                }}
+              />
             </Box>
           </Grid>
         </Grid>

@@ -13,13 +13,18 @@ import FooterComponent from "../components/footer/contact";
 
 const games = [
   {
-    title: "focusing game",
-    image: require("../images/bubble.png"),
+    title: "Find Numbers Game",
+    image: require("../images/findnumbers.png"),
     link: "/bubble",
   },
   {
-    title: "brain game",
-    image: require("../images/brain.png"), 
+    title: "Color Pattern Game",
+    image: require("../images/colorpatterns.png"),
+    link: "/pattern",
+  },
+  {
+    title: "Matching Game",
+    image: require("../images/matching.png"), 
     link: "/card-matching", 
   },
 ];

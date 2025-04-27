@@ -23,7 +23,9 @@ import PartnerPharmaciesPage from "./pages/Pharmasy";
 import Chatbot from "./pages/Chatbot";
 import ChatUIComponent from "./pages/community";
 import Form from "./components/Booking";
-import Contact from "./pages/Contact"
+import Contact from "./pages/Contact";
+import PatternGame from "./components/PatternGame/PatternGame";
+
 const theme = createTheme();
 
 
@@ -41,9 +43,10 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/kids" element={<Children />} />
         <Route path="/games" element={<Game />} />
+        <Route path="/pattern" element={<PatternGame />} />
         <Route path="/bubble" element={<Bubble />} />
-        <Route path="/issues" element={<Issues />} />
-        <Route path="/service/:title" element={<Details />} />
+        <Route path="/issues" element={<Issues  />} />
+        <Route path="/details/:title" element={<Details />} />
         <Route path="/pharmacies" element={<PartnerPharmaciesPage />} />
         <Route path="/card-matching" element={<CardMatchGame />} />
         <Route path="/stories" element={<StoryVideosPage />} />

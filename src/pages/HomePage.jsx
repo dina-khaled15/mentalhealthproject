@@ -22,20 +22,14 @@ import d2 from "../images/d2.png";
 import d1 from "../images/d1.png";
 import d4 from "../images/d4.png";
 import d5 from "../images/d5.png";
-
 import Schedule from "../components/Schedule";
-import Areas from "../components/Areas/Areas";
 export default function HomePage() {
   return (
     <div>
       <Navbar />
       <Hero />
       <AboutSection />
-<<<<<<< HEAD
-      <Areas />
-=======
-      <Areas/>  
->>>>>>> b35c5f5efcaa90700028711c3c8c47c822ed92a3
+     
       <div className="container mb-5">
         <Title />
         <div className="d-flex justify-content-center gap-4 mb-4">

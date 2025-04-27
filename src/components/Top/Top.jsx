@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Button, Typography } from "@mui/material";
 import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
 import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
@@ -9,6 +9,12 @@ import styles from "./Top.module.css";
 import topImage from "../../images/Top.png"; 
 
 const Top = () => {
+  const [showVideo, setShowVideo] = useState(false);
+
+  const handleImageClick = () => {
+    setShowVideo(true);
+  };
+
   return (
     <Box className={styles.topContainer}>
       {/* About Wellthy */}
@@ -39,13 +45,28 @@ const Top = () => {
         </Button>
       </Box>
 
-      {/* ✅ Image Below Component */}
+      {/* ✅ Image or Video */}
       <Box className={styles.imageWrapper}>
-        <img
-          src={topImage}
-          alt="Mental Health Visual"
-          className={styles.image}
-        />
+        {!showVideo ? (
+          <img
+            src={topImage}
+            alt="Mental Health Visual"
+            className={styles.image}
+            onClick={handleImageClick}
+            style={{ cursor: "pointer" }}
+          />
+        ) : (
+          <iframe
+            width="100%"
+            height="400px"
+            src="https://www.youtube.com/embed/pp4_Tb6jPPo?autoplay=1"
+            title="Empowering Mental Wellness"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            style={{ borderRadius: "16px" }}
+          ></iframe>
+        )}
       </Box>
     </Box>
   );
