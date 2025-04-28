@@ -1,35 +1,11 @@
 import React from "react";
 import { Card, CardContent, CardMedia, Typography, Box } from "@mui/material";
+import { Link } from "react-router-dom";
+import doctorData from "../data/doctorData";
 import styles from "./RelatedDoctors.module.css";
 
-
 const RelatedDoctors = () => {
-  const doctors = [
-    {
-      id: 1,
-      name: "Dr. Liam Carter",
-      specialty: "Grief Counseling, Substance Abuse, Addiction Recovery",
-      image: require("../../images/7.png"),
-    },
-    {
-      id: 2,
-      name: "Dr. Sophia Hughes",
-      specialty: "Adolescent Therapy, Bullying, Peer Relationships",
-      image: require("../../images/8.png"),
-    },
-    {
-      id: 3,
-      name: "Dr. Marcus Lee",
-      specialty: "Cognitive Behavioral Therapy (CBT), Process Work, Depression",
-      image: require("../../images/9.png"),
-    },
-    {
-      id: 4,
-      name: "Dr. Isabella Collins",
-      specialty: "Marriage Counseling, Relationship Therapy, Couples Therapy",
-      image: require("../../images/d2.png"),
-    },
-  ];
+  const relatedDoctors = doctorData.slice(0, 4);
 
   return (
     <Box className={styles.container}>
@@ -44,34 +20,38 @@ const RelatedDoctors = () => {
         </Typography>
 
         <Box className={styles.cardContainer}>
-          {doctors.map((doctor) => (
-            <Card
+          {relatedDoctors.map((doctor) => (
+            <Link
               key={doctor.id}
-              className={styles.card}
+              to={`/doctorDetails/${doctor.id}`}
+              className={styles.cardLink}
+              style={{ textDecoration: "none" }}
             >
-              <CardMedia
-                component="img"
-                image={doctor.image}
-                alt={doctor.name}
-                className={styles.cardImage}
-              />
-              <CardContent>
-                <Typography
-                  variant="subtitle1"
-                  component="h3"
-                  gutterBottom
-                  className={styles.doctorName}
-                >
-                  {doctor.name}
-                </Typography>
-                <Typography
-                  variant="body2"
-                  className={styles.doctorSpecialty}
-                >
-                  {doctor.specialty}
-                </Typography>
-              </CardContent>
-            </Card>
+              <Card className={styles.card}>
+                <CardMedia
+                  component="img"
+                  image={doctor.avatar} 
+                  alt={doctor.name}
+                  className={styles.cardImage}
+                />
+                <CardContent>
+                  <Typography
+                    variant="subtitle1"
+                    component="h3"
+                    gutterBottom
+                    className={styles.doctorName}
+                  >
+                    {doctor.name}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    className={styles.doctorSpecialty}
+                  >
+                    {doctor.title} // Changed from doctor.role
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </Box>
       </Box>

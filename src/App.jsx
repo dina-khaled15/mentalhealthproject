@@ -15,7 +15,7 @@ import Bubble from "./pages/Bubble";
 import CardMatchGame from "./pages/Matching";
 import StoryVideosPage from "./pages/StoryVideoPage";
 import VideoPlayerPage from "./pages/VideoPlayerPage";
-import DoctorDetails from "./pages/Doctor";
+import DoctorPage from "./pages/Doctor"; // Changed from DoctorProfile
 import About from "./pages/About";
 import Issues from "./pages/Issues";
 import Details from "./pages/IssuesDetails";
@@ -28,34 +28,35 @@ import PatternGame from "./components/PatternGame/PatternGame";
 
 const theme = createTheme();
 
-
 const socket = io("http://localhost:3000");
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/booking" element={<Form />} />
-        <Route path="/profile" element={<ChatUIComponent socket={socket} />} />
-        <Route path="/" element={<HomePage />} />
-        <Route path="/doctors" element={<DoctorsPage />} />
-        <Route path="/doctorDetails/:doctorId" element={<DoctorDetails />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/kids" element={<Children />} />
-        <Route path="/games" element={<Game />} />
-        <Route path="/pattern" element={<PatternGame />} />
-        <Route path="/bubble" element={<Bubble />} />
-        <Route path="/issues" element={<Issues  />} />
-        <Route path="/details/:title" element={<Details />} />
-        <Route path="/pharmacies" element={<PartnerPharmaciesPage />} />
-        <Route path="/card-matching" element={<CardMatchGame />} />
-        <Route path="/stories" element={<StoryVideosPage />} />
-        <Route path="/story/:videoId" element={<VideoPlayerPage />} />
-        <Route path="/feelings" element={<EmotionAdventure />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-      <Chatbot />
-    </Router>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <Routes>
+          <Route path="/booking" element={<Form />} />
+          <Route path="/profile" element={<ChatUIComponent socket={socket} />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/doctors" element={<DoctorsPage />} />
+          <Route path="/doctorDetails/:doctorId" element={<DoctorPage />} /> {/* Changed to DoctorPage */}
+          <Route path="/about" element={<About />} />
+          <Route path="/kids" element={<Children />} />
+          <Route path="/games" element={<Game />} />
+          <Route path="/pattern" element={<PatternGame />} />
+          <Route path="/bubble" element={<Bubble />} />
+          <Route path="/issues" element={<Issues />} />
+          <Route path="/details/:title" element={<Details />} />
+          <Route path="/pharmacies" element={<PartnerPharmaciesPage />} />
+          <Route path="/card-matching" element={<CardMatchGame />} />
+          <Route path="/stories" element={<StoryVideosPage />} />
+          <Route path="/story/:videoId" element={<VideoPlayerPage />} />
+          <Route path="/feelings" element={<EmotionAdventure />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+        <Chatbot />
+      </Router>
+    </ThemeProvider>
   );
 }
 
