@@ -5,13 +5,14 @@ import { Phone, Email, School, Work, Assignment } from "@mui/icons-material";
 import Navbar from "../components/navmodule/Navbar";
 import Feedback from "../components/feedback/feedback";
 import WeeklySchedule from "../components/SehdualOverVeiw";
-import RelatedDoctors from "../components/Releteddoctor/RelatedDoctors";
+
 import FooterComponent from "../components/footer/contact";
 import doctorData from "../components/data/doctorData";
 import styles from "../components/DoctorPmodule/DoctorProfile.module.css";
 import Navbarstyles from "../components/navmodule/Navbar.module.css";
-import RelatedDoctor from "../components/Releteddoctormodule/RelatedDoctor";
 import DoctorProfile from "../components/DoctorPmodule/DoctorProfile";
+import RelatedDoctors from "../components/Releteddoctor/RelatedDoctors";
+
 
 export default function DoctorPage() {
   const { doctorId } = useParams();
@@ -27,7 +28,7 @@ export default function DoctorPage() {
       <DoctorProfile doctor={doctor} />
       <Feedback />
       <WeeklySchedule />
-      <RelatedDoctors/>
+      <RelatedDoctors />
       <div className={styles.footerWrapper}>
         <FooterComponent variant="dark" />
       </div>

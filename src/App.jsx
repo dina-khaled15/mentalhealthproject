@@ -21,7 +21,7 @@ import Issues from "./pages/Issues";
 import Details from "./pages/IssuesDetails";
 import PartnerPharmaciesPage from "./pages/Pharmasy";
 import Chatbot from "./pages/Chatbot";
-import ChatUIComponent from "./pages/community";
+import ChatUIComponent from "./pages/UserProfile";
 import Form from "./components/Booking";
 import Contact from "./pages/Contact";
 import PatternGame from "./components/PatternGame/PatternGame";
@@ -35,6 +35,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <Router>
         <Routes>
+         
           <Route path="/booking" element={<Form />} />
           <Route path="/profile" element={<ChatUIComponent socket={socket} />} />
           <Route path="/" element={<HomePage />} />
