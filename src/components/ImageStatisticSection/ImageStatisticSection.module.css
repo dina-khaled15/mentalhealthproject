@@ -1,0 +1,51 @@
+.container {
+    margin-top: 45px;
+    margin-left: 160px;
+  }
+  
+  .imageWrapper {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .groupImage {
+    width: 630px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 15px ! important;
+  }
+  
+  .card {
+    height: 220px;
+    width: 250px;
+    background-color: #F2F0E9 !important; 
+    color: black;
+    border-radius: 40px !important;
+  }
+  
+  
+  .cardContent {
+    margin-right: 16px;
+  }
+  
+  .statistic {
+    font-family: "Manrope" !important;
+    font-size: 18.3px ! important;
+    font-weight: 700 ! important;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+  
+  .source {
+    color: inherit;
+    font-family: "Manrope" !important;
+    font-size: 16px ! important;
+    font-weight: 500 ! important;
+  }
+  
+  .aloneImage {
+    width: 300px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 30px !important;
+  }

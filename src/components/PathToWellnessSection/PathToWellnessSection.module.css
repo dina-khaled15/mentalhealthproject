@@ -1,0 +1,90 @@
+.container {
+    margin-left: 130px;
+  }
+  
+  .imageContainer {
+    position: relative;
+    width: 100%;
+    max-width: 570px;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+  
+  .backgroundImage {
+    width: 700px;
+    height: 450px;
+    object-fit: cover;
+  }
+  
+  .button {
+    position: absolute;
+    bottom: 430px;
+    left: 16px;
+    text-transform: none ! important;
+    font-size: 13px ! important;
+    font-family: "Manrope" !important;
+    font-weight: 700 ! important;
+    border: 2px solid #D3D3D3 ! important;
+    border-radius: 40px ! important;
+    background-color: white ! important;
+    color: black ! important;
+  }
+  
+  .imageText {
+    position: absolute;
+    bottom: 60px;
+    left: 24px;
+    color: black;
+    font-size: 32px ! important;
+    font-weight: 700 ! important;
+    font-family: "Manrope" ! important;
+  }
+  
+  .stepsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .stepItem {
+    margin-bottom: 32px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    position: relative;
+  }
+  
+  .stepNumber {
+    width: 60px;
+    height: 60px;
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 22px;
+    position: relative;
+    margin-left: -103px;
+    z-index: 1;
+  }
+  
+  .stepTitle {
+    font-weight: 700 ! important;
+    font-family: "Manrope" ! important;
+    font-size: 25px ! important;
+    margin-left: 32px ! important;
+    margin-bottom: 8px;
+  }
+  
+  .stepDescription {
+    color: #666;
+    font-family: "Manrope" ! important;
+    font-weight: 500 ! important;
+    font-size: 16px ! important; 
+    margin-left: 32px ! important;
+    width: 600px;
+  }
+  

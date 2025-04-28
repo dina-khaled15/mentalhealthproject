@@ -1,8 +1,8 @@
 import React from "react";
-import GetInTouchSection from "../components/getintouch/GetInTouchSection";
+import SessionBookingSection from "../components/SessionBookingSection";
+import PrinciplesSection from "../components/Principles/Principles";
 import ContactForm from "../components/form/Comesoon";
 import LocationSection from "../components/location/LocationSection";
-
 import ScheduleSection from '../components/schedual/ScheduleSection';
 import CTASection from "../components/FindDocter";
 import Navbar from "../components/navmodule/Navbar";
@@ -13,9 +13,9 @@ const Contact = () => {
         <div>
             <Navbar />
             <div style={{ marginTop: "60px" }}>
-                <GetInTouchSection />
-
+            <SessionBookingSection />
                 <ContactForm />
+                <PrinciplesSection />
                 <ScheduleSection />
                 <LocationSection />
                 <CTASection />

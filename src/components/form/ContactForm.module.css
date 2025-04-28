@@ -1,3 +1,5 @@
+/* ContactForm.module.css */
+
 .contact-form-container {
   padding: 40px !important;
   display: flex !important;
@@ -16,16 +18,32 @@
 .left-section {
   flex: 1 !important;
   max-width: 40% !important;
+  margin-left: 130px;
+  margin-top: 4px;
 }
 
 .right-section {
   flex: 1 !important;
   max-width: 55% !important;
+  margin-right: -20px;
+  margin-top: 40px;
 }
 
 .chip {
   width: fit-content !important;
-  margin-bottom: 16px !important;
+  margin-bottom: 20px;
+  border: 1px solid #D3D3D3 !important;
+  padding: 13px 10px !important;
+  border-radius: 50px !important;
+  font-family: "Manrope" !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  color: #222222 !important;
+}
+
+.custom-icon {
+  font-size: 20px !important;
+  color: black !important;
 }
 
 .title-section {
@@ -36,16 +54,17 @@
 }
 
 .title-bold {
-  font-weight: bold !important;
-  margin-right: 8px !important;
-}
-
-.title-black {
+  font-weight: 600 !important;
+  font-family: "Manrope" !important;
+  font-size: 39px !important;
   color: black !important;
 }
 
 .title-gray {
   color: gray !important;
+  font-weight: 600 !important;
+  font-family: "Manrope" !important;
+  font-size: 39px !important;
 }
 
 .contact-info {
@@ -55,14 +74,36 @@
   margin-top: 16px !important;
 }
 
+.contact-info .input-field {
+  width: auto !important;
+  max-width: 250px !important;
+}
+
+.contact-info .phone-field {
+  width: 140px !important;
+  margin-top: 15px;
+}
+
+.contact-info .email-field {
+  width: 600px !important;
+  margin-top: 15px;
+}
+
 .input-field {
-  width: 100% !important;
+  width: 330px !important;
+  max-width: 400px !important;
+}
+
+.message-field {
+  width: 750px !important;
+  max-width: 800px !important;
 }
 
 .input-label {
   margin-bottom: 4px !important;
-  font-weight: 500 !important;
-  color: #555 !important;
+  font-family: "Manrope" !important;
+  font-weight: 600 !important;
+  color: black !important;
   display: block !important;
 }
 
@@ -74,11 +115,23 @@
   background-color: black !important;
   color: white !important;
   text-transform: none !important;
-  padding: 10px 24px !important;
-  font-weight: bold !important;
+  padding: 8px 18px !important;
+  font-weight: 500 !important;
+  font-size: 15px !important;
   margin-top: 16px !important;
 }
 
 .submit-button:hover {
   background-color: #333 !important;
+}
+
+/* OVERRIDES FOR MUI GLOBAL CLASSES */
+:global(.MuiOutlinedInput-root) fieldset {
+  border-color: black !important;
+}
+:global(.MuiOutlinedInput-root:hover) fieldset {
+  border-color: black !important;
+}
+:global(.MuiOutlinedInput-root.Mui-focused) fieldset {
+  border-color: black !important;
 }
