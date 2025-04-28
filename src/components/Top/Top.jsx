@@ -44,8 +44,6 @@ const Top = () => {
           Explore Wellthy
         </Button>
       </Box>
-
-      {/* ✅ Image or Video */}
       <Box className={styles.imageWrapper}>
         {!showVideo ? (
           <img
@@ -59,7 +57,7 @@ const Top = () => {
           <iframe
             width="100%"
             height="400px"
-            src="https://www.youtube.com/embed/pp4_Tb6jPPo?autoplay=1"
+            src="https://www.youtube.com/embed/hPL8zP-VbLw?autoplay=1"
             title="Empowering Mental Wellness"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

@@ -20,7 +20,7 @@
 .card {
   font-family: "Manrope";
   max-width: 292px;
-  height: 590px;
+  height: 590px !important;
   border-radius: 20px !important;
   overflow: hidden !important;
   box-shadow: none;
