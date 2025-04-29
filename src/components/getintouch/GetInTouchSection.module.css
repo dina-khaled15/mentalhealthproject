@@ -1,5 +1,5 @@
 .sectionContainer {
-    background-color: #F9FAFB;
+    background-color: white;
     padding-top: 0;
     padding-bottom: 0;
 }
@@ -26,14 +26,17 @@
 }
 
 .button {
-    border-radius: 20px !important;
+    border-radius: 50px !important;
     margin-bottom: 32px !important;
-    padding-left: 24px !important;
-    padding-right: 24px !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
     text-transform: none !important;
     border-color: #D0D5DD !important;
+    background-color: white !important;
     color: #344054 !important;
-    font-weight: 500 !important;
+    font-weight: 600 !important;
+    font-family: "Manrope" !important;
+    font-size: 15px !important;
     align-self: flex-start !important;
 }
 
@@ -43,9 +46,9 @@
 }
 
 .heading {
-    font-weight: 1000 !important;
+    font-weight: 500 !important;
+    font-family: "Manrope" !important;
     font-size: 55px !important;
-    margin-bottom: 0.5px !important;
     max-width: 2000px !important;
     width: 100% !important;
     color: #474747 !important;
@@ -53,7 +56,7 @@
 }
 
 .heading:last-of-type {
-    margin-bottom: 8px !important;
+    margin-bottom: 18px !important;
 }
 
 .image {

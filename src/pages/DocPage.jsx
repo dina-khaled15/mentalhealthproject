@@ -23,10 +23,10 @@ const DoctorsPage = () => {
             <PsychologyBanner />
           </Box>
         </Box>
-        <Box sx={{  pt: 1, maxWidth: "1200px", mx: "auto",marginLeft: "145px", fontFamily: "Manrope",}}>
+        <Box sx={{  mt: -13, maxWidth: "1200px", mx: "auto",marginLeft: "245px", fontFamily: "Manrope",}}>
           <ExpertTeamSection />
         </Box>
-        <Box sx={{ pt: 4, maxWidth: "1200px", mx: "auto", marginLeft: "250px", fontFamily: "Manrope", }} >
+        <Box sx={{ mt: -8, maxWidth: "1200px", mx: "auto", marginLeft: "250px", fontFamily: "Manrope", }} >
           <TeamGrid />
         </Box>
         <Box

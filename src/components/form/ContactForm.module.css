@@ -90,13 +90,13 @@
 }
 
 .input-field {
-  width: 330px !important;
-  max-width: 400px !important;
+  width: 260px !important;
+  max-width: 300px !important;
 }
 
 .message-field {
-  width: 750px !important;
-  max-width: 800px !important;
+  width: 680px !important;
+  max-width: 700px !important;
 }
 
 .input-label {

@@ -4,39 +4,12 @@ import Image6 from "../images/6.png";
 
 const SessionBookingSection = () => {
   return (
-    <Box
-      sx={{
-        backgroundColor: "#1E1E1E",
-        color: "#fff",
-        p: 4,
-        width: "100%",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}
-    >
-      <Box
-        component="img"
-        src={Image6}
-        alt="Therapy session"
-        sx={{
-          width: "100%",
-          maxWidth: "1100px",
-          height: 350,
-          objectFit: "cover",
-          mb: 4,
-          mx: "auto",
-          borderRadius: "12px",
-        }}
-      />
-      <Box
-        sx={{
-          width: "100%",
-          maxWidth: "1100px",
-          textAlign: "left",
-        }}
-      >
-        <Typography variant="h5" fontWeight="bold" mb={1}>
+    <Box sx={{backgroundColor: "white",color: "black",p: 4,width: "100%",display: "flex",
+      flexDirection: "column",alignItems: "center"}}>
+      <Box component="img" src={Image6} alt="Therapy session"
+        sx={{width: "100%",maxWidth: "1100px",height: 350,objectFit: "cover",mb: 4,mx: "auto",borderRadius: "12px",}}/>
+      <Box sx={{width: "100%",maxWidth: "1100px",textAlign: "left"}}>
+        <Typography variant="h5" fontWeight="bold" mb={1} sx={{fontFamily: "Manrope", fontSize: "20px", fontWeight: 600}}>
           Book a session today and take the first step toward
         </Typography>
         <Typography variant="h5" fontWeight="bold" mb={3}>

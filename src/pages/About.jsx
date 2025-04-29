@@ -1,14 +1,14 @@
 import React from "react";
+import Navbar from "../components/navmodule/Navbar";
 import Top from "../components/Top/Top";
 import Personalized from "../components/Personalized/Personalized";
+import VisionMission from "../components/VissionMission/vission&mission";
 import Milestone from "../components/Milestone";
+// import MentalHealthServices from "../components/servicesss/service";
+import PricingSection from "../components/Pricingmodule/PricingSection";
 import Cta from "../components/Cta";
 import FooterComponent from "../components/footer/contact";
 import { Container, Box } from "@mui/material";
-import Navbar from "../components/navmodule/Navbar";
-import VisionMission from "../components/VissionMission/vission&mission";
-import PricingSection from "../components/Pricingmodule/PricingSection";
-import MentalHealthServices from "../components/servicesss/service";
 function About() {
   return (
     <>
@@ -31,9 +31,9 @@ function About() {
         <Milestone />
       </Box>
 
-      <Box sx={{ pt: 4, maxWidth: "100%", mx: "auto", fontFamily: "Manrope" }}>
+      {/* <Box sx={{ pt: 4, maxWidth: "100%", mx: "auto", fontFamily: "Manrope" }}>
         <MentalHealthServices />
-      </Box>
+      </Box> */}
 
       <Box>
         <PricingSection />

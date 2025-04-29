@@ -28,20 +28,21 @@ const AboutSection = () => {
         <Typography
           variant="h5"
           sx={{
-            fontWeight: "bold",
-            fontSize: { xs: "1.8rem", md: "2.8rem" },
+            fontWeight: 600,
+            fontFamily: "Manrope",
+            fontSize: "45px",
             mb: 0,
             lineHeight: 1.3,
           }}
         >
-          At Wellthyb, we provide personalized mental
+          At Wellthy, we provide personalized mental
         </Typography>
 
         <Typography
           variant="h5"
           sx={{
-            fontWeight: "bold",
-            fontSize: { xs: "1.8rem", md: "2.8rem" },
+            fontWeight: 600, fontFamily: "Manrope",
+            fontSize: "45px",
             mb: 0,
             lineHeight: 1.3,
           }}
@@ -51,9 +52,8 @@ const AboutSection = () => {
 
         <Typography
           variant="h5"
-          sx={{
-            fontWeight: "bold",
-            fontSize: { xs: "1.8rem", md: "2.8rem" },
+          sx={{fontWeight: 600, fontFamily: "Manrope",
+            fontSize: "45px",
             mb: 3,
             lineHeight: 1.3,
           }}
@@ -174,7 +174,7 @@ const AboutSection = () => {
             >
               {/* Friends Outing Image */}
               <img
-                src={require("../images/group2.jpeg")}
+                src={require("../images/group2.png")}
                 alt="Friends Outing"
                 style={{
                   width: "100%",

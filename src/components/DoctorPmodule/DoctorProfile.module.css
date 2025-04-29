@@ -73,32 +73,6 @@
   color: #555;
 }
 
-
-.bookingButton {
-  background-color: #000000; 
-  color: white;
-  border: none;
-  border-radius: 24px;
-  padding: 12px 24px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
-  margin-top: 8px;
-  width: 80%;
-  max-width: 220px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.bookingButton:hover {
-  background-color: #333333; 
-  transform: translateY(-2px);
-}
-
-.bookingButton:active {
-  transform: translateY(0);
-}
-
 .doctorName {
   font-size: 2rem;
   font-weight: bold;
