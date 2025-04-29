@@ -4,21 +4,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import GoogleIcon from "@mui/icons-material/Google";
 import MicrosoftIcon from "@mui/icons-material/Window";
 import PeopleIcon from "@mui/icons-material/People";
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Button,
-  Box,
-  Container,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  TextField,
-  IconButton,
-  Divider,
-} from "@mui/material";
+import {AppBar,Toolbar,Typography,Button,Box,Container,Dialog,DialogTitle,DialogContent,DialogActions,TextField,IconButton,Divider,} from "@mui/material";
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {

@@ -1,17 +1,13 @@
 import React from "react";
 import { Box, Button, Typography, Container } from "@mui/material";
-import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
+import TouchAppIcon from '@mui/icons-material/TouchApp';
 import styles from "./GetInTouchSection.module.css";
 
 const GetInTouchSection = () => {
     return (
         <Box className={styles.sectionContainer}>
             <Container className={styles.container}>
-                <Button
-                    variant="outlined"
-                    startIcon={<EmojiEmotionsIcon />}
-                    className={styles.button}
-                >
+                <Button variant="outlined" startIcon={<TouchAppIcon />} className={styles.button}>
                     Get in Touch
                 </Button>
                 <Box className={styles.textContainer}>

@@ -4,16 +4,12 @@ import { Box, Button, Container, Typography } from '@mui/material';
 const CTASection = () => {
     return (
         <Box
-            sx={{
-                backgroundColor: '#f8fbf9',
-                py: 16,
+            sx={{backgroundColor: 'white',py: 12,
                 px: { xs: 3, md: 12 },
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                // minHeight: '580px',
-            }}
-        >
+            }}>
             <Container maxWidth="lg">
                 <Box
                     sx={{

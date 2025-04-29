@@ -15,9 +15,9 @@ const ExpertTeamSection = () => {
         <Box className={styles.contentContainer}>
           <Box className={styles.titleContainer}>
             <Typography variant="h3" component="h2" className={`${styles.title} ${styles.subtitle}`} >
-              Meet Our Expert
+              Meet Our Expert Team 
               <br />
-              Team of Doctors
+              of Doctors
             </Typography>
           </Box>
 

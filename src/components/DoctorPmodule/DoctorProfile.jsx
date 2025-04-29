@@ -56,10 +56,6 @@ export default function DoctorProfile({ doctor }) {
           ))}
         </div>
         
-       
-        <button className={styles.bookingButton} onClick={handleBookingClick} >
-          Book an Appointment
-        </button>
       </div>
 
    

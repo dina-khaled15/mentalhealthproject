@@ -18,10 +18,6 @@ const TeamGrid = () => {
 
   return (
     <Box className={styles.container}>
-      <Typography variant="h4" className={styles.title}>
-        Meet Our Expert Team of Doctors
-      </Typography>
-
       <Grid container spacing={4} justifyContent="center">
         {doctorData.map((doctor) => (
           <Grid item xs={12} sm={6} md={4} lg={3} key={doctor.id}>

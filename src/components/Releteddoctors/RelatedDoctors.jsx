@@ -47,7 +47,7 @@ const RelatedDoctors = () => {
                     variant="body2"
                     className={styles.doctorSpecialty}
                   >
-                    {doctor.title} // Changed from doctor.role
+                    {doctor.title}
                   </Typography>
                 </CardContent>
               </Card>

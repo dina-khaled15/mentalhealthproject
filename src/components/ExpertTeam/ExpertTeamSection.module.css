@@ -14,13 +14,14 @@
 }
 
 .button {
-  border-radius: 5px;
-  text-transform: none;
-  font-weight: 500;
-  font-family: "Manrope";
+  border-radius: 50px ! important;
+  text-transform: none ! important;
+  font-weight: 500 ! important;
+  font-size: 16px ! important;
+  font-family: "Manrope" ! important;
   border-color: #ddd !important;
-  color: #333 !important;
-}
+  color: #222222 !important;
+}    
 
 .buttonHover:hover {
   border-color: #aaa;
@@ -40,25 +41,26 @@
 }
 
 .title {
-  font-weight: 700;
-  font-family: "Manrope";
+  font-weight: 600 ! important;
+  width: 600px;
+  font-family: "Manrope" ! important;
   color: #000;
-  font-size: 2rem;
+  font-size: 55px !important;
   line-height: 1.3;
+  margin-top: -10px;
 }
 
-.subtitle {
-  font-size: 2.8rem;
-}
 
 .textContainer {
   flex: 1.5;
 }
 
 .text {
-  font-family: "Manrope";
+  font-family: "Manrope" ! important;
+  font-weight: 400 ! important;
   color: #888;
-  font-size: 1.2rem !important;
-  line-height: 1.8;
-  max-width: 600px;
+  font-size: 20px !important;
+  line-height: 1.5;
+  width: 520px;
+  
 }
