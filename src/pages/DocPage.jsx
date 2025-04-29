@@ -8,27 +8,23 @@ import FooterComponent from "../components/footer/contact";
 
 const DoctorsPage = () => {
   return (
-    <Box sx={{ margin: "auto", width: "100%", overflow: "hidden" }}>
+    <Box>
       <Box sx={{ bgcolor: "#fff" }}>
         <Navbar />
-        <Box sx={{ pt: 18, pb: 4 }}>
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              px: 2,
-              fontFamily: "Manrope",
-            }}
-          >
+        <Box>
+          <Box>
             <PsychologyBanner />
           </Box>
         </Box>
-        <Box sx={{  mt: -13, maxWidth: "1200px", mx: "auto",marginLeft: "245px", fontFamily: "Manrope",}}>
+        <Box sx={{fontFamily: "Manrope",}}>
           <ExpertTeamSection />
         </Box>
-        <Box sx={{ mt: -8, maxWidth: "1200px", mx: "auto", marginLeft: "250px", fontFamily: "Manrope", }} >
+        <div className="container">
           <TeamGrid />
-        </Box>
+
+        </div>
+        
+        
         <Box
           sx={{ pt: 4, maxWidth: "100%", mx: "auto", fontFamily: "Manrope" }}
         >

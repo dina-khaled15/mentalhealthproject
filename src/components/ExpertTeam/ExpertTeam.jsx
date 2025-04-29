@@ -6,7 +6,7 @@ import styles from "./ExpertTeamSection.module.css";
 const ExpertTeamSection = () => {
   return (
     <Box className={styles.container} >
-      <Container maxWidth="lg" sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+      <Container maxWidth="lg" sx={{ display: "flex", flexDirection: "column"}}>
         <Box className={styles.buttonContainer}>
           <Button variant="outlined" startIcon={<LocalHospitalIcon />} className={`${styles.button} ${styles.buttonHover}`} >
             Our Experts
@@ -16,7 +16,6 @@ const ExpertTeamSection = () => {
           <Box className={styles.titleContainer}>
             <Typography variant="h3" component="h2" className={`${styles.title} ${styles.subtitle}`} >
               Meet Our Expert Team 
-              <br />
               of Doctors
             </Typography>
           </Box>

@@ -31,7 +31,6 @@ const Top = () => {
       {/* Address */}
       <Typography variant="h3" className={styles.heading}>
         Empowering your mental wellness
-        <br />
         with compassion and care
       </Typography>
 
@@ -44,6 +43,7 @@ const Top = () => {
           Explore Wellthy
         </Button>
       </Box>
+      
       <Box className={styles.imageWrapper}>
         {!showVideo ? (
           <img

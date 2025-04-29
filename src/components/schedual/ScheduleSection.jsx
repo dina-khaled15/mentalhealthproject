@@ -14,12 +14,13 @@ import styles from '../schedual/ScheduleSectionn.module.css';
 
 const ScheduleSection = () => {
     return (
-        <Box className={styles.sectionContainer}>
-            <Box className={styles.centerText}>
-                <Button variant="outlined" className={styles.bookButton}>
+        <Box className={styles.sectionContainer} >
+            <Box className={styles.centerText} >
+                <Button variant="outlined" className={styles.bookButton} >
                     Book Session
                 </Button>
-                <Typography variant="h4" className={styles.heading}>
+                <Typography variant="h4" className={styles.heading} sx={{ fontSize: "48px" }}>
+                
                     Weekly Schedule Overview
                 </Typography>
             </Box>

@@ -13,7 +13,7 @@ function About() {
   return (
     <>
       <Navbar />
-      <Container maxWidth="md">
+      
         <Box my={4}>
           <Top />
         </Box>
@@ -21,7 +21,7 @@ function About() {
         <Box my={4}>
           <Personalized />
         </Box>
-      </Container>
+        
 
       <Box>
         <VisionMission />

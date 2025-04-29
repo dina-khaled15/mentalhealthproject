@@ -12,65 +12,42 @@ const AboutSection = () => {
   return (
     <Box
       sx={{
-        backgroundColor: "#222222",
+        // backgroundColor: "#222222",
         color: "#fff",
-        px: { xs: 3, md: 10 },
-        py: { xs: 6, md: 10 },
+        paddingTop: "100px",
+        paddingBottom: "100px",
         overflow: "hidden",
       }}
     >
       <Box
-        sx={{
-          position: "relative",
-          left: "8rem",
-        }}
+        
       >
         <Typography
           variant="h5"
           sx={{
-            fontWeight: 600,
+            fontWeight: 500,
             fontFamily: "Manrope",
-            fontSize: "45px",
-            mb: 0,
-            lineHeight: 1.3,
+            fontSize: "60px",
+            lineHeight: 1.2,
+            width: "1200px",
+            marginBottom: "40px",
           }}
         >
           At Wellthy, we provide personalized mental
-        </Typography>
-
-        <Typography
-          variant="h5"
-          sx={{
-            fontWeight: 600, fontFamily: "Manrope",
-            fontSize: "45px",
-            mb: 0,
-            lineHeight: 1.3,
-          }}
-        >
           health counseling with licensed therapists
-        </Typography>
-
-        <Typography
-          variant="h5"
-          sx={{fontWeight: 600, fontFamily: "Manrope",
-            fontSize: "45px",
-            mb: 3,
-            lineHeight: 1.3,
-          }}
-        >
           focused on your unique needs.
         </Typography>
       </Box>
 
-      <Grid container spacing={3}>
-        <Grid item xs={12} md={8}>
+      <Grid container>
+        <Grid>
           <Paper
             elevation={3}
             sx={{
               position: "relative",
-              left: "10rem",
               overflow: "hidden",
               borderRadius: "16px",
+              width: "800px",
             }}
           >
             {!showVideo ? (
@@ -81,7 +58,7 @@ const AboutSection = () => {
                   style={{
                     width: "100%",
                     maxHeight: "400px",
-                    objectFit: "contain",
+                    objectFit: "cover",
                     borderRadius: "16px",
                   }}
                 />
@@ -120,15 +97,13 @@ const AboutSection = () => {
         </Grid>
 
         <Grid
-          item
-          xs={12}
-          md={12}
+          
           container
           spacing={3}
           direction="column"
           sx={{
-            position: "relative",
-            left: "11rem",
+            
+          marginLeft: "20px",
           }}
         >
           <Grid item xs={12}>
@@ -137,12 +112,13 @@ const AboutSection = () => {
                 backgroundColor: "#e0e0e0",
                 borderRadius: "16px",
                 height: "190px",
-                width: "300px",
+                
                 maxWidth: "700px",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 overflow: "hidden",
+                width: "460px",
               }}
             >
               {/* Therapy Session Image */}
@@ -162,7 +138,6 @@ const AboutSection = () => {
             <Box
               sx={{
                 backgroundColor: "transparent",
-                
                 borderRadius: "16px",
                 width: "300px",
                 height: "190px",
@@ -170,6 +145,7 @@ const AboutSection = () => {
                 alignItems: "center",
                 justifyContent: "center",
                 overflow: "hidden",
+                width: "466px",
               }}
             >
               {/* Friends Outing Image */}

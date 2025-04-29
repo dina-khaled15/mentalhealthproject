@@ -28,9 +28,15 @@ export default function HomePage() {
     <div>
       <Navbar />
       <Hero />
+      <div style={{ backgroundColor: "#222222" }}>
+      <div className="container" style={{ backgroundColor: "#222222" }}>
       <AboutSection />
+      </div>
+      </div>
+      
     
       <div className="container mb-5">
+        
         <Title />
         <div className="d-flex justify-content-center gap-4 mb-4">
           <Card name="Individual Therapy" des="Personalized one-on-one sessions with licensed therapists to address your unique mental health needs." img={dd1} />
