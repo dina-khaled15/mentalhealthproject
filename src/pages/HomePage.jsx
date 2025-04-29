@@ -1,14 +1,14 @@
 import React from "react";
 import { Box } from "@mui/material";
-import DocCard from "../components/DocCard";
 import Navbar from "../components/navmodule/Navbar";
-import AboutSection from "../components/AboutSection";
-import Card from "../components/Card";
-import Title from "../components/Title";
 import Hero from "../components/Hero";
+import AboutSection from "../components/AboutSection";
+import DocCard from "../components/DocCard";
 import Benefit from "../components/Benefit/Benefit";
-import FooterComponent from "../components/footer/contact";
+import Title from "../components/Title";
+import Card from "../components/Card";
 import Titlee from "../components/Titlee";
+import FooterComponent from "../components/footer/contact";
 import dd1 from "../images/dd1.png";
 import dd2 from "../images/dd2.png";
 import dd3 from "../images/dd3.png";
@@ -29,7 +29,7 @@ export default function HomePage() {
       <Navbar />
       <Hero />
       <AboutSection />
-     
+    
       <div className="container mb-5">
         <Title />
         <div className="d-flex justify-content-center gap-4 mb-4">
