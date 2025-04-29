@@ -2,7 +2,7 @@
 import React from "react";
 import { TextField, Button, Typography, Box, Chip } from "@mui/material";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
-import styles from "./ContactForm.module.css";
+import styles from "./Form.module.css";
 
 const textFieldSx = {
   '& .MuiOutlinedInput-root': {

@@ -1,7 +1,9 @@
 import React from 'react';
 import { Box, Button, Container, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const CTASection = () => {
+    const navigate = useNavigate();
     return (
         <Box
             sx={{backgroundColor: 'white',py: 12,
@@ -35,7 +37,8 @@ const CTASection = () => {
                                 backgroundColor: '#333',
                             },
                         }}
-                    >
+                        onClick={() => navigate('/doctors')}
+                        >
                         Find Doctor
                     </Button>
                 </Box>

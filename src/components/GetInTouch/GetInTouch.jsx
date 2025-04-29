@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Button, Typography, Container } from "@mui/material";
 import TouchAppIcon from '@mui/icons-material/TouchApp';
-import styles from "./GetInTouchSection.module.css";
+import styles from "./GetInTouch.module.css";
 
 const GetInTouchSection = () => {
     return (

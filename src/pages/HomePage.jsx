@@ -6,7 +6,7 @@ import AboutSection from "../components/AboutSection";
 import DocCard from "../components/DocCard";
 import Benefit from "../components/Benefit/Benefit";
 import Title from "../components/Title";
-import Card from "../components/Card";
+import Card from "../components/Card/Card";
 import Titlee from "../components/Titlee";
 import FooterComponent from "../components/footer/contact";
 import dd1 from "../images/dd1.png";

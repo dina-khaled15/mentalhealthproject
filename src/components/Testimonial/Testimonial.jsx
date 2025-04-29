@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Typography, Button, Avatar } from "@mui/material";
-import styles from "./TestimonialSection.module.css";
+import styles from "./Testimonial.module.css";
 
 const TestimonialSection = ({ issueData, image }) => (
   <Box className={styles.container}>

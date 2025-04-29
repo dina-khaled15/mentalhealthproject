@@ -3,13 +3,13 @@ import { useParams } from "react-router-dom";
 import { Box, Typography, Avatar, Button, Chip, Stack, Divider } from "@mui/material";
 import { Phone, Email, School, Work, Assignment } from "@mui/icons-material";
 import Navbar from "../components/navmodule/Navbar";
-import Feedback from "../components/feedback/feedback";
+import Feedback from "../components/FeedBack/FeedBack";
 import WeeklySchedule from "../components/SehdualOverVeiw";
 import FooterComponent from "../components/footer/contact";
 import doctorData from "../components/data/doctorData";
-import styles from "../components/DoctorPmodule/DoctorProfile.module.css";
+import styles from "../components/DoctorProfile/DoctorProfile.module.css";
 import Navbarstyles from "../components/navmodule/Navbar.module.css";
-import DoctorProfile from "../components/DoctorPmodule/DoctorProfile";
+import DoctorProfile from "../components/DoctorProfile/DoctorProfile";
 import RelatedDoctors from "../components/Releteddoctors/RelatedDoctors";
 
 

@@ -2,7 +2,7 @@ import React from "react";
 import {Box,Typography,Avatar,Card,CardContent,IconButton,} from "@mui/material";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 
-import styles from "./Feedback.module.css";
+import styles from "./FeedBack.module.css";
 const feedback = [
   {
     name: "Alex Martin",

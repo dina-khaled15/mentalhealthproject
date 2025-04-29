@@ -2,7 +2,7 @@ import React from "react";
 import {Box,Typography,Button,Container,Paper,List,ListItem,ListItemIcon,ListItemText,Chip,} from "@mui/material";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import PriceChangeIcon from "@mui/icons-material/PriceChange";
-import styles from "./PricingSection.module.css";
+import styles from "./Pricing.module.css";
 
 const PricingSection = () => {
   const plans = [

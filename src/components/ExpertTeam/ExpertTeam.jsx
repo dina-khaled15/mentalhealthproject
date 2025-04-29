@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Typography, Button, Container } from "@mui/material";
 import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
-import styles from "./ExpertTeamSection.module.css";
+import styles from "./ExpertTeam.module.css";
 
 const ExpertTeamSection = () => {
   return (

@@ -10,7 +10,7 @@ import {
     Box,
 } from '@mui/material';
 import scheduleData from '../data/mockScheduleData';
-import styles from '../schedual/ScheduleSectionn.module.css';
+import styles from './Schedule.module.css';
 
 const ScheduleSection = () => {
     return (

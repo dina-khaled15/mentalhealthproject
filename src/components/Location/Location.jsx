@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Typography, Card, CardMedia, CardContent, Container, Chip } from '@mui/material';
 import RoomIcon from '@mui/icons-material/Room';
-import styles from '../location/LocationSection.module.css';
+import styles from './Location.module.css';
 
 const locations = [
     {
