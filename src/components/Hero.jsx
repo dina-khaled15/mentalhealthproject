@@ -20,7 +20,7 @@ export default function HeroSection() {
   return (
     <Box sx={{ px: 10, py: 10, backgroundColor: "#FCFCFB"}}>
       
-      <Grid container spacing={46} alignItems="center" direction={"row"}>
+      <Grid container spacing={16} alignItems="center" direction={"row"}>
         <Grid>
           <Typography variant="h1" fontWeight="bold" gutterBottom sx={{ fontSize: "80px", width: "700px", fontFamily: "Manrope"}}>
             Find Peace of Mind with Wellthy
