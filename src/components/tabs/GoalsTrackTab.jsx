@@ -57,7 +57,7 @@ export default function GoalsTrackTab() {
       </Typography>
 
       {/* Input */}
-      <Box sx={{ display: 'flex', gap: 2, mb: 4 }}>
+      <Box sx={{ display: 'flex', gap: 2, mb: 4 ,color:'black'}}>
         <TextField
           fullWidth
           label="Enter your goal..."
@@ -65,7 +65,7 @@ export default function GoalsTrackTab() {
           onChange={(e) => setNewGoal(e.target.value)}
           variant="outlined"
         />
-        <Button variant="contained" onClick={addGoal}>
+        <Button variant="contained" onClick={addGoal} color='black'>
           Add
         </Button>
       </Box>
