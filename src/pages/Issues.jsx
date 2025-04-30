@@ -45,7 +45,7 @@ const Issues = () => {
 
         <Grid container spacing={2}>
           {servicesData.map((service, idx) => (
-        <Grid item xs={12} sm={6} md={4} key={idx} sx={{ mt: 4 ,ml: 9}}>
+        <Grid item xs={12} sm={6} md={4} key={idx} sx={{ mt: 4 ,ml: 10}}>
               <Link
                 to={`/details/${encodeURIComponent(service.title)}`}
                 style={{ textDecoration: "none" }}>
