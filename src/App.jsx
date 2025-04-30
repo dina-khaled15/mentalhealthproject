@@ -24,6 +24,7 @@ import Chatbot from "./pages/Chatbot";
 import ChatUIComponent from "./pages/community";
 import Form from "./components/Booking";
 import Contact from "./pages/Contact"
+
 const theme = createTheme();
 
 
@@ -50,6 +51,7 @@ function App() {
         <Route path="/story/:videoId" element={<VideoPlayerPage />} />
         <Route path="/feelings" element={<EmotionAdventure />} />
         <Route path="/contact" element={<Contact />} />
+        {/* <Route path="/admin/dashboard" element={<Dashboard />} /> أضفت الـ Route بتاع الـ Dashboard */}
       </Routes>
       <Chatbot />
     </Router>
