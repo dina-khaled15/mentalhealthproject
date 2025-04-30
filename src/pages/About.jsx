@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../components/navmodule/Navbar";
+import Navbar from "../components/Navbar/Navbar";
 import Top from "../components/Top/Top";
 import Personalized from "../components/Personalized/Personalized";
 import VisionMission from "../components/VissionMission/VissionMission";

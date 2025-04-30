@@ -1,6 +1,6 @@
 import React from "react";
 import { Box } from "@mui/material";
-import Navbar from "../components/navmodule/Navbar";
+import Navbar from "../components/Navbar/Navbar";
 import Hero from "../components/Hero";
 import AboutSection from "../components/AboutSection";
 import DocCard from "../components/DocCard";

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "../components/navmodule/Navbar";
+import Navbar from "../components/Navbar/Navbar";
 import FooterComponent from "../components/footer/contact";
 import "../App.css";
 import { Link } from "react-router-dom";
@@ -45,7 +45,7 @@ const Issues = () => {
 
         <Grid container spacing={2}>
           {servicesData.map((service, idx) => (
-            <Grid item xs={12} sm={4} md={4} key={idx} sx={{ mt: 4 }} margin={"auto"}>
+        <Grid item xs={12} sm={6} md={4} key={idx} sx={{ mt: 4 ,ml: 9}}>
               <Link
                 to={`/details/${encodeURIComponent(service.title)}`}
                 style={{ textDecoration: "none" }}>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Box } from "@mui/material";
-import Navbar from "../components/navmodule/Navbar";
+import Navbar from "../components/Navbar/Navbar";
 import FooterComponent from "../components/footer/contact";
 import HeaderSection from "../components/HeaderSection/HeaderSection";
 import ImageStatisticSection from "../components/ImageStatisticSection/ImageStatisticSection";

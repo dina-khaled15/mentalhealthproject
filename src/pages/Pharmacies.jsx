@@ -7,7 +7,7 @@ import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import DoneOutlineIcon from '@mui/icons-material/DoneOutline';
 import Rating from '@mui/material/Rating';
-import Navbar from '../components/navmodule/Navbar';
+import Navbar from '../components/Navbar/Navbar';
 import FooterComponent from "../components/footer/contact";
 
 

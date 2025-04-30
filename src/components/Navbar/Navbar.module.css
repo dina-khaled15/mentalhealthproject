@@ -116,7 +116,7 @@
 }
 
 .dialogTitle {
-  font-family: 'Manrope', sans-serif !important;
+  font-family: 'Manrope'!important;
   font-weight: 700 !important;
   padding: 0 !important;
 }
@@ -140,7 +140,7 @@
 
 .forgotPassword {
   color: #1976d2 !important;
-  font-family: 'Manrope', sans-serif !important;
+  font-family: 'Manrope'!important;
   cursor: pointer !important;
   margin-bottom: 16px !important;
   text-align: right !important;
@@ -156,7 +156,7 @@
   background-color: black !important;
   color: white !important;
   border-radius: 4px !important;
-  font-family: 'Manrope', sans-serif !important;
+  font-family: 'Manrope'!important;
   font-weight: 600 !important;
   text-transform: none !important;
   width: 100% !important;
@@ -179,7 +179,7 @@
 
 .dividerText {
   color: #6C6C6C !important;
-  font-family: 'Manrope', sans-serif !important;
+  font-family: 'Manrope' !important;
 }
 
 .socialButtonsContainer {
@@ -192,7 +192,7 @@
 .socialButton {
   border-radius: 4px !important;
   text-transform: none !important;
-  font-family: 'Manrope', sans-serif !important;
+  font-family: 'Manrope'!important;
   font-weight: 500 !important;
   border-color: #DDDDDD !important;
   color: #333333 !important;
@@ -211,7 +211,7 @@
 }
 
 .switchAuthText {
-  font-family: 'Manrope', sans-serif !important;
+  font-family: 'Manrope'!important;
 }
 
 .switchAuthLink {

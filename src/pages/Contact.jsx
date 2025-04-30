@@ -5,7 +5,7 @@ import ContactForm from "../components/Form/Form";
 import LocationSection from "../components/Location/Location";
 // import ScheduleSection from '../components/schedual/ScheduleSection';
 import CTASection from "../components/FindDocter";
-import Navbar from "../components/navmodule/Navbar";
+import Navbar from "../components/Navbar/Navbar";
 import FooterComponent from "../components/footer/contact";
 import { Box } from "@mui/material";
 const Contact = () => {
