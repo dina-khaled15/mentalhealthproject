@@ -27,10 +27,11 @@ import socialImg1 from "../../images/Social1.png";
 import socialImg2 from "../../images/Social2.png";
 
 
-const Issues = {
+const IssuesData= {
   "Depression": {
     title: "Depression",
     mainImage: depressionImg,
+    category: "Personal Issues",
     aloneImage: depressionImg1,
     groupImg: depressionImg2,
     description: "Depression affects millions worldwide, often silently. Our depression treatment program provides compassionate care and evidence-based approaches to help you find your way back to joy and fulfillment.",
@@ -58,6 +59,7 @@ const Issues = {
   "Anxiety": {
     title: "Anxiety",
     mainImage: anxietyImg,
+    category: "Personal Issues",
     aloneImage: anxietyImg1,
     groupImg: anxietyImg2,
     description: "Anxiety can feel overwhelming, but it doesn't have to control your life. Our anxiety treatment program helps you understand, manage, and eventually overcome the constant worry and fear.",
@@ -84,6 +86,7 @@ const Issues = {
   "Grief & Loss": {
     title: "Grief & Loss",
     mainImage: griefImg,
+    category: "Personal Issues",
     aloneImage: griefImg2,
     groupImg: griefImg1 , 
     description: "Grief is a natural response to loss, but navigating it alone can be overwhelming. Our grief therapy provides a compassionate space to process your emotions and find a path forward while honoring your loss.",
@@ -110,6 +113,7 @@ const Issues = {
   "Stress Management": {
     title: "Stress Management",
     mainImage: stressImg,
+    category: "Work Issues",
     aloneImage: stressImg1,
     groupImg: stressImg2,
     description: "Stress is an inescapable part of modern life, but its impact can be managed. Our stress management program offers personalized solutions to help you regain control of your work and your life.",
@@ -137,6 +141,7 @@ const Issues = {
   "Self-Confidence": {
     title: "Self-Confidence",
     mainImage: selfconfidenceImg,
+    category: "Personal Issues",
     aloneImage: selfconfidenceImg1,
     groupImg: selfconfidenceImg2,
     description: "Self-confidence is the belief in your abilities and judgment. It's the foundation of mental health and personal development. Our self-confidence therapy helps you build a positive self-image and the courage to take on life's challenges.",
@@ -163,6 +168,7 @@ const Issues = {
   "Relationship Issues": {
     title: "Relationship Issues",
     mainImage: relationshipImg,
+    category: "Couple Issue",
     aloneImage: relationshipImg1,
     groupImg: relationshipImg2,
     description: "Relationship issues can stem from communication breakdowns, trust issues, or differing expectations. Our therapy helps couples and individuals navigate these challenges, enhancing understanding and fostering healthy connections.",
@@ -189,6 +195,7 @@ const Issues = {
   "Eating Disorder": {
     title: "Eating Disorder",
     mainImage: eatingImg,
+    category: "Medical Issues",
     aloneImage: eatingImg1,
     groupImg: eatingImg2,
     description: "Eating disorders are complex conditions that affect mental health and physical well-being. Our therapy offers a compassionate, evidence-based approach to address the underlying causes of disordered eating behaviors.",
@@ -215,6 +222,7 @@ const Issues = {
   "Substance Abuse": {
     title: "Substance Abuse",
     mainImage: substanceImg,
+    category: "Medical Issues",
     aloneImage: substanceImg1,
     groupImg: substanceImg2,
     description: "Substance abuse can have a significant impact on every aspect of life. Our therapy helps individuals break free from addiction, heal emotionally, and rebuild a healthy lifestyle.",
@@ -241,6 +249,7 @@ const Issues = {
   "Social Anxiety": {
     title: "Social Anxiety",
     mainImage: socialImg,
+    category: "Social Issues",
     aloneImage: socialImg1,
     groupImg: socialImg2,
     description: "Social anxiety affects your ability to interact confidently in social situations. Our therapy provides tools to manage anxiety, increase self-esteem, and empower you to engage more comfortably in social environments.",
@@ -266,4 +275,4 @@ const Issues = {
   }
 };
 
-export default Issues;
+export default IssuesData;

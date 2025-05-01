@@ -9,7 +9,7 @@ import WhatIsItSection from "../components/WhatIsItSection/WhatIsItSection";
 import BenefitsSection from "../components/BenefitsSection/BenefitsSection";
 import PathToWellnessSection from "../components/PathToWellnessSection/PathToWellnessSection";
 import TestimonialSection from "../components/Testimonial/Testimonial";
-import Issues from "../components/data/Issues";
+import IssuesData from "../components/data/Issues";
 import black from "../images/black.png";
 import image from "../images/1.png";
 
@@ -21,12 +21,12 @@ const Details = () => {
   useEffect(() => {
     const decodedTitle = decodeURIComponent(title);
     setIssueData(
-      Issues[decodedTitle] || Issues["Stress Management"]
+      IssuesData[decodedTitle] || IssuesData["Stress Management"]
     );
   }, [title]);
 
-  const handleResourcesToggle = () => {
-    setResourcesOpen(!resourcesOpen);
+  const handleResourcesToggle = (event, newValue) => {
+    setResourcesOpen(newValue === 0);  // Toggle resources section
   };
 
   if (!issueData) {
@@ -47,9 +47,10 @@ const Details = () => {
         <BenefitsSection issueData={issueData} />
         <PathToWellnessSection black={black} />
         <TestimonialSection issueData={issueData} image={image} />
+
         <Box sx={{ mt: 4 }}>
           <Tabs
-            value={resourcesOpen ? 0 : false}
+            value={resourcesOpen ? 0 : -1}  // Use -1 for unselected
             onChange={handleResourcesToggle}
             sx={{
               "& .MuiTab-root": { color: "#000000" },
@@ -57,14 +58,15 @@ const Details = () => {
               "& .MuiTabs-indicator": { backgroundColor: "#000000" },
             }}
           >
-            <Tab label="recommendation" />
+            <Tab label="Recommendation" />
           </Tabs>
+
           <Collapse in={resourcesOpen}>
             <Box sx={{ p: 2, bgcolor: "grey.100", borderRadius: 2, mt: 1 }}>
               <Typography variant="h6" gutterBottom>
                 YouTube Videos
               </Typography>
-              {issueData.resources?.youtube.map((link, index) => (
+              {issueData.resources?.youtube?.map((link, index) => (
                 <Link
                   key={`youtube-${index}`}
                   href={link.url}
@@ -81,10 +83,11 @@ const Details = () => {
                   {link.title}
                 </Link>
               ))}
+
               <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
                 Articles
               </Typography>
-              {issueData.resources?.articles.map((link, index) => (
+              {issueData.resources?.articles?.map((link, index) => (
                 <Link
                   key={`article-${index}`}
                   href={link.url}

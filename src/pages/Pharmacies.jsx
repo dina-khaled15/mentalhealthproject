@@ -9,30 +9,7 @@ import DoneOutlineIcon from '@mui/icons-material/DoneOutline';
 import Rating from '@mui/material/Rating';
 import Navbar from '../components/Navbar/Navbar';
 import FooterComponent from "../components/footer/contact";
-
-
-const pharmacies = [
-    {
-      name: 'HealthFirst Pharmacy – New York',
-      hours: 'Open: 9am – 9pm',
-      service: 'Free home delivery',
-      rating: 4.5
-    },
-    {
-      name: 'MedCare Hub – Los Angeles',
-      hours: 'Open: 8am – 8pm',
-      service: 'Same-day pickup',
-      rating: 4
-    },
-    {
-      name: 'Wellness Pharmacy – Chicago',
-      hours: 'Open: 10am – 6pm',
-      service: 'Consultation available',
-      rating: 5
-    }
-  ];
-
-const cities = ['New York', 'Los Angeles', 'Chicago'];
+import {pharmacies,cities} from '../components/data/pharmacyData';
 
 const PartnerPharmaciesPage = () => {
     
