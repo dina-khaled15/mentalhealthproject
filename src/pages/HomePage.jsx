@@ -9,6 +9,7 @@ import Title from "../components/Title";
 import Card from "../components/Card/Card";
 import Titlee from "../components/Titlee";
 import FooterComponent from "../components/footer/contact";
+import FAQHeader from "../components/QA/QA";
 import dd1 from "../images/dd1.png";
 import dd2 from "../images/dd2.png";
 import dd3 from "../images/dd3.png";
@@ -54,6 +55,7 @@ export default function HomePage() {
           <Card name="Crisis Intervention" des="Immediate and effective support for mental health emergencies ensures safety and quick access to care." img={dd9} />
         </div>
         <Benefit />
+        <FAQHeader />
         <Titlee />
         <div className='row gap-4 justify-content-center mb-5'>
           <DocCard name="Dr. Sarah Thompson" des="Anxiety, Depression, Grief Support, CBT Specialist" img={d2} />

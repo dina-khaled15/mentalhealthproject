@@ -10,24 +10,7 @@ import {
 import { Link } from "react-router-dom"; 
 import Navbar from "../components/Navbar/Navbar";
 import FooterComponent from "../components/footer/contact";
-
-const games = [
-  {
-    title: "Find Numbers Game",
-    image: require("../images/findnumbers.png"),
-    link: "/bubble",
-  },
-  {
-    title: "Color Pattern Game",
-    image: require("../images/colorpatterns.png"),
-    link: "/pattern",
-  },
-  {
-    title: "Matching Game",
-    image: require("../images/matching.png"), 
-    link: "/card-matching", 
-  },
-];
+import games from "../components/data/game";
 
 const GameCard = ({ title, image, link }) => {
   return (

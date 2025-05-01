@@ -13,7 +13,7 @@ import Navbar from "../components/Navbar/Navbar";
 import FooterComponent from "../components/footer/contact";
 import "../App.css";
 import storyVideos from "../components/data/video";
-const StoryVideoCard = ({ title, image, description, videoId }) => {
+const StoryVideoCard = ({ title, image, description1, videoId }) => {
   return (
     <Link to={`/story/${videoId}`} style={{ textDecoration: "none" }}>
       <Card
@@ -45,7 +45,7 @@ const StoryVideoCard = ({ title, image, description, videoId }) => {
             {title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {description}
+            {description1}
           </Typography>
         </CardContent>
       </Card>

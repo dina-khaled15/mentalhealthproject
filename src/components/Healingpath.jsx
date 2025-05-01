@@ -1,19 +1,8 @@
 import React from "react";
 import {Box,Typography,Button,Card,CardContent,Grid} from "@mui/material";
-
+import steps from "../components/data/Healingpath";
 const HealingPath = () => {
-  const steps = [
-    { number: 1 },
-    {
-      number: 2,
-      title: "Personalized Treatment Plan",
-      desc: "A tailored plan is developed, focusing on strategies and therapies best suited to your individual needs.",
-    },
-    { number: 3 },
-    { number: 4 },
-    { number: 5 },
-  ];
-
+  
   return (
     <Box sx={{ bgcolor: "#1E1E1E", color: "white", minHeight: "100vh", p: 4 }}>
       <Box textAlign="center" mb={4}>

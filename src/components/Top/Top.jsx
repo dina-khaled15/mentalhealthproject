@@ -17,7 +17,6 @@ const Top = () => {
 
   return (
     <Box className={styles.topContainer}>
-      {/* About Wellthy */}
       <Box className={styles.aboutButtonBox}>
         <Button
           variant="outlined"
@@ -27,14 +26,10 @@ const Top = () => {
           About Wellthy
         </Button>
       </Box>
-
-      {/* Address */}
       <Typography variant="h3" className={styles.heading}>
         Empowering your mental wellness
         with compassion and care
       </Typography>
-
-      {/* Explore Wellthy */}
       <Box className={styles.exploreBox}>
         <Button
           endIcon={<ArrowCircleDownIcon />}

@@ -23,7 +23,6 @@ export default function UserProfile() {
         return null;
     }
   };
-
   const tabs = [
     { key: 'info', label: 'User Info', icon: <FaUser /> },
     { key: 'community', label: 'Community', icon: <FaUsers /> },

@@ -2,29 +2,11 @@ import React, { useState } from "react";
 import { Box, Typography } from "@mui/material";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import styles from "./QA.module.css";
-
-const faqs = [
-  {
-    question: "Q: What services does Wellthy offer?",
-    answer:
-      "We offer a wide range of mental health services including individual therapy, group therapy, online counseling, and more.",
-  },
-  {
-    question: "Q: How can I book a session?",
-    answer: "You can book a session through our website or mobile app.",
-  },
-  {
-    question: "Q: Do you accept insurance?",
-    answer:
-      "Yes, we accept various insurance plans. Please check our website for more details.",
-  },
-  {
-    question: "Q: Are online sessions available?",
-    answer: "Yes, we provide online counseling sessions for your convenience.",
-  },
-];
+import "../../App.css";
+import faqs from "../../components/data/QA.js";
 const FAQHeader = () => {
   return (
+    
     <Box
       className={`${styles.faqHeader}`}
       sx={{
@@ -62,8 +44,7 @@ const QA = () => {
 
   return (
     <Box
-      className={`${styles.pageContainer} ${styles.darkBackground}`}
-      sx={{ width: "100vw" }}
+      className={`${styles.pageContainer} ${styles.darkBackground}`} sx={{ width: "100%" }}
     >
       {/* FAQ Content */}
       <Box className={styles.faqContainer} sx={{ backgroundColor: "#111" }}>

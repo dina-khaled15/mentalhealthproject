@@ -20,11 +20,12 @@ import About from "./pages/About";
 import Issues from "./pages/Issues";
 import Details from "./pages/IssuesDetails";
 import PartnerPharmaciesPage from "./pages/Pharmacies";
-import Chatbot from "./pages/Chatbot";
+
 import ChatUIComponent from "./pages/UserProfile";
 import Form from "./components/Booking";
 import Contact from "./pages/Contact";
 import PatternGame from "./components/PatternGame/PatternGame";
+import Chatbot from "./components/chatbot/Chatbot";
 
 const theme = createTheme();
 
@@ -45,7 +46,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Router>
-        <ScrollToTopOnRouteChange /> {/* هنا ضفنا المكون علشان تبدأ الصفحة من فوق */}
+        <ScrollToTopOnRouteChange /> 
         <Routes>
           <Route path="/booking" element={<Form />} />
           <Route path="/profile" element={<ChatUIComponent socket={socket} />} />

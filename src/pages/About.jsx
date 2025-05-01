@@ -31,10 +31,6 @@ function About() {
         <Milestone />
       </Box>
 
-      {/* <Box sx={{ pt: 4, maxWidth: "100%", mx: "auto", fontFamily: "Manrope" }}>
-        <MentalHealthServices />
-      </Box> */}
-
       <Box>
         <PricingSection />
       </Box>
