@@ -55,8 +55,8 @@ const Top = () => {
           />
         ) : (
           <iframe
-            width="100%"
-            height="400px"
+            width="80%"
+            height="700px"
             src="https://www.youtube.com/embed/hPL8zP-VbLw?autoplay=1"
             title="Empowering Mental Wellness"
             frameBorder="0"

@@ -35,7 +35,7 @@ const MentalHealthServices = () => {
 
         <Grid container spacing={4} alignItems="center">
           <Grid>
-            <Typography variant="h4" fontWeight="bold" sx={{ fontFamily: "Manrope" }}>
+            <Typography variant="h3" fontWeight="bold" sx={{ fontFamily: "Manrope", width: "500px" }}>
             Meet our Doctors, You’re in Good Hands
             </Typography>
           </Grid>
