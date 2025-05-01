@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Box } from "@mui/material";
+import { Box, Tab, Tabs, Typography, Link, Collapse } from "@mui/material";
 import Navbar from "../components/Navbar/Navbar";
 import FooterComponent from "../components/footer/contact";
 import HeaderSection from "../components/HeaderSection/HeaderSection";
@@ -16,6 +16,7 @@ import image from "../images/1.png";
 const Details = () => {
   const { title } = useParams();
   const [issueData, setIssueData] = useState(null);
+  const [resourcesOpen, setResourcesOpen] = useState(false);
 
   useEffect(() => {
     const decodedTitle = decodeURIComponent(title);
@@ -23,6 +24,10 @@ const Details = () => {
       Issues[decodedTitle] || Issues["Stress Management"]
     );
   }, [title]);
+
+  const handleResourcesToggle = () => {
+    setResourcesOpen(!resourcesOpen);
+  };
 
   if (!issueData) {
     return <div>Loading...</div>;
@@ -42,6 +47,63 @@ const Details = () => {
         <BenefitsSection issueData={issueData} />
         <PathToWellnessSection black={black} />
         <TestimonialSection issueData={issueData} image={image} />
+        <Box sx={{ mt: 4 }}>
+          <Tabs
+            value={resourcesOpen ? 0 : false}
+            onChange={handleResourcesToggle}
+            sx={{
+              "& .MuiTab-root": { color: "#000000" },
+              "& .MuiTab-root.Mui-selected": { color: "#000000" },
+              "& .MuiTabs-indicator": { backgroundColor: "#000000" },
+            }}
+          >
+            <Tab label="recommendation" />
+          </Tabs>
+          <Collapse in={resourcesOpen}>
+            <Box sx={{ p: 2, bgcolor: "grey.100", borderRadius: 2, mt: 1 }}>
+              <Typography variant="h6" gutterBottom>
+                YouTube Videos
+              </Typography>
+              {issueData.resources?.youtube.map((link, index) => (
+                <Link
+                  key={`youtube-${index}`}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener"
+                  display="block"
+                  sx={{
+                    mb: 1,
+                    color: "#000000",
+                    textDecoration: "none",
+                    "&:hover": { color: "#000000", textDecoration: "underline" },
+                  }}
+                >
+                  {link.title}
+                </Link>
+              ))}
+              <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
+                Articles
+              </Typography>
+              {issueData.resources?.articles.map((link, index) => (
+                <Link
+                  key={`article-${index}`}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener"
+                  display="block"
+                  sx={{
+                    mb: 1,
+                    color: "#000000",
+                    textDecoration: "none",
+                    "&:hover": { color: "#000000", textDecoration: "underline" },
+                  }}
+                >
+                  {link.title}
+                </Link>
+              ))}
+            </Box>
+          </Collapse>
+        </Box>
       </Box>
       <Box sx={{ pt: 4, maxWidth: "100%", mx: "auto", fontFamily: "Manrope" }}>
         <FooterComponent variant="dark" />

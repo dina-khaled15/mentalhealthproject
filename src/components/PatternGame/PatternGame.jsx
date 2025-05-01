@@ -1,28 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Button, Box, Typography } from "@mui/material";
+import { Box, Typography, Button } from "@mui/material";
 import styles from "./PatternGame.module.css";
-
-const colors = [
-  "#FF6B6B", 
-  "#198C4E", 
-  "#3E32FA", 
-  "#FFD93D", 
-  "#4D1DA3", 
-  "#47EAEB", 
-  "#FF8C00", 
-  "#8B4513", 
-  "#32CD32", 
-  "#C71585", 
-  "#1B166E", 
-  "#9992D1", 
-];
-const levels = [
-  { level: 1, items: 2 },
-  { level: 2, items: 3 },
-  { level: 3, items: 4 },
-  { level: 4, items: 5 },
-  { level: 5, items: 6 },
-];
+import { colors, levels } from "../data/Pattern";
+import PatternDisplay from "../PatternComponents/PatternDisplay";
+import ColorOptions from "../PatternComponents/ColorOptions";
+import UserPatternDisplay from "../PatternComponents/UserPatternDisplay";
 
 const PatternGame = () => {
   const [currentLevel, setCurrentLevel] = useState(1);
@@ -51,7 +33,7 @@ const PatternGame = () => {
 
     setTimeout(() => {
       setShowPattern(false);
-    }, 5000);
+    }, 3000);
   };
 
   const handleSelect = (color) => {
@@ -69,7 +51,7 @@ const PatternGame = () => {
       setMessage("رائع! انتقل للمستوى التالي ✨");
       setTimeout(() => {
         if (currentLevel < 5) {
-          setCurrentLevel(currentLevel + 1);
+          setCurrentLevel((prev) => prev + 1);
         } else {
           setMessage("أحسنت! أنهيت جميع المستويات 🏆");
         }
@@ -97,124 +79,46 @@ const PatternGame = () => {
         justifyContent: "center",
         alignItems: "center",
         height: "100vh",
-        background: `linear-gradient(to bottom, #F2F0E9, #F8F7F4)`,
+        background: "linear-gradient(to bottom, #F2F0E9, #F8F7F4)",
       }}
     >
       <Box
         className={styles.gameContainer}
         sx={{
-          backgroundColor: "#F8F7F4", // اللون الفاتح
+          backgroundColor: "#F8F7F4",
           padding: "30px",
           borderRadius: "10px",
           boxShadow: "0 10px 15px rgba(0, 0, 0, 0.1)",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
           width: "80%",
-          maxWidth: "600px", // تحديد أقصى عرض
+          maxWidth: "600px",
+          textAlign: "center",
         }}
       >
-        <Typography
-          variant="h4"
-          className={styles.title}
-          sx={{
-            textAlign: "center",
-            mb: 4,
-            fontSize: "36px",
-            fontWeight: "bold",
-            color: "#000",
-          }}
-        >
+        <Typography variant="h4" sx={{ fontWeight: "bold", mb: 3 }}>
           تتبع النمط - المستوى {currentLevel}
         </Typography>
 
-        {/* عرض الألوان المختارة */}
-        <Box sx={{ display: "flex", justifyContent: "center", gap: "20px", marginBottom: "20px" }}>
-          {userPattern.map((color, idx) => (
-            <Box
-              key={idx}
-              sx={{
-                backgroundColor: color,
-                width: "80px",
-                height: "80px",
-                borderRadius: "8px",
-              }}
-            ></Box>
-          ))}
-        </Box>
-
-        {/* عرض النمط الذي سيختاره اللاعب */}
-        <Box className={styles.patternArea} sx={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "20px" }}>
-          {showPattern
-            ? pattern.map((color, idx) => (
-                <Box
-                  key={idx}
-                  className={styles.patternItem}
-                  sx={{
-                    backgroundColor: color,
-                    width: "100px",
-                    height: "100px",
-                    margin: "10px",
-                    borderRadius: "8px",
-                  }}
-                ></Box>
-              ))
-            : userPattern.length < pattern.length && (
-                <Typography sx={{ fontSize: "18px", color: "#000" }}>
-                  الآن حان دورك لإعادة النمط!
-                </Typography>
-              )}
-        </Box>
+        <UserPatternDisplay userPattern={userPattern} />
+        <PatternDisplay pattern={pattern} showPattern={showPattern} userPattern={userPattern} />
 
         {!showPattern && (
-          <Box className={styles.optionsArea} sx={{ display: "flex", justifyContent: "center", gap: "20px" }}>
-            {colors.map((color, i) => (
-              <Button
-                key={i}
-                className={styles.optionButton}
-                onClick={() => handleSelect(color)}
-                sx={{
-                  backgroundColor: color,
-                  width: "100px",
-                  height: "100px",
-                  borderRadius: "8px",
-                }}
-              />
-            ))}
-          </Box>
+          <ColorOptions colors={colors} onSelect={handleSelect} />
         )}
 
         {message && (
-          <Typography
-            sx={{
-              fontSize: "20px",
-              marginTop: "20px",
-              color: "#000",
-              textAlign: "center",
-            }}
-          >
+          <Typography sx={{ fontSize: "20px", marginTop: "20px", color: "#000" }}>
             {message}
           </Typography>
         )}
 
         {currentLevel === 5 && message === "أحسنت! أنهيت جميع المستويات 🏆" && (
-          <Box sx={{ marginTop: "20px" }}>
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={resetGame}
-              sx={{
-                padding: "10px 20px",
-                fontSize: "16px",
-                backgroundColor: "#4CAF50",
-                "&:hover": {
-                  backgroundColor: "#45a049",
-                },
-              }}
-            >
-              إعادة اللعب
-            </Button>
-          </Box>
+          <Button
+            variant="contained"
+            onClick={resetGame}
+            sx={{ marginTop: "20px", backgroundColor: "#4CAF50", "&:hover": { backgroundColor: "#45a049" } }}
+          >
+            إعادة اللعب
+          </Button>
         )}
       </Box>
     </Box>
@@ -222,4 +126,3 @@ const PatternGame = () => {
 };
 
 export default PatternGame;
-
