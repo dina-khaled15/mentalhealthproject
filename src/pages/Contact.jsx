@@ -12,11 +12,17 @@ const Contact = () => {
     return (
         <div>
             <Navbar />
-            <div style={{ marginTop: "60px" }}>
-            <GetInTouchSection />
+
+            <div style={{ marginTop: "60px" }} >
+                
+                <GetInTouchSection /> 
+                
+
+                <div className="container" >
                 <ContactForm />
+                </div>  
                 <PrinciplesSection />
-                {/* <ScheduleSection /> */}
+        
                 <LocationSection />
                 <CTASection />
                 <Box sx={{ mt: 4, width: "100%" }}>
