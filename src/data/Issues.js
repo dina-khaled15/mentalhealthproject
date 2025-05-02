@@ -110,6 +110,33 @@ const IssuesData= {
       ]
     }
   },
+  "Self-Confidence": {
+    title: "Self-Confidence",
+    mainImage: selfconfidenceImg,
+    category: "Personal Issues",
+    aloneImage: selfconfidenceImg1,
+    groupImg: selfconfidenceImg2,
+    description: "Self-confidence is the belief in your abilities and judgment. It's the foundation of mental health and personal development. Our self-confidence therapy helps you build a positive self-image and the courage to take on life's challenges.",
+    whatIsIt: "Our self-confidence therapy focuses on enhancing your self-worth, breaking through negative self-beliefs, and developing the tools to assert yourself in both personal and professional life. We create a supportive space to empower you to thrive.",
+    benefits: [
+      { title: "Self-Awareness", description: "Gain a clear understanding of your strengths and areas for growth, enabling you to embrace your true self.", icon: "FaceIcon" },
+      { title: "Positive Thinking", description: "Learn techniques to overcome self-doubt and foster a mindset that supports success and personal growth.", icon: "StarOutlineIcon" },
+      { title: "Resilience Building", description: "Develop strategies to overcome setbacks and remain positive in challenging situations.", icon: "BuildIcon" },
+      { title: "Assertiveness Training", description: "Learn to express yourself with confidence, set boundaries, and communicate your needs effectively.", icon: "SendIcon" }
+    ],
+    testimonial: { text: "Working on my self-confidence transformed my life. I no longer feel small or incapable – I can face challenges with optimism and conviction.", name: "John D.", role: "Client From USA" },
+    statistic: "Over 60% of adults report low self-confidence impacting their daily lives.",
+    resources: {
+      youtube: [
+        { title: "Building Self-Confidence", url: "https://www.youtube.com/watch?v=_RtUt0RsGMc" },
+        { title: "Confidence Boosters", url: "https://www.youtube.com/watch?v=l_NYrWqUR40" }
+      ],
+      articles: [
+        { title: "Self-Confidence Tips", url: "https://www.verywellmind.com/how-to-boost-your-self-confidence-4163098" },
+        { title: "Boosting Self-Esteem", url: "https://thrivingcenterofpsych.com/blog/boosting-self-esteem-building-confidence-and-self-worth/" }
+      ]
+    }
+  },
   "Stress Management": {
     title: "Stress Management",
     mainImage: stressImg,
@@ -135,33 +162,6 @@ const IssuesData= {
       articles: [
         { title: "Stress Relief Strategies", url: "https://www.helpguide.org/mental-health/stress/stress-management" },
         { title: "Managing Work Stress", url: "https://www.apa.org/topics/healthy-workplaces/work-stress" }
-      ]
-    }
-  },
-  "Self-Confidence": {
-    title: "Self-Confidence",
-    mainImage: selfconfidenceImg,
-    category: "Personal Issues",
-    aloneImage: selfconfidenceImg1,
-    groupImg: selfconfidenceImg2,
-    description: "Self-confidence is the belief in your abilities and judgment. It's the foundation of mental health and personal development. Our self-confidence therapy helps you build a positive self-image and the courage to take on life's challenges.",
-    whatIsIt: "Our self-confidence therapy focuses on enhancing your self-worth, breaking through negative self-beliefs, and developing the tools to assert yourself in both personal and professional life. We create a supportive space to empower you to thrive.",
-    benefits: [
-      { title: "Self-Awareness", description: "Gain a clear understanding of your strengths and areas for growth, enabling you to embrace your true self.", icon: "FaceIcon" },
-      { title: "Positive Thinking", description: "Learn techniques to overcome self-doubt and foster a mindset that supports success and personal growth.", icon: "StarOutlineIcon" },
-      { title: "Resilience Building", description: "Develop strategies to overcome setbacks and remain positive in challenging situations.", icon: "BuildIcon" },
-      { title: "Assertiveness Training", description: "Learn to express yourself with confidence, set boundaries, and communicate your needs effectively.", icon: "SendIcon" }
-    ],
-    testimonial: { text: "Working on my self-confidence transformed my life. I no longer feel small or incapable – I can face challenges with optimism and conviction.", name: "John D.", role: "Client From USA" },
-    statistic: "Over 60% of adults report low self-confidence impacting their daily lives.",
-    resources: {
-      youtube: [
-        { title: "Building Self-Confidence", url: "https://www.youtube.com/watch?v=_RtUt0RsGMc" },
-        { title: "Confidence Boosters", url: "https://www.youtube.com/watch?v=l_NYrWqUR40" }
-      ],
-      articles: [
-        { title: "Self-Confidence Tips", url: "https://www.verywellmind.com/how-to-boost-your-self-confidence-4163098" },
-        { title: "Boosting Self-Esteem", url: "https://thrivingcenterofpsych.com/blog/boosting-self-esteem-building-confidence-and-self-worth/" }
       ]
     }
   },
