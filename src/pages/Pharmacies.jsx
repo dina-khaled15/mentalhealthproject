@@ -9,7 +9,7 @@ import DoneOutlineIcon from '@mui/icons-material/DoneOutline';
 import Rating from '@mui/material/Rating';
 import Navbar from '../components/Navbar/Navbar';
 import FooterComponent from "../components/footer/contact";
-import {pharmacies,cities} from '../components/data/pharmacyData';
+import {pharmacies,cities} from '../data/pharmacyData';
 
 const PartnerPharmaciesPage = () => {
     

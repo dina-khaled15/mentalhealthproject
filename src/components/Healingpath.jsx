@@ -1,6 +1,6 @@
 import React from "react";
 import {Box,Typography,Button,Card,CardContent,Grid} from "@mui/material";
-import steps from "../components/data/Healingpath";
+import steps from "../data/Healingpath";
 const HealingPath = () => {
   
   return (

@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Typography, Button } from "@mui/material";
 import RouteIcon from "@mui/icons-material/Route";
-import milestones from "../components/data/milestone";
+import milestones from "../data/milestone";
 
 
 export default function Timeline() {

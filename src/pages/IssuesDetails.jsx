@@ -9,7 +9,7 @@ import WhatIsItSection from "../components/WhatIsItSection/WhatIsItSection";
 import BenefitsSection from "../components/BenefitsSection/BenefitsSection";
 import PathToWellnessSection from "../components/PathToWellnessSection/PathToWellnessSection";
 import TestimonialSection from "../components/Testimonial/Testimonial";
-import IssuesData from "../components/data/Issues";
+import IssuesData from "../data/Issues";
 import black from "../images/black.png";
 import image from "../images/1.png";
 

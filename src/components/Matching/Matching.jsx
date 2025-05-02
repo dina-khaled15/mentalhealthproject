@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Box, Paper, Typography, Grid } from "@mui/material";
-import { cardImages } from "../data/cardImages"; // استيراد بيانات الصور
+import { cardImages } from "../../data/cardImages"; // استيراد بيانات الصور
 import CardComponent from './Card'; // استيراد مكون البطاقة
 import GameControls from './GameControls'; // استيراد مكون التحكم باللعبة
 import GameOver from './GameOver'; // استيراد مكون انتهاء اللعبة

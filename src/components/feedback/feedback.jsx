@@ -3,7 +3,7 @@ import {Box,Typography,Avatar,Card,CardContent,IconButton,} from "@mui/material"
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 
 import styles from "./FeedBack.module.css";
-import feedback from "../../components/data/feedback";
+import feedback from "../../data/feedback";
 
 const Feedback = () => {
   return (

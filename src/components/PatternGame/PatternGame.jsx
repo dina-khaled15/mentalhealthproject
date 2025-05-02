@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Box, Typography, Button } from "@mui/material";
 import styles from "./PatternGame.module.css";
-import { colors, levels } from "../data/Pattern";
+import { colors, levels } from "../../data/Pattern";
 import PatternDisplay from "../PatternComponents/PatternDisplay";
 import ColorOptions from "../PatternComponents/ColorOptions";
 import UserPatternDisplay from "../PatternComponents/UserPatternDisplay";

@@ -3,7 +3,7 @@ import {Box,Typography,Button,Container,Paper,List,ListItem,ListItemIcon,ListIte
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import PriceChangeIcon from "@mui/icons-material/PriceChange";
 import styles from "./Pricing.module.css";
-import  plans from "../data/plans";
+import  plans from "../../data/plans";
 const PricingSection = () => {
  
   return (

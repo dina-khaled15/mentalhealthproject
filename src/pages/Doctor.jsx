@@ -6,7 +6,7 @@ import Navbar from "../components/Navbar/Navbar";
 import Feedback from "../components/FeedBack/FeedBack";
 import WeeklySchedule from "../components/SehdualOverVeiw";
 import FooterComponent from "../components/footer/contact";
-import doctorData from "../components/data/doctorData";
+import doctorData from "../data/doctorData";
 import styles from "../components/DoctorProfile/DoctorProfile.module.css";
 import Navbarstyles from "../components/Navbar/Navbar.module.css";
 import DoctorProfile from "../components/DoctorProfile/DoctorProfile";

@@ -1,9 +1,9 @@
-import d1 from "../../images/d2.png";
-import d2 from "../../images/d1.png";
-import d3 from "../../images/d4.png";
-import d4 from "../../images/d6.png";
-import d5 from "../../images/d5.png";
-import d6 from "../../images/d7.png";
+import d1 from "../images/d2.png";
+import d2 from "../images/d1.png";
+import d3 from "../images/d4.png";
+import d4 from "../images/d6.png";
+import d5 from "../images/d5.png";
+import d6 from "../images/d7.png";
 
 const doctorData = [
   {

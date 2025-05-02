@@ -4,7 +4,7 @@ import FooterComponent from "../components/footer/contact";
 import "../App.css";
 import { Link } from "react-router-dom";
 import { Box, Grid, Typography, Card, CardMedia, CssBaseline } from "@mui/material";
-import IssuesData from "../components/data/Issues";
+import IssuesData from "../data/Issues";
 
 const Issues = () => {
   const [servicesData, setServicesData] = useState([]);

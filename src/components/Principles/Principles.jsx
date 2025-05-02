@@ -8,7 +8,7 @@ import LightbulbIcon from "@mui/icons-material/Lightbulb";
 import DiamondIcon from "@mui/icons-material/Diamond";
 
 import styles from "./Principles.module.css";
-import values from "../../components/data/principlesData";
+import values from "../../data/principlesData";
 
 // Map string names to icon components
 const iconMap = {

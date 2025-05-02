@@ -11,7 +11,7 @@ import {
   Stack,
 } from "@mui/material";
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
-import schedule from "../components/data/sechedule";
+import schedule from "../data/sechedule";
 
 export default function Schedule() {
   const chunkSlots = (slots, chunkSize) => {

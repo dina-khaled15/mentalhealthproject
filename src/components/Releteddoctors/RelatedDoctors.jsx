@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardContent, CardMedia, Typography, Box } from "@mui/material";
 import { Link } from "react-router-dom";
-import doctorData from "../data/doctorData";
+import doctorData from "../../data/doctorData";
 import styles from "./RelatedDoctors.module.css";
 
 const RelatedDoctors = () => {

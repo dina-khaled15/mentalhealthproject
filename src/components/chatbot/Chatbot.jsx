@@ -5,7 +5,7 @@ import ChatHeader from "../chatbot/ChatHeader";
 import ChatMessages from "../chatbot/ChatMessages";
 import ChatInput from "../chatbot/ChatInput";
 import ChatOptions from "../chatbot/ChatOptions";
-import { colors, stages } from "../data/chatbotData";
+import { colors, stages } from "../../data/chatbotData";
 
 export default function Chatbot() {
   const [open, setOpen] = useState(false);

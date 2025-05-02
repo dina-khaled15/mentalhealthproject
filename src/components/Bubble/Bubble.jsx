@@ -3,7 +3,7 @@ import { Container, Box } from "@mui/material";
 import ScoreBoard from "./ScoreBoard";
 import BubbleGrid from "./BubbleGrid";
 import GameOver from "./GameOver";
-import generateBubbles from "../data/generateBubbles";
+import generateBubbles from "../../data/generateBubbles";
 
 const BubbleGame = () => {
   const [timer, setTimer] = useState(30);

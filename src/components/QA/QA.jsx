@@ -3,7 +3,7 @@ import { Box, Typography } from "@mui/material";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import styles from "./QA.module.css";
 import "../../App.css";
-import faqs from "../../components/data/QA.js";
+import faqs from "../../data/QA.js";
 const FAQHeader = () => {
   return (
     

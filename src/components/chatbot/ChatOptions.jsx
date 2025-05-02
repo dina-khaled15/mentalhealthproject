@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Button } from "@mui/material";
-import { colors } from "../data/chatbotData"; // Named import
+import { colors } from "../../data/chatbotData"; // Named import
 
 export default function ChatOptions({ options, onOptionClick }) {
   return (

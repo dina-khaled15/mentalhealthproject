@@ -5,7 +5,7 @@ import EmotionSelection from "../components/emotions/EmotionSelection";
 import EmotionDescription from "../components/emotions/EmotionDescription";
 import EmotionQuiz from "../components/emotions/EmotionQuiz";
 import EmotionScore from "../components/emotions/EmotionScore";
-import emotions from "../components/data/emotions";
+import emotions from "../data/emotions";
 
 const EmotionAdventure = () => {
   const [currentEmotion, setCurrentEmotion] = useState(null);

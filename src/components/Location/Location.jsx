@@ -3,7 +3,7 @@ import { Box, Typography, Card, CardMedia, CardContent, Container, Chip } from '
 import RoomIcon from '@mui/icons-material/Room';
 import styles from './Location.module.css';
 
-import  locations  from '../../components/data/locations';
+import  locations  from '../../data/locations';
 
 const LocationSection = () => {
     return (
