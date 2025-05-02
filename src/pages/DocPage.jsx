@@ -9,7 +9,7 @@ import FooterComponent from "../components/footer/contact";
 const DoctorsPage = () => {
   return (
     <Box>
-      <Box sx={{ bgcolor: "#fff" }}>
+      <Box >
         <Navbar />
         <Box>
           <Box>

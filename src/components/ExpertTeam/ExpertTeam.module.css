@@ -6,6 +6,12 @@
   display: flex !important;
   
 }
+#dark.container{
+  background-color: black;
+}
+
+
+
 .buttonContainer {
   
   align-items: start !important;

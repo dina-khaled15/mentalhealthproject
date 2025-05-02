@@ -109,7 +109,7 @@ const AboutSection = () => {
           <Grid item xs={12}>
             <Box
               sx={{
-                backgroundColor: "#e0e0e0",
+               
                 borderRadius: "16px",
                 height: "190px",
                 

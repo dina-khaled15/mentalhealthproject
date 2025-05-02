@@ -28,7 +28,7 @@ export default function HomePage() {
     <div>
       <Navbar />
       <Hero />
-      <div style={{ backgroundColor: "#222222" }}>
+      <div >
       <div className="container" style={{ backgroundColor: "#222222" }}>
       <AboutSection />
       </div>

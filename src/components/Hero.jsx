@@ -18,7 +18,7 @@ function CustomPlayArrowIcon() {
 
 export default function HeroSection() {
   return (
-    <Box sx={{ px: 10, py: 10, backgroundColor: "#FCFCFB"}}>
+    <Box sx={{ px: 10, py: 10}}>
       
       <Grid container spacing={46} alignItems="center" direction={"row"}>
         <Grid>
