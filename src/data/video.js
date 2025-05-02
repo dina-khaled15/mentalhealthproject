@@ -1,7 +1,7 @@
 const storyVideos = {
     video1: {
       title: "Story Video 1",
-      image: "/assests/video.jpg",
+      image: "/assests/video1.jpg",
       description1: `This video tells the story of Yazan and his friend Anas, who has ADHD...`,
       description2: `This video tells the story of Yazan and his friend Anas, 
       who has ADHD. Yazan learns that Anas struggles to focus and gets easily excited,
@@ -12,13 +12,13 @@ const storyVideos = {
     },
     video2: {
       title: "Story Video 2",
-      image: "/assests/video.jpg",
+      image: "/assests/video2.jpg",
       description1: "This is the description for story video 2...",
       videoUrl: "/assests/video2.mp4", 
     },
     video3: {
       title: "Story Video 3",
-      image: "/assests/video.jpg",
+      image: "/assests/video3.jpg",
       description1: "This is the description for story video 3...",
       videoUrl: "/assests/video3.mp4", 
     },

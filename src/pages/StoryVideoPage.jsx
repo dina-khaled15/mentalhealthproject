@@ -12,13 +12,14 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
 import FooterComponent from "../components/footer/contact";
 import "../App.css";
-import storyVideos from "../components/data/video";
+import storyVideos from "../data/video";
 const StoryVideoCard = ({ title, image, description1, videoId }) => {
   return (
     <Link to={`/story/${videoId}`} style={{ textDecoration: "none" }}>
       <Card
         sx={{
-          maxWidth: 450,
+          maxWidth: 300,
+          maxHeight:300,
           boxShadow: 3,
           borderRadius: 4,
           mx: "auto",

@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { Box, Container, Typography, Paper, Grid } from "@mui/material";
 import Navbar from "../components/Navbar/Navbar";
 import FooterComponent from "../components/footer/contact";
-import storyVideos from "../components/data/video";
+import storyVideos from "../data/video";
 
 const VideoPlayerPage = () => {
   const { videoId } = useParams(); 

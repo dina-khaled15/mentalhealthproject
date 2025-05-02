@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Box, Typography, TextField, Button, Grid, Paper, FormControl, InputLabel, Select, MenuItem } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import { doctors, services, sessions } from "../components/data/Booking";
+import { doctors, services, sessions } from "../data/Booking";
 
 
 const Form = () => {
