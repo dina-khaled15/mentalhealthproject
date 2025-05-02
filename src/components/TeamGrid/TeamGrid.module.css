@@ -1,0 +1,119 @@
+.container {
+  padding: 2rem;
+  width: 100% !important;
+}
+
+.cardContainer {
+  padding: 16px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 292px;
+  height: 590px !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  box-shadow: none;
+  padding: 0;
+  margin: auto;
+}
+
+.imageContainer {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  height: 400px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .imageContainer {
+  transform: scale(1.07); 
+}
+
+.card:active .imageContainer {
+  transform: scale(1); 
+}
+
+.cardMedia {
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .cardMedia {
+  opacity: 0.7;  
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.imageContainer:hover .overlay {
+  opacity: 1; 
+}
+
+.cardContent {
+  padding: 16px 0;
+}
+
+.doctorName {
+  font-family: "Manrope" !important;
+  font-weight: 600 !important;
+  font-size: 22px !important;
+  text-align: center;
+  margin-top: 1rem;
+  color: black;
+}
+
+.doctorTitle {
+  font-family: "Manrope" !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  color: black;
+  margin-top: 2rem;
+  text-align: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  background-color: black !important;
+  color: white;
+  border-radius: 10px !important;
+  width: 200px;
+  height: 46px;
+  font-family: "Manrope" !important;
+  font-weight: 500 !important;
+  font-size: 15px !important;
+  margin-bottom: 25px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.button:hover {
+  background-color: #333333 !important;
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+.button:active {
+  transform: translateY(0);
+}

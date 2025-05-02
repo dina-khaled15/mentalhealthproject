@@ -1,5 +1,3 @@
-
-
 const scheduleData = [
     {
         day: 'Monday',

@@ -100,8 +100,8 @@ export default function Schedule() {
           Book Session
         </Button>
 
-        <Typography variant="h5" fontWeight="600" fontSize={"30px"} fontFamily={"Manrope"}>
-          Reserve Your Spot!<br />
+        <Typography variant="h5" fontWeight="600" fontSize={"30px"} fontFamily={"Manrope"} >
+          Reserve Your Spot!
           We’ve Got a Schedule for You
         </Typography>
 
@@ -111,6 +111,7 @@ export default function Schedule() {
       </Stack>
 
       {/* Right Section with schedule cards */}
+      
       <Box sx={{width: 1900, p: 2,overflowY: "auto",display: "flex",alignItems: "flex-end",flexDirection: "column",gap: 2,bgcolor: "#fff"}}>
         {scheduleData.map((day, index) => (
           <Card key={index} variant="outlined"

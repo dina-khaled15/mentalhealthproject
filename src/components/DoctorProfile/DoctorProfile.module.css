@@ -1,0 +1,140 @@
+.profileContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 48px;
+  padding: 40px 80px;
+}
+
+.leftSection {
+  flex: 1;
+  text-align: center;
+}
+
+.rightSection {
+  flex: 2;
+}
+
+.avatarContainer {
+  margin-bottom: 24px;
+}
+
+.avatar {
+  width: 250px;
+  height: 300px;
+  object-fit: cover;
+  margin: 0 auto;
+  display: block;
+  border-radius: 125px / 150px; 
+}
+
+.sectionTitle {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.expertiseContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.chip {
+  padding: 6px 12px;
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  display: inline-block;
+  font-size: 0.85rem;
+}
+
+.contactContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.socialMediaContainer {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.socialIcon {
+  color: #555;
+}
+
+.doctorName {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.doctorTitle {
+  font-size: 1.25rem;
+  color: gray;
+  margin-bottom: 20px;
+  font-weight: normal;
+}
+
+.doctorDescription {
+  margin-bottom: 24px;
+  line-height: 1.8;
+}
+
+.divider {
+  height: 1px;
+  background-color: #ddd;
+  margin: 24px 0;
+}
+
+.categoryTitle {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.categoryIcon {
+  margin-right: 8px;
+}
+
+.detailItem {
+  margin-bottom: 8px;
+}
+
+.certificatesList {
+  margin-top: 12px;
+  padding-left: 20px;
+}
+
+.certificatesList li {
+  margin-bottom: 8px;
+}
+
+
+@media (max-width: 768px) {
+  .profileContainer {
+    flex-direction: column;
+    padding: 16px;
+  }
+  
+  .avatar {
+    width: 200px;
+    height: 240px;
+    border-radius: 100px / 120px;
+  }
+  
+  .bookingButton {
+    margin-bottom: 24px;
+  }
+}

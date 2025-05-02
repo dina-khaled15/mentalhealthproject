@@ -1,0 +1,40 @@
+
+
+
+.heroSection {
+    padding: 80px 80px;
+    background-color: #fcfcfb;
+  }
+  
+  .description {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: #6e6e6e; /* optional fallback */
+  }
+  
+  .primaryBtn {
+    text-transform: none;
+    background-color: #000000;
+  }
+  
+  .primaryBtn:hover {
+    background-color: #333333;
+  }
+  
+  .textBtn {
+    text-transform: none;
+    color: #000000;
+  }
+  
+  .heroImage {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin: 40px 0;
+  }
+  
+  .centerText {
+    text-align: center;
+  }
+  

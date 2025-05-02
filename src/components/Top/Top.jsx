@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Button, Typography } from "@mui/material";
 import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
 import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
@@ -9,6 +9,12 @@ import styles from "./Top.module.css";
 import topImage from "../../images/Top.png"; 
 
 const Top = () => {
+  const [showVideo, setShowVideo] = useState(false);
+
+  const handleImageClick = () => {
+    setShowVideo(true);
+  };
+
   return (
     <Box className={styles.topContainer}>
       {/* About Wellthy */}
@@ -25,7 +31,6 @@ const Top = () => {
       {/* Address */}
       <Typography variant="h3" className={styles.heading}>
         Empowering your mental wellness
-        <br />
         with compassion and care
       </Typography>
 
@@ -38,14 +43,28 @@ const Top = () => {
           Explore Wellthy
         </Button>
       </Box>
-
-      {/* ✅ Image Below Component */}
+      
       <Box className={styles.imageWrapper}>
-        <img
-          src={topImage}
-          alt="Mental Health Visual"
-          className={styles.image}
-        />
+        {!showVideo ? (
+          <img
+            src={topImage}
+            alt="Mental Health Visual"
+            className={styles.image}
+            onClick={handleImageClick}
+            style={{ cursor: "pointer" }}
+          />
+        ) : (
+          <iframe
+            width="100%"
+            height="400px"
+            src="https://www.youtube.com/embed/hPL8zP-VbLw?autoplay=1"
+            title="Empowering Mental Wellness"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            style={{ borderRadius: "16px" }}
+          ></iframe>
+        )}
       </Box>
     </Box>
   );

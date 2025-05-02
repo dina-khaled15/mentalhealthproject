@@ -1,0 +1,74 @@
+.card {
+  max-width: 397.33px;
+  border-radius: 20px !important;
+  border: 1px solid rgb(211, 211, 211) !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.cardTitle {
+  font-family: 'Manrope' !important;
+  font-weight: 600 !important;
+  margin-top: 8px !important;
+}
+
+.cardDescription {
+  font-family: 'Manrope' !important;
+  color: var(--mui-palette-text-secondary) !important;
+  font-size: 16px !important;
+  margin-top: 16px !important;
+}
+
+.cardContent {
+  height: 168px !important;
+}
+
+.dialogCustom {
+  max-width: 600% !important; 
+  width: 300 !important;
+  margin: auto !important;
+  border-radius: 16px !important;
+}
+
+.dialogContent {
+  background-color: #F2F0E9 !important;
+  font-family: 'Manrope' !important;
+  padding: 24px 32px;
+
+}
+
+.dialogActions {
+  background-color: #F2F0E9 !important;
+}
+
+.dialogTitle {
+  font-family: 'Manrope' !important;
+  background-color: #F2F0E9 !important;
+  font-weight: 600 !important;
+  font-size: 23px !important;
+  padding: 26px 42px;
+}
+
+.inputFont {
+  font-family: 'Manrope' !important;
+  font-weight: 500 !important;
+  font-size: 17px !important;
+  color: black !important;
+}
+.blackButton {
+  background-color: black !important;
+  color: white !important;
+  text-transform: none !important;
+  font-size: 16px !important;
+  border-radius: 8px !important;
+}
+
+.blackButton:hover {
+  background-color: #333 !important;
+}

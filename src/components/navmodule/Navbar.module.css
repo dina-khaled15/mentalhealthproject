@@ -21,7 +21,7 @@
 
 .brandName {
   font-family: 'Manrope', sans-serif !important;
-  font-size: 16px !important;
+  font-size: 24px !important;
   font-weight: 800 !important;
 }
 
@@ -45,15 +45,16 @@
 }
 
 .activeNavLink {
-  color: #222222 !important;
+  background-color: black !important; /* خلفية سوداء */
+  color: white !important;             /* نص أبيض */
   font-size: 15px !important;
   font-weight: 700 !important;
   font-family: 'Manrope', sans-serif !important;
   text-transform: none !important;
   padding: 6px 10px !important;
+  border-radius: 4px !important;       /* شكل أحلى للزر */
   min-width: unset !important;
 }
-
 
 .authContainer {
   display: flex !important;

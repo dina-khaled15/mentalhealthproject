@@ -6,7 +6,7 @@ import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 import LightbulbIcon from "@mui/icons-material/Lightbulb";
 import DiamondIcon from "@mui/icons-material/Diamond";
 
-import styles from "./PrinciplesSection.module.css";
+import styles from "./Principles.module.css";
 
 const values = [
   {

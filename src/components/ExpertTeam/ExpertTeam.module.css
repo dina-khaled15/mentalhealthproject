@@ -1,0 +1,65 @@
+.container {
+  padding-top: 10rem !important;
+  padding-bottom: 3rem !important;
+  background-color: #ffffff !important;
+  width: 100% !important;
+  display: flex !important;
+  
+}
+.buttonContainer {
+  
+  align-items: start !important;
+  margin-bottom: 1rem;
+}
+
+.button {
+  border-radius: 50px ! important;
+  text-transform: none ! important;
+  font-weight: 500 ! important;
+  font-size: 16px ! important;
+  font-family: "Manrope" ! important;
+  border-color: #ddd !important;
+  color: #222222 !important;
+}    
+
+.buttonHover:hover {
+  border-color: #aaa;
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14rem; 
+  flex-wrap: wrap;
+}
+
+.titleContainer {
+  flex: 1;
+}
+
+.title {
+  font-weight: 600 ! important;
+  width: 400px;
+  font-family: "Manrope" ! important;
+  color: #000;
+  font-size: 50px !important;
+  line-height: 1.3;
+  
+}
+
+
+.textContainer {
+  flex: 1.5;
+}
+
+.text {
+  font-family: "Manrope" ! important;
+  font-weight: 400 ! important;
+  color: #888;
+  font-size: 20px !important;
+  line-height: 1.5;
+  width: 520px;
+  
+}

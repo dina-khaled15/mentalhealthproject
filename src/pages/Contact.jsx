@@ -1,9 +1,9 @@
 import React from "react";
-import GetInTouchSection from "../components/getintouch/GetInTouchSection";
-import ContactForm from "../components/form/Comesoon";
-import LocationSection from "../components/location/LocationSection";
-
-import ScheduleSection from '../components/schedual/ScheduleSection';
+import GetInTouchSection from "../components/GetInTouch/GetInTouch";
+import PrinciplesSection from "../components/Principles/Principles";
+import ContactForm from "../components/Form/Form";
+import LocationSection from "../components/Location/Location";
+// import ScheduleSection from '../components/schedual/ScheduleSection';
 import CTASection from "../components/FindDocter";
 import Navbar from "../components/navmodule/Navbar";
 import FooterComponent from "../components/footer/contact";
@@ -13,10 +13,10 @@ const Contact = () => {
         <div>
             <Navbar />
             <div style={{ marginTop: "60px" }}>
-                <GetInTouchSection />
-
+            <GetInTouchSection />
                 <ContactForm />
-                <ScheduleSection />
+                <PrinciplesSection />
+                {/* <ScheduleSection /> */}
                 <LocationSection />
                 <CTASection />
                 <Box sx={{ mt: 4, width: "100%" }}>

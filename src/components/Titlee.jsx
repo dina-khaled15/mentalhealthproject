@@ -7,8 +7,8 @@ const MentalHealthServices = () => {
     <Box
       sx={{
         bgcolor: "#F5F9FF",
-        py: 6,
-        px: { xs: 2, md: 8 },
+        justifyContent: "center",
+        
         borderTop: "6px solid transparent",
         backgroundImage:
           "repeating-linear-gradient(45deg, #E0F0FF, #E0F0FF 10px, #F5F9FF 10px, #F5F9FF 20px)",
@@ -25,7 +25,8 @@ const MentalHealthServices = () => {
               borderColor: "#ccc",
               color: "black",
               textTransform: "none",
-              fontWeight: "bold"
+              fontWeight: "bold",
+              fontFamily: "Manrope"
             }}
           >
             Our Experts
@@ -33,8 +34,8 @@ const MentalHealthServices = () => {
         </Box>
 
         <Grid container spacing={4} alignItems="center">
-          <Grid item xs={12} md={6}>
-            <Typography variant="h4" fontWeight="bold">
+          <Grid>
+            <Typography variant="h4" fontWeight="bold" sx={{ fontFamily: "Manrope" }}>
             Meet our Doctors, You’re in Good Hands
             </Typography>
           </Grid>

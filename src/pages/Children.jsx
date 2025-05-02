@@ -3,7 +3,7 @@ import { Box } from "@mui/material";
 import Navbar from "../components/navmodule/Navbar";
 import FooterComponent from "../components/footer/contact";
 import HomeCards from "../components/CardForChildern";
-import SafeMessage from "../components/message";
+import SafeMessage from "../components/Message";
 import "../App.css";
 
 const Children = () => {

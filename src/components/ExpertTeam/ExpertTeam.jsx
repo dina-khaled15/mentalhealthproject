@@ -1,12 +1,12 @@
 import React from "react";
 import { Box, Typography, Button, Container } from "@mui/material";
 import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
-import styles from "./ExpertTeamSection.module.css";
+import styles from "./ExpertTeam.module.css";
 
 const ExpertTeamSection = () => {
   return (
     <Box className={styles.container} >
-      <Container maxWidth="lg" sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+      <Container maxWidth="lg" sx={{ display: "flex", flexDirection: "column"}}>
         <Box className={styles.buttonContainer}>
           <Button variant="outlined" startIcon={<LocalHospitalIcon />} className={`${styles.button} ${styles.buttonHover}`} >
             Our Experts
@@ -15,9 +15,8 @@ const ExpertTeamSection = () => {
         <Box className={styles.contentContainer}>
           <Box className={styles.titleContainer}>
             <Typography variant="h3" component="h2" className={`${styles.title} ${styles.subtitle}`} >
-              Meet Our Expert
-              <br />
-              Team of Doctors
+              Meet Our Expert Team 
+              of Doctors
             </Typography>
           </Box>
 

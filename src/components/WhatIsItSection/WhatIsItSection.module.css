@@ -1,0 +1,25 @@
+.container {
+    margin-top: 65px;
+    margin-left: 160px;
+  }
+  
+  .title {
+    font-weight: 800 ! important;
+    font-size: 40px ! important;
+    font-family: "Manrope" ! important;
+    margin-bottom: 16px;
+  }
+  
+  .content {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .description {
+    width: 1210px;
+    font-family: "Manrope" ! important;
+    font-size: 18px ! important;
+    font-weight: 500;
+    line-height: 1.6 ! important;
+    color: #666;
+  }

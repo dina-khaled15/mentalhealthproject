@@ -1,0 +1,86 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 20px;
+  margin-top: -40px;
+}
+
+.textContainer {
+  flex: 1 1 50%;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 75px;
+  margin-left: 150px;
+  align-items: flex-start;
+}
+
+.title {
+  font-family: "Manrope" !important;
+  font-weight: 500 !important;
+  font-size: 66px !important;
+  padding-bottom: 18px;
+  width: "600px" !important;
+}
+
+.description {
+  font-family: "Manrope" !important;
+  font-weight: 400 !important;
+  font-size: 19px !important;
+  width: 500px;
+  line-height: 1.4;
+  color: #666;
+  padding-bottom: 20px;
+  margin: 0;
+}
+
+.imageContainer {
+  flex: 1 1 40%;
+  display: flex;
+  justify-content: center;
+  margin-left: -250px;
+}
+
+.mainImage {
+  width: 100% !important;
+  max-width: 400px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-left: 5px;
+  margin-top: 80px !important;
+}
+
+/* ✨ نضيف Media Query هنا */
+@media (max-width: 768px) {
+  .wrapper {
+    flex-direction: column; /* نخليهم تحت بعض */
+    align-items: center; /* نخلي العناصر في النص */
+    margin-top: 0;
+  }
+
+  .textContainer {
+    margin: 0;
+    margin-top: 20px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .description {
+    width: 100%;
+    padding: 0 20px; /* مسافة من الأطراف */
+  }
+
+  .imageContainer {
+    margin: 0;
+    margin-top: 20px;
+    justify-content: center;
+  }
+
+  .mainImage {
+    margin-top: 0;
+  }
+}

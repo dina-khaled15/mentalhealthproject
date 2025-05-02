@@ -1,0 +1,40 @@
+.container {
+    margin-top: 60px;
+    margin-left: 140px;
+    margin-bottom: 80px;
+  }
+  
+  .title {
+    font-weight: 800 ! important;
+    font-family: "Manrope" ! important;
+    font-size: 40px ! important;
+    margin-bottom: 20px ! important;
+    margin-top: 72px;
+  }
+  
+  .benefitItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .icon {
+    font-size: 35px ! important;
+    color: black;
+    margin-top: 4px;
+  }
+  
+  .benefitTitle {
+    font-weight: 700 ! important;
+    font-family: "Manrope" !important;
+    font-size: 23px ! important;
+    width: 300px;
+  }
+  
+  .benefitDescription {
+    color: #666;
+    font-weight: 500 ! important;
+    font-family: "Manrope" ! important;
+    font-size: 16px ! important;
+    width: 300px;
+  }

@@ -1,14 +1,14 @@
 import React from "react";
 import { Box } from "@mui/material";
-import DocCard from "../components/DocCard";
 import Navbar from "../components/navmodule/Navbar";
-import AboutSection from "../components/AboutSection";
-import Card from "../components/Card";
-import Title from "../components/Title";
 import Hero from "../components/Hero";
+import AboutSection from "../components/AboutSection";
+import DocCard from "../components/DocCard";
 import Benefit from "../components/Benefit/Benefit";
-import FooterComponent from "../components/footer/contact";
+import Title from "../components/Title";
+import Card from "../components/Card/Card";
 import Titlee from "../components/Titlee";
+import FooterComponent from "../components/footer/contact";
 import dd1 from "../images/dd1.png";
 import dd2 from "../images/dd2.png";
 import dd3 from "../images/dd3.png";
@@ -22,17 +22,21 @@ import d2 from "../images/d2.png";
 import d1 from "../images/d1.png";
 import d4 from "../images/d4.png";
 import d5 from "../images/d5.png";
-
 import Schedule from "../components/Schedule";
-import Areas from "../components/Areas/Areas";
 export default function HomePage() {
   return (
     <div>
       <Navbar />
       <Hero />
+      <div style={{ backgroundColor: "#222222" }}>
+      <div className="container" style={{ backgroundColor: "#222222" }}>
       <AboutSection />
-      <Areas />
+      </div>
+      </div>
+      
+    
       <div className="container mb-5">
+        
         <Title />
         <div className="d-flex justify-content-center gap-4 mb-4">
           <Card name="Individual Therapy" des="Personalized one-on-one sessions with licensed therapists to address your unique mental health needs." img={dd1} />
