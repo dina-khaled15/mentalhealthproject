@@ -33,6 +33,7 @@
   width: 600px !important;
   height: 700px !important;
   border-radius: 20px !important;
+  border: 1px solid black !important;
   object-fit: cover !important;
   display: block !important;
   
@@ -61,34 +62,52 @@
   flex-direction: column !important;
   justify-content: center !important;
   align-items: flex-start !important;
-  gap: 2rem !important;
-  padding-left: 2rem !important;
-  padding-right: 2rem !important;
+  gap: 1rem !important;
 }
 
 .chip {
   font-family: "Manrope" !important;
   font-size: 0.875rem !important;
+  color: black !important;
+  background-color: white!important;
+  border: 1px solid #D0D5DD !important;
   font-weight: 500 !important;
-  padding: 0.5rem 0 !important;
+  padding: 1rem 0.5rem !important;
 }
 
 .title {
   font-weight: 600 !important;
+  font-family: "Manrope" !important;
   color: black !important;
-  font-size: 2rem !important;
+  font-size: 2.5rem !important;
+  margin-top: 20px !important;
+  margin-bottom: 10px !important;
 }
 
 .description {
   color: #444 !important;
   line-height: 1.6 !important;
+  font-weight: 500 !important;
+  font-family: "Manrope" !important;
+  font-size: 1.04rem !important;
+}
+
+.titlee{
+  font-weight: 600 !important;
+  font-family: "Manrope" !important;
+  color: black !important;
+  font-size: 2.3rem !important;
+  margin-top: 20px !important;
+  margin-bottom: 30px !important;
+  margin-left: -25px !important;
 }
 
 .listItem {
-  font-size: 1.125rem !important;
+  font-size: 1.5rem !important;
   color: #555 !important;
-  font-weight: 500 !important;
-  margin-bottom: 1rem !important;
+  font-weight: 600 !important;
+  font-family: "Manrope" !important;
+    margin-bottom: 1rem !important;
 }
 
 .listItemStrong {

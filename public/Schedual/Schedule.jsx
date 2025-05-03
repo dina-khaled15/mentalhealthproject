@@ -9,7 +9,7 @@ import {
     Chip,
     Box,
 } from '@mui/material';
-import scheduleData from '../mockScheduleData';
+import scheduleData from '../sc';
 import styles from './Schedule.module.css';
 
 const ScheduleSection = () => {

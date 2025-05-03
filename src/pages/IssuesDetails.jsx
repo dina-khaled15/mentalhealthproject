@@ -27,8 +27,8 @@ const Details = () => {
     );
   }, [title]);
 
-  const handleResourcesToggle = () => {
-    setResourcesOpen(!resourcesOpen);
+  const handleResourcesToggle = (event, newValue) => {
+    setResourcesOpen(newValue === 0);  // Toggle resources section
   };
 
   if (!issueData) {
@@ -38,10 +38,10 @@ const Details = () => {
   return (
     <>
       <Navbar />
-      <Box sx={{ margin: "auto", fontFamily: "Manrope", maxWidth: "100%" }}>
+      <Box sx={{ p: 4 }}>
         <HeaderSection issueData={issueData} />
         <ImageStatisticSection
-          issueData={issueData}
+          issueData={issueData} 
           groupImg={issueData.groupImg}
           aloneImg={issueData.aloneImage}
         />
@@ -50,60 +50,17 @@ const Details = () => {
         <PathToWellnessSection black={black} />
         <TestimonialSection issueData={issueData} image={image} />
 
-        <Box sx={{ mt: 4, maxWidth: "800px", width: "100%", mx: "auto" }}>
+        <Box sx={{ mt: 4 }}>
           <Tabs
-            value={resourcesOpen ? 0 : -1}
+            value={resourcesOpen ? 0 : -1}  // Use -1 for unselected
             onChange={handleResourcesToggle}
             sx={{
-              "& .MuiTabs-indicator": { display: "none" },
+              "& .MuiTab-root": { color: "#000000" },
+              "& .MuiTab-root.Mui-selected": { color: "#000000" },
+              "& .MuiTabs-indicator": { backgroundColor: "#000000" },
             }}
           >
-            <Tab
-              
-              label={
-                <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%", padding: "6px 12px" }}>
-
-                  <Typography
-                    sx={{
-                      textTransform: "none",
-                      fontWeight: 400,
-                      fontSize: { xs: "14px", sm: "16px", md: "18px" },
-                      fontFamily: "Manrope",
-                      color: "black",
-                    }}
-                  >
-                    Recommendation
-                  </Typography>
-                  <Box sx={{ display: "flex", alignItems: "center" }}>
-                    {resourcesOpen ? (
-                      <RemoveIcon sx={{ color: "black", fontSize: "20px" }} onClick={handleResourcesToggle} />
-                    ) : (
-                      <AddIcon sx={{ color: "black", fontSize: "20px" }} onClick={handleResourcesToggle} />
-                    )}
-                  </Box>
-                </Box>
-              }
-              sx={{
-                textTransform: "none",
-                fontWeight: 400,
-                fontSize: { xs: "14px", sm: "16px", md: "18px" },
-                fontFamily: "Manrope",
-                backgroundColor: "#F8F7F4",
-                borderRadius: "8px",
-                border: "1px solid black",
-                color: "#1A3C57",
-                minWidth: 0,
-                width: "100%",
-                padding: 0,
-                "&.Mui-selected": {
-                  backgroundColor: "#F8F7F4",
-                  color: "#1A3C57",
-                },
-                "&:hover": {
-                  backgroundColor: "#e8e7e4",
-                },
-              }}
-            />
+            <Tab label="Recommendation" />
           </Tabs>
 
           <Collapse in={resourcesOpen}>

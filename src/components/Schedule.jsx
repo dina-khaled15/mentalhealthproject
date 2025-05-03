@@ -23,7 +23,7 @@ export default function Schedule() {
   };
 
   return (
-    <Box sx={{ height: "100vh", display: "flex", overflow: "hidden" }}>
+    <Box sx={{ height: "115vh", display: "flex", overflow: "hidden" }}>
       <Stack spacing={2} sx={{ width: "55%", p: 4, bgcolor: "#fff" }}>
         <Button
           variant="outlined"
@@ -35,9 +35,12 @@ export default function Schedule() {
             backgroundColor: "#fff",
             color: "#222222",
             textTransform: "none",
+            fontSize: "15px",
+            fontWeight: 500,
+            fontFamily: "Manrope",
           }}
         >
-          <RocketLaunchIcon sx={{ fontSize: "16px", mr: 1 }} />
+          <RocketLaunchIcon sx={{ fontSize: "17px", mr: 1,}} />
           Book Session
         </Button>
 
@@ -115,10 +118,11 @@ export default function Schedule() {
                   size="small"
                   sx={{
                     marginTop:"10px",
-                    width: "90px",
+                    width: "100px",
                     height: "28px",
-                    fontWeight: 600,
-                    fontSize: "10px",
+                    fontWeight: 700,
+                    fontSize: "11px",
+                    fontFamily: "Manrope",
                     borderRadius: "3px",
                     textTransform: "none",
                     backgroundColor: day.day === "Monday" ? "#000" : "#F8F7F4",
