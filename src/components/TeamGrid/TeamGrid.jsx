@@ -6,7 +6,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useNavigate } from "react-router-dom";
 import styles from "./TeamGrid.module.css";
-import doctorData from "../data/doctorData";
+import doctorData from "../../data/doctorData";
 
 
 const TeamGrid = () => {

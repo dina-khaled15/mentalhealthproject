@@ -1,26 +1,13 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { Box, Container, Typography, Paper, Grid } from "@mui/material";
-
-import Navbar from "../components/navmodule/Navbar";
+import Navbar from "../components/Navbar/Navbar";
 import FooterComponent from "../components/footer/contact";
-import "../App.css";
-
-const videoDatabase = {
-  video1: {
-    title: "Story Video 1",
-    videoUrl: "/assests/video.mp4",
-    description: `This video tells the story of Yazan and his friend Anas, 
-    who has ADHD. Yazan learns that Anas struggles to focus and gets easily excited,
-    but instead of getting upset, he helps Anas stay on track with kindness and patience.
-     The video highlights the importance of understanding differences, supporting friends,
-      and embracing the uniqueness of others.`,
-  },
-};
+import storyVideos from "../data/video";
 
 const VideoPlayerPage = () => {
-  const { videoId } = useParams();
-  const videoData = videoDatabase[videoId];
+  const { videoId } = useParams(); 
+  const videoData = storyVideos[videoId];
 
   if (!videoData) {
     return (
@@ -31,11 +18,9 @@ const VideoPlayerPage = () => {
       </Container>
     );
   }
-
   return (
     <Box sx={{ bgcolor: "#F8F7F4", minHeight: "100vh" }}>
       <Navbar />
-
       <Container sx={{ pt: 12, pb: 10 }}>
         <Typography
           variant="h3"
@@ -91,7 +76,7 @@ const VideoPlayerPage = () => {
             About this video
           </Typography>
           <Typography variant="body1" sx={{ color: "#555", lineHeight: 1.6 }}>
-            {videoData.description}
+            {videoData.description2}
           </Typography>
         </Paper>
       </Container>

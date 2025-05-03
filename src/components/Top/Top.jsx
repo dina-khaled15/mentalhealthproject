@@ -17,7 +17,6 @@ const Top = () => {
 
   return (
     <Box className={styles.topContainer}>
-      {/* About Wellthy */}
       <Box className={styles.aboutButtonBox}>
         <Button
           variant="outlined"
@@ -27,14 +26,10 @@ const Top = () => {
           About Wellthy
         </Button>
       </Box>
-
-      {/* Address */}
       <Typography variant="h3" className={styles.heading}>
         Empowering your mental wellness
         with compassion and care
       </Typography>
-
-      {/* Explore Wellthy */}
       <Box className={styles.exploreBox}>
         <Button
           endIcon={<ArrowCircleDownIcon />}
@@ -55,8 +50,8 @@ const Top = () => {
           />
         ) : (
           <iframe
-            width="100%"
-            height="400px"
+            width="80%"
+            height="700px"
             src="https://www.youtube.com/embed/hPL8zP-VbLw?autoplay=1"
             title="Empowering Mental Wellness"
             frameBorder="0"

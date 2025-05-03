@@ -23,7 +23,6 @@ export default function UserProfile() {
         return null;
     }
   };
-
   const tabs = [
     { key: 'info', label: 'User Info', icon: <FaUser /> },
     { key: 'community', label: 'Community', icon: <FaUsers /> },
@@ -45,7 +44,6 @@ export default function UserProfile() {
           <Typography variant="h5" fontWeight="bold" textAlign="center" mb={5}>
             User Profile
           </Typography>
-
           <List>
             {tabs.map((tab) => (
               <ListItem key={tab.key} disablePadding>
@@ -65,7 +63,6 @@ export default function UserProfile() {
               </ListItem>
             ))}
           </List>
-
           <Box sx={{ mt: 'auto', pt: 5 }}>
             <Button
               variant="contained"
@@ -83,14 +80,19 @@ export default function UserProfile() {
             >
               Back to Home
             </Button>
-            <Button variant="contained" color="error" fullWidth>
+            <Button variant="contained" sx={{
+                mb: 2,
+                bgcolor: 'black',
+                color: 'white',
+                '&:hover': {
+                  bgcolor: '#333',
+                },
+              }} fullWidth>
               Log out
             </Button>
           </Box>
         </Box>
       </Drawer>
-
-      {/* Main Content */}
       <Box component="main" sx={{ flexGrow: 1, bgcolor: '#F8F7F4' }}>
         {renderTabContent()}
       </Box>

@@ -9,43 +9,17 @@ import {
   Container,
 } from "@mui/material";
 import { Link } from "react-router-dom";
-import Navbar from "../components/navmodule/Navbar";
+import Navbar from "../components/Navbar/Navbar";
 import FooterComponent from "../components/footer/contact";
 import "../App.css";
-
-const storyVideos = [
-  {
-    title: "Story Video 1",
-    image: "./assests/video.jpg",
-    description: `This video tells the story of Yazan and his friend Anas, who has ADHD.
-       Yazan learns that Anas struggles to focus and gets easily excited, 
-       but instead of getting upset, he helps Anas stay on track with kindness and patience.
-      The video highlights the importance of understanding differences, supporting friends, 
-      and embracing the uniqueness of others.`,
-    link: "/story/video1",
-  },
-  {
-    title: "Story Video 2",
-    image: "./assests/video.jpg",
-    description:
-      "This is the description for story video 2. It explains what the video is about.",
-    link: "/story/video2",
-  },
-  {
-    title: "Story Video 3",
-    image: "./assests/video.jpg",
-    description:
-      "This is the description for story video 3. It explains what the video is about.",
-    link: "/story/video3",
-  },
-];
-
-const StoryVideoCard = ({ title, image, description, link }) => {
+import storyVideos from "../data/video";
+const StoryVideoCard = ({ title, image, description1, videoId }) => {
   return (
-    <Link to={link} style={{ textDecoration: "none" }}>
+    <Link to={`/story/${videoId}`} style={{ textDecoration: "none" }}>
       <Card
         sx={{
-          maxWidth: 450,
+          maxWidth: 300,
+          maxHeight:300,
           boxShadow: 3,
           borderRadius: 4,
           mx: "auto",
@@ -72,15 +46,16 @@ const StoryVideoCard = ({ title, image, description, link }) => {
             {title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {description}
+            {description1}
           </Typography>
         </CardContent>
       </Card>
     </Link>
   );
 };
-
 const StoryVideosPage = () => {
+  const videos = Object.values(storyVideos); 
+
   return (
     <Box sx={{ bgcolor: "#f5f5f5", minHeight: "100vh" }}>
       <Navbar />
@@ -108,9 +83,9 @@ const StoryVideosPage = () => {
             mx: "auto",
           }}
         >
-          {storyVideos.map((video, index) => (
+          {videos.map((video, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
-              <StoryVideoCard {...video} />
+              <StoryVideoCard {...video} videoId={`video${index + 1}`} />
             </Grid>
           ))}
         </Grid>

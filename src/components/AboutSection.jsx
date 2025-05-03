@@ -12,16 +12,13 @@ const AboutSection = () => {
   return (
     <Box
       sx={{
-        // backgroundColor: "#222222",
         color: "#fff",
         paddingTop: "100px",
         paddingBottom: "100px",
         overflow: "hidden",
       }}
     >
-      <Box
-        
-      >
+      <Box>
         <Typography
           variant="h5"
           sx={{

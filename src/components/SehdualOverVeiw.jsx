@@ -1,13 +1,7 @@
 import React from "react";
 import { Box, Button, Grid, Paper, Typography } from "@mui/material";
 
-const schedule = [
-  { day: "Monday", time: "9:00 AM - 12:00 PM", location: "Online" },
-  { day: "Tuesday", time: "1:00 PM - 5:00 PM", location: "Wealthy Clinic" },
-  { day: "Thursday", time: "10:00 AM - 3:00 PM", location: "Wealthy Clinic" },
-  { day: "Saturday", time: "11:00 AM - 2:00 PM", location: "Online" },
-];
-
+import schedule from "../data/sechedule";
 const WeeklySchedule = () => {
   return (
     <Box sx={{ p: 4, textAlign: "center" }}>

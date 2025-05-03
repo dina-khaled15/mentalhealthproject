@@ -29,14 +29,14 @@ const VisionMission = () => {
           className={styles.visionImage}
         />
 
-<Box className={styles.visionContent}>
-  <Avatar className={styles.avatar}>
-    <Visibility />
-  </Avatar>
+      <Box className={styles.visionContent}>
+        <Avatar className={styles.avatar}>
+          <Visibility />
+        </Avatar>
 
-  <Typography variant="h3" className={styles.title}>
-    Our Vision
-  </Typography>
+        <Typography variant="h3" className={styles.title}>
+          Our Vision
+        </Typography>
 
           <Typography variant="body1" className={styles.text}>
             To be the leading mental health platform, providing accessible,

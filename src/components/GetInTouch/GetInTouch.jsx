@@ -5,8 +5,8 @@ import styles from "./GetInTouch.module.css";
 
 const GetInTouchSection = () => {
     return (
-        <Box className={styles.sectionContainer}>
-            <Container className={styles.container}>
+        <Box>
+            <Box className={styles.container}>
                 <Button variant="outlined" startIcon={<TouchAppIcon />} className={styles.button}>
                     Get in Touch
                 </Button>
@@ -25,7 +25,7 @@ const GetInTouchSection = () => {
                     alt="Therapist and patient"
                     className={styles.image}
                 />
-            </Container>
+            </Box>
         </Box>
     );
 };
