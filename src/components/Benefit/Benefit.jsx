@@ -12,11 +12,11 @@ const Benefit = () => {
           <Box component="img" src={benefitImg} alt="benefit"className={styles.image}/>
 
 
-          <Paper elevation={3} className={`${styles.overlay} ${styles.overlayShow}`} sx={{width: "364px", height: "180px"}}>
-            <Typography sx={{fontFamily: "Manrope", fontWeight: 700, fontSize: "20px", marginBottom: "0.5rem", marginTop: "0.5rem"}}>
+          <Paper elevation={3} className={`${styles.overlay} ${styles.overlayShow}`} >
+            <Typography >
               Experience Professionals
             </Typography>
-            <Typography variant="body2" sx={{fontFamily: "Manrope", fontSize: "16px"}}>
+            <Typography variant="body2" >
               Our team is made up of skilled and compassionate mental health
               experts with years of experience in providing effective care.
             </Typography>
@@ -27,18 +27,20 @@ const Benefit = () => {
       {/* Text Content */}
       <Box className={styles.textContent}>
         <Chip icon={<FavoriteIcon />} label="Benefits" className={styles.chip} />
-        <Typography variant="h4" className={styles.title} sx={{fontFamily: "Manrope", fontSize: "48px"}}>
+        <Typography variant="h4" className={styles.title} >
           The Benefits of Choosing Wellthy
         </Typography>
-        <Typography variant="body1" className={styles.description} sx={{fontFamily: "Manrope"}}>
+        <Typography variant="body1" className={styles.description} >
           Wellthy combines experienced professionals, personalized care, and a
           supportive environment to provide comprehensive mental health services
           that meet your unique needs, ensuring privacy, comfort, and lasting
           support.
         </Typography>
-        <Box component="ul" sx={{pl: 0,listStyle: "underline",fontFamily: "Manrope",paddingLeft: "1rem",m: 0,}}>
+        <Box component="ul">
+        <Typography variant="h4" className={styles.titlee} >
+        Experience Professionals
+        </Typography>
           {[
-            "Experience Professionals",
             "Personalized Care",
             "Confidential and Safe",
             "Comprehensive Service",
