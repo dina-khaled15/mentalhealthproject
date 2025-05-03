@@ -1,10 +1,10 @@
 import React from "react";
 import { Box, Avatar, Typography, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import Chat from "@mui/icons-material/Chat"; // Use Chat instead of ChatIcon
+import Chat from "@mui/icons-material/Chat"; 
 import SelfImprovementIcon from "@mui/icons-material/SelfImprovement";
 import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
-import { colors } from "../../data/chatbotData"; // Named import
+import { colors } from "../../data/chatbotData"; 
 
 export default function ChatHeader({ isMinimized, toggleMinimize, onClose }) {
   return (

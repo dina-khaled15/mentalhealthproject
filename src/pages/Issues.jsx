@@ -34,7 +34,7 @@ const Issues = () => {
 
         <Grid container spacing={2}>
           {servicesData.map(([key, service], idx) => (
-            <Grid item xs={12} sm={6} md={4} key={idx} align="center" sx={{ mt: 4, ml: 17 }}>
+            <Grid item xs={12} sm={6} md={4} key={idx} align="center" sx={{ mt: 4, ml: 1, margin:"auto",mb: 4 }}>
               <Link to={`/details/${encodeURIComponent(service.title)}`} style={{ textDecoration: "none" }}>
                 <Card
                   sx={{

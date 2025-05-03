@@ -5,7 +5,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 const MentalHealthServices = () => {
   return (
     <Box>
-      <Paper elevation={0} sx={{ p: { xs: 2, md: 4 } , marginTop:"100px"}} >
+      <Paper elevation={0} sx={{ p: { xs: 2, md: 4 } ,}} >
         <Box mb={2}>
           <Button
             startIcon={<ArrowForwardIcon />}
@@ -29,7 +29,7 @@ const MentalHealthServices = () => {
               Comprehensive Mental Health Services
             </Typography>
           </Grid>
-          <Grid sx={{ fontFamily: "Manrope", width: "400px" }}>
+          <Grid sx={{ fontFamily: "Manrope", width: "40%" }}>
             <Typography variant="body1" color="text.secondary">
               A complete range of services to support mental health, including therapy, medication,
               and crisis help. These services work together to help individuals improve their mental
