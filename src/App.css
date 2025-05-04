@@ -27,6 +27,39 @@ body{
   font-size: calc(10px + 2vmin);
   color: white;
 }
+#light {
+  background-color: white ;
+
+  /* background-color: #F2F0E9;
+  background-color:  #F8F7F4 ; */
+  
+
+}
+
+
+/* 
+#light {
+
+
+   background-color: #F2F0E9;
+ 
+  
+
+}
+
+
+#light {
+
+  background-color:  #F8F7F4 ; 
+  
+
+} */
+ 
+
+#dark{
+  background-color:#222222;
+  color:white;
+}
 
 .App-link {
   color: #61dafb;

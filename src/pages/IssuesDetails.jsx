@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Box, Tab, Tabs, Typography, Link, Collapse } from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
 import Navbar from "../components/Navbar/Navbar";
 import FooterComponent from "../components/footer/contact";
 import HeaderSection from "../components/HeaderSection/HeaderSection";
@@ -26,7 +28,7 @@ const Details = () => {
   }, [title]);
 
   const handleResourcesToggle = (event, newValue) => {
-    setResourcesOpen(newValue === 0); 
+    setResourcesOpen(newValue === 0);  // Toggle resources section
   };
 
   if (!issueData) {
@@ -36,7 +38,7 @@ const Details = () => {
   return (
     <>
       <Navbar />
-      <Box sx={{margin:"auto", fontFamily: "Manrope",  maxWidth: "100%" }}>
+      <Box sx={{ p: 4 }}>
         <HeaderSection issueData={issueData} />
         <ImageStatisticSection
           issueData={issueData} 
@@ -49,42 +51,17 @@ const Details = () => {
         <TestimonialSection issueData={issueData} image={image} />
 
         <Box sx={{ mt: 4 }}>
-            <Tabs
-              value={resourcesOpen ? 0 : -1}
-              onChange={handleResourcesToggle}
-              sx={{
-                "& .MuiTabs-indicator": { display: "none" }
-              }}
-            >
-              <Tab 
-                label="Recommendation" 
-                sx={{
-                  textTransform: "none",
-                  fontWeight: 500,
-                  fontSize: { xs: "16px", sm: "20px", md: "24px" },
-                  fontFamily: "Manrope",
-                  backgroundColor: "#F8F7F4",
-                  borderRadius: "5px",
-                  border: "1px solid black",
-                  paddingTop: { xs: "6px", sm: "8px", md: "10px" },
-                  paddingBottom: { xs: "6px", sm: "8px", md: "10px" },
-                  paddingX: { xs: "10px", sm: "15px", md: "20px" },
-                  color: "#000",
-                  minWidth: 0,
-                  position: "relative",
-                  "&::after": {
-                    content: '""',
-                    position: "absolute",
-                    bottom: 0,
-                    left: 0,
-                    width: resourcesOpen ? "100%" : 0,
-                    height: "2px",
-                    backgroundColor: "#000",
-                    transition: "width 200ms ease-in-out",
-                  }
-                }}
-              />
-            </Tabs>
+          <Tabs
+            value={resourcesOpen ? 0 : -1}  // Use -1 for unselected
+            onChange={handleResourcesToggle}
+            sx={{
+              "& .MuiTab-root": { color: "#000000" },
+              "& .MuiTab-root.Mui-selected": { color: "#000000" },
+              "& .MuiTabs-indicator": { backgroundColor: "#000000" },
+            }}
+          >
+            <Tab label="Recommendation" />
+          </Tabs>
 
           <Collapse in={resourcesOpen}>
             <Box sx={{ p: 2, bgcolor: "grey.100", borderRadius: 2, mt: 1 }}>

@@ -1,17 +1,86 @@
-import React, { useState } from "react";
-import { useLocation,Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useLocation, Link } from "react-router-dom";
 import CloseIcon from "@mui/icons-material/Close";
 import GoogleIcon from "@mui/icons-material/Google";
 import MicrosoftIcon from "@mui/icons-material/Window";
 import PeopleIcon from "@mui/icons-material/People";
-import {AppBar,Toolbar,Typography,Button,Box,Container,Dialog,DialogTitle,DialogContent,DialogActions,TextField,IconButton,Divider,} from "@mui/material";
+import TranslateIcon from "@mui/icons-material/Translate";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  Box,
+  Container,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  TextField,
+  IconButton,
+  Divider,
+  Menu,
+  MenuItem,
+  Tooltip,
+} from "@mui/material";
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
   const [openLogin, setOpenLogin] = useState(false);
   const [openRegister, setOpenRegister] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [currentLanguage, setCurrentLanguage] = useState("English");
   const location = useLocation();
   const currentPath = location.pathname;
+
+  // Language options
+  const languages = [
+    { code: "en", name: "English" },
+    { code: "ar", name: "العربية" },
+  ];
+
+  // Effect to detect current language on page load
+  useEffect(() => {
+    const match = document.cookie.match(/googtrans=\/[a-z]{2}\/([a-z]{2})/);
+    if (match && match[1] === "ar") {
+      setCurrentLanguage("العربية");
+      document.documentElement.setAttribute("dir", "rtl");
+      document.documentElement.setAttribute("lang", "ar");
+    } else {
+      setCurrentLanguage("English");
+      document.documentElement.setAttribute("dir", "ltr");
+      document.documentElement.setAttribute("lang", "en");
+    }
+  }, []);
+
+  // Handle language menu open
+  const handleLanguageMenuOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  // Handle language menu close
+  const handleLanguageMenuClose = () => {
+    setAnchorEl(null);
+  };
+
+  // Handle language change
+  const changeLanguage = (languageCode, languageName) => {
+    setCurrentLanguage(languageName);
+    // Update the Google Translate cookie
+    if (languageCode === "en") {
+      // Clear the googtrans cookie to reset to original language
+      document.cookie = "googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    } else {
+      document.cookie = `googtrans=/en/${languageCode}; path=/`;
+    }
+    // Update direction and language attributes
+    document.documentElement.setAttribute("dir", languageCode === "ar" ? "rtl" : "ltr");
+    document.documentElement.setAttribute("lang", languageCode);
+    // Reload the page to apply the translation
+    window.location.reload();
+    handleLanguageMenuClose();
+  };
 
   const handleLoginOpen = () => {
     setOpenLogin(true);
@@ -31,14 +100,12 @@ const Navbar = () => {
 
   const handleLoginSubmit = (event) => {
     event.preventDefault();
-
     console.log("Login submitted");
     handleLoginClose();
   };
 
   const handleRegisterSubmit = (event) => {
     event.preventDefault();
-
     console.log("Registration submitted");
     handleRegisterClose();
   };
@@ -159,6 +226,34 @@ const Navbar = () => {
             </Box>
 
             <Box className={styles.authContainer}>
+              <Tooltip title="Change Language">
+                <Button
+                  className={styles.languageButton}
+                  onClick={handleLanguageMenuOpen}
+                  endIcon={<KeyboardArrowDownIcon />}
+                  startIcon={<TranslateIcon className={styles.translateIcon} />}
+                >
+                  {currentLanguage}
+                </Button>
+              </Tooltip>
+              
+              <Menu
+                anchorEl={anchorEl}
+                open={Boolean(anchorEl)}
+                onClose={handleLanguageMenuClose}
+                className={styles.languageMenu}
+              >
+                {languages.map((lang) => (
+                  <MenuItem 
+                    key={lang.code}
+                    onClick={() => changeLanguage(lang.code, lang.name)}
+                    selected={currentLanguage === lang.name}
+                  >
+                    {lang.name}
+                  </MenuItem>
+                ))}
+              </Menu>
+
               <Button
                 variant="outlined"
                 onClick={handleRegisterOpen}
@@ -212,7 +307,8 @@ const Navbar = () => {
               margin="dense"
               label="Email"
               type="email"
-              fullWidthvariant="outlined"
+              fullWidth
+              variant="outlined"
               required
               className={styles.textField}
             />
@@ -283,13 +379,10 @@ const Navbar = () => {
         </Box>
       </Dialog>
 
-      {/* Register Modal */}
       <Dialog
         open={openRegister}
         onClose={handleRegisterClose}
-        PaperProps={{
-          className: styles.dialogPaper,
-        }}
+        PaperProps={{ className: styles.dialogPaper }}
         maxWidth="xs"
         fullWidth
       >
@@ -302,7 +395,6 @@ const Navbar = () => {
           </IconButton>
         </Box>
 
-        {/* Logo in Register Modal */}
         <Box className={styles.dialogLogo}>
           <Box className={styles.logoContainer}>
             <LogoMain />
@@ -365,7 +457,6 @@ const Navbar = () => {
           </DialogActions>
         </form>
 
-        {/* Social register options */}
         <Box className={styles.dividerContainer}>
           <Divider className={styles.divider}>
             <Typography variant="body2" className={styles.dividerText}>

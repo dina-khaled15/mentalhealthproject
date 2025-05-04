@@ -23,7 +23,7 @@ export default function Schedule() {
   };
 
   return (
-    <Box sx={{ height: "105vh", display: "flex", overflow: "hidden" }}>
+    <Box sx={{ height: "115vh", display: "flex", overflow: "hidden" }}>
       <Stack spacing={2} sx={{ width: "55%", p: 4, bgcolor: "#fff" }}>
         <Button
           variant="outlined"

@@ -1,6 +1,7 @@
-import React, { useEffect } from "react"; // استيراد useEffect
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom"; // استيراد useLocation
+import React, { useEffect, useState, createContext } from "react";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import ReactSwitch from "react-switch";
 import io from "socket.io-client";
 
 import "./App.css";
@@ -15,23 +16,23 @@ import Bubble from "./components/Bubble/Bubble";
 import CardMatchGame from "./components/Matching/Matching";
 import StoryVideosPage from "./pages/StoryVideoPage";
 import VideoPlayerPage from "./pages/VideoPlayerPage";
-import DoctorPage from "./pages/Doctor"; // Changed from DoctorProfile
+import DoctorPage from "./pages/Doctor";
 import About from "./pages/About";
 import Issues from "./pages/Issues";
 import Details from "./pages/IssuesDetails";
 import PartnerPharmaciesPage from "./pages/Pharmacies";
-
 import ChatUIComponent from "./pages/UserProfile";
 import Form from "./components/Booking";
 import Contact from "./pages/Contact";
 import PatternGame from "./components/PatternGame/PatternGame";
 import Chatbot from "./components/chatbot/Chatbot";
 
-const theme = createTheme();
+// Theme context
+export const ThemeContext = createContext(null);
 
 const socket = io("http://localhost:3000");
 
-// Moved ScrollToTop logic inside App.jsx
+// Scroll to top on route change
 function ScrollToTopOnRouteChange() {
   const { pathname } = useLocation();
 
@@ -43,10 +44,16 @@ function ScrollToTopOnRouteChange() {
 }
 
 function App() {
+  const [theme, setTheme] = useState("dark");
+
+  const toggleTheme = () => {
+    setTheme((curr) => (curr === "light" ? "dark" : "light"));
+  };
+
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeContext.Provider value={{theme,toggleTheme}}>
       <Router>
-        <ScrollToTopOnRouteChange /> 
+        <ScrollToTopOnRouteChange /> {/* هنا ضفنا المكون علشان تبدأ الصفحة من فوق */}
         <Routes>
           <Route path="/booking" element={<Form />} />
           <Route path="/profile" element={<ChatUIComponent socket={socket} />} />
@@ -69,7 +76,7 @@ function App() {
         </Routes>
         <Chatbot />
       </Router>
-    </ThemeProvider>
+    </ThemeContext.Provider>
   );
 }
 
