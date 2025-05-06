@@ -11,6 +11,6 @@ router.put('/:id', updateFeedback);
 
 router.delete('/:id', deleteFeedback); 
 
-router.get("/search", searchFeedback); 
+router.get("/:search", searchFeedback); 
 
-module.exports = router;//router
+module.exports = router;
