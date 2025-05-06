@@ -12,7 +12,7 @@ function CustomPlayArrowIcon() {
 
 export default function HeroSection() {
   return (
-    <Box sx={{ px: 4, py: 6, backgroundColor: "#FCFCFB", overflowX: "auto" }}>
+    <Box sx={{ px: 4, py: 6, backgroundColor: "#FCFCFB", overflowX: "auto",padding: "90px 125px" }}>
       <Box
         sx={{
           display: "flex",
@@ -20,9 +20,11 @@ export default function HeroSection() {
           justifyContent: "space-between",
           alignItems: { xs: "flex-start", md: "center" },
           gap: { xs: 2, md: 0 },
+          width: "100%", // Full width to match image
+          px: 0, // Ensure no extra padding inside this container
         }}
       >
-        <Box sx={{ width: { xs: "100%", md: "50%" } }}>
+        <Box sx={{ width: { xs: "100%", md: "50%" }, pr: { xs: 0, md: 2 } }}>
           <Typography
             variant="h1"
             fontWeight="bold"
