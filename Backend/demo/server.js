@@ -11,6 +11,7 @@ const userEmotionsroutes = require('./routers/userEmotions.routes');
 const userBookingroutes = require('./routers/userBooking.routes');
 const doctor = require('./routers/doctor.route');
 const doctortable = require('./routers/doctortable.routes');
+const eventRouter = require('./routers/event.routes'); // إضافة route الـ events
 const game = require('./routers/game.route');
 const bubble = require('./routers/bubble.route');
 const pattern = require('./routers/pattern.route');
@@ -48,6 +49,7 @@ app.use('/doctor', doctor);
 app.use('/game', game);
 app.use('/bubble', bubble);
 app.use('/pattern', pattern);
+app.use('/events', eventRouter); // إضافة route الـ events
 
 // Error handling middleware
 app.use(errorHandler);
