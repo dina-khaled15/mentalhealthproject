@@ -2,6 +2,7 @@ import React, { useEffect, useState, createContext } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 // import { ThemeProvider, createTheme } from "@mui/material/styles";
 // import ReactSwitch from "react-switch";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 import io from "socket.io-client";
 
 import "./App.css";
