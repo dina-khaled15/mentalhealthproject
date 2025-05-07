@@ -28,13 +28,21 @@ const imageRoutes = require('./routers/image.routes');
 // Connect to MongoDB
 // Connect to MongoDB
 connectDB();
+app.use(cors(
+    {
+        origin: 'http://localhost:3000',
+        credentials: true
+    }
+))
+app.use(cookieParser());
+app.use(passport.initialize());
 
 // Enable CORS
-app.use(cors({
-    origin: 'http://localhost:5173', // Allow requests from your frontend
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-}));
+// app.use(cors({
+//     origin: 'http://localhost:5173', // Allow requests from your frontend
+//     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+//     allowedHeaders: ['Content-Type', 'Authorization'],
+// }));
 
 // Parse JSON bodies
 
@@ -45,11 +53,10 @@ cloudinary.config({
 });
 
 // Middlewares
-app.use(cors({
-    origin: 'http://localhost:3000',
-    credentials: true
-}));
-// app.use(cors("*"))
+// app.use(cors({
+//     origin: 'http://localhost:3000',
+//     credentials: true
+// }));
 app.use(express.json());
 
 // Serve static files from public/images
@@ -72,8 +79,6 @@ app.use('/pattern', pattern);
 app.use('/events', eventRouter); // إضافة route الـ events
 
 // Error handling middleware
-app.use(cookieParser());
-app.use(passport.initialize());
 
 mongoose.connection.on('connected', () => {
     if (mongoose.models) {
@@ -110,10 +115,7 @@ if (process.env.NODE_ENV === 'production') {
 // Error handling middleware
 app.use(errorHandler);
 
-// Start the server
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
+
 // Server
 const PORT = process.env.PORT || 4000;
 const server = app.listen(PORT, () => {
