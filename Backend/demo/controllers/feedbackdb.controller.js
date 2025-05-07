@@ -1,6 +1,6 @@
 const Feedback = require('../models/feedback.model');
 
-// الحصول على كل التعليقات
+
 module.exports.getAllFeedback = async (req, res) => {
     try {
         const feedbacks = await Feedback.find();
@@ -10,7 +10,7 @@ module.exports.getAllFeedback = async (req, res) => {
     }
 }
 
-// إضافة تعليق جديد
+
 module.exports.createFeedback = async (req, res) => {
     try {
         const feedback = await Feedback.create(req.body);
@@ -18,11 +18,11 @@ module.exports.createFeedback = async (req, res) => {
     } catch (error) {
         console.log("Error:", error);
         res.send(error);
-       
+
     }
 }
 
-// تعديل تعليق
+
 module.exports.updateFeedback = async (req, res) => {
     try {
         const id = req.params.id;
@@ -33,7 +33,7 @@ module.exports.updateFeedback = async (req, res) => {
     }
 }
 
-// حذف تعليق
+
 module.exports.deleteFeedback = async (req, res) => {
     try {
         const id = req.params.id;

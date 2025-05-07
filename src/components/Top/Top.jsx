@@ -6,7 +6,7 @@ import "@fontsource/manrope/400.css";
 import "@fontsource/manrope/500.css";
 import "@fontsource/manrope/700.css";
 import styles from "./Top.module.css";
-import topImage from "../../images/Top.png"; 
+import topImage from "../../images/top.png";
 
 const Top = () => {
   const [showVideo, setShowVideo] = useState(false);
@@ -38,7 +38,7 @@ const Top = () => {
           Explore Wellthy
         </Button>
       </Box>
-      
+
       <Box className={styles.imageWrapper}>
         {!showVideo ? (
           <img
