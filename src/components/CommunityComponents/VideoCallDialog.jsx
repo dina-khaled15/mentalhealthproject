@@ -1,13 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Typography, IconButton } from '@mui/material';
-import {
-  Mic,
-  MicOff,
-  Videocam,
-  VideocamOff,
-  Fullscreen,
-  FullscreenExit
-} from '@mui/icons-material';
+import {Mic,MicOff,Videocam,VideocamOff,Fullscreen,FullscreenExit} from '@mui/icons-material';
 
 const VideoCallDialog = ({
   videoCallActive,
@@ -55,124 +48,40 @@ const VideoCallDialog = ({
         borderRadius: fullscreen ? 0 : '12px',
         overflow: 'hidden',
         boxShadow: '0 0 20px rgba(0,0,0,0.5)'
-      }}
-    >
-      {/* الخلفية بالفيديو الخاص بالطرف الآخر */}
-      <video
-        ref={remoteVideoRef}
-        autoPlay
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-          zIndex: 1
-        }}
-      />
+      }}>
 
-      {/* الفيديو المحلي (الكاميرا الخاصة بك) */}
-      <video
-        ref={localVideoRef}
-        autoPlay
-        muted
-        style={{
-          position: 'absolute',
-          bottom: 24,
-          right: 24,
-          width: '250px',
-          height: '180px',
-          objectFit: 'cover',
-          borderRadius: '10px',
-          border: '2px solid white',
-          zIndex: 2
-        }}
-      />
+      <video ref={remoteVideoRef} autoPlay
+        style={{position: 'absolute',top: 0,left: 0,width: '100%',height: '100%', objectFit: 'cover',zIndex: 1}}/>
 
-      {/* اسم الطرف الآخر */}
-      <Box
-        sx={{
-          position: 'absolute',
-          top: 16,
-          left: 16,
-          color: '#fff',
-          zIndex: 2
-        }}
-      >
+      <video ref={localVideoRef} autoPlay muted
+        style={{position: 'absolute',bottom: 24,right: 24,width: '250px',height: '180px',objectFit: 'cover',
+          borderRadius: '10px',border: '2px solid white',zIndex: 2}}/>
+      <Box sx={{position: 'absolute',top: 16,left: 16,color: '#fff',zIndex: 2}}>
         <Typography variant="subtitle1" fontWeight="bold">
           {activeChat}
         </Typography>
       </Box>
 
-      {/* زر تكبير/تصغير */}
       <IconButton
         onClick={() => setFullscreen(prev => !prev)}
-        sx={{
-          position: 'absolute',
-          top: 16,
-          right: 16,
-          color: '#fff',
-          zIndex: 2
-        }}
-      >
+        sx={{position: 'absolute',top: 16,right: 16,color: '#fff',zIndex: 2}}>
         {fullscreen ? <FullscreenExit /> : <Fullscreen />}
       </IconButton>
 
-      {/* الأزرار السفلية */}
-      <Box
-        sx={{
-          position: 'absolute',
-          bottom: 24,
-          left: '50%',
-          transform: 'translateX(-50%)',
-          display: 'flex',
-          gap: 3,
-          zIndex: 2
-        }}
-      >
-        {/* زر المايك */}
-        <IconButton
-          onClick={toggleMic}
-          sx={{
-            bgcolor: '#fff',
-            width: 56,
-            height: 56,
-            borderRadius: '50%',
-            '&:hover': { bgcolor: '#eee' }
-          }}
-        >
+      <Box sx={{position: 'absolute',bottom: 24,left: '50%',transform: 'translateX(-50%)',display: 'flex',gap: 3,zIndex: 2}}>
+        <IconButton onClick={toggleMic}
+          sx={{bgcolor: '#fff',width: 56,height: 56,borderRadius: '50%','&:hover': { bgcolor: '#eee' }}}>
           {micOn ? <Mic /> : <MicOff />}
         </IconButton>
 
-        {/* زر إنهاء المكالمة */}
-        <IconButton
-          onClick={endVideoCall}
-          sx={{
-            bgcolor: 'red',
-            color: '#fff',
-            width: 56,
-            height: 56,
-            borderRadius: '50%',
-            fontWeight: 'bold',
-            fontSize: 22,
-            '&:hover': { bgcolor: '#c00' }
-          }}
-        >
+        <IconButton onClick={endVideoCall}
+          sx={{bgcolor: 'red',color: '#fff',width: 56,height: 56,borderRadius: '50%',fontWeight: 'bold',fontSize: 22,
+            '&:hover': { bgcolor: '#c00' }}}>
           ⨉
         </IconButton>
 
-        {/* زر الكاميرا */}
-        <IconButton
-          onClick={toggleVideo}
-          sx={{
-            bgcolor: '#fff',
-            width: 56,
-            height: 56,
-            borderRadius: '50%',
-            '&:hover': { bgcolor: '#eee' }
-          }}
-        >
+        <IconButton onClick={toggleVideo} sx={{bgcolor: '#fff',width: 56,height: 56,borderRadius: '50%',
+            '&:hover': { bgcolor: '#eee' }}}>
           {videoOn ? <Videocam /> : <VideocamOff />}
         </IconButton>
       </Box>

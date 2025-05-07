@@ -9,7 +9,7 @@ const Form = () => {
 
   const handleButtonClick = () => {
     setIsPressed(true);
-    setTimeout(() => setIsPressed(false), 200); // إعادة الحجم الطبيعي بعد 200 مللي ثانية
+    setTimeout(() => setIsPressed(false), 200); 
   };
 
   return (

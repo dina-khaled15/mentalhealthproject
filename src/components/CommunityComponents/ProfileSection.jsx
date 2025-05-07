@@ -33,15 +33,8 @@ const ProfileSection = ({ theme, activeChat, friends, addFriend, startVideoCall,
 
   return (
     <Box
-      sx={{
-        width: '300px',
-        bgcolor: '#F8F7F4',
-        borderLeft: `1px solid ${theme.border}`,
-        display: 'flex',
-        flexDirection: 'column',
-        padding: '16px'
-      }}
-    >
+      sx={{width: '300px',bgcolor: '#F8F7F4',display: 'flex',flexDirection: 'column',padding: '16px',
+        borderLeft: `1px solid ${theme.border}`,}}>
       <Typography variant="subtitle2" sx={{ color: theme.text.secondary, mb: '8px', textTransform: 'uppercase' }}>
         User
       </Typography>
@@ -51,13 +44,10 @@ const ProfileSection = ({ theme, activeChat, friends, addFriend, startVideoCall,
           {activeChat}
         </Typography>
       </Box>
-      <Button
-        variant="contained"
-        startIcon={<PersonAdd />}
+      <Button variant="contained" startIcon={<PersonAdd />}
         onClick={() => addFriend(activeChat)}
         disabled={isFriend}
-        sx={{
-          mb: '16px',
+        sx={{mb: '16px',
           bgcolor: isFriend ? theme.text.secondary : theme.text.primary,
           color: theme.text.light,
           '&:hover': {
@@ -72,79 +62,60 @@ const ProfileSection = ({ theme, activeChat, friends, addFriend, startVideoCall,
         variant="outlined"
         startIcon={<VideoCall />}
         onClick={startVideoCall}
-        sx={{
-          mb: '16px',
-          borderColor: theme.text.primary,
-          color: theme.text.primary,
-          textTransform: 'uppercase'
-        }}
-      >
+        sx={{mb: '16px',borderColor: theme.text.primary,color: theme.text.primary,textTransform: 'uppercase'}}>
         Start Video Call
       </Button>
       <Typography variant="subtitle2" sx={{ color: theme.text.secondary, mb: '8px', textTransform: 'uppercase' }}>
         Attachments
       </Typography>
       <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '8px', mb: '16px' }}>
-        <input
-          type="file"
-          accept="application/pdf"
+        <input type="file" accept="application/pdf"
           style={{ display: 'none' }}
           ref={pdfInputRef}
           onChange={(e) => handleFileUpload(e, 'PDF')}
         />
-        <Button
-          variant="contained"
+        <Button variant="contained"
           sx={{ bgcolor: theme.text.primary, color: theme.text.light, textTransform: 'uppercase' }}
           onClick={() => triggerFileInput(pdfInputRef)}
         >
           PDF
         </Button>
-        <input
-          type="file"
+        <input type="file"
           accept="video/*"
           style={{ display: 'none' }}
           ref={videoInputRef}
           onChange={(e) => handleFileUpload(e, 'Video')}
         />
-        <Button
-          variant="contained"
-          sx={{ bgcolor: theme.text.primary, color: theme.text.light, textTransform: 'uppercase' }}
+        <Button variant="contained" sx={{ bgcolor: theme.text.primary, color: theme.text.light, textTransform: 'uppercase' }}
           onClick={() => triggerFileInput(videoInputRef)}
         >
           Video
         </Button>
-        <input
-          type="file"
+        <input type="file"
           accept="audio/mpeg"
           style={{ display: 'none' }}
           ref={mp3InputRef}
           onChange={(e) => handleFileUpload(e, 'MP3')}
         />
-        <Button
-          variant="contained"
+        <Button variant="contained"
           sx={{ bgcolor: theme.text.primary, color: theme.text.light, textTransform: 'uppercase' }}
           onClick={() => triggerFileInput(mp3InputRef)}
         >
           MP3
         </Button>
-        <input
-          type="file"
+        <input type="file"
           accept="image/*"
           style={{ display: 'none' }}
           ref={imageInputRef}
           onChange={(e) => handleFileUpload(e, 'Image')}
         />
-        <Button
-          variant="contained"
-          sx={{ bgcolor: theme.text.primary, color: theme.text.light, textTransform: 'uppercase' }}
+        <Button variant="contained" sx={{ bgcolor: theme.text.primary, color: theme.text.light, textTransform: 'uppercase' }}
           onClick={() => triggerFileInput(imageInputRef)}
         >
           Image
         </Button>
       </Box>
-      <Button
-        variant="text"
-        sx={{ color: theme.text.primary, textTransform: 'uppercase' }}
+      <Button variant="text" sx={{ color: theme.text.primary, textTransform: 'uppercase' }}
         onClick={() => setViewAllOpen(true)}
       >
         View All
