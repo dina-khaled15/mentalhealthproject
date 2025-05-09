@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { FaUser, FaUsers, FaCheckCircle, FaHome } from 'react-icons/fa'; // Icons
 import { Box, Button, Drawer, Typography, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
@@ -81,13 +82,13 @@ export default function UserProfile() {
               Back to Home
             </Button>
             <Button variant="contained" sx={{
-                mb: 2,
-                bgcolor: 'black',
-                color: 'white',
-                '&:hover': {
-                  bgcolor: '#333',
-                },
-              }} fullWidth>
+              mb: 2,
+              bgcolor: 'black',
+              color: 'white',
+              '&:hover': {
+                bgcolor: '#333',
+              },
+            }} fullWidth>
               Log out
             </Button>
           </Box>
@@ -99,3 +100,7 @@ export default function UserProfile() {
     </Box>
   );
 }
+
+
+
+

@@ -1,9 +1,6 @@
 
-
-
 const express = require('express');
 const mongoose = require('mongoose');
-
 const app = express();
 require('dotenv').config();
 const path = require('path');
@@ -101,3 +98,5 @@ process.on('unhandledRejection', (err, promise) => {
     console.error(`Error: ${err.message}`);
     server.close(() => process.exit(1));
 });
+
+
