@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, Typography, Card, CardMedia, CardContent, Container, Chip } from '@mui/material';
 import RoomIcon from '@mui/icons-material/Room';
 import styles from './Location.module.css';
 
-import  locations  from '../../data/locations';
-
 const LocationSection = () => {
+    const [locations, setLocations] = useState([]);
+
+    useEffect(() => {
+        fetch("http://localhost:5000/api/locations")
+            .then((res) => res.json())
+            .then((data) => setLocations(data))
+            .catch((err) => console.error("Error fetching locations:", err));
+    }, []);
+
     return (
         <Box className={styles.container}>
             <Container>
@@ -26,7 +33,7 @@ const LocationSection = () => {
 
                 <div className={styles.gridContainer}>
                     {locations.map((loc) => (
-                        <div className={styles.gridItem} key={loc.city}>
+                        <div className={styles.gridItem} key={loc._id}>
                             <Card className={styles.card}>
                                 <CardMedia
                                     component="img"

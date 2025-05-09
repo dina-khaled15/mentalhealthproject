@@ -3,7 +3,7 @@
 
 const express = require('express');
 const mongoose = require('mongoose');
-
+const uploadRouter = require('./routers/upload.routes');
 const app = express();
 require('dotenv').config();
 const path = require('path');
@@ -27,6 +27,14 @@ const connectDB = require('./config/db');
 const errorHandler = require('./middlewares/errorHandler.middleware');
 const cloudinary = require('cloudinary').v2;
 const imageRoutes = require('./routers/image.routes');
+const locationRouter = require("./routes/location.routes");
+const valueRoutes = require('./routers/value.routes');
+const faqRoutes = require('./routes/faq.routes');
+const milestoneRoutes = require('./routes/milestone.routes');
+const planRoutes = require("./routes/plan.routes");
+
+
+
 
 // Connect to MongoDB
 connectDB();
@@ -38,6 +46,7 @@ app.use(cors(
 ));
 app.use(cookieParser());
 app.use(passport.initialize());
+
 
 // Parse JSON bodies
 cloudinary.config({
@@ -64,17 +73,25 @@ app.use('/game', game);
 app.use('/bubble', bubble);
 app.use('/pattern', pattern);
 app.use('/events', eventRouter);
+app.use('/milestone', milestoneRoutes);
+app.use('/plan', planRoutes);
+app.use('/api/values', valueRoutes);
+app.use('/api', faqRoutes);
 
-const userInfoRouter = require('./routers/user.routes');
-const authRoutes = require('./routers/authRoutes.routes');
-const scheduleRoutes = require('./routers/schedule.routes');
 
-app.use('/api/feedback', userRouter);
-app.use('/api/users', userInfoRouter);
-app.use('/api/auth', authRoutes);
-app.use('/api/schedules', scheduleRoutes);
-app.use('/api/images', imageRoutes);
-app.use('/api/goals', goalRoutes);
+// const userInfoRouter = require('./routers/user.routes');
+// const authRoutes = require('./routers/authRoutes.routes');
+// const scheduleRoutes = require('./routers/schedule.routes');
+
+// app.use('/api/feedback', userRouter);
+// app.use('/api/users', userInfoRouter);
+// app.use('/api/auth', authRoutes);
+// app.use('/api/schedules', scheduleRoutes);
+// app.use('/api/images', imageRoutes);
+// app.use('/api/goals', goalRoutes);
+app.use('/upload', uploadRouter);
+app.use("/location", locationRouter);
+
 
 // Serve static files
 if (process.env.NODE_ENV === 'production') {
