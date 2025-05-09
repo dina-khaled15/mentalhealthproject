@@ -1,4 +1,8 @@
 const express = require('express');
+
+const express = require('express');
+const mongoose = require('mongoose');
+const uploadRouter = require('./routers/upload.routes');
 const app = express();
 require('dotenv').config();
 const path = require('path');
@@ -16,13 +20,26 @@ const game = require('./routers/game.route');
 const bubble = require('./routers/bubble.route');
 const pattern = require('./routers/pattern.route');
 const errorHandler = require('./middlewares/errorHandler.middleware');
-const loggingMiddleware = require('./middlewares/loganthing.middleware');
-const cardGameRouter = require('./routers/game.route');
+const cloudinary = require('cloudinary').v2;
+const imageRoutes = require('./routers/image.routes');
+const locationRouter = require("./routes/location.routes");
+const valueRoutes = require('./routers/value.routes');
+const faqRoutes = require('./routes/faq.routes');
+const milestoneRoutes = require('./routes/milestone.routes');
+const planRoutes = require("./routes/plan.routes");
 
-const connectDB = require('./config/db');
+
+
 
 connectDB();
 
+
+// Parse JSON bodies
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 app.use(cors({
   origin: 'http://localhost:5173', 
@@ -50,12 +67,50 @@ app.use('/doctor', doctor);
 app.use('/game', game);
 app.use('/bubble', bubble);
 app.use('/pattern', pattern);
-app.use('/events', eventRouter); 
-app.use('/cardgame', cardGameRouter);
+app.use('/events', eventRouter);
+app.use('/milestone', milestoneRoutes);
+app.use('/plan', planRoutes);
+app.use('/api/values', valueRoutes);
+app.use('/api', faqRoutes);
 
+
+// const userInfoRouter = require('./routers/user.routes');
+// const authRoutes = require('./routers/authRoutes.routes');
+// const scheduleRoutes = require('./routers/schedule.routes');
+
+// app.use('/api/feedback', userRouter);
+// app.use('/api/users', userInfoRouter);
+// app.use('/api/auth', authRoutes);
+// app.use('/api/schedules', scheduleRoutes);
+// app.use('/api/images', imageRoutes);
+// app.use('/api/goals', goalRoutes);
+app.use('/upload', uploadRouter);
+app.use("/location", locationRouter);
+
+
+// Serve static files
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../frontend/build')));
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, '../frontend', 'build', 'index.html'));
+    });
+} else {
+    app.use(express.static(path.join(__dirname, 'public')));
+}
+
+// Error handling middleware
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+const server = app.listen(PORT, () => {
+    console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
 });
+
+// Handle unhandled rejections
+process.on('unhandledRejection', (err, promise) => {
+    console.error(`Error: ${err.message}`);
+    server.close(() => process.exit(1));
+});
+
+

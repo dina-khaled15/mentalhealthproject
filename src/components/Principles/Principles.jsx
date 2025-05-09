@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Typography, Button } from "@mui/material";
 
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
@@ -8,7 +8,7 @@ import LightbulbIcon from "@mui/icons-material/Lightbulb";
 import DiamondIcon from "@mui/icons-material/Diamond";
 
 import styles from "./Principles.module.css";
-import values from "../../data/principlesData";
+import axios from "axios";
 
 // Map string names to icon components
 const iconMap = {
@@ -19,6 +19,15 @@ const iconMap = {
 };
 
 export default function PrinciplesSection() {
+  const [values, setValues] = useState([]);
+
+  // Fetch values from the server
+  useEffect(() => {
+    axios.get("http://localhost:4000/api/values")
+      .then((response) => setValues(response.data))
+      .catch((error) => console.error("Error fetching values:", error));
+  }, []);
+
   return (
     <Box className={styles.container}>
       {/* Title Section */}

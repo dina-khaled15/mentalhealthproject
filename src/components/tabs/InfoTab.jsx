@@ -84,7 +84,7 @@ export default function InfoTab() {
   );
 
   return (
-    <Box sx={{  p: 5, borderRadius: 3, boxShadow: 3, height: '100%' }}>
+    <Box sx={{ p: 5, borderRadius: 3, boxShadow: 3, height: '100%' }}>
       <Box sx={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', mb: 5 }}>
         <Avatar
           src={values.avatar}
@@ -95,7 +95,7 @@ export default function InfoTab() {
           <Input
             id="avatar-upload"
             type="file"
-            sx={{ display: 'none'}}
+            sx={{ display: 'none' }}
             onChange={handleAvatarChange}
           />
           <IconButton
@@ -129,3 +129,4 @@ export default function InfoTab() {
     </Box>
   );
 }
+
