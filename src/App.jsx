@@ -1,6 +1,6 @@
 import React, { useEffect, useState, createContext } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import io from "socket.io-client";
 
 import "./App.css";
@@ -58,7 +58,7 @@ function App() {
           <Route path="/profile" element={<ChatUIComponent socket={socket} />} />
           <Route path="/" element={<HomePage />} />
           <Route path="/doctors" element={<DoctorsPage />} />
-          <Route path="/doctorDetails/:doctorId" element={<DoctorPage />} /> {/* Changed to DoctorPage */}
+          <Route path="/doctorDetails/:doctorId" element={<DoctorPage />} />
           <Route path="/about" element={<About />} />
           <Route path="/kids" element={<Children />} />
           <Route path="/games" element={<Game />} />

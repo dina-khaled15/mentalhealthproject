@@ -20,7 +20,7 @@ const DoctorsPage = () => {
           <ExpertTeamSection />
         </Box>
         <div className="container">
-          <TeamGrid />
+        <TeamGrid />
 
         </div>
         
@@ -36,3 +36,13 @@ const DoctorsPage = () => {
 };
 
 export default DoctorsPage;
+
+
+
+    // <Box>
+    //   <Navbar />
+    //   <PsychologyBanner />
+    //   <ExpertTeamSection />
+    //   <TeamGrid />
+    //   <FooterComponent />
+    // </Box>

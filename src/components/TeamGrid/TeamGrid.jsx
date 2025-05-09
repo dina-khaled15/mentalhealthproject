@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { Box, Grid, Card, CardContent, CardMedia, Typography, Button, IconButton } from "@mui/material";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -6,11 +7,16 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useNavigate } from "react-router-dom";
 import styles from "./TeamGrid.module.css";
-import doctorData from "../../data/doctorData";
-
 
 const TeamGrid = () => {
+  const [doctors, setDoctors] = useState([]);
   const navigate = useNavigate();
+  
+  useEffect(() => {
+    axios.get("http://localhost:4000/doctor")
+      .then((res) => setDoctors(res.data))
+      .catch((err) => console.error(err));
+  }, []);
 
   const handleDoctorClick = (doctorId) => {
     navigate(`/doctorDetails/${doctorId}`);
@@ -19,14 +25,14 @@ const TeamGrid = () => {
   return (
     <Box className={styles.container}>
       <Grid container spacing={4} justifyContent="center">
-        {doctorData.map((doctor) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} key={doctor.id}>
-            <Card className={styles.card} sx={{ cursor: "pointer" }} onClick={() => handleDoctorClick(doctor.id)}>
+        {doctors.map((doctor) => (
+          <Grid item xs={12} sm={6} md={4} lg={3} key={doctor._id}>
+            <Card className={styles.card} sx={{ cursor: "pointer" }} onClick={() => handleDoctorClick(doctor._id)}>
               <Box className={styles.imageContainer}>
                 <CardMedia
                   component="img"
                   className={styles.cardMedia}
-                  image={doctor.avatar}
+                  image={`http://localhost:4000/images/${doctor.avatar}`}
                   alt={doctor.name}
                 />
                 <Box className={`${styles.overlay} ${styles.overlayVisible}`}>
@@ -41,7 +47,7 @@ const TeamGrid = () => {
                   </IconButton>
                 </Box>
               </Box>
-
+              
               <CardContent className={styles.cardContent}>
                 <Typography gutterBottom variant="h6" component="div" className={styles.doctorName}>
                   {doctor.name}
@@ -50,12 +56,12 @@ const TeamGrid = () => {
                   {doctor.title}
                 </Typography>
               </CardContent>
-
+              
               <Box className={styles.buttonContainer}>
                 <Button
                   onClick={(e) => {
                     e.stopPropagation();
-                    handleDoctorClick(doctor.id);
+                    handleDoctorClick(doctor._id);
                   }}
                   variant="contained"
                   disableElevation

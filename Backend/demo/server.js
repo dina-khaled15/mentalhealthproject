@@ -14,12 +14,7 @@ const connectDB = require('./config/db');
 
 connectDB();
 app.use(express.json());
-
-// ✅ إعلان مجلد الصور public/images كمجلد static
 app.use('/images', express.static(path.join(__dirname, 'public/images')));
-
-// app.use(loggingMiddleware);
-
 app.use('/feedback', userRouter);
 app.use('/doctor', doctor);
 app.use('/game', game);
