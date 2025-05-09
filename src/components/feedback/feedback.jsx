@@ -2,8 +2,8 @@ import React from "react";
 import { Box, Typography, Avatar, Card, CardContent, IconButton, } from "@mui/material";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 
-import styles from "../feedback/Feedback.module.css";
-import feedback from "../../data/feedback";
+import styles from "../FeedBack/FeedBack.module.css";
+import feedback from "../../data/FeedBack";
 
 const Feedback = () => {
   return (

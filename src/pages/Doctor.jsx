@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { Box, Typography, Avatar, Button, Chip, Stack, Divider } from "@mui/material";
 import { Phone, Email, School, Work, Assignment } from "@mui/icons-material";
 import Navbar from "../components/Navbar/Navbar";
-import Feedback from "../components/feedback/feedback";
+import Feedback from "../components/FeedBack/FeedBack";
 import WeeklySchedule from "../components/SehdualOverVeiw";
 import FooterComponent from "../components/footer/contact";
 import doctorData from "../data/doctorData";

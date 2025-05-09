@@ -12,7 +12,7 @@ import DoctorsPage from "./pages/DocPage";
 import HomePage from "./pages/HomePage";
 import Children from "./pages/Children";
 import EmotionAdventure from "./pages/EmotionAdventure";
-import Game from "./pages/game";
+import Game from "./pages/Game";
 import Bubble from "./components/Bubble/Bubble";
 import CardMatchGame from "./components/Matching/Matching";
 import StoryVideosPage from "./pages/StoryVideoPage";

@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography, Chip, Box, Paper } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import benefitImg from "../images/benefit.png";
+import benefitImg from "../../images/benefit.png";
 import styles from "./Benefit.module.css"; 
 
 const Benefit = () => {
