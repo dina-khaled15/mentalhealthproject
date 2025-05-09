@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { Box, Typography, Avatar, Button, Chip, Stack, Divider } from "@mui/material";
 import { Phone, Email, School, Work, Assignment } from "@mui/icons-material";
 import Navbar from "../components/Navbar/Navbar";
-import Feedback from "../components/FeedBack/FeedBack";
+import Feedback from "../components/feedback/feedback";
 import WeeklySchedule from "../components/SehdualOverVeiw";
 import FooterComponent from "../components/footer/contact";
 import doctorData from "../data/doctorData";
@@ -15,11 +15,12 @@ import RelatedDoctors from "../components/Releteddoctors/RelatedDoctors";
 
 export default function DoctorPage() {
   const { doctorId } = useParams();
-  const doctor = doctorId 
-    ? doctorData.find(doc => doc.id === parseInt(doctorId))  : doctorData[0];
+  const doctor = doctorId
+    ? doctorData.find(doc => doc.id === parseInt(doctorId)) : doctorData[0];
 
   useEffect(() => {
-    window.scrollTo(0, 0);}, [doctorId]); 
+    window.scrollTo(0, 0);
+  }, [doctorId]);
 
   return (
     <div className={styles.pageContainer}>

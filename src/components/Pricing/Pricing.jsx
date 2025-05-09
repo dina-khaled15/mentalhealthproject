@@ -1,11 +1,37 @@
-import React from "react";
-import {Box,Typography,Button,Container,Paper,List,ListItem,ListItemIcon,ListItemText,Chip,} from "@mui/material";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Box, Typography, Button, Container, Paper, List, ListItem, ListItemIcon, ListItemText, Chip } from "@mui/material";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import PriceChangeIcon from "@mui/icons-material/PriceChange";
 import styles from "./Pricing.module.css";
-import  plans from "../../data/Pricing";
+
 const PricingSection = () => {
- 
+  const [plans, setPlans] = useState([]); // لتخزين البيانات المستلمة من الـ API
+  const [loading, setLoading] = useState(true); // لحالة التحميل
+  const [error, setError] = useState(null); // لحالة الخطأ في جلب البيانات
+
+  // استخدام useEffect لجلب البيانات عند تحميل الكومبوننت
+  useEffect(() => {
+    axios
+      .get("/api/plans") // رابط الـ API الخاص بك
+      .then((response) => {
+        setPlans(response.data); // تخزين البيانات في الـ state
+        setLoading(false); // إنهاء حالة التحميل
+      })
+      .catch((err) => {
+        setError("Failed to fetch plans"); // في حالة وجود خطأ
+        setLoading(false); // إنهاء حالة التحميل
+      });
+  }, []); // يتم تنفيذها مرة واحدة عند تحميل الكومبوننت
+
+  if (loading) {
+    return <Typography variant="h6" align="center">Loading...</Typography>;
+  }
+
+  if (error) {
+    return <Typography variant="h6" align="center" color="error">{error}</Typography>;
+  }
+
   return (
     <Box className={styles.pricingSection}>
       <Container maxWidth="lg">
@@ -31,7 +57,7 @@ const PricingSection = () => {
             <Paper key={index} elevation={3} className={`${styles.planCard} ${plan.highlighted ? styles.highlightedCard : styles.standardCard}`}>
               {plan.highlighted && (
                 <Box className={styles.popularBadgeContainer}>
-                  <Chip label="Popular"size="small"className={styles.popularBadge}/>
+                  <Chip label="Popular" size="small" className={styles.popularBadge} />
                 </Box>
               )}
 
@@ -50,12 +76,15 @@ const PricingSection = () => {
                   </Typography>
                 </Typography>
 
-                <Typography variant="body2" className={`${styles.planSessions} ${plan.highlighted ? styles.darkText : styles.lightText}`} >
+                <Typography variant="body2" className={`${styles.planSessions} ${plan.highlighted ? styles.darkText : styles.lightText}`}>
                   {plan.sessions}
                 </Typography>
 
-                <Button variant={plan.highlighted ? "contained" : "outlined"} fullWidth
-                  className={`${styles.subscribeButton} ${plan.highlighted ? styles.highlightedButton : styles.standardButton}`}>
+                <Button
+                  variant={plan.highlighted ? "contained" : "outlined"}
+                  fullWidth
+                  className={`${styles.subscribeButton} ${plan.highlighted ? styles.highlightedButton : styles.standardButton}`}
+                >
                   {plan.buttonText}
                 </Button>
 
@@ -63,10 +92,12 @@ const PricingSection = () => {
                   {plan.features.map((feature, idx) => (
                     <ListItem key={idx} disableGutters className={styles.featureItem}>
                       <ListItemIcon className={styles.featureIcon}>
-                        <CheckCircleOutlineIcon fontSize="small" className={plan.highlighted ? styles.darkIcon : styles.lightIcon}/>
+                        <CheckCircleOutlineIcon fontSize="small" className={plan.highlighted ? styles.darkIcon : styles.lightIcon} />
                       </ListItemIcon>
-                      <ListItemText primary={feature}
-                        className={`${styles.featureText} ${plan.highlighted ? styles.darkFeatureText : styles.lightFeatureText}`}/>
+                      <ListItemText
+                        primary={feature}
+                        className={`${styles.featureText} ${plan.highlighted ? styles.darkFeatureText : styles.lightFeatureText}`}
+                      />
                     </ListItem>
                   ))}
                 </List>

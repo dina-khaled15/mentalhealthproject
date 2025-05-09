@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Typography, Button } from "@mui/material";
 import RouteIcon from "@mui/icons-material/Route";
-import milestones from "../data/milestone";
-
+import axios from "axios";
 
 export default function Timeline() {
+  const [milestones, setMilestones] = useState([]);
+
+  // Fetch milestones data from API when the component mounts
+  useEffect(() => {
+    const fetchMilestones = async () => {
+      try {
+        const response = await axios.get('/api/milestones');
+        setMilestones(response.data); // Assuming your API returns the milestones data
+      } catch (error) {
+        console.error("Error fetching milestones:", error);
+      }
+    };
+
+    fetchMilestones();
+  }, []);
+
   return (
     <div className="container mt-5">
       <Box sx={{ textAlign: "center", py: 6 }}>
