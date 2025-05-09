@@ -1,47 +1,47 @@
 const mongoose = require('mongoose');
 
-const doctorSchema = new mongoose.Schema({
-  name: String,
-  title: String,
-  avatar: String, 
-  description: String,
-  contact: {
-    phone: String,
-    email: String,
+// تعريف schema للطبيب
+const doctortableSchema = new mongoose.Schema({
+ 
+  name: {
+    type: String,
+    required: true, // إضافة شرط أنه يجب إدخال الاسم
+    trim: true, // حذف الفراغات الزائدة
   },
-  socialMedia: [String],
-  education: [
-    {
-      year: String,
-      degree: String,
-      school: String,
-    },
-    {
-        year: String,
-        degree: String,
-        school: String,
-    },
-  ],
-  experience: [
-    {
-      year: String,
-      role: String,
-      place: String,
-    },
-    {
-        year: String,
-        role: String,
-        place: String,
-    },
-    {
-        year: String,
-        role: String,
-        place: String,
-    },
-  ],
-  certificates: [String],
-  expertise: [String],
+  age: {
+    type: Number,
+    required: true, // إضافة شرط أنه يجب إدخال العمر
+  },
+  phone: {
+    type: String,
+    required: true, // إضافة شرط أنه يجب إدخال رقم الهاتف
+    trim: true, // حذف الفراغات الزائدة
+  },
+  email: {
+    type: String,
+    required: true, // إضافة شرط أنه يجب إدخال البريد الإلكتروني
+    trim: true, // حذف الفراغات الزائدة
+  },
+  address: {
+    type: String,
+    required: true, // إضافة شرط أنه يجب إدخال العنوان
+  },
+  city: {
+    type: String,
+    required: true, // إضافة شرط أنه يجب إدخال المدينة
+  },
+  zipCode: {
+    type: String,
+    required: true, // إضافة شرط أنه يجب إدخال الرمز البريدي
+  },
+  rating: {
+    type: Number,
+    default: 0, // قيمة افتراضية للتقييم
+  },
 });
 
-const doctor = mongoose.model('Doctor', doctorSchema);
-module.exports = doctor;
+// تعريف موديل Doctor باستخدام السكيمة
+const Doctor = mongoose.model('Doctor', doctortableSchema );
+
+// تصدير الموديل
+module.exports = Doctor;

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // const cloudinary = require('cloudinary').v2;
 // const { CloudinaryStorage } = require('multer-storage-cloudinary');
 
@@ -35,3 +36,24 @@ router.post('/upload', upload.single('image'), (req, res) => {
 });
 
 module.exports = router;
+=======
+// config/cloudinary.js
+const cloudinary = require('cloudinary').v2;
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
+const storage = new CloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: 'uploads', // اسم المجلد في Cloudinary
+    allowed_formats: ['jpg', 'png', 'jpeg'],
+  },
+});
+
+module.exports = { cloudinary, storage };
+>>>>>>> ecb0efb2c3774c9ed7715f58a9916dcd1bed59dc

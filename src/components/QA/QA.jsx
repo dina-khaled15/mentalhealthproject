@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Typography } from "@mui/material";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import styles from "./QA.module.css";
 import "../../App.css";
-import faqs from "../../data/QA.js";
+import axios from "axios";
+
 const FAQHeader = () => {
   return (
-    
     <Box
       className={`${styles.faqHeader}`}
       sx={{
@@ -36,16 +36,27 @@ const FAQHeader = () => {
 };
 
 const QA = () => {
+  const [faqs, setFaqs] = useState([]); // لاحتواء الأسئلة
   const [openIndex, setOpenIndex] = useState(null);
+
+  // جلب البيانات من الـ API عند تحميل الصفحة
+  useEffect(() => {
+    axios
+      .get("http://localhost:4000/api/faqs") // تعديل الـ URL بحسب API السيرفر بتاعك
+      .then((response) => {
+        setFaqs(response.data); // تخزين البيانات في state
+      })
+      .catch((error) => {
+        console.error("Error fetching FAQs:", error);
+      });
+  }, []);
 
   const handleClick = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <Box
-      className={`${styles.pageContainer} ${styles.darkBackground}`} sx={{ width: "100%" }}
-    >
+    <Box className={`${styles.pageContainer} ${styles.darkBackground}`} sx={{ width: "100%" }}>
       {/* FAQ Content */}
       <Box className={styles.faqContainer} sx={{ backgroundColor: "#111" }}>
         <Box className={styles.faqHeader}>
@@ -70,18 +81,14 @@ const QA = () => {
                 <Typography
                   className={styles.toggleArrow}
                   sx={{
-                    transform:
-                      openIndex === index ? "rotate(180deg)" : "rotate(0deg)",
+                    transform: openIndex === index ? "rotate(180deg)" : "rotate(0deg)",
                   }}
                 >
                   {openIndex === index ? "▴" : "▾"}
                 </Typography>
               </Box>
               {openIndex === index && (
-                <Typography
-                  className={styles.answerText}
-                  sx={{ color: "#aaa" }}
-                >
+                <Typography className={styles.answerText} sx={{ color: "#aaa" }}>
                   {faq.answer}
                 </Typography>
               )}

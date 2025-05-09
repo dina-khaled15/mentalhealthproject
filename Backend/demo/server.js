@@ -1,6 +1,9 @@
+
+
+
 const express = require('express');
 const mongoose = require('mongoose');
-
+const uploadRouter = require('./routers/upload.routes');
 const app = express();
 require('dotenv').config();
 const path = require('path');
@@ -15,28 +18,17 @@ const userEmotionsroutes = require('./routers/userEmotions.routes');
 const userBookingroutes = require('./routers/userBooking.routes');
 const doctor = require('./routers/doctor.route'); 
 const doctortable = require('./routers/doctortable.routes');
-const eventRouter = require('./routers/event.routes');
+const eventRouter = require('./routers/event.routes'); 
 const game = require('./routers/game.route');
 const bubble = require('./routers/bubble.route');
 const pattern = require('./routers/pattern.route');
-const goalRoutes = require('./routers/goalRoutes.route');
-const passport = require('passport');
-const cookieParser = require('cookie-parser');
-const connectDB = require('./config/db');
 const errorHandler = require('./middlewares/errorHandler.middleware');
 const cloudinary = require('cloudinary').v2;
-const imageRoutes = require('./routers/upload.routes');
+const imageRoutes = require('./routers/image.routes');
 
 // Connect to MongoDB
 connectDB();
-app.use(cors(
-    {
-        origin: 'http://localhost:3000',
-        credentials: true
-    }
-));
-app.use(cookieParser());
-app.use(passport.initialize());
+
 
 // Parse JSON bodies
 cloudinary.config({
@@ -45,15 +37,19 @@ cloudinary.config({
     api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-// Middlewares
+app.use(cors({
+  origin: 'http://localhost:5173', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
+
+
 app.use(express.json());
 
 // Serve static files from public/images
-app.use('/images', express.static(path.join(__dirname, '/images')));
+app.use('/images', express.static(path.join(__dirname, 'public/images')));
 
 // Routes
-app.use('/stages', stagesRouter);
-app.use('/api', uploadRouter);
 app.use('/feedback', userRouter);
 app.use('/doctortable', doctortable);
 app.use('/Issues', userIssuesRouter);
@@ -66,12 +62,13 @@ app.use('/bubble', bubble);
 app.use('/pattern', pattern);
 app.use('/events', eventRouter);
 
-
-
+const userInfoRouter = require('./routers/user.routes');
+const authRoutes = require('./routers/authRoutes.routes');
 const scheduleRoutes = require('./routers/schedule.routes');
 
 app.use('/api/feedback', userRouter);
-
+app.use('/api/users', userInfoRouter);
+app.use('/api/auth', authRoutes);
 app.use('/api/schedules', scheduleRoutes);
 app.use('/api/images', imageRoutes);
 app.use('/api/goals', goalRoutes);
@@ -91,7 +88,6 @@ if (process.env.NODE_ENV === 'production') {
 // Error handling middleware
 app.use(errorHandler);
 
-// Server
 const PORT = process.env.PORT || 4000;
 const server = app.listen(PORT, () => {
     console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
@@ -102,3 +98,5 @@ process.on('unhandledRejection', (err, promise) => {
     console.error(`Error: ${err.message}`);
     server.close(() => process.exit(1));
 });
+
+

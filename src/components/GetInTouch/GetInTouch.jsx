@@ -21,7 +21,7 @@ const GetInTouchSection = () => {
 
                 <Box
                     component="img"
-                    src="/Picture4.png"
+                    src="http://res.cloudinary.com/defus4mj2/image/upload/v1746816543/mfkqtpp61yqvgqrir2dm.png"
                     alt="Therapist and patient"
                     className={styles.image}
                 />

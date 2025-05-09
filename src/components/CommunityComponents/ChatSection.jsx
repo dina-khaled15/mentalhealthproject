@@ -2,20 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import { Box, Typography, TextField, IconButton, Paper } from '@mui/material';
 import { Delete, Send, Mic, Stop, AttachFile, VideoCall } from '@mui/icons-material';
 
-const ChatSection = ({
-  theme,
-  activeChat,
-  messages,
-  message,
-  setMessage,
-  sendMessage,
-  isRecording,
-  startRecording,
-  stopRecordingAndSend,
-  cancelRecording,
-  recordingDuration,
-  formatTime,
-  startVideoCall
+const ChatSection = ({theme,activeChat,messages,message,setMessage,sendMessage,isRecording,
+  startRecording,stopRecordingAndSend,cancelRecording,recordingDuration,formatTime,startVideoCall
 }) => {
   const messagesEndRef = useRef(null);
   const fileInputRef = useRef(null);
@@ -53,27 +41,12 @@ const ChatSection = ({
   };
 
   return (
-    <Box
-      sx={{
-        flexGrow: 1,
-        display: 'flex',
-        flexDirection: 'column',
-        bgcolor: '#F8F7F4',
+    <Box sx={{flexGrow: 1,display: 'flex',flexDirection: 'column',overflow: 'hidden',bgcolor: '#F8F7F4',
         borderLeft: `1px solid ${theme.border}`,
-        borderRight: `1px solid ${theme.border}`,
-        overflow: 'hidden'
-      }}
-    >
+        borderRight: `1px solid ${theme.border}`}}>
       <Box
-        sx={{
-          bgcolor: '#F8F7F4',
-          borderBottom: `1px solid ${theme.border}`,
-          padding: '16px',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center'
-        }}
-      >
+        sx={{bgcolor:'#F8F7F4',padding:'16px',display: 'flex',justifyContent: 'space-between',alignItems: 'center',
+          borderBottom: `1px solid ${theme.border}`,}}>
         <Typography variant="h6" sx={{ color: theme.text.primary }}>
           {activeChat}
         </Typography>
@@ -82,34 +55,15 @@ const ChatSection = ({
         </IconButton>
       </Box>
       <Box
-        sx={{
-          flexGrow: 1,
-          overflowY: 'auto',
-          padding: '16px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '12px',
-          bgcolor: '#F8F7F4',
-        }}
-      >
+        sx={{flexGrow: 1,overflowY: 'auto',padding: '16px',display: 'flex',flexDirection: 'column',gap: '12px',bgcolor: '#F8F7F4',}}>
         {messages.map((msg, index) => (
           <Box
             key={index}
-            sx={{
-              display: 'flex',
-              justifyContent: msg.received ? 'flex-start' : 'flex-end'
-            }}
-          >
+            sx={{display: 'flex',
+              justifyContent: msg.received ? 'flex-start' : 'flex-end'}}>
             <Paper
-              sx={{
-                maxWidth: '70%',
-                padding: '8px 12px',
-                bgcolor: theme.background.light,
-                color: theme.text.primary,
-                borderRadius: msg.received ? '12px 12px 12px 0' : '12px 12px 0 12px',
-                position: 'relative'
-              }}
-            >
+              sx={{color: theme.text.primary,bgcolor: theme.background.light,maxWidth: '70%',padding: '8px 12px', position: 'relative',
+                borderRadius: msg.received ? '12px 12px 12px 0' : '12px 12px 0 12px',}} >
               {msg.type === 'audio' ? (
                 <Box>
                   <audio controls src={msg.audioUrl} />
@@ -127,10 +81,7 @@ const ChatSection = ({
                 <Typography>{msg.text}</Typography>
               )}
               {msg.received && (
-                <IconButton
-                  size="small"
-                  sx={{ position: 'absolute', top: '-10px', right: '-10px' }}
-                >
+                <IconButton size="small" sx={{ position: 'absolute', top: '-10px', right: '-10px' }}>
                   <Delete fontSize="small" />
                 </IconButton>
               )}
@@ -139,16 +90,8 @@ const ChatSection = ({
         ))}
         <div ref={messagesEndRef} />
       </Box>
-      <Box
-        sx={{
-          bgcolor: '#F8F7F4',
-          borderTop: `1px solid ${theme.border}`,
-          padding: '12px',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '8px'
-        }}
-      >
+      <Box sx={{bgcolor: '#F8F7F4',padding: '12px',display: 'flex',alignItems: 'center',gap: '8px',
+          borderTop: `1px solid ${theme.border}`,}}>
         {isRecording ? (
           <Box sx={{ display: 'flex', alignItems: 'center', gap: '8px', flexGrow: 1 }}>
             <Typography sx={{ color: theme.accent.red }}>
@@ -169,16 +112,13 @@ const ChatSection = ({
             <IconButton onClick={triggerFileInput}>
               <AttachFile />
             </IconButton>
-            <input
-              type="file"
+            <input type="file"
               accept="image/*,video/*,audio/mpeg,application/pdf"
               style={{ display: 'none' }}
               ref={fileInputRef}
               onChange={handleFileUpload}
             />
-            <TextField
-              fullWidth
-              variant="outlined"
+            <TextField fullWidth variant="outlined"
               placeholder="Type a message..."
               value={message}
               onChange={(e) => setMessage(e.target.value)}

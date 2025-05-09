@@ -24,7 +24,7 @@ export default function DoctorCard({ name, des, img }) {
   const [open, setOpen] = React.useState(false);
 
   const handleBookingClick = () => {
-    setOpen(true); // فتح المودال
+    setOpen(true); 
   };
 
   const handleConfirmBooking = () => {

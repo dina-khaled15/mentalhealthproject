@@ -9,7 +9,13 @@ import {
   IconButton,
 } from "@mui/material";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
+<<<<<<< HEAD
 import styles from "./FeedBack.module.css";
+=======
+
+import styles from "../FeedBack/FeedBack.module.css";
+import feedback from "../../data/FeedBack";
+>>>>>>> ecb0efb2c3774c9ed7715f58a9916dcd1bed59dc
 
 const Feedback = () => {
   const [feedbacks, setFeedbacks] = useState([]);

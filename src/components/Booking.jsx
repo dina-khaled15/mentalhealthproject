@@ -27,40 +27,7 @@ const Form = () => {
 
   const handleSubmit = async () => {
     setIsPressed(true);
-    setTimeout(() => setIsPressed(false), 200);
-
-    try {
-      console.log('Submitting form data:', formData); // Debug: Log form data
-      const response = await axios.post('http://localhost:4000/Booking', formData, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
-      console.log('Response status:', response.status); // Debug: Log HTTP status
-      console.log('Backend response:', response.data); // Debug: Log full response
-
-      if (response.status === 201) {
-        setSuccess(response.data.message || "Booking created successfully!");
-        setError("");
-        setFormData({
-          fullName: "",
-          email: "",
-          phoneNumber: "",
-          doctor: "",
-          service: "",
-          session: ""
-        });
-      } else {
-        setError(response.data.message || (response.data.errors ? response.data.errors.join(', ') :` Failed to create booking (Status: ${response.status})`));
-        setSuccess("");
-      }
-    } catch (err) {
-      console.error('Axios error:', err.message); // Debug: Log axios error
-      console.error('Error details:', err.response ? err.response.data : 'No response from server'); // Debug: Log error details
-      setError(`Failed to connect to the server. Please ensure the backend is running on http://localhost:4000 and MongoDB is active. Error: ${err.message}`);
-      setSuccess("");
-    }
+    setTimeout(() => setIsPressed(false), 200); // إعادة الحجم الطبيعي بعد 200 مللي ثانية
   };
 
   return (
@@ -180,18 +147,8 @@ const Form = () => {
                 </Grid>
 
                 <Box textAlign="right" sx={{ mt: 3 }}>
-                  <Button
-                    variant="contained"
-                    size="large"
-                    endIcon={<ArrowForwardIcon />}
-                    sx={{
-                      borderRadius: 1,
-                      backgroundColor: "#1c1c1c",
-                      fontSize: "13px",
-                      textTransform: "none",
-                      color: "#fff",
-                      px: 2,
-                      
+                  <Button variant="contained" size="large" endIcon={<ArrowForwardIcon />}
+                    sx={{borderRadius: 1, backgroundColor: "#1c1c1c",fontSize: "13px",textTransform:"none",color: "#fff",px: 2,
                       transform: isPressed ? "scale(1.1)" : "scale(1)",
                       "&:hover": { backgroundColor: "#000" },
                     }}

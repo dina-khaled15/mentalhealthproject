@@ -1,7 +1,5 @@
-// controllers/gameController.js
 const Game = require("../models/game.model");
 
-// Get all games
 exports.getGames = async (req, res) => {
   try {
     const games = await Game.find();
@@ -11,7 +9,6 @@ exports.getGames = async (req, res) => {
   }
 };
 
-// Add a new game (اختياري للإدارة)
 exports.createGame = async (req, res) => {
   const { title, image, link } = req.body;
   const game = new Game({ title, image, link });

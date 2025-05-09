@@ -35,6 +35,31 @@ const PartnerPharmaciesPage = () => {
       confidential: false
     });
   };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('http://localhost:4000/Pharmacy', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Something went wrong');
+      }
+  
+      const data = await response.json();
+      console.log('Success:', data);
+      alert('Request submitted successfully!');
+      clearForm();
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Failed to submit request. Please try again.');
+    }
+  };
+  
 
   return (
    <> <Navbar/>
@@ -84,7 +109,8 @@ const PartnerPharmaciesPage = () => {
 
 
     <Paper elevation={1} sx={{ p: 3, borderRadius: 3 }}>
-        <Box component="form" noValidate autoComplete="off">
+    <Box component="form" noValidate autoComplete="off" onSubmit={handleSubmit}>
+
         <TextField fullWidth label="Patient Name" name="name" value={form.name} onChange={handleChange} variant="outlined"
         sx={{mb: 3,
             "& .MuiOutlinedInput-root": {
@@ -180,10 +206,18 @@ const PartnerPharmaciesPage = () => {
             label="Pick up medication confidentially"
             sx={{ mb: 3 }}/>
         <Box sx={{ display: 'flex', gap: 2 }}>
-            <Button variant="contained" size="large" sx={{textTransform: 'none',bgcolor: '#F8F7F4',border: '1px solid black',
-                borderRadius: '4px',fontFamily: 'Manrope',fontWeight: 800,color: 'black',}}>
-            Submit Request
-            </Button>
+        <Button type="submit" variant="contained" size="large" sx={{
+  textTransform: 'none',
+  bgcolor: '#F8F7F4',
+  border: '1px solid black',
+  borderRadius: '4px',
+  fontFamily: 'Manrope',
+  fontWeight: 800,
+  color: 'black',
+}}>
+  Submit Request
+</Button>
+
             <Button variant="outlined" color="secondary"size="large"onClick={clearForm}
             sx={{textTransform: 'none',bgcolor: '#F8F7F4',border: '1px solid black',borderRadius: '4px',fontFamily: 'Manrope',
                 fontWeight: 800,color: 'black',}}>
