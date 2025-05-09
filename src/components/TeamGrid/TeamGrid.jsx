@@ -11,29 +11,43 @@ import styles from "./TeamGrid.module.css";
 const TeamGrid = () => {
   const [doctors, setDoctors] = useState([]);
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     axios.get("http://localhost:4000/doctor")
-      .then((res) => setDoctors(res.data))
+      .then((res) => setDoctors(res.data)) // تعيين بيانات الدكاترة في الState
       .catch((err) => console.error(err));
   }, []);
 
   const handleDoctorClick = (doctorId) => {
-    navigate(`/doctorDetails/${doctorId}`);
+    navigate(`/doctorDetails/${doctorId}`); // التنقل إلى صفحة تفاصيل الدكتور
   };
 
   return (
     <Box className={styles.container}>
       <Grid container spacing={4} justifyContent="center">
         {doctors.map((doctor) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} key={doctor._id}>
-            <Card className={styles.card} sx={{ cursor: "pointer" }} onClick={() => handleDoctorClick(doctor._id)}>
+          <Grid item xs={12} sm={6} md={4} key={doctor._id}>
+            <Card
+              className={styles.card}
+              sx={{
+                cursor: "pointer",
+                display: "flex",
+                flexDirection: "column",
+                height: "100%", 
+                width: 300,
+              }}
+              onClick={() => handleDoctorClick(doctor._id)}
+            >
               <Box className={styles.imageContainer}>
                 <CardMedia
                   component="img"
                   className={styles.cardMedia}
-                  image={`http://localhost:4000/images/${doctor.avatar}`}
+                  image={doctor.avatar} 
                   alt={doctor.name}
+                  sx={{
+                    height: "100%", 
+                    objectFit: "cover",
+                  }}
                 />
                 <Box className={`${styles.overlay} ${styles.overlayVisible}`}>
                   <IconButton sx={{ color: "white" }}>
@@ -47,8 +61,8 @@ const TeamGrid = () => {
                   </IconButton>
                 </Box>
               </Box>
-              
-              <CardContent className={styles.cardContent}>
+
+              <CardContent sx={{ flexGrow: 1 }}>
                 <Typography gutterBottom variant="h6" component="div" className={styles.doctorName}>
                   {doctor.name}
                 </Typography>
@@ -56,11 +70,11 @@ const TeamGrid = () => {
                   {doctor.title}
                 </Typography>
               </CardContent>
-              
+
               <Box className={styles.buttonContainer}>
                 <Button
                   onClick={(e) => {
-                    e.stopPropagation();
+                    e.stopPropagation(); 
                     handleDoctorClick(doctor._id);
                   }}
                   variant="contained"

@@ -7,7 +7,7 @@ const gameSchema = new mongoose.Schema({
     required: true,
   },
   image: {
-    type: String, // رابط الصورة أو اسم الملف
+    type: String, 
     required: true,
   },
   link: {

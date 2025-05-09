@@ -6,12 +6,14 @@ require('dotenv').config();
 const path = require('path');
 const cors = require('cors');
 
+const stagesRouter = require('./routers/stages.routes');
+const uploadRouter = require('./routers/upload.routes');
 const userRouter = require('./routers/userfeedback.routes');
 const userIssuesRouter = require('./routers/userIssues.routes');
 const userPharmacyRouter = require('./routers/userPharmacy.routes');
 const userEmotionsroutes = require('./routers/userEmotions.routes');
 const userBookingroutes = require('./routers/userBooking.routes');
-const doctor = require('./routers/doctor.route');
+const doctor = require('./routers/doctor.route'); 
 const doctortable = require('./routers/doctortable.routes');
 const eventRouter = require('./routers/event.routes');
 const game = require('./routers/game.route');
@@ -23,7 +25,7 @@ const cookieParser = require('cookie-parser');
 const connectDB = require('./config/db');
 const errorHandler = require('./middlewares/errorHandler.middleware');
 const cloudinary = require('cloudinary').v2;
-
+const imageRoutes = require('./routers/upload.routes');
 
 // Connect to MongoDB
 connectDB();
@@ -47,9 +49,11 @@ cloudinary.config({
 app.use(express.json());
 
 // Serve static files from public/images
-app.use('/images', express.static(path.join(__dirname, 'public/images')));
+app.use('/images', express.static(path.join(__dirname, '/images')));
 
 // Routes
+app.use('/stages', stagesRouter);
+app.use('/api', uploadRouter);
 app.use('/feedback', userRouter);
 app.use('/doctortable', doctortable);
 app.use('/Issues', userIssuesRouter);
@@ -62,17 +66,17 @@ app.use('/bubble', bubble);
 app.use('/pattern', pattern);
 app.use('/events', eventRouter);
 
-const userInfoRouter = require('./routers/user.routes');
-const authRoutes = require('./routers/authRoutes.routes');
+
+
 const scheduleRoutes = require('./routers/schedule.routes');
 
 app.use('/api/feedback', userRouter);
-app.use('/api/users', userInfoRouter);
-app.use('/api/auth', authRoutes);
+
 app.use('/api/schedules', scheduleRoutes);
 app.use('/api/images', imageRoutes);
 app.use('/api/goals', goalRoutes);
 
+app.use('/images', express.static(path.join(__dirname, '/images')));
 // Serve static files
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../frontend/build')));

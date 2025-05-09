@@ -1,11 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Card, CardContent, CardMedia, Typography, Box } from "@mui/material";
 import { Link } from "react-router-dom";
-import doctorData from "../../data/doctorData";
+import axios from "axios"; // نحتاج لاستخدام axios لجلب البيانات من الخادم
 import styles from "./RelatedDoctors.module.css";
 
 const RelatedDoctors = () => {
-  const relatedDoctors = doctorData.slice(0, 4);
+  const [relatedDoctors, setRelatedDoctors] = useState([]); 
+  const [loading, setLoading] = useState(true); 
+  const [error, setError] = useState(null); 
+
+  // جلب بيانات الأطباء
+  useEffect(() => {
+    axios
+      .get("http://localhost:4000/doctor") 
+      .then((response) => {
+        setRelatedDoctors(response.data.slice(0, 4)); 
+        setLoading(false); 
+      })
+      .catch((err) => {
+        setError("Error fetching doctors data");
+        setLoading(false); // تعيين حالة التحميل كـ false حتى لو حدث خطأ
+        console.error(err);
+      });
+  }, []);
+
+  if (loading) return <div>Loading...</div>; // في حال كانت البيانات قيد التحميل
+  if (error) return <div>{error}</div>; // في حال حدوث خطأ في جلب البيانات
 
   return (
     <Box className={styles.container}>
@@ -22,15 +42,15 @@ const RelatedDoctors = () => {
         <Box className={styles.cardContainer}>
           {relatedDoctors.map((doctor) => (
             <Link
-              key={doctor.id}
-              to={`/doctorDetails/${doctor.id}`}
+              key={doctor._id} 
+              to={`/doctorDetails/${doctor._id}`} 
               className={styles.cardLink}
               style={{ textDecoration: "none" }}
             >
               <Card className={styles.card}>
                 <CardMedia
                   component="img"
-                  image={doctor.avatar} 
+                  image={doctor.avatar}
                   alt={doctor.name}
                   className={styles.cardImage}
                 />
