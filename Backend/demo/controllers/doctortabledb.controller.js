@@ -11,10 +11,9 @@ module.exports.getAllDoctors = async (req, res) => {
   }
 };
 
-// Create a new doctor with auto registrarId
 module.exports.createDoctor = async (req, res) => {
   try {
-    // التحقق من الحقول المطلوبة
+  
     const requiredFields = ['name', 'age', 'phone', 'email', 'address', 'city', 'zipCode'];
     for (const field of requiredFields) {
       if (!req.body[field]) {
@@ -22,13 +21,13 @@ module.exports.createDoctor = async (req, res) => {
       }
     }
 
-    // تجاهل registrarId لو بعته الـ Frontend
+   
     if (req.body.registrarId) {
       console.warn('registrarId sent by client, ignoring...');
       delete req.body.registrarId;
     }
 
-    // توليد registrarId مع حماية من التكرار
+
     let registrarId;
     let attempts = 0;
     while (attempts < 3) {
@@ -53,7 +52,7 @@ module.exports.createDoctor = async (req, res) => {
   }
 };
 
-// Update doctor
+
 module.exports.updateDoctor = async (req, res) => {
   try {
     const id = req.params.id;
@@ -68,7 +67,7 @@ module.exports.updateDoctor = async (req, res) => {
   }
 };
 
-// Delete doctor
+
 module.exports.deleteDoctor = async (req, res) => {
   try {
     const id = req.params.id;
@@ -83,7 +82,7 @@ module.exports.deleteDoctor = async (req, res) => {
   }
 };
 
-// Search doctor by name and city
+
 module.exports.searchDoctors = async (req, res) => {
   try {
     const { name, city } = req.query;
@@ -100,7 +99,7 @@ module.exports.searchDoctors = async (req, res) => {
   }
 };
 
-// Get Top 5 Doctors by Rating
+
 module.exports.getTopDoctors = async (req, res) => {
   try {
     const topDoctors = await Doctor.find().sort({ rating: -1 }).limit(5);

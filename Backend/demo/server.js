@@ -23,10 +23,18 @@ const connectDB = require('./config/db');
 connectDB();
 
 // Enable CORS
+// app.use(cors({
+//   origin: 'http://localhost:5173', // Allow requests from your frontend
+//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+//   allowedHeaders: ['Content-Type', 'Authorization'],
+// }));
+
+
 app.use(cors({
-  origin: 'http://localhost:5173', // Allow requests from your frontend
+  origin: 'http://localhost:3000',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
 }));
 
 // Parse JSON bodies
