@@ -1,4 +1,4 @@
-import Doctor from "../models/Doctor.model.js";
+import Doctor from "../models/doctortable.model.js";
 
 export const getNextRegistrarId = async () => {
   const lastDoctor = await Doctor.findOne().sort({ registrarId: -1 });
