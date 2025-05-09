@@ -1,7 +1,5 @@
-// src/controllers/pharmacy.controller.js
 const Pharmacy = require('../models/Pharmacy.model');
 
-// لعرض جميع الصيدليات
 exports.getAllPharmacies = async (req, res) => {
   try {
     const pharmacies = await Pharmacy.find();
@@ -11,7 +9,6 @@ exports.getAllPharmacies = async (req, res) => {
   }
 };
 
-// لإنشاء صيدلية جديدة
 exports.createPharmacy = async (req, res) => {
   try {
     const pharmacy = new Pharmacy(req.body);
@@ -22,7 +19,6 @@ exports.createPharmacy = async (req, res) => {
   }
 };
 
-// لعرض صيدلية واحدة باستخدام الـ ID
 exports.getPharmacyById = async (req, res) => {
   try {
     const pharmacy = await Pharmacy.findById(req.params.id);
@@ -33,7 +29,6 @@ exports.getPharmacyById = async (req, res) => {
   }
 };
 
-// لحذف صيدلية باستخدام الـ ID
 exports.deletePharmacy = async (req, res) => {
   try {
     const result = await Pharmacy.findByIdAndDelete(req.params.id);

@@ -7,10 +7,74 @@
     margin-bottom: 40px;
 }
 
+.chip {
+    font-family: 'Manrope' !important;
+    font-weight: 400 !important;
+    padding: 4px 5px !important;
+    font-size: 17px !important;
+    max-width: 190px !important;
+    background-color: #fff !important;
+    border-radius: 50px;
+    border: 1px solid #D3D3D3 !important;
+    margin: 0 auto;
+    margin-bottom: 18px;
+}
+
+.chip .MuiChip-icon {
+    color: #fff !important;
+}
+
 .title {
-    font-weight: bold;
+    font-weight: 700 !important;
     font-family: "Manrope" !important;
+    font-size: 40px !important;
+    margin-bottom: 25px !important;
+}
+
+.headerText {
+    font-family: 'Manrope' !important;
+    font-size: 19px !important;
+    font-weight: 500 !important;
     margin-bottom: 16px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.locationInfo {
+    padding: 10px 16px;
+    background-color: #fff !important;
+    border-radius: 12px 12px 0 0;
+}
+
+.city {
+    font-family: 'Manrope' !important;
+    font-weight: 700 !important;
+    font-size: 35px !important;
+}
+
+.country {
+    font-family: 'Manrope' !important;
+    font-weight: 400 !important;
+    font-size: 24px !important;
+}
+
+.address {
+    font-family: 'Manrope' !important;
+    font-weight: 600 !important;
+    font-size: 23px !important;
+    color: #333;
+    margin-bottom: 8px;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+.phone,
+.email {
+    font-family: 'Manrope' !important;
+    font-weight: 400 !important;
+    font-size: 18px !important;
+    color: #6B7280;
+    margin-bottom: 8px;
 }
 
 .gridContainer {
@@ -31,33 +95,56 @@
 }
 
 .card {
-    border-radius: 24px;
+    border-radius: 30px ! important;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 0;
 }
 
 .cardMedia {
-    height: 200px;
+    height:auto;
     width: 100%;
     object-fit: cover;
     border-radius: 12px 12px 0 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
+
+.cardMedia:hover {
+    transform: scale(1.05); 
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); 
+}
+
 
 .cardContent {
     padding: 16px;
 }
 
+.locationInfo {
+    padding: 10px 16px;
+    background-color: #f9f9f9;
+    border-radius: 12px 12px 0 0;
+}
+
+.locationDetails {
+    padding: 16px;
+}
+
 .country {
+    font-weight: bold;
+    font-size: 20px;
     color: #6B7280;
+    margin-bottom: 8px;
 }
 
 .city {
     font-weight: bold;
-    margin-bottom: 8px;
+    font-size: 25px;
+    margin-bottom: 10px;
 }
 
 .address,
 .phone,
 .email {
-    color: #6B7280;
+    font-size: 14px;
+    color: #333;
     margin-bottom: 8px;
 }
