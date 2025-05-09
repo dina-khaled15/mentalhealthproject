@@ -10,7 +10,7 @@ import {
 import { Link } from "react-router-dom"; 
 import Navbar from "../components/Navbar/Navbar";
 import FooterComponent from "../components/footer/contact";
-import games from "../data/game";
+import games from "../data/Game";
 
 const GameCard = ({ title, image, link }) => {
   return (

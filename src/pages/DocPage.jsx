@@ -36,13 +36,3 @@ const DoctorsPage = () => {
 };
 
 export default DoctorsPage;
-
-
-
-    // <Box>
-    //   <Navbar />
-    //   <PsychologyBanner />
-    //   <ExpertTeamSection />
-    //   <TeamGrid />
-    //   <FooterComponent />
-    // </Box>

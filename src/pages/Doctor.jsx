@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Box } from "@mui/material";
 import Navbar from "../components/Navbar/Navbar";
-import Feedback from "../components/FeedBack/FeedBack";
+import Feedback from "../components/FeedBack/Feedback";
 import WeeklySchedule from "../components/SehdualOverVeiw";
 import FooterComponent from "../components/footer/contact";
 import styles from "../components/DoctorProfile/DoctorProfile.module.css";

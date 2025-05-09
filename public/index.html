@@ -1,10 +1,67 @@
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>React App</title>
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <meta name="google" content="notranslate" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <title>React App</title>
+
+  <style>
+    /* Hide Google Translate elements */
+    .goog-logo-link,
+    .goog-te-gadget span,
+    .goog-te-banner-frame,
+    .goog-te-menu-frame,
+    .goog-te-combo,
+    .skiptranslate,
+    #goog-gt-tt,
+    .goog-te-spinner-pos {
+      display: none !important;
+    }
+
+    #google_translate_element {
+      display: none !important;
+    }
+
+    /* Ensure body is not affected by Google Translate's default styles */
+    body {
+      top: 0 !important;
+    }
+  </style>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+
+  <!-- Root for React app -->
+  <div id="root"></div>
+
+  <!-- Google Translate element -->
+  <div id="google_translate_element"></div>
+
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement(
+        {
+          pageLanguage: 'en',
+          includedLanguages: 'en,ar',
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          autoDisplay: false
+        },
+        'google_translate_element'
+      );
+    }
+  </script>
+
+  <script type="text/javascript"
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+
 </html>
