@@ -1,9 +1,10 @@
 
-
-
 const express = require('express');
 const mongoose = require('mongoose');
+<<<<<<< HEAD
 const uploadRouter = require('./routers/upload.routes');
+=======
+>>>>>>> 2699153d0108620a2e66cf15f03b1a35814c4357
 const app = express();
 require('dotenv').config();
 const path = require('path');
@@ -118,3 +119,5 @@ process.on('unhandledRejection', (err, promise) => {
     console.error(`Error: ${err.message}`);
     server.close(() => process.exit(1));
 });
+
+
