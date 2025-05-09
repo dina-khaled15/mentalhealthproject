@@ -20,8 +20,8 @@ const mongoose = require('mongoose');
 const connectDB = async () => {
     try {
         const conn = await mongoose.connect(process.env.MONGO_URI, {
-            connectTimeoutMS: 60000, // 30 ثانية لتوقيت الاتصال
-            serverSelectionTimeoutMS: 60000 // 30 ثانية لاختيار السيرفر
+            connectTimeoutMS: 60000,
+            serverSelectionTimeoutMS: 60000
         });
         console.log(`MongoDB Connected: ${conn.connection.host}`);
     } catch (error) {
@@ -31,6 +31,9 @@ const connectDB = async () => {
 };
 
 module.exports = connectDB;
+
+
+
 
 
 

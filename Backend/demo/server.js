@@ -1,7 +1,9 @@
 
 
+
 const express = require('express');
 const mongoose = require('mongoose');
+
 const app = express();
 require('dotenv').config();
 const path = require('path');
@@ -14,10 +16,11 @@ const userEmotionsroutes = require('./routers/userEmotions.routes');
 const userBookingroutes = require('./routers/userBooking.routes');
 const doctor = require('./routers/doctor.route');
 const doctortable = require('./routers/doctortable.routes');
-const eventRouter = require('./routers/event.routes'); // إضافة route الـ events
+const eventRouter = require('./routers/event.routes');
 const game = require('./routers/game.route');
 const bubble = require('./routers/bubble.route');
 const pattern = require('./routers/pattern.route');
+const goalRoutes = require('./routers/goalRoutes.route');
 const passport = require('passport');
 const cookieParser = require('cookie-parser');
 const connectDB = require('./config/db');
@@ -26,18 +29,17 @@ const cloudinary = require('cloudinary').v2;
 const imageRoutes = require('./routers/image.routes');
 
 // Connect to MongoDB
-// Connect to MongoDB
 connectDB();
-
-// Enable CORS
-app.use(cors({
-    origin: 'http://localhost:5173', // Allow requests from your frontend
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-}));
+app.use(cors(
+    {
+        origin: 'http://localhost:3000',
+        credentials: true
+    }
+));
+app.use(cookieParser());
+app.use(passport.initialize());
 
 // Parse JSON bodies
-
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
     api_key: process.env.CLOUDINARY_API_KEY,
@@ -45,18 +47,10 @@ cloudinary.config({
 });
 
 // Middlewares
-app.use(cors({
-    origin: 'http://localhost:3000',
-    credentials: true
-}));
-// app.use(cors("*"))
 app.use(express.json());
 
 // Serve static files from public/images
 app.use('/images', express.static(path.join(__dirname, 'public/images')));
-
-// Apply logging middleware
-// app.use(loggingMiddleware);
 
 // Routes
 app.use('/feedback', userRouter);
@@ -69,32 +63,18 @@ app.use('/doctor', doctor);
 app.use('/game', game);
 app.use('/bubble', bubble);
 app.use('/pattern', pattern);
-app.use('/events', eventRouter); // إضافة route الـ events
+app.use('/events', eventRouter);
 
-// Error handling middleware
-app.use(cookieParser());
-app.use(passport.initialize());
-
-mongoose.connection.on('connected', () => {
-    if (mongoose.models) {
-        mongoose.models = {};
-    }
-    if (mongoose.modelSchemas) {
-        mongoose.modelSchemas = {};
-    }
-});
-
-// Routes
 const userInfoRouter = require('./routers/user.routes');
 const authRoutes = require('./routers/authRoutes.routes');
 const scheduleRoutes = require('./routers/schedule.routes');
-
 
 app.use('/api/feedback', userRouter);
 app.use('/api/users', userInfoRouter);
 app.use('/api/auth', authRoutes);
 app.use('/api/schedules', scheduleRoutes);
 app.use('/api/images', imageRoutes);
+app.use('/api/goals', goalRoutes);
 
 // Serve static files
 if (process.env.NODE_ENV === 'production') {
@@ -110,10 +90,6 @@ if (process.env.NODE_ENV === 'production') {
 // Error handling middleware
 app.use(errorHandler);
 
-// Start the server
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
 // Server
 const PORT = process.env.PORT || 4000;
 const server = app.listen(PORT, () => {
@@ -125,4 +101,3 @@ process.on('unhandledRejection', (err, promise) => {
     console.error(`Error: ${err.message}`);
     server.close(() => process.exit(1));
 });
-

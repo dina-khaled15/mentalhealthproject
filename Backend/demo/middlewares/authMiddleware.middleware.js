@@ -11,10 +11,12 @@ exports.protect = async (req, res, next) => {
         req.headers.authorization.startsWith('Bearer')
     ) {
         token = req.headers.authorization.split(' ')[1];
+        // if
+        console.log(token, " if token")
     }
-    // else if (req.cookies.token) {
-    //   token = req.cookies.token;
-    // }
+    else if (req.cookies.token) {
+        token = req.cookies.token;
+    }
 
     // Make sure token exists
     if (!token) {
