@@ -1,4 +1,5 @@
-const express = require('express');
+
+
 
 const express = require('express');
 const mongoose = require('mongoose');
@@ -8,12 +9,14 @@ require('dotenv').config();
 const path = require('path');
 const cors = require('cors');
 
+const stagesRouter = require('./routers/stages.routes');
+const uploadRouter = require('./routers/upload.routes');
 const userRouter = require('./routers/userfeedback.routes');
 const userIssuesRouter = require('./routers/userIssues.routes');
 const userPharmacyRouter = require('./routers/userPharmacy.routes');
 const userEmotionsroutes = require('./routers/userEmotions.routes');
 const userBookingroutes = require('./routers/userBooking.routes');
-const doctor = require('./routers/doctor.route');
+const doctor = require('./routers/doctor.route'); 
 const doctortable = require('./routers/doctortable.routes');
 const eventRouter = require('./routers/event.routes'); 
 const game = require('./routers/game.route');
@@ -22,15 +25,8 @@ const pattern = require('./routers/pattern.route');
 const errorHandler = require('./middlewares/errorHandler.middleware');
 const cloudinary = require('cloudinary').v2;
 const imageRoutes = require('./routers/image.routes');
-const locationRouter = require("./routes/location.routes");
-const valueRoutes = require('./routers/value.routes');
-const faqRoutes = require('./routes/faq.routes');
-const milestoneRoutes = require('./routes/milestone.routes');
-const planRoutes = require("./routes/plan.routes");
 
-
-
-
+// Connect to MongoDB
 connectDB();
 
 
@@ -50,13 +46,10 @@ app.use(cors({
 
 app.use(express.json());
 
-
+// Serve static files from public/images
 app.use('/images', express.static(path.join(__dirname, 'public/images')));
 
-
-app.use(loggingMiddleware);
-
-
+// Routes
 app.use('/feedback', userRouter);
 app.use('/doctortable', doctortable);
 app.use('/Issues', userIssuesRouter);
@@ -68,26 +61,19 @@ app.use('/game', game);
 app.use('/bubble', bubble);
 app.use('/pattern', pattern);
 app.use('/events', eventRouter);
-app.use('/milestone', milestoneRoutes);
-app.use('/plan', planRoutes);
-app.use('/api/values', valueRoutes);
-app.use('/api', faqRoutes);
 
+const userInfoRouter = require('./routers/user.routes');
+const authRoutes = require('./routers/authRoutes.routes');
+const scheduleRoutes = require('./routers/schedule.routes');
 
-// const userInfoRouter = require('./routers/user.routes');
-// const authRoutes = require('./routers/authRoutes.routes');
-// const scheduleRoutes = require('./routers/schedule.routes');
+app.use('/api/feedback', userRouter);
+app.use('/api/users', userInfoRouter);
+app.use('/api/auth', authRoutes);
+app.use('/api/schedules', scheduleRoutes);
+app.use('/api/images', imageRoutes);
+app.use('/api/goals', goalRoutes);
 
-// app.use('/api/feedback', userRouter);
-// app.use('/api/users', userInfoRouter);
-// app.use('/api/auth', authRoutes);
-// app.use('/api/schedules', scheduleRoutes);
-// app.use('/api/images', imageRoutes);
-// app.use('/api/goals', goalRoutes);
-app.use('/upload', uploadRouter);
-app.use("/location", locationRouter);
-
-
+app.use('/images', express.static(path.join(__dirname, '/images')));
 // Serve static files
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../frontend/build')));

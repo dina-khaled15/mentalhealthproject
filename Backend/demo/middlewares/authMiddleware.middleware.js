@@ -1,50 +1,55 @@
+// middlewares/auth.middleware.js
 const jwt = require('jsonwebtoken');
-const ErrorResponse = require('../utils/errorResponse');
 const User = require('../models/User.model');
 
-// Protect routes
+// حماية المسارات
 exports.protect = async (req, res, next) => {
     let token;
-
+    
+    // التحقق من وجود التوكن في الهيدر أو الكوكيز
     if (
-        req.headers.authorization &&
+        req.headers.authorization && 
         req.headers.authorization.startsWith('Bearer')
     ) {
+        // استخراج التوكن من الهيدر
         token = req.headers.authorization.split(' ')[1];
-        // if
-        console.log(token, " if token")
-    }
-    else if (req.cookies.token) {
+    } else if (req.cookies.token) {
+        // استخراج التوكن من الكوكيز
         token = req.cookies.token;
     }
-
-    // Make sure token exists
+    
+    // التحقق من وجود التوكن
     if (!token) {
-        return next(new ErrorResponse('Not authorized to access this route', 401));
+        return res.status(401).json({
+            success: false,
+            message: 'غير مصرح لك بالوصول إلى هذه الصفحة'
+        });
     }
-
+    
     try {
-        // Verify token
+        // التحقق من صحة التوكن
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
-
+        
+        // وضع بيانات المستخدم في الطلب
         req.user = await User.findById(decoded.id);
-
+        
         next();
-    } catch (err) {
-        return next(new ErrorResponse('Not authorized to access this route', 401));
+    } catch (error) {
+        return res.status(401).json({
+            success: false,
+            message: 'غير مصرح لك بالوصول إلى هذه الصفحة'
+        });
     }
 };
 
-// Grant access to specific roles
+// التحقق من صلاحيات المستخدم
 exports.authorize = (...roles) => {
     return (req, res, next) => {
         if (!roles.includes(req.user.role)) {
-            return next(
-                new ErrorResponse(
-                    `User role ${req.user.role} is not authorized to access this route`,
-                    403
-                )
-            );
+            return res.status(403).json({
+                success: false,
+                message: 'لا تملك الصلاحيات الكافية للوصول إلى هذه الصفحة'
+            });
         }
         next();
     };

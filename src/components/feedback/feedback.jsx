@@ -1,11 +1,19 @@
-import React from "react";
-import { Box, Typography, Avatar, Card, CardContent, IconButton, } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import {Box,Typography,Avatar,Card,CardContent,IconButton,} from "@mui/material";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
-
 import styles from "../FeedBack/FeedBack.module.css";
-import feedback from "../../data/FeedBack";
 
 const Feedback = () => {
+  const [feedbacks, setFeedbacks] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:4000/feedback")
+      .then((res) => setFeedbacks(res.data))
+      .catch((err) => console.error("Error fetching feedback:", err));
+  }, []);
+
   return (
     <Box className={styles.container}>
       <IconButton className={styles.iconButton}>
@@ -14,14 +22,19 @@ const Feedback = () => {
           Testimonials
         </Typography>
       </IconButton>
+
       <Typography variant="h4" className={styles.title}>
         Our Clients Talk
       </Typography>
 
       <Box className={styles.cardsContainer}>
-        {feedback.map((item, index) => (
+        {feedbacks.map((item, index) => (
           <Card key={index} className={styles.card}>
-            <Avatar src={item.image} alt={item.name} className={styles.avatar} />
+            <Avatar
+              src={item.image}
+              alt={item.name}
+              className={styles.avatar}
+            />
             <CardContent className={styles.cardContent}>
               <Typography variant="body2" gutterBottom className={styles.text}>
                 {item.text}

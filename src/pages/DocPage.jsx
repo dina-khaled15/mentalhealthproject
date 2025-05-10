@@ -20,7 +20,7 @@ const DoctorsPage = () => {
           <ExpertTeamSection />
         </Box>
         <div className="container">
-          <TeamGrid />
+        <TeamGrid />
 
         </div>
         
