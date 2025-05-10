@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import styles from "./DoctorProfile.module.css";
-import { useNavigate } from "react-router-dom"; 
-import {Phone,Email,LinkedIn,Facebook,Twitter,Instagram,School,Work,Assignment} from "@mui/icons-material";
+import { useNavigate, useParams } from "react-router-dom"; 
+import { Phone, Email, LinkedIn, Facebook, Twitter, Instagram, School, Work, Assignment } from "@mui/icons-material";
 
+// تعريف الأيقونات الخاصة بالشبكات الاجتماعية
 const iconMap = {
   LinkedIn: <LinkedIn fontSize="large" />,
   Twitter: <Twitter fontSize="large" />,
@@ -10,22 +12,37 @@ const iconMap = {
   Instagram: <Instagram fontSize="large" />,
 };
 
-export default function DoctorProfile({ doctor }) {
+export default function DoctorProfile() {
+  const { doctorId } = useParams(); // الحصول على doctorId من الـ URL
+  const [doctor, setDoctor] = useState(null);
   const navigate = useNavigate();
-  
- 
+
+  // جلب بيانات الدكتور من الخادم
+  useEffect(() => {
+    if (doctorId) {
+      axios.get(`http://localhost:4000/doctor/${doctorId}`)
+        .then((response) => {
+          setDoctor(response.data); // تعيين البيانات في حالة الـ state
+        })
+        .catch((error) => {
+          console.error("Error fetching doctor data:", error);
+        });
+    }
+  }, [doctorId]);
+
   const handleBookingClick = () => {
-    navigate('/booking');
+    navigate('/booking'); // التوجه إلى صفحة الحجز
   };
+
+  if (!doctor) return <div>Loading...</div>; // في حال كانت البيانات قيد التحميل
 
   return (
     <div className={styles.profileContainer}>
-   
       <div className={styles.leftSection}>
         <div className={styles.avatarContainer}>
-          <img src={doctor.avatar} alt="Doctor" className={styles.avatar}/>
+          <img src={doctor.avatar} alt="Doctor" className={styles.avatar} />
         </div>
-        
+
         <h3 className={styles.sectionTitle}>Expertise</h3>
         <div className={styles.expertiseContainer}>
           {doctor.expertise.map((item, i) => (
@@ -34,7 +51,7 @@ export default function DoctorProfile({ doctor }) {
             </span>
           ))}
         </div>
-        
+
         <h3 className={styles.sectionTitle}>Contact</h3>
         <div className={styles.contactContainer}>
           <div className={styles.contactItem}>
@@ -46,7 +63,7 @@ export default function DoctorProfile({ doctor }) {
             <span>{doctor.contact.email}</span>
           </div>
         </div>
-        
+
         <h3 className={styles.sectionTitle}>Social Media</h3>
         <div className={styles.socialMediaContainer}>
           {doctor.socialMedia.map((platform, i) => (
@@ -55,15 +72,14 @@ export default function DoctorProfile({ doctor }) {
             </span>
           ))}
         </div>
-        
+
       </div>
 
-   
       <div className={styles.rightSection}>
         <h1 className={styles.doctorName}>{doctor.name}</h1>
         <h2 className={styles.doctorTitle}>{doctor.title}</h2>
         <p className={styles.doctorDescription}>{doctor.description}</p>
-        
+
         <div className={styles.divider}></div>
         <h3 className={styles.categoryTitle}>
           <School className={styles.categoryIcon} fontSize="small" /> Education
@@ -73,7 +89,7 @@ export default function DoctorProfile({ doctor }) {
             <strong>{edu.year}:</strong> {edu.degree} – {edu.school}
           </p>
         ))}
-        
+
         <div className={styles.divider}></div>
         <h3 className={styles.categoryTitle}>
           <Work className={styles.categoryIcon} fontSize="small" /> Experiences
@@ -83,7 +99,7 @@ export default function DoctorProfile({ doctor }) {
             <strong>{exp.year}:</strong> {exp.role} – {exp.place}
           </p>
         ))}
-        
+
         <div className={styles.divider}></div>
         <h3 className={styles.categoryTitle}>
           <Assignment className={styles.categoryIcon} fontSize="small" /> Certificates

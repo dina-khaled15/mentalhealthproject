@@ -52,7 +52,7 @@ const Form = () => {
           session: ""
         });
       } else {
-        setError(response.data.message || (response.data.errors ? response.data.errors.join(', ') : `Failed to create booking (Status: ${response.status})`));
+        setError(response.data.message || (response.data.errors ? response.data.errors.join(', ') :` Failed to create booking (Status: ${response.status})`));
         setSuccess("");
       }
     } catch (err) {
@@ -75,7 +75,7 @@ const Form = () => {
             </Typography>
           </Grid>
           <Grid item xs={12} md={6}>
-            <Paper elevation={1} sx={{ borderRadius: 3, p: 4, backgroundColor: "#f6f4f0", width: 650, maxWidth: "700px", height: 755 }}>
+            <Paper elevation={1} sx={{ borderRadius: 3, p: 4, backgroundColor: "#f6f4f0", width: 650, maxWidth: "700px", height: "100%" }}>
               <Typography variant="h5" fontWeight={500} fontSize={"33px"} gutterBottom>Booking Form</Typography>
               <Typography variant="body2" color="text.secondary" sx={{ mb: 2, fontSize: "18px", fontWeight: 400, fontFamily: "Manrope" }}>
                 Fill out the form below, and one of our team members will get back to you shortly.
@@ -191,6 +191,7 @@ const Form = () => {
                       textTransform: "none",
                       color: "#fff",
                       px: 2,
+                      
                       transform: isPressed ? "scale(1.1)" : "scale(1)",
                       "&:hover": { backgroundColor: "#000" },
                     }}
