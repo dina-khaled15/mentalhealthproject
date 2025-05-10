@@ -1,56 +1,56 @@
-// middlewares/auth.middleware.js
 const jwt = require('jsonwebtoken');
-const User = require('../models/User.model');
+const asyncHandler = require('./asyncHandler');
+const ErrorResponse = require('./errorHandler.middleware');
+const User = require('../models/Userauth.model');
 
-// حماية المسارات
-exports.protect = async (req, res, next) => {
-    let token;
-    
-    // التحقق من وجود التوكن في الهيدر أو الكوكيز
-    if (
-        req.headers.authorization && 
-        req.headers.authorization.startsWith('Bearer')
-    ) {
-        // استخراج التوكن من الهيدر
-        token = req.headers.authorization.split(' ')[1];
-    } else if (req.cookies.token) {
-        // استخراج التوكن من الكوكيز
-        token = req.cookies.token;
-    }
-    
-    // التحقق من وجود التوكن
-    if (!token) {
-        return res.status(401).json({
-            success: false,
-            message: 'غير مصرح لك بالوصول إلى هذه الصفحة'
-        });
-    }
-    
-    try {
-        // التحقق من صحة التوكن
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        
-        // وضع بيانات المستخدم في الطلب
-        req.user = await User.findById(decoded.id);
-        
-        next();
-    } catch (error) {
-        return res.status(401).json({
-            success: false,
-            message: 'غير مصرح لك بالوصول إلى هذه الصفحة'
-        });
-    }
-};
+// Protect routes
+exports.protect = asyncHandler(async (req, res, next) => {
+  let token;
 
-// التحقق من صلاحيات المستخدم
+  if (
+    req.headers.authorization &&
+    req.headers.authorization.startsWith('Bearer')
+  ) {
+    // Set token from Bearer token in header
+    token = req.headers.authorization.split(' ')[1];
+  }
+  // Set token from cookie
+  else if (req.cookies.token) {
+    token = req.cookies.token;
+  }
+
+  // Make sure token exists
+  if (!token) {
+    return next(new ErrorResponse('Not authorized to access this route', 401));
+  }
+
+  try {
+    // Verify token
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+    // Add user to req object
+    req.user = await User.findById(decoded.id);
+
+    // Update last active
+    await User.findByIdAndUpdate(decoded.id, { lastActive: Date.now() });
+
+    next();
+  } catch (err) {
+    return next(new ErrorResponse('Not authorized to access this route', 401));
+  }
+});
+
+// Grant access to specific roles
 exports.authorize = (...roles) => {
-    return (req, res, next) => {
-        if (!roles.includes(req.user.role)) {
-            return res.status(403).json({
-                success: false,
-                message: 'لا تملك الصلاحيات الكافية للوصول إلى هذه الصفحة'
-            });
-        }
-        next();
-    };
+  return (req, res, next) => {
+    if (!roles.includes(req.user.role)) {
+      return next(
+        new ErrorResponse(
+          `User role ${req.user.role} is not authorized to access this route`,
+          403
+        )
+      );
+    }
+    next();
+  };
 };
