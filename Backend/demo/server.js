@@ -1,8 +1,5 @@
 const express = require('express');
-
-const express = require('express');
 const mongoose = require('mongoose');
-const uploadRouter = require('./routers/upload.routes');
 const app = express();
 require('dotenv').config();
 const path = require('path');
@@ -14,7 +11,6 @@ const userPharmacyRouter = require('./routers/userPharmacy.routes');
 const userEmotionsroutes = require('./routers/userEmotions.routes');
 const userBookingroutes = require('./routers/userBooking.routes');
 const doctor = require('./routers/doctor.route');
-const doctortable = require('./routers/doctortable.routes');
 const eventRouter = require('./routers/event.routes'); 
 const game = require('./routers/game.route');
 const bubble = require('./routers/bubble.route');
@@ -22,11 +18,12 @@ const pattern = require('./routers/pattern.route');
 const errorHandler = require('./middlewares/errorHandler.middleware');
 const cloudinary = require('cloudinary').v2;
 const imageRoutes = require('./routers/image.routes');
-const locationRouter = require("./routes/location.routes");
+// const locationRouter = require("./routes/location.routes");
 const valueRoutes = require('./routers/value.routes');
 const faqRoutes = require('./routes/faq.routes');
 const milestoneRoutes = require('./routes/milestone.routes');
 const planRoutes = require("./routes/plan.routes");
+const uploadRouter = require('./routers/upload.routes');
 
 
 
@@ -34,15 +31,15 @@ const planRoutes = require("./routes/plan.routes");
 connectDB();
 
 
-// Parse JSON bodies
-cloudinary.config({
-    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-    api_key: process.env.CLOUDINARY_API_KEY,
-    api_secret: process.env.CLOUDINARY_API_SECRET,
-});
+// // Parse JSON bodies
+// cloudinary.config({
+//     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+//     api_key: process.env.CLOUDINARY_API_KEY,
+//     api_secret: process.env.CLOUDINARY_API_SECRET,
+// });
 
 app.use(cors({
-  origin: 'http://localhost:5173', 
+  origin: 'http://localhost:3000', 
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
@@ -73,6 +70,9 @@ app.use('/plan', planRoutes);
 app.use('/api/values', valueRoutes);
 app.use('/api', faqRoutes);
 
+app.use('/upload', uploadRouter);
+app.use("/location", locationRouter);
+
 
 // const userInfoRouter = require('./routers/user.routes');
 // const authRoutes = require('./routers/authRoutes.routes');
@@ -84,8 +84,7 @@ app.use('/api', faqRoutes);
 // app.use('/api/schedules', scheduleRoutes);
 // app.use('/api/images', imageRoutes);
 // app.use('/api/goals', goalRoutes);
-app.use('/upload', uploadRouter);
-app.use("/location", locationRouter);
+
 
 
 // Serve static files
