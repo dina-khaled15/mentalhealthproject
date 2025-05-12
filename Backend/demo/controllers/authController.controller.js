@@ -43,7 +43,7 @@ exports.register = asyncHandler(async (req, res, next) => {
             postalCode: postalCode || 'Not specified'
         });
         
-        console.log('User created:', user);
+        console.log('User created with username:', user.userName);
 
         sendTokenResponse(user, 201, res);
     } catch (error) {
@@ -70,7 +70,7 @@ exports.login = asyncHandler(async (req, res, next) => {
 
     if (!user) {
         console.log('User not found:', email);
-        return next(new ErrorResponse('Invalid credentials', 401));
+        return next(new ErrorResponse('Invalid email', 401));
     }
 
     // Check if password matches
@@ -78,7 +78,7 @@ exports.login = asyncHandler(async (req, res, next) => {
 
     if (!isMatch) {
         console.log('Password mismatch for:', email);
-        return next(new ErrorResponse('Invalid credentials', 401));
+        return next(new ErrorResponse('Invalid pass', 401));
     }
 
     sendTokenResponse(user, 200, res);
@@ -213,15 +213,20 @@ exports.resetPassword = asyncHandler(async (req, res, next) => {
 // @desc    Log user out / clear cookie
 // @route   GET /api/auth/logout
 // @access  Private
+// Update the logout function in authController.controller.js
+
 exports.logout = asyncHandler(async (req, res, next) => {
+    // Clear the token cookie
     res.cookie('token', 'none', {
         expires: new Date(Date.now() + 10 * 1000),
         httpOnly: true
     });
 
+    // Send a response that instructs the frontend to clear localStorage
     res.status(200).json({
         success: true,
-        message: 'Logged out successfully'
+        message: 'Logged out successfully',
+        clearLocalStorage: true  // Add this flag to indicate localStorage should be cleared
     });
 });
 
@@ -271,7 +276,7 @@ exports.googleLogin = asyncHandler(async (req, res, next) => {
                 phone: '1234567890',
                 avatar: picture || ''
             });
-            console.log('User created:', user);
+            console.log('User created with username:', user.userName);
         } else if (!user.googleId) {
             console.log('Updating user with googleId');
             user.googleId = googleId;
@@ -319,7 +324,7 @@ exports.microsoftLogin = asyncHandler(async (req, res, next) => {
                 phone: '1234567890',
                 avatar: picture || ''
             });
-            console.log('User created:', user);
+            console.log('User created with username:', user.userName);
         } else if (!user.microsoftId) {
             console.log('Updating user with microsoftId');
             user.microsoftId = microsoftId;
@@ -381,4 +386,4 @@ const sendTokenResponse = (user, statusCode, res) => {
             message: `Error generating token: ${error.message}`
         });
     }
-}; 
+};

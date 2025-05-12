@@ -21,3 +21,12 @@ exports.getAllStages = async (req, res) => {
     res.status(500).json({ message: "Error fetching stages", error });
   }
 };
+exports.createStage = async (req, res) => {
+  try {
+    const newStage = new Stage(req.body);
+    await newStage.save();
+    res.status(201).json(newStage);
+  } catch (error) {
+    res.status(500).json({ message: "Error creating stage", error });
+  }
+};

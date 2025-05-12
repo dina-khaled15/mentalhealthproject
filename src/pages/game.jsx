@@ -89,6 +89,7 @@ const GamesPage = () => {
           ))}
         </Grid>
       </Box>
+
       <Box sx={{ mt: 4 }}>
         <FooterComponent variant="dark" />
       </Box>

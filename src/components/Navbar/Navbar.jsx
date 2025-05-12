@@ -181,8 +181,8 @@ const Navbar = () => {
         const response = await fetch(`${API_URL}/api/auth/logout`, {
             method: 'GET',
             headers: {
-                'Authorization': `Bearer ${token}
-            `}
+                'Authorization': `Bearer ${token}`
+            }
         });
         
         const data = await response.json();
