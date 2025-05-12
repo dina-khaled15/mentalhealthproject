@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Box, Tab, Tabs, Typography, Link, Collapse } from "@mui/material";
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
+import axios from "axios";
+import {
+  Box, Tab, Tabs, Typography, Link, Collapse
+} from "@mui/material";
 import Navbar from "../components/Navbar/Navbar";
 import FooterComponent from "../components/footer/contact";
 import HeaderSection from "../components/HeaderSection/HeaderSection";
@@ -11,24 +12,37 @@ import WhatIsItSection from "../components/WhatIsItSection/WhatIsItSection";
 import BenefitsSection from "../components/BenefitsSection/BenefitsSection";
 import PathToWellnessSection from "../components/PathToWellnessSection/PathToWellnessSection";
 import TestimonialSection from "../components/Testimonial/Testimonial";
-import IssuesData from "../data/Issues";
 import black from "../images/black.png";
 import image from "../images/1.png";
 
 const Details = () => {
-  const { title } = useParams();
+  const { title } = useParams(); 
   const [issueData, setIssueData] = useState(null);
   const [resourcesOpen, setResourcesOpen] = useState(false);
 
   useEffect(() => {
-    const decodedTitle = decodeURIComponent(title);
-    setIssueData(
-      IssuesData[decodedTitle] || IssuesData["Stress Management"]
-    );
+    const fetchIssue = async () => {
+      try {
+        const decodedTitle = decodeURIComponent(title);
+        const response = await axios.get(`http://localhost:4000/Issues`);
+        const foundIssue = response.data.find(
+          (item) => item.title === decodedTitle
+        );
+        if (foundIssue) {
+          setIssueData(foundIssue);
+        } else {
+          console.warn("Issue not found");
+        }
+      } catch (error) {
+        console.error("Error fetching issue data:", error);
+      }
+    };
+
+    fetchIssue();
   }, [title]);
 
   const handleResourcesToggle = (event, newValue) => {
-    setResourcesOpen(newValue === 0);  // Toggle resources section
+    setResourcesOpen(newValue === 0);
   };
 
   if (!issueData) {
@@ -41,7 +55,7 @@ const Details = () => {
       <Box sx={{ p: 4 }}>
         <HeaderSection issueData={issueData} />
         <ImageStatisticSection
-          issueData={issueData} 
+          issueData={issueData}
           groupImg={issueData.groupImg}
           aloneImg={issueData.aloneImage}
         />
@@ -52,7 +66,7 @@ const Details = () => {
 
         <Box sx={{ mt: 4 }}>
           <Tabs
-            value={resourcesOpen ? 0 : -1}  // Use -1 for unselected
+            value={resourcesOpen ? 0 : -1}
             onChange={handleResourcesToggle}
             sx={{
               "& .MuiTab-root": { color: "#000000" },
@@ -110,6 +124,7 @@ const Details = () => {
           </Collapse>
         </Box>
       </Box>
+
       <Box sx={{ pt: 4, maxWidth: "100%", mx: "auto", fontFamily: "Manrope" }}>
         <FooterComponent variant="dark" />
       </Box>

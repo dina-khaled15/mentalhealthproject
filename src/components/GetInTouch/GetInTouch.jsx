@@ -1,16 +1,16 @@
 import React from "react";
-import { Box, Button, Typography, Container } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import TouchAppIcon from '@mui/icons-material/TouchApp';
 import styles from "./GetInTouch.module.css";
 
 const GetInTouchSection = () => {
     return (
-        <Box>
+        <Box className={styles.sectionContainer}>
             <Box className={styles.container}>
-                <Button variant="outlined" startIcon={<TouchAppIcon />} className={styles.button}>
-                    Get in Touch
-                </Button>
-                <Box className={styles.textContainer}>
+                <Box className={styles.textArea}>
+                    <Button variant="outlined" startIcon={<TouchAppIcon />} className={styles.button}>
+                        Get in Touch
+                    </Button>
                     <Typography variant="h4" className={styles.heading}>
                         We are more than happy to respond
                     </Typography>

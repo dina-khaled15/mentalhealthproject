@@ -6,68 +6,66 @@ import MicrosoftIcon from "@mui/icons-material/Window";
 import PeopleIcon from "@mui/icons-material/People";
 import TranslateIcon from "@mui/icons-material/Translate";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Button,
-  Box,
-  Container,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  TextField,
-  IconButton,
-  Divider,
-  Menu,
-  MenuItem,
-  Tooltip,
-} from "@mui/material";
+import {AppBar, Toolbar,Typography, Button,Box,Container,Dialog,DialogTitle, DialogContent,DialogActions,TextField,IconButton, Divider,Menu,MenuItem,Tooltip,CircularProgress,Snackbar,Alert,} from "@mui/material";
 import styles from "./Navbar.module.css";
+import axios from "axios";
+
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:4000";
 
 const Navbar = () => {
+  
+  const navigate = useNavigate();
   const [openLogin, setOpenLogin] = useState(false);
   const [openRegister, setOpenRegister] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const [currentLanguage, setCurrentLanguage] = useState("English");
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(null);
   const location = useLocation();
-  const navigate = useNavigate();
   const currentPath = location.pathname;
+  
+  const [loginFormData, setLoginFormData] = useState({ email: "", password: "",});
+  const [registerFormData, setRegisterFormData] = useState({ name: "", email: "", password: "", confirmPassword: "", phone: "", location: "", postalCode: "", }); 
+  
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userData, setUserData] = useState(null);
+  
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState(null);
 
-  // Language options
+  
   const languages = [
     { code: "en", name: "English" },
     { code: "ar", name: "العربية" },
   ];
-
   useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        const token = localStorage.getItem('token');
-        if (token) {
-          const response = await fetch('http://localhost:4000/api/auth/me', {
+    const checkAuthStatus = async () => {
+      const token = localStorage.getItem("token");
+      if (token) {
+        try {
+          const config = {
             headers: {
-              'Authorization': `Bearer ${token}`
-            }
-          });
-          if (response.ok) {
-            const userData = await response.json();
-            setUser(userData.data);
+              Authorization: `Bearer ${token}`,
+            },
+          };
+          const response = await axios.get(`${API_URL}/api/auth/me, config`);
+          if (response.data.success) {
+            setIsAuthenticated(true);
+            setIsLoggedIn(true); 
+            setUserData(response.data.data);
+            setUser(response.data.data); 
           }
+        } catch (err) {
+          localStorage.removeItem("token");
+          setIsAuthenticated(false);
+          setIsLoggedIn(false); 
         }
-      } catch (err) {
-        console.error('Auth check error:', err);
       }
     };
-    checkAuth();
-  }, []);
 
-  useEffect(() => {
+    checkAuthStatus();
+    
     const match = document.cookie.match(/googtrans=\/[a-z]{2}\/([a-z]{2})/);
     if (match && match[1] === "ar") {
       setCurrentLanguage("العربية");
@@ -80,144 +78,159 @@ const Navbar = () => {
     }
   }, []);
 
-  // Handle language menu open
   const handleLanguageMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
-  // Handle language menu close
   const handleLanguageMenuClose = () => {
     setAnchorEl(null);
   };
 
-  // Handle language change
   const changeLanguage = (languageCode, languageName) => {
     setCurrentLanguage(languageName);
+
     if (languageCode === "en") {
+      
       document.cookie = "googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
     } else {
       document.cookie = `googtrans=/en/${languageCode}; path=/`;
     }
     document.documentElement.setAttribute("dir", languageCode === "ar" ? "rtl" : "ltr");
     document.documentElement.setAttribute("lang", languageCode);
+
     window.location.reload();
     handleLanguageMenuClose();
   };
-
-  const handleLoginOpen = () => {
-    setOpenLogin(true);
-  };
-
-  const handleLoginClose = () => {
-    setOpenLogin(false);
-    setError(null);
-  };
-
-  const handleRegisterOpen = () => {
-    setOpenRegister(true);
-  };
-
-  const handleRegisterClose = () => {
-    setOpenRegister(false);
-    setError(null);
-  };
-
-  const handleLoginSubmit = async (event) => {
-    event.preventDefault();
-    setLoading(true);
-    setError(null);
-
-    const formData = new FormData(event.currentTarget);
-    const email = formData.get('email');
-    const password = formData.get('password');
-
+  const handleLoginOpen = () => { setOpenLogin(true);setError("");};
+  const handleLoginClose = () => { setOpenLogin(false); setLoginFormData({ email: "", password: "" }); setError(""); };
+  const handleRegisterOpen = () => { setOpenRegister(true);  setError("");};
+  const handleRegisterClose = () => { setOpenRegister(false); setRegisterFormData({ name: "", email: "", password: "", confirmPassword: "",  phone: "", location: "",  postalCode: "",}); setError(""); };
+  const handleLoginInputChange = (e) => { const { name, value } = e.target; setLoginFormData({  ...loginFormData,  [name]: value, }); };
+ const handleRegisterInputChange = (e) => { const { name, value } = e.target;setRegisterFormData({ ...registerFormData,  [name]: value, });};const handleLoginSubmit = async (event) => {event.preventDefault();setLoading(true); setError("");
     try {
-      const response = await fetch('http://localhost:4000/api/auth/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
+      const response = await axios.post(`${API_URL}/api/auth/login`, {
+        email: loginFormData.email,
+        password: loginFormData.password,
       });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        localStorage.setItem('token', data.token);
-        setUser(data.user);
-        setSuccess('Login successful!');
+      
+      if (response.data.success) {
+        localStorage.setItem("token", response.data.token);
+        setUserData(response.data.user);
+        setUser(response.data.user); 
+        setIsAuthenticated(true);
+        setIsLoggedIn(true); 
+        setSuccess("Login successful!");
         handleLoginClose();
-        navigate('/profile');
-      } else {
-        throw new Error(data.message || 'Login failed');
+        
       }
-    } catch (error) {
-      setError(error.message);
+    } catch (err) {
+      console.error("Login error:", err.response?.data?.error || err.message);
+      setError(err.response?.data?.error || "Login failed. Please try again.");
     } finally {
       setLoading(false);
     }
   };
-
-  const handleRegisterSubmit = async (event) => {
-    event.preventDefault();
-    setLoading(true);
-    setError(null);
-
-    const formData = new FormData(event.currentTarget);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const password = formData.get('password');
-    const confirmPassword = formData.get('confirmPassword');
-
-    if (password !== confirmPassword) {
-      setError('Passwords do not match');
+ const handleRegisterSubmit = async (event) => { event.preventDefault(); setLoading(true); setError("");
+  
+ if (registerFormData.password !== registerFormData.confirmPassword) {
+      setError("Passwords do not match");
       setLoading(false);
       return;
     }
-
+    
     try {
-      const response = await fetch('http://localhost:4000/api/auth/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include',
-        body: JSON.stringify({ name, email, password }),
+      const response = await axios.post(`${API_URL}/api/auth/register`, {
+        name: registerFormData.name,
+        email: registerFormData.email,
+        password: registerFormData.password,
+        phone: registerFormData.phone || undefined,
+        location: registerFormData.location || undefined,
+        postalCode: registerFormData.postalCode || undefined,
       });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        localStorage.setItem('token', data.token);
-        setUser(data.user);
-        setSuccess('Registration successful!');
+      
+      if (response.data.success) {
+        localStorage.setItem("token", response.data.token);
+        setUserData(response.data.user);
+        setUser(response.data.user);
+        setIsAuthenticated(true);
+        setIsLoggedIn(true); 
+        setSuccess("Registration successful!");
         handleRegisterClose();
-        navigate('/profile');
-      } else {
-        throw new Error(data.message || 'Registration failed');
+        
       }
-    } catch (error) {
-      setError(error.message);
+    } catch (err) {
+      console.error("Registration error:", err.response?.data?.error || err.message);
+      setError(err.response?.data?.error || "Registration failed. Please try again.");
     } finally {
       setLoading(false);
     }
   };
 
-  const handleGoogleLogin = () => {
+  const handleGoogleLogin = async () => {
     console.log("Google login initiated");
-    setError("Google login not implemented in this version");
+    
   };
 
-  const handleMicrosoftLogin = () => {
+  const handleMicrosoftLogin = async () => {
     console.log("Microsoft login initiated");
-    setError("Microsoft login not implemented in this version");
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    setUser(null);
-    setSuccess('Logged out successfully');
-    navigate('/');
+  const handleLogout = async () => {
+    try {
+        const token = localStorage.getItem('token');
+        const response = await fetch(`${API_URL}/api/auth/logout`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}
+            `}
+        });
+        
+        const data = await response.json();
+        localStorage.removeItem('token');
+        localStorage.removeItem('username');
+        
+        setIsLoggedIn(false);
+        setIsAuthenticated(false);
+        setUser(null);
+        setUserData(null);
+        navigate('/');
+        
+        setSuccess("Logout successful!");
+        
+    } catch (error) {
+        console.error('Logout error:', error);
+        localStorage.removeItem('token');
+        localStorage.removeItem('username');
+        
+        setIsLoggedIn(false);
+        setIsAuthenticated(false);
+        setUser(null);
+        setUserData(null);
+        
+        navigate('/');
+    }
+  };
+
+  const handleForgotPassword = async () => {
+    if (!loginFormData.email) {
+      setError("Please enter your email address");
+      return;
+    }
+    
+    setLoading(true);
+    try {
+      const response = await axios.post(`${API_URL}/api/auth/forgotpassword`, {
+        email: loginFormData.email,
+      });
+      
+      if (response.data.success) {
+        setSuccess("Password reset email sent! Check your inbox.");
+      }
+    } catch (err) {
+      setError(err.response?.data?.error || "Failed to send reset email");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const LogoMain = () => (
@@ -265,52 +278,69 @@ const Navbar = () => {
               <Button
                 component={Link}
                 to="/"
-                className={`${styles.navLink} ${currentPath === "/" ? styles.activeNavLink : ""}`}
+                className={`${styles.navLink} ${currentPath === "/" ? styles.activeNavLink : ""
+                  }`}
               >
                 Home
               </Button>
               <Button
                 component={Link}
                 to="/about"
-                className={`${styles.navLink} ${currentPath === "/about" ? styles.activeNavLink : ""}`}
+                className={`${styles.navLink} ${currentPath === "/about" ? styles.activeNavLink : ""
+                  }`}
               >
                 About us
               </Button>
               <Button
                 component={Link}
                 to="/doctors"
-                className={`${styles.navLink} ${currentPath === "/doctors" ? styles.activeNavLink : ""}`}
+                className={`${styles.navLink} ${currentPath === "/doctors" ? styles.activeNavLink : ""
+                  }`}
               >
                 Doctors
               </Button>
               <Button
                 component={Link}
                 to="/kids"
-                className={`${styles.navLink} ${currentPath === "/kids" ? styles.activeNavLink : ""}`}
+                className={`${styles.navLink} ${currentPath === "/kids" ? styles.activeNavLink : ""
+                  }`}
               >
                 Kids
               </Button>
               <Button
                 component={Link}
                 to="/issues"
-                className={`${styles.navLink} ${currentPath === "/issues" ? styles.activeNavLink : ""}`}
+                className={`${styles.navLink} ${currentPath === "/issues" ? styles.activeNavLink : ""
+                  }`}
               >
                 Issues
               </Button>
               <Button
                 component={Link}
                 to="/pharmacies"
-                className={`${styles.navLink} ${currentPath === "/pharmacies" ? styles.activeNavLink : ""}`}
+                className={`${styles.navLink} ${currentPath === "/pharmacies" ? styles.activeNavLink : ""
+                  }`}
               >
                 Pharmacies
               </Button>
               <Button
                 component={Link}
                 to="/contact"
-                className={`${styles.navLink} ${currentPath === "/contact" ? styles.active : ""}`}
+                className={`${styles.navLink} ${currentPath === "/contact" ? styles.activeNavLink : ""
+                  }`}
               >
                 Contact us
               </Button>
+              {isAuthenticated && (
+                <Button
+                  component={Link}
+                  to="/community"
+                  className={`${styles.navLink} ${currentPath === "/community" ? styles.activeNavLink : ""
+                    }`}
+                >
+                  Community
+                </Button>
+              )}
             </Box>
 
             <Box className={styles.authContainer}>
@@ -342,12 +372,12 @@ const Navbar = () => {
                 ))}
               </Menu>
 
-              {user ? (
+              {isAuthenticated ? (
                 <>
                   <Button
                     variant="outlined"
                     onClick={handleLogout}
-                    className={styles.logoutButton}
+                    className={styles.registerButton}
                   >
                     Logout
                   </Button>
@@ -373,256 +403,53 @@ const Navbar = () => {
                   </Button>
                 </>
               )}
-            </Box>
-          </Toolbar>
-        </Container>
-      </AppBar>
-
-      <Dialog
-        open={openLogin}
-        onClose={handleLoginClose}
-        PaperProps={{ className: styles.dialogPaper }}
-        maxWidth="xs"
-        fullWidth
-      >
-        <Box className={styles.dialogHeader}>
-          <DialogTitle className={styles.dialogTitle}>Log in</DialogTitle>
-          <IconButton onClick={handleLoginClose} size="small">
-            <CloseIcon />
-          </IconButton>
-        </Box>
-
-        <Box className={styles.dialogLogo}>
-          <Box className={styles.logoContainer}>
-            <LogoMain />
-            <LogoCircle />
-            <Typography variant="h6" className={styles.brandName}>
-              wellthy
-            </Typography>
-          </Box>
-        </Box>
-
+                </Box>  </Toolbar> </Container></AppBar>
+      {/* Login Dialog */}
+      <Dialog open={openLogin} onClose={handleLoginClose} PaperProps={{ className: styles.dialogPaper }} maxWidth="xs"fullWidth >
+        <Box className={styles.dialogHeader}> <DialogTitle className={styles.dialogTitle}>Log in</DialogTitle> <IconButton onClick={handleLoginClose} size="small"> <CloseIcon /> </IconButton> </Box>
+        <Box className={styles.dialogLogo}> <Box className={styles.logoContainer}>  <LogoMain />  <LogoCircle />  <Typography variant="h6" className={styles.brandName}>  wellthy  </Typography> </Box> </Box>
+        {error && (<Alert severity="error" sx={{ mx: 3, mt: 2 }}> {error} </Alert>)}
         <form onSubmit={handleLoginSubmit}>
           <DialogContent className={styles.dialogContent}>
-            <TextField
-              autoFocus
-              margin="dense"
-              label="Email"
-              type="email"
-              fullWidth
-              variant="outlined"
-              required
-              name="email"
-              className={styles.textField}
-            />
-            <TextField
-              margin="dense"
-              label="Password"
-              type="password"
-              fullWidth
-              variant="outlined"
-              required
-              name="password"
-              className={styles.textField}
-            />
-            {error && (
-              <Typography color="error" variant="body2">
-                {error}
-              </Typography>
-            )}
-            <Typography variant="body2" className={styles.forgotPassword}>
-              Forgot password?
-            </Typography>
-          </DialogContent>
-          <DialogActions className={styles.dialogActions}>
-            <Button
-              type="submit"
-              variant="contained"
-              fullWidth
-              className={styles.submitButton}
-              disabled={loading}
-            >
-              {loading ? 'Logging in...' : 'Log in'}
-            </Button>
-          </DialogActions>
+            <TextField autoFocus margin="dense" label="Email"  type="email"  fullWidth variant="outlined" required  className={styles.textField} name="email" value={loginFormData.email} onChange={handleLoginInputChange}/>
+            <TextField margin="dense" label="Password" type="password" fullWidth variant="outlined" required className={styles.textField} name="password" value={loginFormData.password} onChange={handleLoginInputChange}/>
+            <Typography  variant="body2"  className={styles.forgotPassword} onClick={handleForgotPassword} sx={{ cursor: 'pointer' }}> Forgot password? </Typography></DialogContent>
+          <DialogActions className={styles.dialogActions}><Button type="submit" variant="contained" fullWidth className={styles.submitButton} disabled={loading} > {loading ? <CircularProgress size={24} color="inherit" /> : "Log in"} </Button> </DialogActions>
         </form>
 
-        <Box className={styles.dividerContainer}>
-          <Divider className={styles.divider}>
-            <Typography variant="body2" className={styles.dividerText}>
-              OR
-            </Typography>
-          </Divider>
-        </Box>
+      <Box className={styles.dividerContainer}> <Divider className={styles.divider}> <Typography variant="body2" className={styles.dividerText}>  OR </Typography></Divider> </Box>
 
-        <Box className={styles.socialButtonsContainer}>
-          <Button
-            variant="outlined"
-            startIcon={<GoogleIcon />}
-            onClick={handleGoogleLogin}
-            className={styles.socialButton}
-          >
-            Continue with Google
-          </Button>
-          <Button
-            variant="outlined"
-            startIcon={<MicrosoftIcon />}
-            onClick={handleMicrosoftLogin}
-            className={styles.socialButton}
-          >
-            Continue with Microsoft
-          </Button>
-        </Box>
-
-        <Box className={styles.dialogFooter}>
-          <Typography variant="body2" className={styles.switchAuthText}>
-            Don't have an account?{" "}
-            <span
-              className={styles.switchAuthLink}
-              onClick={() => {
-                handleLoginClose();
-                handleRegisterOpen();
-              }}
-            >
-              Register
-            </span>
-          </Typography>
-        </Box>
-      </Dialog>
-
-      <Dialog
-        open={openRegister}
-        onClose={handleRegisterClose}
-        PaperProps={{ className: styles.dialogPaper }}
-        maxWidth="xs"
-        fullWidth
-      >
-        <Box className={styles.dialogHeader}>
-          <DialogTitle className={styles.dialogTitle}>
-            Create an account
-          </DialogTitle>
-          <IconButton onClick={handleRegisterClose} size="small">
-            <CloseIcon />
-          </IconButton>
-        </Box>
-
-        <Box className={styles.dialogLogo}>
-          <Box className={styles.logoContainer}>
-            <LogoMain />
-            <LogoCircle />
-            <Typography variant="h6" className={styles.brandName}>
-              wellthy
-            </Typography>
-          </Box>
-        </Box>
+      <Box className={styles.socialButtonsContainer}>
+      <Button variant="outlined" startIcon={<GoogleIcon />} onClick={handleGoogleLogin} className={styles.socialButton}  disabled={loading}>  Continue with Google</Button>
+      <Button variant="outlined"  startIcon={<MicrosoftIcon />}  onClick={handleMicrosoftLogin}  className={styles.socialButton} disabled={loading} >  Continue with Microsoft </Button></Box>
+      <Box className={styles.dialogFooter}><Typography variant="body2" className={styles.switchAuthText}>  Don't have an account?{" "} <span className={styles.switchAuthLink}  onClick={() => { handleLoginClose();  handleRegisterOpen(); }} >  Register   </span>  </Typography> </Box> </Dialog>
+      {/* Register Dialog */}
+      <Dialog  open={openRegister}  onClose={handleRegisterClose} PaperProps={{ className: styles.dialogPaper }}  maxWidth="xs"  fullWidth>
+        <Box className={styles.dialogHeader}> <DialogTitle className={styles.dialogTitle}>  Create an account  </DialogTitle>  <IconButton onClick={handleRegisterClose} size="small">  <CloseIcon />  </IconButton> </Box>
+        <Box className={styles.dialogLogo}> <Box className={styles.logoContainer}>  <LogoMain />  <LogoCircle /> <Typography variant="h6" className={styles.brandName}>  wellthy  </Typography>  </Box></Box>
+       {error && (  <Alert severity="error" sx={{ mx: 3, mt: 2 }}>   {error}  </Alert> )}
 
         <form onSubmit={handleRegisterSubmit}>
           <DialogContent className={styles.dialogContent}>
-            <TextField
-              autoFocus
-              margin="dense"
-              label="Full Name"
-              type="text"
-              fullWidth
-              variant="outlined"
-              required
-              name="name"
-              className={styles.textField}
-            />
-            <TextField
-              margin="dense"
-              label="Email"
-              type="email"
-              fullWidth
-              variant="outlined"
-              required
-              name="email"
-              className={styles.textField}
-            />
-            <TextField
-              margin="dense"
-              label="Password"
-              type="password"
-              fullWidth
-              variant="outlined"
-              required
-              name="password"
-              className={styles.textField}
-            />
-            <TextField
-              margin="dense"
-              label="Confirm Password"
-              type="password"
-              fullWidth
-              variant="outlined"
-              required
-              name="confirmPassword"
-              className={styles.textField}
-            />
-            {error && (
-              <Typography color="error" variant="body2">
-                {error}
-              </Typography>
-            )}
-          </DialogContent>
-          <DialogActions className={styles.dialogActions}>
-            <Button
-              type="submit"
-              variant="contained"
-              fullWidth
-              className={styles.submitButton}
-              disabled={loading}
-            >
-              {loading ? 'Registering...' : 'Register'}
-            </Button>
-          </DialogActions>
+            <TextField  autoFocus  margin="dense"  label="Full Name"  type="text" fullWidth variant="outlined" required  className={styles.textField}  name="name"  value={registerFormData.name}  onChange={handleRegisterInputChange}/>
+            <TextField  margin="dense" label="Email" type="email"  fullWidth  variant="outlined"  required  className={styles.textField}  name="email"  value={registerFormData.email} onChange={handleRegisterInputChange} />
+            <TextField margin="dense"  label="Password"  type="password" fullWidth variant="outlined" required  className={styles.textField}  name="password"  value={registerFormData.password}  onChange={handleRegisterInputChange} />
+            <TextField  margin="dense"  label="Confirm Password"  type="password"  fullWidth variant="outlined" required  className={styles.textField}  name="confirmPassword"  value={registerFormData.confirmPassword}  onChange={handleRegisterInputChange} />
+            <TextField  margin="dense"  label="Phone Number (Optional)" type="tel" fullWidth  variant="outlined"  className={styles.textField}  name="phone"  value={registerFormData.phone}  onChange={handleRegisterInputChange}  />
+            <TextField margin="dense" label="Location (Optional)" type="text" fullWidth variant="outlined" className={styles.textField} name="location" value={registerFormData.location}  onChange={handleRegisterInputChange} />
+            <TextField  margin="dense" label="Postal Code (Optional)" type="text" fullWidth variant="outlined" className={styles.textField} name="postalCode" value={registerFormData.postalCode} onChange={handleRegisterInputChange}/>
+          </DialogContent> <DialogActions className={styles.dialogActions}><Button type="submit" variant="contained" fullWidth className={styles.submitButton} disabled={loading} >  {loading ? <CircularProgress size={24} color="inherit" /> : "Register"}  </Button></DialogActions>
         </form>
 
-        <Box className={styles.dividerContainer}>
-          <Divider className={styles.divider}>
-            <Typography variant="body2" className={styles.dividerText}>
-              OR
-            </Typography>
-          </Divider>
-        </Box>
-
+        <Box className={styles.dividerContainer}> <Divider className={styles.divider}> <Typography variant="body2" className={styles.dividerText}>  OR </Typography> </Divider> </Box>
         <Box className={styles.socialButtonsContainer}>
-          <Button
-            variant="outlined"
-            startIcon={<GoogleIcon />}
-            onClick={handleGoogleLogin}
-            className={styles.socialButton}
-          >
-            Continue with Google
-          </Button>
-          <Button
-            variant="outlined"
-            startIcon={<MicrosoftIcon />}
-            onClick={handleMicrosoftLogin}
-            className={styles.socialButton}
-          >
-            Continue with Microsoft
-          </Button>
-        </Box>
-
-        <Box className={styles.dialogFooter}>
-          <Typography variant="body2" className={styles.switchAuthText}>
-            Already have an account?{" "}
-            <span
-              className={styles.switchAuthLink}
-              onClick={() => {
-                handleRegisterClose();
-                handleLoginOpen();
-              }}
-            >
-              Log in
-            </span>
-          </Typography>
-        </Box>
-      </Dialog>
+          <Button variant="outlined" startIcon={<GoogleIcon />}onClick={handleGoogleLogin}className={styles.socialButton} disabled={loading}> Continue with Google</Button>
+          <Button variant="outlined" startIcon={<MicrosoftIcon />} onClick={handleMicrosoftLogin}className={styles.socialButton}disabled={loading}> Continue with Microsoft  </Button></Box>
+        <Box className={styles.dialogFooter}> <Typography variant="body2" className={styles.switchAuthText}>Already have an account?{" "}<span className={styles.switchAuthLink}onClick={() => { handleRegisterClose(); handleLoginOpen(); }} > Log in</span> </Typography> </Box></Dialog>
+      {/* Success Snackbar */}
+      <Snackbar open={!!success} autoHideDuration={6000} onClose={() => setSuccess("")}anchorOrigin={{ vertical: "bottom", horizontal: "center" }}><Alert onClose={() => setSuccess("")} severity="success" sx={{ width: "100%" }}> {success} </Alert></Snackbar>
     </>
   );
 };
 
 export default Navbar;
-

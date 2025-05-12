@@ -56,6 +56,8 @@ const eventRouter = require('./routers/event.routes');
 const gameRouter = require('./routers/game.route');
 const bubbleRouter = require('./routers/bubble.route');
 const patternRouter = require('./routers/pattern.route');
+const locationRouter = require('./routers/location.routes');
+
 const authRouter = require('./routers/auth.route');
 const scheduleRouter = require('./routers/schedule.routes');
 
@@ -84,6 +86,7 @@ app.use('/doctor', doctorRouter);
 app.use('/game', gameRouter);
 app.use('/api/bubble', bubbleRouter);
 app.use('/pattern', patternRouter);
+app.use('/locations', locationRouter);
 app.use('/events', eventRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/schedules', scheduleRouter);
