@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import {Box,Typography,Avatar,Card,CardContent,IconButton,} from "@mui/material";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
-import styles from "../FeedBack/FeedBack.module.css";
+import styles from "./FeedBack.module.css";
 
 const Feedback = () => {
   const [feedbacks, setFeedbacks] = useState([]);

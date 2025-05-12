@@ -1,4 +1,3 @@
-
 const Doctor = require('../models/doctor.model');
 
 // إنشاء دكتور جديد
