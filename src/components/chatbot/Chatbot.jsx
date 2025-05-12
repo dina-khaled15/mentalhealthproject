@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Paper } from "@mui/material";
+import axios from "axios";
 import ChatFab from "../chatbot/ChatFab";
 import ChatHeader from "../chatbot/ChatHeader";
 import ChatMessages from "../chatbot/ChatMessages";
 import ChatInput from "../chatbot/ChatInput";
 import ChatOptions from "../chatbot/ChatOptions";
-import { colors, stages } from "../../data/chatbotData";
+import { colors } from "../../data/chatbotData";
 
 export default function Chatbot() {
   const [open, setOpen] = useState(false);
@@ -15,14 +16,52 @@ export default function Chatbot() {
   const [isTyping, setIsTyping] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [isChatMode, setIsChatMode] = useState(false);
+  const [stages, setStages] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
 
+  const fetchStages = async () => {
+    console.log("Fetching stages from http://localhost:4000/api/stages...");
+    try {
+      setLoading(true);
+      setError(null);
+      const response = await axios.get("http://localhost:4000/api/stages", { timeout: 5000 });
+      console.log("API response:", response.data);
+
+      // Transform the array into an object with stage names as keys
+      const stagesObject = response.data.reduce((acc, stage) => {
+        acc[stage.name] = {
+          greeting: stage.greeting,
+          messageButtons: stage.messageButtons || [], // Default to empty array if missing
+          options: stage.options || [], // Default to empty array if missing
+        };
+        return acc;
+      }, {});
+      
+      console.log("Transformed stages:", stagesObject);
+      setStages(stagesObject);
+      setLoading(false);
+    } catch (err) {
+      console.error("Fetch error:", err.message);
+      setError("Failed to load chatbot data. Please try again later.");
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    if (open && messages.length === 0) {
+    fetchStages();
+  }, []);
+
+  useEffect(() => {
+    if (stages) {
+      console.log("Stages loaded:", stages);
+    }
+    if (open && messages.length === 0 && stages && !loading) {
       displayGreetingWithOptions("initial");
     }
-  }, [open]);
+  }, [open, stages, loading]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -37,6 +76,10 @@ export default function Chatbot() {
   }, [isChatMode]);
 
   const displayGreetingWithOptions = (stage) => {
+    if (!stages || !stages[stage]) {
+      console.log(`Stage ${stage} not found in stages:`, stages);
+      return;
+    }
     setIsTyping(true);
     setTimeout(() => {
       setMessages((prev) => [
@@ -113,16 +156,116 @@ export default function Chatbot() {
   const resetChat = () => {
     setMessages([]);
     setIsChatMode(false);
-    displayGreetingWithOptions("initial");
+    if (stages) {
+      displayGreetingWithOptions("initial");
+    }
   };
+
+  if (loading) {
+    return (
+      <>
+        <ChatFab
+          onClick={() => {
+            setOpen(!open);
+            setIsMinimized(false);
+          }}
+        />
+        {open && (
+          <Paper
+            elevation={4}
+            style={{
+              position: "fixed",
+              bottom: 90,
+              right: 20,
+              width: 340,
+              height: 500,
+              borderRadius: 16,
+              overflow: "hidden",
+              display: "flex",
+              flexDirection: "column",
+              backgroundColor: colors.lightBg,
+              zIndex: 999,
+              transition: "all 0.3s ease",
+              boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.1)",
+            }}
+          >
+            <ChatHeader
+              isMinimized={isMinimized}
+              toggleMinimize={() => setIsMinimized(!isMinimized)}
+              onClose={() => setOpen(false)}
+            />
+            <div style={{ padding: 20, textAlign: "center" }}>Loading chatbot data...</div>
+          </Paper>
+        )}
+      </>
+    );
+  }
+
+  if (error) {
+    return (
+      <>
+        <ChatFab
+          onClick={() => {
+            setOpen(!open);
+            setIsMinimized(false);
+          }}
+        />
+        {open && (
+          <Paper
+            elevation={4}
+            style={{
+              position: "fixed",
+              bottom: 90,
+              right: 20,
+              width: 340,
+              height: 500,
+              borderRadius: 16,
+              overflow: "hidden",
+              display: "flex",
+              flexDirection: "column",
+              backgroundColor: colors.lightBg,
+              zIndex: 999,
+              transition: "all 0.3s ease",
+              boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.1)",
+            }}
+          >
+            <ChatHeader
+              isMinimized={isMinimized}
+              toggleMinimize={() => setIsMinimized(!isMinimized)}
+              onClose={() => setOpen(false)}
+            />
+            <div style={{ padding: 20, textAlign: "center" }}>
+              {error}
+              <button
+                onClick={fetchStages}
+                style={{
+                  marginTop: 10,
+                  padding: "8px 16px",
+                  cursor: "pointer",
+                  backgroundColor: colors.primary,
+                  color: "#fff",
+                  border: "none",
+                  borderRadius: 4,
+                }}
+              >
+                Retry
+              </button>
+            </div>
+          </Paper>
+        )}
+      </>
+    );
+  }
 
   return (
     <>
-      <ChatFab onClick={() => {
-        setOpen(!open);
-        setIsMinimized(false);
-      }} />
-      {open && (
+      <ChatFab
+        onClick={() => {
+          setOpen(!open);
+          setIsMinimized(false);
+        }}
+      />
+      {open && stages && (
         <Paper
           elevation={4}
           style={{
@@ -164,7 +307,7 @@ export default function Chatbot() {
                 />
               ) : (
                 stages[currentStage] &&
-                stages[currentStage].options.length > 0 && (
+                stages[currentStage].options?.length > 0 && (
                   <ChatOptions
                     options={stages[currentStage].options}
                     onOptionClick={handleOptionClick}

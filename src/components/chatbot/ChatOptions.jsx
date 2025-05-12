@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Button } from "@mui/material";
-import { colors } from "../../data/chatbotData"; // Named import
+import { colors } from "../../data/chatbotData"; 
 
 export default function ChatOptions({ options, onOptionClick }) {
   return (
@@ -12,10 +12,10 @@ export default function ChatOptions({ options, onOptionClick }) {
             variant="contained"
             onClick={() => onOptionClick(option)}
             sx={{
-              bgcolor: option.color || colors.buttonPrimary,
+              bgcolor: option.text === "Chat with us" ? colors.darkGray : (option.color || colors.buttonPrimary),
               color: option.color === colors.buttonSecondary ? colors.darkGray : colors.white,
               "&:hover": {
-                bgcolor: option.color === colors.buttonSecondary ? "#E8E6DF" : "#333333",
+                bgcolor: option.text === "Chat with us" ? "#4F4F4F" : (option.color === colors.buttonSecondary ? "#E8E6DF" : "#333333"),
               },
               borderRadius: "8px",
               textTransform: "none",
@@ -30,8 +30,8 @@ export default function ChatOptions({ options, onOptionClick }) {
                   width: 20,
                   height: 20,
                   borderRadius: "50%",
-                  backgroundColor: option.color === colors.buttonSecondary ? colors.primary : colors.white,
-                  color: option.color === colors.buttonSecondary ? colors.white : colors.primary,
+                  backgroundColor: option.text === "Chat with us" ? colors.white : (option.color === colors.buttonSecondary ? colors.primary : colors.white),
+                  color: option.text === "Chat with us" ? colors.darkGray : (option.color === colors.buttonSecondary ? colors.white : colors.primary),
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",

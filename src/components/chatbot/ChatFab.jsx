@@ -1,6 +1,6 @@
 import React from "react";
 import { Fab } from "@mui/material";
-import Chat from "@mui/icons-material/Chat"; // Corrected import
+import Chat from "@mui/icons-material/Chat"; 
 import { colors } from "../../data/chatbotData"; 
 
 export default function ChatFab({ onClick }) {

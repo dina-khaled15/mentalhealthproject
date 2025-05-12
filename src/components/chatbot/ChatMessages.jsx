@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Avatar, Typography, Button, CircularProgress } from "@mui/material";
 import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import { colors } from "../../data/chatbotData"; // Named import
+import { colors } from "../../data/chatbotData"; 
 
 export default function ChatMessages({ messages, isTyping, onOptionClick, messagesEndRef }) {
   return (

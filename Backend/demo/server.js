@@ -1,107 +1,3 @@
-// const express = require('express');
-// const mongoose = require('mongoose');
-// const app = express();
-// require('dotenv').config();
-// const path = require('path');
-// const cors = require('cors');
-
-// const stagesRouter = require('./routers/stages.routes');
-// const uploadRouter = require('./routers/upload.routes');
-// const userRouter = require('./routers/userfeedback.routes');
-// const userIssuesRouter = require('./routers/userIssues.routes');
-// const userPharmacyRouter = require('./routers/userPharmacy.routes');
-// const userEmotionsroutes = require('./routers/userEmotions.routes');
-// const userBookingroutes = require('./routers/userBooking.routes');
-// const doctor = require('./routers/doctor.route'); 
-// const eventRouter = require('./routers/event.routes'); 
-// const game = require('./routers/game.route');
-// const bubble = require('./routers/bubble.route');
-// const pattern = require('./routers/pattern.route');
-// const errorHandler = require('./middlewares/authMiddleware.middleware');
-// const cloudinary = require('cloudinary').v2;
-
-
-// async function connectDB() {
-//   try {
-//     await mongoose.connect(process.env.Connection, {
-//       useNewUrlParser: true,
-//       useUnifiedTopology: true,
-//     });
-//     console.log('MongoDB connected successfully');
-//   } catch (error) {
-//     console.error('MongoDB connection error:', error.message);
-//     process.exit(1);
-//   }
-// }
-
-// connectDB();
-
-// // Parse JSON bodies
-// cloudinary.config({
-//     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-//     api_key: process.env.CLOUDINARY_API_KEY,
-//     api_secret: process.env.CLOUDINARY_API_SECRET,
-// });
-
-// app.use(cors({
-//   origin: 'http://localhost:5173', 
-//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-//   allowedHeaders: ['Content-Type', 'Authorization'],
-// }));
-
-// app.use(express.json());
-
-// // Serve static files from public/images
-// app.use('/images', express.static(path.join(__dirname, 'public/images')));
-
-// // Routes
-// app.use('/feedback', userRouter);
-// app.use('/Issues', userIssuesRouter);
-// app.use('/Pharmacy', userPharmacyRouter);
-// app.use('/Emotions', userEmotionsroutes);
-// app.use('/Booking', userBookingroutes);
-// app.use('/doctor', doctor);
-// app.use('/game', game);
-// app.use('/bubble', bubble);
-// app.use('/pattern', pattern);
-// app.use('/events', eventRouter);
-
-// const userInfoRouter = require('./routers/auth.route');
-// // const authRoutes = require('./routers/auth.route');
-// const scheduleRoutes = require('./routers/schedule.routes');
-
-// app.use('/api/feedback', userRouter);
-
-// app.use('/api/schedules', scheduleRoutes);
-
-
-// app.use('/images', express.static(path.join(__dirname, '/images')));
-// // Serve static files
-// if (process.env.NODE_ENV === 'production') {
-//     app.use(express.static(path.join(__dirname, '../frontend/build')));
-
-//     app.get('*', (req, res) => {
-//         res.sendFile(path.resolve(__dirname, '../frontend', 'build', 'index.html'));
-//     });
-// } else {
-//     app.use(express.static(path.join(__dirname, 'public')));
-// }
-
-// // Error handling middleware
-// app.use(errorHandler);
-
-// const PORT = process.env.PORT || 4000;
-// const server = app.listen(PORT, () => {
-//     console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
-// });
-
-// // Handle unhandled rejections
-// process.on('unhandledRejection', (err, promise) => {
-//     console.error(`Error: ${err.message}`);
-//     server.close(() => process.exit(1));
-// });
-
-
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
@@ -140,7 +36,7 @@ app.use(cors({
   origin: '*', // السماح لكل الـ origins
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true
+  //credentials: true
 }));
 
 app.use(express.json());
@@ -158,10 +54,10 @@ const userBookingRouter = require('./routers/userBooking.routes');
 const doctorRouter = require('./routers/doctor.route');
 const eventRouter = require('./routers/event.routes');
 const gameRouter = require('./routers/game.route');
-const bubbleRouter = require('./routers/bubble.route');
 const patternRouter = require('./routers/pattern.route');
 const authRouter = require('./routers/auth.route');
 const scheduleRouter = require('./routers/schedule.routes');
+
 
 // Try to load these routers but don't crash if they don't exist
 let stagesRouter, uploadRouter;
@@ -186,7 +82,6 @@ app.use('/Emotions', userEmotionsRouter);
 app.use('/Booking', userBookingRouter);
 app.use('/doctor', doctorRouter);
 app.use('/game', gameRouter);
-app.use('/api/bubble', bubbleRouter);
 app.use('/pattern', patternRouter);
 app.use('/events', eventRouter);
 app.use('/api/auth', authRouter);
@@ -251,4 +146,4 @@ process.on('unhandledRejection', (err, promise) => {
   server.close(() => process.exit(1));
 });
 
-module.exports = server; 
+module.exports = server;
