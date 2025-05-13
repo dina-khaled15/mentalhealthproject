@@ -6,12 +6,11 @@ import axios from "axios";
 export default function Timeline() {
   const [milestones, setMilestones] = useState([]);
 
-  // Fetch milestones data from API when the component mounts
   useEffect(() => {
     const fetchMilestones = async () => {
       try {
         const response = await axios.get('/api/milestones');
-        setMilestones(response.data); // Assuming your API returns the milestones data
+        setMilestones(response.data); 
       } catch (error) {
         console.error("Error fetching milestones:", error);
       }

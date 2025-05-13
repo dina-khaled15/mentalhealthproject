@@ -1,6 +1,5 @@
 const Doctor = require('../models/doctor.model');
 
-// إنشاء دكتور جديد
 exports.createDoctor = async (req, res) => {
   try {
     const doctor = new Doctor(req.body);
@@ -11,7 +10,6 @@ exports.createDoctor = async (req, res) => {
   }
 };
 
-// جلب كل الدكاترة (اختياري)
 exports.getAllDoctors = async (req, res) => {
   try {
     const doctors = await Doctor.find();
@@ -21,7 +19,6 @@ exports.getAllDoctors = async (req, res) => {
   }
 };
 
-// حذف دكتور حسب ID (اختياري)
 exports.deleteDoctor = async (req, res) => {
   try {
     const result = await Doctor.findByIdAndDelete(req.params.id);
@@ -32,7 +29,6 @@ exports.deleteDoctor = async (req, res) => {
   }
 };
 
-// جلب دكتور معين عن طريق ID
 exports.getDoctorById = async (req, res) => {
     try {
       const doctor = await Doctor.findById(req.params.id);

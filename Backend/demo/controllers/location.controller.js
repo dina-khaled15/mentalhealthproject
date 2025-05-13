@@ -1,6 +1,5 @@
 const Location = require("../models/location.model");
 
-// الحصول على كل المواقع
 exports.getLocations = async (req, res) => {
   try {
     const locations = await Location.find();
@@ -10,7 +9,6 @@ exports.getLocations = async (req, res) => {
   }
 };
 
-// إضافة موقع جديد
 exports.createLocation = async (req, res) => {
   try {
     const newLocation = new Location(req.body);
@@ -21,7 +19,6 @@ exports.createLocation = async (req, res) => {
   }
 };
 
-// تحديث موقع معين
 exports.updateLocation = async (req, res) => {
   try {
     const { id } = req.params;
@@ -35,7 +32,6 @@ exports.updateLocation = async (req, res) => {
   }
 };
 
-// حذف موقع معين
 exports.deleteLocation = async (req, res) => {
   try {
     const { id } = req.params;
@@ -49,7 +45,6 @@ exports.deleteLocation = async (req, res) => {
   }
 };
 
-// البحث عن مواقع بناءً على المعايير (مثل الاسم أو المدينة)
 exports.searchLocations = async (req, res) => {
   try {
     const { name, city } = req.query;
@@ -65,10 +60,9 @@ exports.searchLocations = async (req, res) => {
   }
 };
 
-// الحصول على أفضل المواقع (مثلًا حسب التقييم أو معايير أخرى)
 exports.getTopLocations = async (req, res) => {
   try {
-    const topLocations = await Location.find().sort({ rating: -1 }).limit(5); // تعديل الترتيب حسب الحاجة
+    const topLocations = await Location.find().sort({ rating: -1 }).limit(5); 
     res.status(200).json(topLocations);
   } catch (error) {
     res.status(500).json({ message: "Failed to fetch top locations", error: error.message });

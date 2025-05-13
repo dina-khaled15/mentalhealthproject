@@ -45,31 +45,9 @@ const EmotionAdventure = () => {
   };
 
   return (
-    <Box
-      sx={{
-        p: 2,
-        padding: "20px",
-        textAlign: "center",
-        backgroundColor: "white",
-        minHeight: "80vh",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Typography
-        variant="h3"
-        sx={{
-          color: "black",
-          fontWeight: "bold",
-          fontSize: "44px",
-          mb: 4,
-          width: "100%",
-          gap: 3,
-          fontFamily: "Manrope",
-        }}
-      >
+    <Box sx={{p: 2,padding: "20px",textAlign: "center",backgroundColor: "white",minHeight: "80vh",display: "flex",
+      flexDirection: "column",justifyContent: "center",alignItems: "center",}}>
+      <Typography variant="h3" sx={{color: "black",fontWeight: "bold",fontSize: "44px",mb: 4,width: "100%",gap: 3,fontFamily: "Manrope",}}>
         <TheaterComedyIcon sx={{ color: "#ec4899", fontSize: 70 }} />
         Welcome to Emotion Adventure!
       </Typography>

@@ -1,6 +1,5 @@
 const Value = require("../models/value.model");
 
-// Get all values
 const getAllValues = async (req, res) => {
   try {
     const values = await Value.find();
@@ -10,7 +9,6 @@ const getAllValues = async (req, res) => {
   }
 };
 
-// Add a new value
 const addValue = async (req, res) => {
   const { icon, title, description } = req.body;
   try {
@@ -22,7 +20,6 @@ const addValue = async (req, res) => {
   }
 };
 
-// Delete a value by ID
 const deleteValue = async (req, res) => {
   const { id } = req.params;
   try {

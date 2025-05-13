@@ -8,7 +8,6 @@ const path = require('path');
 const cors = require('cors');
 const cloudinary = require('cloudinary').v2;
 
-// Database connection
 async function connectDB() {
   try {
     await mongoose.connect(process.env.Connection, {
@@ -24,28 +23,23 @@ async function connectDB() {
 
 connectDB();
 
-// Configure Cloudinary
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-// Middleware
 app.use(cors({
-  origin: '*', // السماح لكل الـ origins
+  origin: '*', 
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-  //credentials: true
 }));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static files
 app.use('/images', express.static(path.join(__dirname, 'public/images')));
 
-// Import routers - loading all routes properly
 const userRouter = require('./routers/userfeedback.routes');
 const userIssuesRouter = require('./routers/userIssues.routes');
 const userPharmacyRouter = require('./routers/userPharmacy.routes');
@@ -61,7 +55,6 @@ const authRouter = require('./routers/auth.route');
 const scheduleRouter = require('./routers/schedule.routes');
 
 
-// Try to load these routers but don't crash if they don't exist
 let stagesRouter, uploadRouter;
 try {
   stagesRouter = require('./routers/stages.routes');
@@ -75,8 +68,6 @@ try {
   console.warn('Upload router not found');
 }
 
-// API Routes - unified API structure 
-// Core routes
 app.use('/feedback', userRouter);
 app.use('/Issues', userIssuesRouter);
 app.use('/Pharmacy', userPharmacyRouter);
@@ -90,7 +81,6 @@ app.use('/events', eventRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/schedules', scheduleRouter);
 
-// Optional routes
 if (stagesRouter) {
   app.use('/api/stages', stagesRouter);
 }
@@ -98,7 +88,6 @@ if (uploadRouter) {
   app.use('/api/upload', uploadRouter);
 }
 
-// Serve frontend in production
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../frontend/build')));
 
@@ -113,24 +102,20 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-// Import error handler middleware - fixed path
 const errorHandler = require('./middlewares/errorHandler.middleware');
 
-// Error handling middleware
 app.use(errorHandler);
 
-// Start server with Socket.IO
 const PORT = process.env.PORT || 4000;
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: '*', // السماح لكل الـ origins في Socket.IO
+    origin: '*', 
     methods: ['GET', 'POST'],
     credentials: true
   }
 });
 
-// Socket.IO connection
 io.on('connection', (socket) => {
   console.log('A user connected:', socket.id);
 
@@ -143,7 +128,6 @@ server.listen(PORT, () => {
   console.log(`Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
 });
 
-// Handle unhandled rejections
 process.on('unhandledRejection', (err, promise) => {
   console.error(`Error: ${err.message}`);
   server.close(() => process.exit(1));

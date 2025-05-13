@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import {
-  Box, Tab, Tabs, Typography, Link, Collapse
+import {Box, Tab, Tabs, Typography, Link, Collapse
 } from "@mui/material";
 import Navbar from "../components/Navbar/Navbar";
 import FooterComponent from "../components/footer/contact";
@@ -104,19 +103,9 @@ const Details = () => {
                 Articles
               </Typography>
               {issueData.resources?.articles?.map((link, index) => (
-                <Link
-                  key={`article-${index}`}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener"
-                  display="block"
-                  sx={{
-                    mb: 1,
-                    color: "#000000",
-                    textDecoration: "none",
-                    "&:hover": { color: "#000000", textDecoration: "underline" },
-                  }}
-                >
+                <Link key={`article-${index}`} href={link.url} target="_blank" rel="noopener" display="block"
+                  sx={{mb: 1, color: "#000000", textDecoration: "none",
+                    "&:hover": { color: "#000000", textDecoration: "underline" },}}>
                   {link.title}
                 </Link>
               ))}

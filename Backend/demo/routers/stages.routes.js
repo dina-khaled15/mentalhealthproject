@@ -9,7 +9,6 @@ const {
 router.get("/", getAllStages);
 router.get("/:stageName", getStageByName);
 
-// ✅ ده أهم راوت لازم يكون موجود
 router.post("/", createStage);
 
 module.exports = router;

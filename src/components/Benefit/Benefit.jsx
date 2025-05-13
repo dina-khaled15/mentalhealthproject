@@ -24,7 +24,6 @@ const Benefit = () => {
         </Box>
       </Box>
 
-      {/* Text Content */}
       <Box className={styles.textContent}>
         <Chip icon={<FavoriteIcon />} label="Benefits" className={styles.chip} />
         <Typography variant="h4" className={styles.title} >

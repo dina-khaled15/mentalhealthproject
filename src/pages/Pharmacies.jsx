@@ -206,23 +206,15 @@ const PartnerPharmaciesPage = () => {
             label="Pick up medication confidentially"
             sx={{ mb: 3 }}/>
         <Box sx={{ display: 'flex', gap: 2 }}>
-        <Button type="submit" variant="contained" size="large" sx={{
-  textTransform: 'none',
-  bgcolor: '#F8F7F4',
-  border: '1px solid black',
-  borderRadius: '4px',
-  fontFamily: 'Manrope',
-  fontWeight: 800,
-  color: 'black',
-}}>
-  Submit Request
-</Button>
-
-            <Button variant="outlined" color="secondary"size="large"onClick={clearForm}
-            sx={{textTransform: 'none',bgcolor: '#F8F7F4',border: '1px solid black',borderRadius: '4px',fontFamily: 'Manrope',
-                fontWeight: 800,color: 'black',}}>
-            Clear Form
-            </Button>
+        <Button type="submit" variant="contained" size="large" sx={{textTransform: 'none',bgcolor: '#F8F7F4',
+        border: '1px solid black',borderRadius: '4px',fontFamily: 'Manrope',fontWeight: 800,color: 'black',}}>
+          Submit Request
+        </Button>
+        <Button variant="outlined" color="secondary"size="large"onClick={clearForm}
+        sx={{textTransform: 'none',bgcolor: '#F8F7F4',border: '1px solid black',borderRadius: '4px',fontFamily: 'Manrope',
+        fontWeight: 800,color: 'black',}}>
+          Clear Form
+        </Button>
         </Box>
 
         <Typography variant="caption" color="text.secondary" display="block" sx={{ mt: 2, fontFamily: 'Manrope',fontWeight: '400',fontSize: '14px',}}>

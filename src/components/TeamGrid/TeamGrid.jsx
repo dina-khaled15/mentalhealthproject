@@ -14,12 +14,12 @@ const TeamGrid = () => {
 
   useEffect(() => {
     axios.get("http://localhost:4000/doctor")
-      .then((res) => setDoctors(res.data)) // تعيين بيانات الدكاترة في الState
+      .then((res) => setDoctors(res.data)) 
       .catch((err) => console.error(err));
   }, []);
 
   const handleDoctorClick = (doctorId) => {
-    navigate(`/doctorDetails/${doctorId}`); // التنقل إلى صفحة تفاصيل الدكتور
+    navigate(`/doctorDetails/${doctorId}`); 
   };
 
   return (

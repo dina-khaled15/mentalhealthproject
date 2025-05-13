@@ -10,7 +10,7 @@ router.post('/upload', upload.single('image'), (req, res) => {
     return res.status(400).json({ error: 'No file uploaded' });
   }
 
-  const imageUrl = req.file.path; // هذا رابط الصورة على Cloudinary
+  const imageUrl = req.file.path; 
   res.status(200).json({ message: 'Image uploaded successfully', imageUrl });
 });
 
