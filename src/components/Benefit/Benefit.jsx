@@ -13,10 +13,10 @@ const Benefit = () => {
 
 
           <Paper elevation={3} className={`${styles.overlay} ${styles.overlayShow}`} >
-            <Typography >
+            <Typography className={styles.overlayTitle}>
               Experience Professionals
             </Typography>
-            <Typography variant="body2" >
+            <Typography variant="body2" className={styles.overlayDescription}>
               Our team is made up of skilled and compassionate mental health
               experts with years of experience in providing effective care.
             </Typography>
@@ -24,17 +24,16 @@ const Benefit = () => {
         </Box>
       </Box>
 
-      {/* Text Content */}
       <Box className={styles.textContent}>
         <Chip icon={<FavoriteIcon />} label="Benefits" className={styles.chip} />
         <Typography variant="h4" className={styles.title} >
-          The Benefits of Choosing Wellthy
+          The Benefits of Choosing<br/> Wellthy
         </Typography>
         <Typography variant="body1" className={styles.description} >
-          Wellthy combines experienced professionals, personalized care, and a
-          supportive environment to provide comprehensive mental health services
-          that meet your unique needs, ensuring privacy, comfort, and lasting
-          support.
+          Wellthy combines experienced professionals, personalized care,
+          and a supportive environment to provide comprehensive mental
+          health services that meet your unique needs, ensuring privacy,
+          comfort, and lasting support.
         </Typography>
         <Box component="ul">
         <Typography variant="h4" className={styles.titlee} >

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { Box } from "@mui/material";
 import Navbar from "../components/Navbar/Navbar";
 import Feedback from "../components/FeedBack/FeedBack";
 import WeeklySchedule from "../components/SehdualOverVeiw";

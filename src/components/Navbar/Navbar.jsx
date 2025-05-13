@@ -49,7 +49,7 @@ const Navbar = () => {
               Authorization: `Bearer ${token}`,
             },
           };
-          const response = await axios.get(`${API_URL}/api/auth/me`, config);
+          const response = await axios.get(`${API_URL}/api/auth/me, config`);
           if (response.data.success) {
             setIsAuthenticated(true);
             setIsLoggedIn(true); 

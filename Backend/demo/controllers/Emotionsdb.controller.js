@@ -1,6 +1,5 @@
 const Emotion = require('../models/Emotions.model');
 
-// إنشاء عاطفة جديدة
 exports.createEmotion = async (req, res) => {
   try {
     const emotionData = req.body;
@@ -13,7 +12,6 @@ exports.createEmotion = async (req, res) => {
   }
 };
 
-// جلب جميع العواطف
 exports.getAllEmotions = async (req, res) => {
   try {
     const emotions = await Emotion.find();
@@ -23,7 +21,6 @@ exports.getAllEmotions = async (req, res) => {
   }
 };
 
-// جلب عاطفة حسب الـ ID
 exports.getEmotionById = async (req, res) => {
   try {
     const { id } = req.params;
@@ -57,7 +54,6 @@ exports.updateEmotion = async (req, res) => {
   }
 };
 
-// حذف عاطفة حسب الـ ID
 exports.deleteEmotion = async (req, res) => {
   try {
     const { id } = req.params;

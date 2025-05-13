@@ -117,7 +117,6 @@ import Contact from "./pages/Contact";
 import PatternGame from "./components/PatternGame/PatternGame";
 import Chatbot from "./components/chatbot/Chatbot";
 
-// Theme context
 export const ThemeContext = createContext(null);
 
 const socket = io("http://localhost:3000");

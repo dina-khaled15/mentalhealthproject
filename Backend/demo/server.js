@@ -31,16 +31,13 @@ app.use(cors({
   origin: '*', 
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-
 }));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static files
 app.use('/images', express.static(path.join(__dirname, 'public/images')));
 
-// Import routers - loading all routes properly
 const userRouter = require('./routers/userfeedback.routes');
 const userIssuesRouter = require('./routers/userIssues.routes');
 const userPharmacyRouter = require('./routers/userPharmacy.routes');
@@ -50,11 +47,16 @@ const doctorRouter = require('./routers/doctor.route');
 const eventRouter = require('./routers/event.routes');
 const gameRouter = require('./routers/game.route');
 const patternRouter = require('./routers/pattern.route');
+const locationRouter = require('./routers/location.routes');
+const milestoneRouter = require('./routers/milestone.routes');
+const planRouter = require('./routers/plan.routes');
 const authRouter = require('./routers/auth.route');
 const scheduleRouter = require('./routers/schedule.routes');
+const faqRouter = require('./routers/faq.routes');
+const valueRouter = require('./routers/value.routes');
 
 
-// Try to load these routers but don't crash if they don't exist
+
 let stagesRouter, uploadRouter;
 try {
   stagesRouter = require('./routers/stages.routes');
@@ -75,9 +77,14 @@ app.use('/Booking', userBookingRouter);
 app.use('/doctor', doctorRouter);
 app.use('/game', gameRouter);
 app.use('/pattern', patternRouter);
+app.use('/locations', locationRouter);
 app.use('/events', eventRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/schedules', scheduleRouter);
+app.use('/api/milestones', milestoneRouter);
+app.use('/api/plan', planRouter);
+app.use('/api/faq', faqRouter);
+app.use('/api/value', valueRouter);
 
 if (stagesRouter) {
   app.use('/api/stages', stagesRouter);
@@ -121,7 +128,6 @@ server.listen(PORT, () => {
   console.log(`Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
 });
 
-// Handle unhandled rejections
 process.on('unhandledRejection', (err, promise) => {
   console.error(`Error: ${err.message}`);
   server.close(() => process.exit(1));

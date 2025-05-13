@@ -1,7 +1,5 @@
-// milestone.controller.js
-const Milestone = require('../models/milestonetable.model');
+const Milestone = require('../models/milestone.model');
 
-// Get all milestones
 module.exports.getAllMilestones = async (req, res) => {
   try {
     const milestones = await Milestone.find();
@@ -12,7 +10,6 @@ module.exports.getAllMilestones = async (req, res) => {
   }
 };
 
-// Create a new milestone
 module.exports.createMilestone = async (req, res) => {
   try {
     const requiredFields = ['year', 'text'];
@@ -30,7 +27,6 @@ module.exports.createMilestone = async (req, res) => {
   }
 };
 
-// Update milestone
 module.exports.updateMilestone = async (req, res) => {
   try {
     const id = req.params.id;
@@ -45,7 +41,6 @@ module.exports.updateMilestone = async (req, res) => {
   }
 };
 
-// Delete milestone
 module.exports.deleteMilestone = async (req, res) => {
   try {
     const id = req.params.id;
@@ -60,7 +55,6 @@ module.exports.deleteMilestone = async (req, res) => {
   }
 };
 
-// Search milestone by year or text
 module.exports.searchMilestones = async (req, res) => {
   try {
     const { year, text } = req.query;
@@ -77,8 +71,7 @@ module.exports.searchMilestones = async (req, res) => {
   }
 };
 
-// Get Latest 5 Milestones
-module.exports.getLatestMilestones = async (req, res) => {
+module.exports.getTopMilestones = async (req, res) => {
   try {
     const latestMilestones = await Milestone.find().sort({ year: -1 }).limit(5);
     res.status(200).json(latestMilestones);

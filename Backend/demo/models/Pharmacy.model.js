@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const pharmacySchema = new mongoose.Schema({
-  title: { type: String, required: true, unique: true },  // تحقق من التكرار في العنوان
+  title: { type: String, required: true, unique: true },
   mainImage: String,
   category: String,
   aloneImage: String,

@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 
 const emotionSchema = new mongoose.Schema({
-  emoji: { type: String, required: true },  // The emoji for the emotion
-  description: { type: String, required: true },  // The description of the emotion
+  emoji: { type: String, required: true },
+  description: { type: String, required: true }, 
   questions: [
     {
-      q: { type: String, required: true },  // The question associated with the emotion
-      options: [{ type: String, required: true }],  // The answer options for the question
-      correct: { type: Number, required: true },  // The index of the correct answer
+      q: { type: String, required: true }, 
+      options: [{ type: String, required: true }], 
+      correct: { type: Number, required: true },
     }
   ]
 });

@@ -9,6 +9,7 @@
   padding: 0 !important;
 }
 
+
 .logoContainer {
   display: flex !important;
   align-items: center !important;
@@ -18,10 +19,11 @@
 }
 
 .brandName {
-  font-family: 'Manrope' !important;
+  font-family: 'Manrope'!important;
   font-size: 24px !important;
   font-weight: 800 !important;
 }
+
 
 .navLinks {
   display: flex !important;
@@ -43,13 +45,13 @@
 
 .activeNavLink {
   background-color: black !important; 
-  color: white !important;          
+  color: white !important;           
   font-size: 15px !important;
   font-weight: 700 !important;
-  font-family: 'Manrope', sans-serif !important;
+  font-family: 'Manrope'!important;
   text-transform: none !important;
   padding: 6px 10px !important;
-  border-radius: 4px !important;      
+  border-radius: 4px !important;     
   min-width: unset !important;
 }
 
@@ -65,7 +67,7 @@
 .registerButton {
   border-radius: 4px !important;
   text-transform: none !important;
-  font-family: 'Manrope', sans-serif !important;
+  font-family: 'Manrope' !important;
   font-weight: 600 !important;
   border-color: black !important;
   color: black !important;
@@ -82,7 +84,6 @@
   padding: 6px 16px !important;
 }
 
-/* Style for login section */
 .loginButto.appBar {
   background-color: #fff;
   border-bottom: 1px solid #e0e0e0;
@@ -155,13 +156,11 @@
   color: white !important;
   border-radius: 4px !important;
   font-family: 'Manrope', sans-serif !important;
-  font-size: 16px !important;
-  font-weight: 500 !important;
+  font-weight: 600 !important;
   text-transform: none !important;
   padding: 6px 16px !important;
   white-space: nowrap !important; 
 }
-
 
 .profileLink {
   display: flex;
@@ -256,6 +255,8 @@
 .switchAuthLink {
   color: #1976d2;
   cursor: pointer;
+}n:hover {
+  background-color: #333 !important;
 }
 
 .profileLink {
@@ -268,14 +269,14 @@
   font-size: 28px !important;
 }
 
+
 .dialogPaper {
   width: 100% !important;
-  max-width: 10000px !important; 
+  max-width: 400px !important;
   padding: 16px !important;
   border-radius: 8px !important;
   overflow: hidden !important; 
 }
-
 
 .dialogHeader {
   display: flex !important;
@@ -285,7 +286,7 @@
 }
 
 .dialogTitle {
-  font-family: 'Manrope' !important;
+  font-family: 'Manrope'!important;
   font-weight: 700 !important;
   padding: 0 !important;
 }
@@ -309,7 +310,7 @@
 
 .forgotPassword {
   color: #1976d2 !important;
-  font-family: 'Manrope' !important;
+  font-family: 'Manrope'!important;
   cursor: pointer !important;
   margin-bottom: 16px !important;
   text-align: right !important;
@@ -325,7 +326,7 @@
   background-color: black !important;
   color: white !important;
   border-radius: 4px !important;
-  font-family: 'Manrope' !important;
+  font-family: 'Manrope'!important;
   font-weight: 600 !important;
   text-transform: none !important;
   width: 100% !important;
@@ -334,6 +335,7 @@
 .submitButton:hover {
   background-color: #333 !important;
 }
+
 
 .dividerContainer {
   margin-top: 24px !important;
@@ -360,7 +362,7 @@
 .socialButton {
   border-radius: 4px !important;
   text-transform: none !important;
-  font-family: 'Manrope' !important;
+  font-family: 'Manrope'!important;
   font-weight: 500 !important;
   border-color: #DDDDDD !important;
   color: #333333 !important;
@@ -371,6 +373,7 @@
   border-color: #BBBBBB !important;
 }
 
+
 .dialogFooter {
   margin-top: 24px !important;
   text-align: center !important;
@@ -378,7 +381,7 @@
 }
 
 .switchAuthText {
-  font-family: 'Manrope' !important;
+  font-family: 'Manrope'!important;
 }
 
 .switchAuthLink {
@@ -387,29 +390,6 @@
   font-weight: 600 !important;
 }
 
-.submitButton {
-  white-space: nowrap !important; 
-}
-
-.languageButton {
-  display: flex;
-  align-items: center;
-  margin-right: 10px !important;
-  font-size: 14px !important;
-  color: #333 !important;
-  text-transform: none !important;
-  padding: 6px 12px !important;
-  border-radius: 8px !important;
-  background-color: #f5f5f5 !important;
-}
-
-.languageButton:hover {
-  background-color: #e0e0e0 !important;
-}
-
-.languageMenu {
-  margin-top: 8px !important;
-}
 
 @media (max-width: 960px) {
   .navLinks {
@@ -430,4 +410,31 @@
   .logoContainer, .authContainer {
     flex-grow: 0 !important;
   }
+
+
+}
+.languageButton {
+  display: flex;
+  align-items: center;
+  margin-right: 10px !important;
+  font-size: 14px !important;
+  color: #333 !important;
+  text-transform: none !important;
+  padding: 6px 12px !important;
+  border-radius: 8px !important;
+  background-color: #f5f5f5 !important;
+}
+
+.languageButton:hover {
+  background-color: #e0e0e0 !important;
+}
+
+.languageMenu {
+  margin-top: 8px !important;
+}
+
+.authContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }

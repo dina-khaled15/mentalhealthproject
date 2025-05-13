@@ -2,29 +2,23 @@ const express = require("express");
 const router = express.Router();
 const {
   getAllValues,
-  createValue,
-  updateValue,
+  addValue,
+  // updateValue,
   deleteValue,
-  searchValues,
-  getTopValues
+  // searchValues,
+  // getTopValues
 } = require("../controllers/value.controller");
 
-// الحصول على كل القيم
 router.get("/", getAllValues);
 
-// إضافة قيمة جديدة
-router.post("/", createValue);
+router.post("/", addValue);
 
-// تحديث قيمة معينة
-router.put("/:id", updateValue);
+// router.put("/:id", updateValue);
 
-// حذف قيمة معينة
 router.delete("/:id", deleteValue);
 
-// البحث عن قيم
-router.get("/search", searchValues);
+// router.get("/search", searchValues);
 
-// الحصول على أفضل القيم
-router.get("/top", getTopValues);
+// router.get("/top", getTopValues);
 
 module.exports = router;

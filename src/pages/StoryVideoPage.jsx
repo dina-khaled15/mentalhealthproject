@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  Box,
-  Card,
-  CardContent,
-  CardMedia,
-  Grid,
-  Typography,
-  Container,
-} from "@mui/material";
+import {Box,Card,CardContent,CardMedia,Grid,Typography, Container,} from "@mui/material";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
 import FooterComponent from "../components/footer/contact";

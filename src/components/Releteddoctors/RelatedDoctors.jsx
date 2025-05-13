@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Card, CardContent, CardMedia, Typography, Box } from "@mui/material";
 import { Link } from "react-router-dom";
-import axios from "axios"; // نحتاج لاستخدام axios لجلب البيانات من الخادم
+import axios from "axios"; 
 import styles from "./RelatedDoctors.module.css";
 
 const RelatedDoctors = () => {
@@ -9,7 +9,6 @@ const RelatedDoctors = () => {
   const [loading, setLoading] = useState(true); 
   const [error, setError] = useState(null); 
 
-  // جلب بيانات الأطباء
   useEffect(() => {
     axios
       .get("http://localhost:4000/doctor") 
@@ -19,54 +18,32 @@ const RelatedDoctors = () => {
       })
       .catch((err) => {
         setError("Error fetching doctors data");
-        setLoading(false); // تعيين حالة التحميل كـ false حتى لو حدث خطأ
+        setLoading(false); 
         console.error(err);
       });
   }, []);
 
-  if (loading) return <div>Loading...</div>; // في حال كانت البيانات قيد التحميل
-  if (error) return <div>{error}</div>; // في حال حدوث خطأ في جلب البيانات
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>{error}</div>;
 
   return (
     <Box className={styles.container}>
       <Box className={styles.contentWrapper}>
-        <Typography
-          variant="h4"
-          component="h2"
-          gutterBottom
-          className={styles.title}
-        >
+        <Typography variant="h4" component="h2" gutterBottom className={styles.title}>
           Related Doctors
         </Typography>
 
         <Box className={styles.cardContainer}>
           {relatedDoctors.map((doctor) => (
-            <Link
-              key={doctor._id} 
-              to={`/doctorDetails/${doctor._id}`} 
-              className={styles.cardLink}
-              style={{ textDecoration: "none" }}
-            >
+            <Link key={doctor._id}  to={`/doctorDetails/${doctor._id}`} className={styles.cardLink}
+            style={{ textDecoration: "none" }}>
               <Card className={styles.card}>
-                <CardMedia
-                  component="img"
-                  image={doctor.avatar}
-                  alt={doctor.name}
-                  className={styles.cardImage}
-                />
+                <CardMedia component="img" image={doctor.avatar} alt={doctor.name} className={styles.cardImage}/>
                 <CardContent>
-                  <Typography
-                    variant="subtitle1"
-                    component="h3"
-                    gutterBottom
-                    className={styles.doctorName}
-                  >
+                  <Typography variant="subtitle1" component="h3" gutterBottom className={styles.doctorName}>
                     {doctor.name}
                   </Typography>
-                  <Typography
-                    variant="body2"
-                    className={styles.doctorSpecialty}
-                  >
+                  <Typography variant="body2" className={styles.doctorSpecialty}>
                     {doctor.title}
                   </Typography>
                 </CardContent>

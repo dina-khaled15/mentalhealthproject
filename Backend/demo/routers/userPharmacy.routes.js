@@ -1,4 +1,3 @@
-// src/routes/pharmacy.routes.js
 const express = require('express');
 const router = express.Router();
 const { createPharmacy, getAllPharmacies, deletePharmacy, getPharmacyById } = require('../controllers/Pharmacydb.controller');
