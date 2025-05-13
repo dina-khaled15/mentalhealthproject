@@ -37,7 +37,7 @@ export default function Schedule() {
         </Typography>
       </Stack>
       <Box sx={{flexDirection: "column",gap: 2,bgcolor: "#fff",overflowY: "auto",display: "flex",
-      width: { xs: "100%", md: "42%" },
+      width: { xs: "102%", md: "50%" },
       p: { xs: 1, md: 0.1 }, 
       alignItems: { xs: "center", md: "flex-end" },}}>
         {schedule.map((day, index) => (
@@ -79,8 +79,8 @@ export default function Schedule() {
           <Grid container spacing={1} key={i} sx={{ mb: 1 }}> 
           {slotChunk.map((slot, i) => {
             let chipStyles = {borderRadius: "2px",paddingRight: "3px",fontWeight: 700,fontFamily: "Manrope",
-              fontSize: { xs: "9px", md: "12px" }, 
-              width: { xs: "58px", md: "78px" }, 
+              fontSize: { xs: "7.4px", md: "10px" }, 
+              width: { xs: "50px", md: "65px" }, 
             };
             const styleFunc = day.getStyle;
             if (styleFunc) {
