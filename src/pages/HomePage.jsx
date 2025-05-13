@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import Hero from "../components/Hero";
-import AboutSection from "../components/AboutSection";
-import DoctorProfile from "../components/DoctorProfile/DoctorProfile";
 import Benefit from "../components/Benefit/Benefit";
 import Titlee from "../components/Titlee";
 import DocCard from "../components/DocCard";
@@ -33,8 +31,6 @@ export default function HomePage() {
     <div>
       <Navbar />
       <Hero />
-      <AboutSection />
-      <DoctorProfile />
       <Benefit />
       <Titlee />
       <div className="row gap-4 justify-content-center mb-5">
