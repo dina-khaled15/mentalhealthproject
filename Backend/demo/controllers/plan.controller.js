@@ -12,7 +12,7 @@ module.exports.getAllPlans = async (req, res) => {
 
 module.exports.createPlan = async (req, res) => {
   try {
-    const requiredFields = ['name', 'description', 'price'];  
+    const requiredFields = ['title', 'description', 'price'];  
     for (const field of requiredFields) {
       if (!req.body[field]) {
         return res.status(400).json({ message: `Missing required field: ${field}` });

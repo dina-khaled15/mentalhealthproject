@@ -42,7 +42,7 @@ const QA = () => {
   // جلب البيانات من الـ API عند تحميل الصفحة
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/faqs") // تعديل الـ URL بحسب API السيرفر بتاعك
+      .get("http://localhost:4000/api/faq") // تعديل الـ URL بحسب API السيرفر بتاعك
       .then((response) => {
         setFaqs(response.data); // تخزين البيانات في state
       })

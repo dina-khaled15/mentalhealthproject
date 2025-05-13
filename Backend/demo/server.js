@@ -50,9 +50,13 @@ const eventRouter = require('./routers/event.routes');
 const gameRouter = require('./routers/game.route');
 const patternRouter = require('./routers/pattern.route');
 const locationRouter = require('./routers/location.routes');
-
+const milestoneRouter = require('./routers/milestone.routes');
+const planRouter = require('./routers/plan.routes');
 const authRouter = require('./routers/auth.route');
 const scheduleRouter = require('./routers/schedule.routes');
+const faqRouter = require('./routers/faq.routes');
+const valueRouter = require('./routers/value.routes');
+
 
 
 let stagesRouter, uploadRouter;
@@ -80,6 +84,10 @@ app.use('/locations', locationRouter);
 app.use('/events', eventRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/schedules', scheduleRouter);
+app.use('/api/milestones', milestoneRouter);
+app.use('/api/plan', planRouter);
+app.use('/api/faq', faqRouter);
+app.use('/api/value', valueRouter);
 
 if (stagesRouter) {
   app.use('/api/stages', stagesRouter);

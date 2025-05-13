@@ -1,4 +1,4 @@
-const Milestone = require('../models/milestonetable.model');
+const Milestone = require('../models/milestone.model');
 
 module.exports.getAllMilestones = async (req, res) => {
   try {
@@ -71,7 +71,7 @@ module.exports.searchMilestones = async (req, res) => {
   }
 };
 
-module.exports.getLatestMilestones = async (req, res) => {
+module.exports.getTopMilestones = async (req, res) => {
   try {
     const latestMilestones = await Milestone.find().sort({ year: -1 }).limit(5);
     res.status(200).json(latestMilestones);

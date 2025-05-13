@@ -23,7 +23,7 @@ export default function PrinciplesSection() {
 
   // Fetch values from the server
   useEffect(() => {
-    axios.get("http://localhost:4000/api/values")
+    axios.get("http://localhost:4000/api/value")
       .then((response) => setValues(response.data))
       .catch((error) => console.error("Error fetching values:", error));
   }, []);

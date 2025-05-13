@@ -9,7 +9,7 @@ export default function Timeline() {
   useEffect(() => {
     const fetchMilestones = async () => {
       try {
-        const response = await axios.get('/api/milestones');
+        const response = await axios.get('http://localhost:4000/api/milestones');
         setMilestones(response.data); 
       } catch (error) {
         console.error("Error fetching milestones:", error);

@@ -10,9 +10,8 @@ const PricingSection = () => {
   const [loading, setLoading] = useState(true); 
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    axios
-      .get("/api/plans") 
+  useEffect(() => {  
+      axios.get("http://localhost:4000/api/plan")
       .then((response) => {
         setPlans(response.data); 
         setLoading(false); 
