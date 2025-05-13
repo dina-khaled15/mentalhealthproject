@@ -6,23 +6,22 @@ import PriceChangeIcon from "@mui/icons-material/PriceChange";
 import styles from "./Pricing.module.css";
 
 const PricingSection = () => {
-  const [plans, setPlans] = useState([]); // لتخزين البيانات المستلمة من الـ API
-  const [loading, setLoading] = useState(true); // لحالة التحميل
-  const [error, setError] = useState(null); // لحالة الخطأ في جلب البيانات
+  const [plans, setPlans] = useState([]); 
+  const [loading, setLoading] = useState(true); 
+  const [error, setError] = useState(null);
 
-  // استخدام useEffect لجلب البيانات عند تحميل الكومبوننت
   useEffect(() => {
     axios
-      .get("/api/plans") // رابط الـ API الخاص بك
+      .get("/api/plans") 
       .then((response) => {
-        setPlans(response.data); // تخزين البيانات في الـ state
-        setLoading(false); // إنهاء حالة التحميل
+        setPlans(response.data); 
+        setLoading(false); 
       })
       .catch((err) => {
-        setError("Failed to fetch plans"); // في حالة وجود خطأ
-        setLoading(false); // إنهاء حالة التحميل
+        setError("Failed to fetch plans"); 
+        setLoading(false); 
       });
-  }, []); // يتم تنفيذها مرة واحدة عند تحميل الكومبوننت
+  }, []); 
 
   if (loading) {
     return <Typography variant="h6" align="center">Loading...</Typography>;
