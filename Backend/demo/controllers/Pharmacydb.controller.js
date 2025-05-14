@@ -1,40 +1,50 @@
 const Pharmacy = require('../models/Pharmacy.model');
 
-exports.getAllPharmacies = async (req, res) => {
+module.exports.getAllPharmacies = async (req, res) => {
   try {
     const pharmacies = await Pharmacy.find();
-    res.json(pharmacies);
+    res.send(pharmacies);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.send(error);
   }
 };
 
-exports.createPharmacy = async (req, res) => {
+module.exports.createPharmacy = async (req, res) => {
   try {
-    const pharmacy = new Pharmacy(req.body);
-    await pharmacy.save();
-    res.status(201).json(pharmacy);
+    const pharmacy = await Pharmacy.create(req.body);
+    res.send(pharmacy);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    console.log("Error:", error);
+    res.send(error);
   }
 };
 
-exports.getPharmacyById = async (req, res) => {
+module.exports.updatePharmacy = async (req, res) => {
   try {
-    const pharmacy = await Pharmacy.findById(req.params.id);
-    if (!pharmacy) return res.status(404).json({ error: 'Pharmacy not found' });
-    res.json(pharmacy);
+    const id = req.params.id;
+    const pharmacy = await Pharmacy.findByIdAndUpdate(id, req.body, { new: true });
+    res.send(pharmacy);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.send(error);
   }
 };
 
-exports.deletePharmacy = async (req, res) => {
+module.exports.deletePharmacy = async (req, res) => {
   try {
-    const result = await Pharmacy.findByIdAndDelete(req.params.id);
-    if (!result) return res.status(404).json({ error: "Pharmacy not found" });
-    res.json({ message: "Pharmacy deleted successfully" });
+    const id = req.params.id;
+    await Pharmacy.findByIdAndDelete(id);
+    res.send("Pharmacy deleted");
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.send(error);
+  }
+};
+
+module.exports.searchPharmacy = async (req, res) => {
+  try {
+    const { city } = req.query;
+    const pharmacies = await Pharmacy.find({ city });
+    res.send(pharmacies);
+  } catch (error) {
+    res.send(error);
   }
 };

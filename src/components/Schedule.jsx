@@ -37,7 +37,12 @@ export default function Schedule() {
         </Typography>
       </Stack>
       <Box sx={{flexDirection: "column",gap: 2,bgcolor: "#fff",overflowY: "auto",display: "flex",
-      width: { xs: "102%", md: "50%" },
+width: {
+  xs: "102%",
+  sm: "100%", // شاشات صغيرة زي الموبايل
+  md: "600px", // iPad أو قريب منها
+  lg: "700px", // شاشات أكبر شوية
+},
       p: { xs: 1, md: 0.1 }, 
       alignItems: { xs: "center", md: "flex-end" },}}>
         {schedule.map((day, index) => (

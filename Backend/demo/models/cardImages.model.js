@@ -1,28 +1,15 @@
 const mongoose = require('mongoose');
 
-const gameSchema = new mongoose.Schema({
-  name: {
+const cardImageSchema = new mongoose.Schema({
+  imageUrl: {
     type: String,
     required: true,
   },
-  image: {
+  description: {
     type: String,
-    required: true,
-  },
-  score: {
-    type: Number,
-    required: true,
-  },
-  moves: {
-    type: Number,
-    required: true,
-  },
-  time: {
-    type: Number,
-    required: true,
   }
 }, { timestamps: true });
 
-const Game = mongoose.model('Game', gameSchema);
+const CardImage = mongoose.model('CardImage', cardImageSchema);
 
-module.exports = Game;
+module.exports = CardImage;
