@@ -20,8 +20,8 @@ export default function HeroSection() {
           justifyContent: "space-between",
           alignItems: { xs: "flex-start", md: "center" },
           gap: { xs: 2, md: 0 },
-          width: "100%", // Full width to match image
-          px: 0, // Ensure no extra padding inside this container
+          width: "100%",
+          px: 0, 
         }}
       >
         <Box sx={{ width: { xs: "100%", md: "50%" }, pr: { xs: 0, md: 2 } }}>
@@ -91,8 +91,7 @@ export default function HeroSection() {
             py: 2,
             width: "100%",
             height: "auto",
-            maxHeight: "600px",
-            objectFit: "contain",
+            maxHeight: "100%",
             borderRadius: "20px",
           }}
         />
@@ -116,7 +115,7 @@ export default function HeroSection() {
               margin: "auto",
             }}
           >
-            <span style={{ letterSpacing: "0.25em" }}>WELLTH</span>Y
+            <span style={{ letterSpacing: "0.35em" }}>WELLTH</span>Y
           </Typography>
         </Box>
       </Box>
