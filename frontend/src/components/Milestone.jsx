@@ -5,17 +5,23 @@ import axios from "axios";
 
 export default function Timeline() {
   const [milestones, setMilestones] = useState([]);
+  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 992);
+
+  useEffect(() => {
+    const handleResize = () => setIsLargeScreen(window.innerWidth >= 992);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const fetchMilestones = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/api/milestones');
-        setMilestones(response.data); 
+        const response = await axios.get("http://localhost:4000/api/milestones");
+        setMilestones(response.data);
       } catch (error) {
         console.error("Error fetching milestones:", error);
       }
     };
-
     fetchMilestones();
   }, []);
 
@@ -33,13 +39,12 @@ export default function Timeline() {
             color: "black",
             textTransform: "none",
             boxShadow: "none",
-            "&:hover": {
-              bgcolor: "#c0c0c0", 
-            },
+            "&:hover": { bgcolor: "#c0c0c0" },
           }}
         >
           Milestone
         </Button>
+
         <Typography
           variant="h4"
           sx={{ fontFamily: "Manrope", fontWeight: 700, mb: 6 }}
@@ -47,92 +52,63 @@ export default function Timeline() {
           A Journey of Expanding Wellthy
         </Typography>
 
+        {/* الخط الأفقي */}
         <Box
           sx={{
-            display: "flex",
-            justifyContent: "space-between",
             position: "relative",
-            px: 4,
-            mt: 10,
+            top: 130,
+            height: 6,
+            bgcolor: "#bdbdbd",
+            mb: 10,
+            display: { xs: "none", lg: "block" }, // يختفي في الشاشات الصغيرة
           }}
-        >
-          <Box
-            sx={{
-              fontFamily: "Manrope",
-              position: "absolute",
-              top: "50%",
-              left: 0,
-              right: 0,
-              height: 6,
-              bgcolor: "#bdbdbd",
-              zIndex: 0,
-              transform: "translateY(-50%)",
-            }}
-          />
+        />
 
+        <div className="row justify-content-between position-relative">
           {milestones.map((item, index) => {
             const isEven = index % 2 === 0;
 
             return (
-              <Box
-                key={item.year}
-                sx={{
-                  fontFamily: "Manrope",
-                  textAlign: "center",
+              <div
+                key={item._id || item.year}
+                className="col-12 col-md-4 col-lg-2 d-flex flex-column align-items-center"
+                style={{
                   position: "relative",
-                  zIndex: 1,
-                  width: "20%",
+                  top: isLargeScreen ? (isEven ? "-100px" : "auto") : "auto",
+                  bottom: isLargeScreen ? (!isEven ? "-100px" : "auto") : "auto",
+                  marginBottom: isLargeScreen ? "150px" : "30px",
+                  textAlign: "center",
+                  alignItems: "center",
                 }}
               >
-                {isEven && (
-                  <>
-                    <Typography
-                      variant="h6"
-                      sx={{ fontFamily: "Manrope", fontWeight: 700, mb: 1 }}
-                    >
-                      {item.year}
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      sx={{
-                        fontFamily: "Manrope",
-                        maxWidth: 180,
-                        mx: "auto",
-                        color: "text.secondary",
-                        mb: 20,
-                      }}
-                    >
-                      {item.text}
-                    </Typography>
-                  </>
-                )}
+                {/* السنة دايمًا فوق */}
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: "Manrope",
+                    fontWeight: 700,
+                    mb: 2,
+                    color: "#000",
+                  }}
+                >
+                  {item.year}
+                </Typography>
 
-                {!isEven && (
-                  <>
-                    <Typography
-                      variant="h6"
-                      sx={{ fontFamily: "Manrope", fontWeight: 700, mt: 20 }}
-                    >
-                      {item.year}
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      sx={{
-                        fontFamily: "Manrope",
-                        maxWidth: 180,
-                        mt: 1,
-                        mx: "auto",
-                        color: "text.secondary",
-                      }}
-                    >
-                      {item.text}
-                    </Typography>
-                  </>
-                )}
-              </Box>
+                {/* النص تحت */}
+                <Typography
+                  variant="body2"
+                  sx={{
+                    fontFamily: "Manrope",
+                    maxWidth: 180,
+                    color: "text.secondary",
+                  }}
+                >
+                  {item.text}
+                </Typography>
+              </div>
             );
           })}
-        </Box>
+        </div>
       </Box>
     </div>
   );

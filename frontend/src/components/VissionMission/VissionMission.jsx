@@ -1,69 +1,64 @@
 import React from "react";
-import { Box, Typography, Button, Avatar } from "@mui/material";
-import { Visibility, Groups, Business } from "@mui/icons-material";
-import visionImage from "../../images/vission.png";
+import { Button, Avatar } from "@mui/material";
+import { Business, Visibility, Groups } from "@mui/icons-material";
 import styles from "./VisionMission.module.css";
 
 const VisionMission = () => {
   return (
-    <Box className={styles.container}>
-      <Box className={styles.header}>
+    <div className={`container-fluid ${styles.container}`}>
+      <div className="text-center mb-4">
         <Button
           variant="outlined"
-          className={styles.outlinedBtn}
-          startIcon={<Business className={styles.icon} />}
+          className={styles.button}
+          startIcon={<Business />}
         >
           Vision & Mission
         </Button>
-        <Typography variant="h3" className={styles.title}>
-          Empowering Global Mental Well-Being <br />
-          Through Accessible Care
-        </Typography>
-      </Box>
+        <h3 className={styles.heading}>
+          Empowering Global Mental Well-Being <br /> Through Accessible Care
+        </h3>
+      </div>
 
-      <Box className={styles.visionMissionWrapper}>
-        <Box
-          component="img"
-          src={visionImage}
-          alt="online therapy"
-          className={styles.visionImage}
-        />
+      <div className="row align-items-center mb-5">
+        <div className="col-md-6 mb-4 mb-md-0">
+          <img
+            src="http://res.cloudinary.com/defus4mj2/image/upload/v1747316659/na55mf26c7lv46dwvwrm.png"
+            alt="online therapy"
+            className={styles.image}
+          />
+        </div>
 
-      <Box className={styles.visionContent}>
-        <Avatar className={styles.avatar}>
-          <Visibility />
-        </Avatar>
-
-        <Typography variant="h3" className={styles.title}>
-          Our Vision
-        </Typography>
-
-          <Typography variant="body1" className={styles.text}>
+        <div className="col-md-6">
+          <Avatar className={styles.avatar}>
+            <Visibility />
+          </Avatar>
+          <h4 className={styles.sectionTitle}>Our Vision</h4>
+          <p className={styles.paragraph}>
             To be the leading mental health platform, providing accessible,
             compassionate, and innovative care for emotional and mental
             well-being worldwide.
-          </Typography>
-        </Box>
-      </Box>
+          </p>
+        </div>
+      </div>
 
-      <Box className={styles.missionSection}>
-        <Box className={styles.missionTitle}>
-          <Avatar className={styles.avatar}>
-            <Groups />
-          </Avatar>
-
-          <Typography variant="h3" className={styles.title}>
-            Our Mission
-          </Typography>
-        </Box>
-
-        <Typography variant="body1" className={styles.text}>
-          To support individuals in achieving mental and emotional balance
-          through tailored therapy, education, ensuring everyone has access to
-          professional care.
-        </Typography>
-      </Box>
-    </Box>
+      <div className="row">
+        <div className="col-md-8 mx-auto">
+          <div className="d-flex align-items-start mb-3">
+            <Avatar className={styles.avatarWithMargin}>
+              <Groups />
+            </Avatar>
+            <div>
+              <h4 className={styles.sectionTitle}>Our Mission</h4>
+            </div>
+          </div>
+          <p className={styles.paragraph}>
+            To support individuals in achieving mental and emotional balance
+            through tailored therapy, education, ensuring everyone has access to
+            professional care.
+          </p>
+        </div>
+      </div>
+    </div>
   );
 };
 
