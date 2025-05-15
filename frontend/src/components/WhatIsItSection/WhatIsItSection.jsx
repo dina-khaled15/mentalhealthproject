@@ -1,18 +1,17 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
 import styles from "./WhatIsItSection.module.css";
 
 const WhatIsItSection = ({ issueData }) => (
-  <Box className={styles.container}>
-    <Typography variant="h5" className={styles.title}>
+  <div className={`container ${styles.container}`}>
+    <h2 className={`text-center mb-4 ${styles.title}`}>
       What is it?
-    </Typography>
-    <Box className={styles.content}>
-      <Typography variant="body1" className={styles.description}>
+    </h2>
+    <div className={styles.content}>
+      <p className={styles.description}>
         {issueData.whatIsIt}
-      </Typography>
-    </Box>
-  </Box>
+      </p>
+    </div>
+  </div>
 );
 
 export default WhatIsItSection;

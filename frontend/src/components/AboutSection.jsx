@@ -50,7 +50,7 @@ const AboutSection = () => {
             {!showVideo ? (
               <>
                 <img
-                  src={require("../images/Videos.jpg")}
+                  src="http://res.cloudinary.com/defus4mj2/image/upload/v1747318189/mtrvd4cffcnri7dkg7e2.png"
                   alt="Main Video"
                   style={{
                     width: "100%",
@@ -94,22 +94,18 @@ const AboutSection = () => {
         </Grid>
 
         <Grid
-          
           container
           spacing={3}
           direction="column"
           sx={{
-            
-          marginLeft: "20px",
+            marginLeft: "20px",
           }}
         >
           <Grid item xs={12}>
             <Box
               sx={{
-               
                 borderRadius: "16px",
                 height: "190px",
-                
                 maxWidth: "700px",
                 display: "flex",
                 alignItems: "center",
@@ -120,7 +116,7 @@ const AboutSection = () => {
             >
               {/* Therapy Session Image */}
               <img
-                src={require("../images/session.jpeg")}
+                src="http://res.cloudinary.com/defus4mj2/image/upload/v1747318113/pkq77rmkkcriwgm4ionz.png"
                 alt="Therapy Session"
                 style={{
                   width: "100%",
@@ -147,7 +143,7 @@ const AboutSection = () => {
             >
               {/* Friends Outing Image */}
               <img
-                src={require("../images/group2.png")}
+                src="http://res.cloudinary.com/defus4mj2/image/upload/v1747317037/k5dx1ubnigw8uihrwexd.webp"
                 alt="Friends Outing"
                 style={{
                   width: "100%",

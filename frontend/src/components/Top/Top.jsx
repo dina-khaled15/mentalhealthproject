@@ -6,7 +6,6 @@ import "@fontsource/manrope/400.css";
 import "@fontsource/manrope/500.css";
 import "@fontsource/manrope/700.css";
 import styles from "./Top.module.css";
-import topImage from "../../images/Top.png";
 
 const Top = () => {
   const [showVideo, setShowVideo] = useState(false);
@@ -42,7 +41,7 @@ const Top = () => {
       <Box className={styles.imageWrapper}>
         {!showVideo ? (
           <img
-            src={topImage}
+            src={ "http://res.cloudinary.com/defus4mj2/image/upload/v1747316841/hnafcgoom2hliyufqy9y.png"}
             alt="Mental Health Visual"
             className={styles.image}
             onClick={handleImageClick}

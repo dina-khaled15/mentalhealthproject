@@ -1,5 +1,4 @@
 import React from "react";
-import { Grid, Box, Typography,} from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import BatteryAlertIcon from "@mui/icons-material/BatteryAlert";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
@@ -54,18 +53,46 @@ const iconMap = {
   SpaIcon: <SpaIcon className={styles.icon} />,
 };
 
+// Map لتحديد الأيقونات الافتراضية لكل حالة وكل فائدة بناءً على ترتيبها
+const defaultIconMap = {
+  Anxiety: [
+    <PsychologyIcon className={styles.icon} />, // أول فائدة
+    <ChatIcon className={styles.icon} />, // تاني فائدة
+    <SpaIcon className={styles.icon} />, // تالت فائدة
+    <LocalDrinkIcon className={styles.icon} />, // رابع فائدة
+  ],
+  Depression: [
+    <FavoriteIcon className={styles.icon} />,
+    <FaceIcon className={styles.icon} />,
+    <StarOutlineIcon className={styles.icon} />,
+    <TipsAndUpdatesIcon className={styles.icon} />,
+  ],
+  Loss: [
+    <SentimentDissatisfiedIcon className={styles.icon} />,
+    <LoopIcon className={styles.icon} />,
+    <GroupIcon className={styles.icon} />,
+    <LockOpenIcon className={styles.icon} />,
+  ],
+  "Stress Management": [
+    <SpaIcon className={styles.icon} />,
+    <FitnessCenterIcon className={styles.icon} />,
+    <RestaurantIcon className={styles.icon} />,
+    <ThermostatIcon className={styles.icon} />,
+  ],
+};
+
 const BenefitsSection = ({ issueData }) => (
-  <Box className={styles.container}>
-    <Typography variant="h5" className={styles.title}>
+  <div className={`container ${styles.container}`}>
+    <h2 className={`text-center mb-4 ${styles.title}`}>
       What will you get?
-    </Typography>
-    <Grid container spacing={3}>
-      {issueData.benefits.map((benefit, index) => (
-        <Grid item xs={12} md={3} key={index}>
-          <Box className={styles.benefitItem}>
-            {iconMap[benefit.icon]}
-            <Box>
-              <Typography variant="h6" className={styles.benefitTitle}>
+    </h2>
+    <div className="row mb-3">
+      {issueData.benefits.slice(0, 2).map((benefit, index) => (
+        <div className="col-12 col-md-6 mb-3" key={index}>
+          <div className={`d-flex align-items-start ${styles.benefitItem}`}>
+            {iconMap[benefit.icon] || (defaultIconMap[issueData.title] && defaultIconMap[issueData.title][index]) || <SpaIcon className={styles.icon} />}
+            <div className="ms-3">
+              <h6 className={styles.benefitTitle}>
                 {benefit.title.split(" ").map((word, i, arr) => (
                   <React.Fragment key={i}>
                     {word}
@@ -73,16 +100,39 @@ const BenefitsSection = ({ issueData }) => (
                     {i === 1 && <br />}
                   </React.Fragment>
                 ))}
-              </Typography>
-              <Typography variant="body2" className={styles.benefitDescription}>
+              </h6>
+              <p className={styles.benefitDescription}>
                 {benefit.description}
-              </Typography>
-            </Box>
-          </Box>
-        </Grid>
+              </p>
+            </div>
+          </div>
+        </div>
       ))}
-    </Grid>
-  </Box>
+    </div>
+    <div className="row">
+      {issueData.benefits.slice(2).map((benefit, index) => (
+        <div className="col-12 col-md-6 mb-3" key={index + 2}>
+          <div className={`d-flex align-items-start ${styles.benefitItem}`}>
+            {iconMap[benefit.icon] || (defaultIconMap[issueData.title] && defaultIconMap[issueData.title][index + 2]) || <SpaIcon className={styles.icon} />}
+            <div className="ms-3">
+              <h6 className={styles.benefitTitle}>
+                {benefit.title.split(" ").map((word, i, arr) => (
+                  <React.Fragment key={i}>
+                    {word}
+                    {i === arr.length - 1 ? "" : " "}
+                    {i === 1 && <br />}
+                  </React.Fragment>
+                ))}
+              </h6>
+              <p className={styles.benefitDescription}>
+                {benefit.description}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
 );
 
 export default BenefitsSection;

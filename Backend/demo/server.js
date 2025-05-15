@@ -54,7 +54,7 @@ const locationRouter = require('./routers/location.routes');
 const milestoneRouter = require('./routers/milestone.routes');
 const planRouter = require('./routers/plan.routes');
 const authRouter = require('./routers/auth.route');
-const scheduleRouter = require('./routers/schedule.routes');
+const scheduleRoutes = require('./routers/Schedule.routes');
 const faqRouter = require('./routers/faq.routes');
 const valueRouter = require('./routers/value.routes');
 
@@ -85,7 +85,7 @@ app.use('/pattern', patternRouter);
 app.use('/locations', locationRouter);
 app.use('/events', eventRouter);
 app.use('/api/auth', authRouter);
-app.use('/api/schedules', scheduleRouter);
+app.use('/schedule', scheduleRoutes);
 app.use('/api/milestones', milestoneRouter);
 app.use('/api/plan', planRouter);
 app.use('/api/faq', faqRouter);

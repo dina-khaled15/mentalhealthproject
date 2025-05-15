@@ -1,7 +1,6 @@
 import React from "react";
 import { Box, Typography, Button, Avatar } from "@mui/material";
 import { Visibility, Groups, Business } from "@mui/icons-material";
-import visionImage from "../../images/vission.png";
 import styles from "./VisionMission.module.css";
 
 const VisionMission = () => {
@@ -24,7 +23,7 @@ const VisionMission = () => {
       <Box className={styles.visionMissionWrapper}>
         <Box
           component="img"
-          src={visionImage}
+          src={"http://res.cloudinary.com/defus4mj2/image/upload/v1747316659/na55mf26c7lv46dwvwrm.png"}
           alt="online therapy"
           className={styles.visionImage}
         />
