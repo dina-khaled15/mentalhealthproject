@@ -6,26 +6,25 @@ import styles from "./Personalized.module.css";
 
 const Personalized = () => {
   return (
-    <div className={styles.container}>
-      <div className={styles.topSection} >
-        <div className={styles.leftBox}>
-          <Stack direction="column" spacing={2}>
-            <Paper elevation={1} className={styles.paperStyle}>
-              <FontAwesomeIcon icon={faStairs} style={{ marginRight: 8, color: "#000" }} />
-              <Typography fontSize={15} fontWeight={500}>
-                Who Are We
-              </Typography>
-            </Paper>
-
-            <Typography className={styles.headingText}>
-              Personalized Mental
-              <br />
-              Health Support
-            </Typography>
-          </Stack>
+    <div className={`${styles.container} container`}>
+      
+      <Paper elevation={1} className={styles.paperStyle}>
+          <FontAwesomeIcon icon={faStairs} style={{ color: "#000" }} />
+          <Typography fontSize={15} fontWeight={500}>
+            Who Are We
+          </Typography>
+        </Paper>
+      <div className="row align-items-start mb-5">
+        
+        <div className="col-12 col-md-6">
+         
+          <Typography className={styles.headingText}>
+            Personalized Mental
+            <br />
+            Health Support
+          </Typography>
         </div>
-
-        <div className={styles.rightBox}>
+        <div className="col-12 col-md-6 mt-3 mt-md-0">
           <Typography variant="body1" className={styles.description}>
             Wellthy is a dedicated mental health platform providing personalized
             support through a variety of professional counseling services. We
@@ -36,7 +35,6 @@ const Personalized = () => {
           </Typography>
         </div>
       </div>
-
       <div className={styles.statsContainer}>
         {[
           { number: "1000+", label: "Clients helped globally" },

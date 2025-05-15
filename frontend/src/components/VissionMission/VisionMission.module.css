@@ -1,255 +1,51 @@
 .container {
   background-color: #1a1a1a;
-  color: white;
-  max-width: 100%;
-  font-family: "Manrope" !important;
+  color: #ffffff;
+  font-family: "Manrope", sans-serif;
+  width: 100%;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.heading {
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+}
+
+.button {
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+  background-color: transparent !important;
+  font-weight: bold !important;
+  text-transform: none !important;
+  margin-bottom: 1rem;
+}
+
+.image {
+  max-width: 80%;
   height: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 100px;
-
+  display: block;
+  margin: 0 auto;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
-@media (min-width: 768px) {
-  .visionContent {
-    width: 50% !important;
-    margin-bottom: 4px !important;
-    align-items: flex-start;
-    text-align: left !important;
-  }
+.sectionTitle {
+  font-weight: 600;
+  color: #ffffff;
 }
 
-.header {
-  text-align: center;
-  margin-bottom: 24px;
-}
-
-.outlinedBtn {
-  color: white !important;
-  border-color: white !important;
-  margin-bottom: 16px;
-  text-transform: none !important;
-  border-radius: 50px !important;
-  padding: 8px 24px !important;
-  font-size: 16px !important;
-  font-weight: 500 !important;
-  font-family: "Manrope" !important;
-}
-
-.outlinedBtn:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: white;
-}
-
-.icon {
-  font-size: 1.5rem;
-  color: white;
-}
-
-.title {
-  margin: 20px 8px !important;
-  font-family: "Manrope" !important;
-  font-weight: 600 !important;
-  .container {
-  background-color: #1a1a1a;
-  color: white;
-  max-width: 100%;
-  font-family: "Manrope" !important;
-  height: 850px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 32px 16px;
-}
-
-@media (min-width: 768px) {
-  .container {
-    padding: 32px;
-  }
-}
-
-.header {
-  text-align: center;
-  margin-bottom: 24px;
-}
-
-.outlinedBtn {
-  color: white !important;
-  border-color: white !important;
-  margin-bottom: 16px;
-  text-transform: none !important;
-  border-radius: 50px !important;
-  padding: 8px 24px !important;
-  font-size: 16px !important;
-  font-weight: 500 !important;
-  font-family: "Manrope" !important;
-}
-
-.outlinedBtn:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: white;
-}
-
-.icon {
-  font-size: 1.5rem;
-  color: white;
-}
-
-.title {
-  /* margin: 20px 18px !important; */
-  font-family: "Manrope" !important;
-  font-weight: 100 !important;
-  font-size: 16px !important;
-  line-height: 1.4;
-  margin-bottom: 2px !important;
-}
-
-.visionMissionWrapper {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 1100px;
-  margin-bottom: 32px;
-}
-
-@media (min-width: 768px) {
-  .visionMissionWrapper {
-    flex-direction: row;
-  }
-}
-
-.visionImage {
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  object-fit: cover;
-  margin-bottom: 24px;
-  margin-top: 16px;
-}
-
-@media (min-width: 768px) {
-  .visionImage {
-    width: 45%;
-    margin-bottom: 0;
-    margin-top: 32px;
-  }
-}
-
-.visionContent {
-  width: 100%;
-  margin-top: 10px !important;
-  display: flex;
-  flex-direction: column;
-  
-}
-
-
-@media (min-width: 768px) {
-  .visionContent {
-    width: 50%;
-  }
+.paragraph {
+  color: #cccccc;
 }
 
 .avatar {
-  background-color: #444;
-  width: 40px;
-  height: 40px;
-  margin-bottom: 12px;
+  background-color: gray !important;
+  margin-bottom: 1rem;
 }
 
-.missionSection {
-  margin-top: 32px;
-  align-self: flex-start;
-  
-  
-}
-
-.missionTitle {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 16px;
-}
-
-.text {
-  color: #eeeeee;
-  font-weight: 400  !important;
-  font-family: "Manrope" !important; 
-  margin-bottom: 16px;
-  max-width: 700px;
-}
-line-height: 1.4;
-
-}
-
-.visionMissionWrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  max-width: 1100px;
-}
-
-@media (min-width: 768px) {
-  .visionMissionWrapper {
-    flex-direction: row;
-  }
-}
-
-.visionImage {
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  object-fit: cover;
-  margin-bottom: 24px;
-  margin-top: 16px;
-}
-
-@media (min-width: 768px) {
-  .visionImage {
-    width: 45%;
-    margin-bottom: 0;
-    margin-top: 32px;
-  }
-}
-
-.visionContent {
-  width: 100%;
-  padding: 0 64px;
-
-}
-
-@media (min-width: 768px) {
-  .visionContent {
-    width: 50%;
-  }
-}
-
-.avatar {
-  background-color: #444;
-  width: 40px;
-  height: 40px;
-  margin-bottom: 12px;
-}
-
-.missionSection {
-  margin-top: 32px;
-  min-height: 100px;
-  margin-left: -300px;
-  
-}
-
-.missionTitle {
-  display: flex;
-  flex-direction: column;
-}
-
-.text {
-  color: #eeeeee;
-  font-weight: 400  !important;
-  font-family: "Manrope" !important; 
-  max-width: 700px;
+.avatarWithMargin {
+  background-color: gray !important;
+  margin-right: 0.5rem;
 }

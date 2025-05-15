@@ -7,7 +7,6 @@ require('dotenv').config();
 const path = require('path');
 const cors = require('cors');
 const cloudinary = require('cloudinary').v2;
-
 async function connectDB() {
   try {
     await mongoose.connect(process.env.Connection, {
@@ -22,7 +21,6 @@ async function connectDB() {
 }
 
 connectDB();
-
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
@@ -72,7 +70,6 @@ try {
 } catch (error) {
   console.warn('Upload router not found');
 }
-
 app.use('/feedback', userRouter);
 app.use('/Issues', userIssuesRouter);
 app.use('/Pharmacy', userPharmacyRouter);
@@ -98,7 +95,6 @@ if (stagesRouter) {
 if (uploadRouter) {
   app.use('/api/upload', uploadRouter);
 }
-
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../frontend/build')));
 
@@ -112,11 +108,8 @@ if (process.env.NODE_ENV === 'production') {
     res.send('API is running...');
   });
 }
-
 const errorHandler = require('./middlewares/errorHandler.middleware');
-
 app.use(errorHandler);
-
 const PORT = process.env.PORT || 4000;
 const server = http.createServer(app);
 const io = new Server(server, {
@@ -126,7 +119,6 @@ const io = new Server(server, {
     credentials: true
   }
 });
-
 io.on('connection', (socket) => {
   console.log('A user connected:', socket.id);
 

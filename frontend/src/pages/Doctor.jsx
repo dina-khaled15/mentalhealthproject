@@ -16,7 +16,8 @@ export default function DoctorPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
     if (doctorId) {
-      axios.get(`http://localhost:4000/doctor/${doctorId}`)
+      axios
+        .get(`http://localhost:4000/doctor/${doctorId}`)
         .then((res) => setDoctor(res.data))
         .catch((err) => console.error(err));
     }
