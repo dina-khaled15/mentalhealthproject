@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Typography, Button, Stack } from "@mui/material";
+import { useNavigate } from "react-router-dom"; // ← 1. استيراد useNavigate
 import HeaderImg from "../images/HeaderImg.png";
 
 function CustomPlayArrowIcon() {
@@ -11,8 +12,10 @@ function CustomPlayArrowIcon() {
 }
 
 export default function HeroSection() {
+  const navigate = useNavigate(); // ← 2. إنشاء الدالة
+
   return (
-    <Box sx={{ px: 4, py: 6, backgroundColor: "#FCFCFB", overflowX: "auto",padding: "90px 125px" }}>
+    <Box sx={{ px: 4, py: 6, backgroundColor: "#FCFCFB", overflowX: "auto", padding: "90px 125px" }}>
       <Box
         sx={{
           display: "flex",
@@ -21,7 +24,7 @@ export default function HeroSection() {
           alignItems: { xs: "flex-start", md: "center" },
           gap: { xs: 2, md: 0 },
           width: "100%",
-          px: 0, 
+          px: 0,
         }}
       >
         <Box sx={{ width: { xs: "100%", md: "50%" }, pr: { xs: 0, md: 2 } }}>
@@ -63,6 +66,7 @@ export default function HeroSection() {
                 fontFamily: "Manrope",
               }}
               startIcon={<CustomPlayArrowIcon />}
+              onClick={() => navigate("/booking")} 
             >
               Start your journey
             </Button>
@@ -75,6 +79,7 @@ export default function HeroSection() {
                 color: "#000",
                 fontFamily: "Manrope",
               }}
+              onClick={() => navigate("/about")} 
             >
               How can we help you start fresh?
             </Button>

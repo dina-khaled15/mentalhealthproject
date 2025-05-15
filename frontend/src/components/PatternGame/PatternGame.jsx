@@ -8,7 +8,6 @@ import UserPatternDisplay from "../PatternComponents/UserPatternDisplay";
 import Navbar from "../Navbar/Navbar";
 
 const PatternGame = () => {
-  // State management
   const [currentLevel, setCurrentLevel] = useState(1);
   const [pattern, setPattern] = useState([]);
   const [userPattern, setUserPattern] = useState([]);
@@ -18,7 +17,6 @@ const PatternGame = () => {
   const [username, setUsername] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  // Debug function to help diagnose authentication issues
   const debugAuthState = () => {
     console.log("PatternGame AUTH DEBUG INFO:");
     console.log("- Token exists:", !!localStorage.getItem("token"));
@@ -26,27 +24,22 @@ const PatternGame = () => {
     console.log("- Component username state:", username);
     console.log("- isLoggedIn state:", isLoggedIn);
   };
-
-  // Check login status and get username when component mounts
   useEffect(() => {
-    debugAuthState(); // Log initial auth state
+    debugAuthState(); 
     
     const token = localStorage.getItem("token");
     
-    // Start with fresh state - don't rely on stored username
     if (!token) {
       setIsLoggedIn(false);
       setUsername("");
       setMaxScore(0);
-      generatePattern(); // Generate pattern for guest users
+      generatePattern(); 
       return;
     }
     
-    // Always verify the token and get fresh user data
     fetchUserDetails(token);
   }, []);
 
-  // Fetch user details from backend
   const fetchUserDetails = async (token) => {
     try {
       const response = await fetch("http://localhost:4000/api/auth/me", {
@@ -56,7 +49,6 @@ const PatternGame = () => {
       });
       
       if (!response.ok) {
-        // If token is invalid, clear localStorage and update state
         if (response.status === 401) {
           localStorage.removeItem("token");
           localStorage.removeItem("username");
@@ -64,7 +56,7 @@ const PatternGame = () => {
         
         setIsLoggedIn(false);
         setUsername("");
-        generatePattern(); // Generate pattern for guest users
+        generatePattern(); 
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
       
@@ -73,29 +65,23 @@ const PatternGame = () => {
       if (data.success && data.data) {
         const fetchedUsername = data.data.userName;
         console.log("Fetched user details, username:", fetchedUsername);
-        
-        // Update both state and localStorage with fresh data
         setUsername(fetchedUsername);
         localStorage.setItem("username", fetchedUsername);
         setIsLoggedIn(true);
-        
-        // Fetch max score using the fetched username directly
         fetchMaxScore(fetchedUsername);
       } else {
         console.error("Failed to fetch user details:", data);
         setIsLoggedIn(false);
         setUsername("");
-        generatePattern(); // Generate pattern if user details fetch fails
+        generatePattern();
       }
     } catch (error) {
       console.error("Error fetching user details:", error.message);
       setIsLoggedIn(false);
       setUsername("");
-      generatePattern(); // Generate pattern if fetch throws error
+      generatePattern(); 
     }
   };
-
-  // Fetch max score for Pattern game if logged in
   const fetchMaxScore = async (user) => {
     if (!user) {
       generatePattern();
@@ -119,7 +105,6 @@ const PatternGame = () => {
       
       if (!response.ok) {
         if (response.status === 401) {
-          // Handle expired/invalid token
           localStorage.removeItem("token");
           localStorage.removeItem("username");
           setIsLoggedIn(false);
@@ -137,26 +122,23 @@ const PatternGame = () => {
         console.log("No pattern score data received:", data);
       }
       
-      // Generate pattern after fetching score
       generatePattern();
     } catch (error) {
       console.error("Error fetching pattern max score:", error.message);
-      generatePattern(); // Generate pattern even if score fetch fails
+      generatePattern(); 
     }
   };
 
-  // Generate a new pattern when level changes
   useEffect(() => {
     if (pattern.length === 0) {
-      return; // Skip if pattern hasn't been initialized yet (will be done in fetchMaxScore)
+      return; 
     }
     generatePattern();
   }, [currentLevel]);
 
-  // Generate a new pattern for the current level
   const generatePattern = () => {
     const levelConfig = levels.find((l) => l.level === currentLevel);
-    if (!levelConfig) return; // Safety check
+    if (!levelConfig) return;
     
     const { items } = levelConfig;
     const newPattern = [];
@@ -178,7 +160,6 @@ const PatternGame = () => {
     }, 5000);
   };
 
-  // Handle color selection by the user
   const handleSelect = (color) => {
     setUserPattern((prev) => {
       const newPattern = [...prev, color];
@@ -189,15 +170,10 @@ const PatternGame = () => {
     });
   };
 
-  // Check if the user's pattern matches the generated pattern
   const checkPattern = async (userInput) => {
     if (JSON.stringify(userInput) === JSON.stringify(pattern)) {
-      setMessage("رائع! انتقل للمستوى التالي ✨");
-      
-      // Calculate score based on level and pattern length
+     setMessage("Great! Move to the next level ✨");
       const newScore = currentLevel * pattern.length;
-      
-      // Save high score if logged in and score is higher than max
       if (isLoggedIn && username && newScore > maxScore) {
         await saveHighScore(newScore);
         setMaxScore(newScore);
@@ -207,18 +183,16 @@ const PatternGame = () => {
         if (currentLevel < 5) {
           setCurrentLevel((prev) => prev + 1);
         } else {
-          setMessage("أحسنت! أنهيت جميع المستويات 🏆");
+         setMessage("Well done! You completed all the levels 🏆");
         }
       }, 1500);
     } else {
-      setMessage("حاول مرة أخرى بابتسامة! 😊");
+      setMessage("Try again with a smile! 😊");
       setTimeout(() => {
         generatePattern();
       }, 1500);
     }
   };
-
-  // Save the high score to the backend
   const saveHighScore = async (newScore) => {
     if (!isLoggedIn || !username) {
       console.warn("Cannot save pattern score: No user logged in.");
@@ -232,7 +206,6 @@ const PatternGame = () => {
         return;
       }
       
-      // Always use the username from state, not localStorage
       console.log(`Saving pattern score for ${username}: ${newScore}`);
       const response = await fetch("http://localhost:4000/api/auth/pattern/save", {
         method: "POST",
@@ -242,13 +215,12 @@ const PatternGame = () => {
         },
         body: JSON.stringify({ 
           score: newScore, 
-          username: username  // Use component state instead of localStorage
+          username: username  
         }),
       });
       
       if (!response.ok) {
         if (response.status === 401) {
-          // Handle expired/invalid token
           localStorage.removeItem("token");
           localStorage.removeItem("username");
           setIsLoggedIn(false);
@@ -259,8 +231,6 @@ const PatternGame = () => {
       
       const data = await response.json();
       console.log("Pattern score saved successfully:", data);
-      
-      // Update max score state after saving
       if (data.success && data.maxScore) {
         setMaxScore(data.maxScore);
       }
@@ -268,8 +238,6 @@ const PatternGame = () => {
       console.error("Error saving pattern score:", error.message);
     }
   };
-
-  // Reset the game to level 1
   const resetGame = () => {
     setCurrentLevel(1);
     setMessage("");
@@ -312,7 +280,7 @@ const PatternGame = () => {
           }}
         >
           <Typography variant="h4" sx={{ fontWeight: "bold", mb: 3 }}>
-            تتبع النمط - المستوى {currentLevel}
+           Pattern Follow - Level{currentLevel}
           </Typography>
 
           <UserPatternDisplay userPattern={userPattern} />
@@ -326,7 +294,7 @@ const PatternGame = () => {
             </Typography>
           )}
 
-          {currentLevel === 5 && message === "أحسنت! أنهيت جميع المستويات 🏆" && (
+          {currentLevel === 5 && message === "Well done! You’ve completed all the levels 🏆" && (
             <Button
               variant="contained"
               onClick={resetGame}
@@ -336,7 +304,7 @@ const PatternGame = () => {
                 "&:hover": { backgroundColor: "#45a049" },
               }}
             >
-              إعادة اللعب
+              "Play Again"
             </Button>
           )}
         </Box>
