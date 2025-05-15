@@ -1,70 +1,64 @@
 import React from "react";
-import { Box, Container, Typography, Button } from "@mui/material";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { Link } from "react-router-dom";
 
 export default function CallToAction() {
   return (
-    <Box
-      sx={{
-        backgroundColor: "#ffffff",
-        color: "#000000",
-        py: { xs: 6, sm: 10 },
-        pr: { xs: 35, sm: 30 },
-        mt: { xs: 13, sm: 7 },
-        mb: { xs: 10, sm: 7 },
-      }}
+    <section
+      className="bg-white text-black py-5 my-5"
+      style={{ paddingRight: "2.5rem" }}
     >
-      <Container maxWidth="md">
-        <Typography
-          variant="h4"
-          sx={{
-            fontWeight: "bold",
-            fontFamily: "Manrope",
-            fontSize: { xs: "28px", sm: "40px" },
-            mb: 2,
+      <div className="container-md">
+        <h2
+          className="fw-bold mb-3"
+          style={{
+            fontFamily: "Manrope, sans-serif",
+            fontSize: "28px",
           }}
         >
           Start your mental wellness journey <br />
           with Wellthy today!
-        </Typography>
-        <Typography
-          variant="body1"
-          sx={{
+        </h2>
+        <p
+          className="mb-4"
+          style={{
+            fontFamily: "Manrope, sans-serif",
+            fontWeight: 400,
             opacity: 0.7,
-            fontSize: "16px",
-            fontFamily: "Manrope",
-            fontWeight: "400",
-            mb: 4,
             maxWidth: "600px",
+            fontSize: "16px",
           }}
         >
           Book a consultation and take the first step toward a healthier,
           <br /> happier mind.
-        </Typography>
-        <Button
-          component={Link}
+        </p>
+        <Link
           to="/booking"
-          variant="contained"
-          sx={{
-            backgroundColor: "#000000",
-            color: "#ffffff",
-            px: 3,
-            py: 1.5,
-            textTransform: "none",
-            borderRadius: "4px",
+          className="btn btn-dark text-white fw-semibold"
+          style={{
+            fontFamily: "Manrope, sans-serif",
             fontSize: "14px",
-            fontWeight: "600",
-            "&:hover": {
-              backgroundColor: "#333333",
-            },
-            fontFamily: "Manrope",
+            borderRadius: "4px",
+            padding: "0.5rem 1.5rem",
+            textTransform: "none",
           }}
-          endIcon={<ArrowForwardIcon />}
         >
           Book Counseling
-        </Button>
-      </Container>
-    </Box>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            style={{ marginLeft: "8px" }}
+            width="16"
+            height="16"
+            fill="currentColor"
+            className="bi bi-arrow-right"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fillRule="evenodd"
+              d="M10.146 12.354a.5.5 0 0 1 0-.708L12.793 9H1.5a.5.5 0 0 1 0-1h11.293L10.146 4.354a.5.5 0 1 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708 0z"
+            />
+          </svg>
+        </Link>
+      </div>
+    </section>
   );
 }
