@@ -1,20 +1,13 @@
-const express = require('express');
+// routes/cardImageRoutes.js
+const express = require("express");
 const router = express.Router();
-const { getAllGames, createGame, updateGame, deleteGame, searchGame } = require('../controllers/game.controller');
 
-// جلب جميع الألعاب
-router.get('/', getAllGames);
+const {
+  getAllCardImages,
+  addCardImage,
+} = require("../controllers/cardImages.controller");
 
-// إنشاء لعبة جديدة
-router.post('/', createGame);
-
-// تحديث لعبة
-router.put('/:id', updateGame);
-
-// حذف لعبة
-router.delete('/:id', deleteGame);
-
-// البحث عن الألعاب
-router.get('/search', searchGame);
+router.get("/", getAllCardImages);
+router.post("/", addCardImage);
 
 module.exports = router;

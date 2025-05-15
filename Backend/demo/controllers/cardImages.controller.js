@@ -1,50 +1,28 @@
-const Game = require('../models/game.model');
+const CardImage = require("../models/cardImages.model");
 
-module.exports.getAllGames = async (req, res) => {
-    try {
-        const games = await Game.find();
-        res.send(games);
-    } catch (error) {
-        res.status(500).send(error);
-    }
-}
+// Get all images
+module.exports.getAllCardImages = async (req, res) => {
+  try {
+    const images = await CardImage.find();
+    res.status(200).json(images);
+  } catch (error) {
+    res.status(500).json({ message: "An error occurred while fetching images." });
+  }
+};
 
-module.exports.createGame = async (req, res) => {
-    try {
-        const game = await Game.create(req.body);
-        res.status(201).send(game);
-    } catch (error) {
-        console.log("Error:", error);
-        res.status(500).send(error);
-    }
-}
+// Add new image
+module.exports.addCardImage = async (req, res) => {
+  const { imageUrl, name } = req.body;
 
-module.exports.updateGame = async (req, res) => {
-    try {
-        const id = req.params.id;
-        const game = await Game.findByIdAndUpdate(id, req.body, { new: true });
-        res.send(game);
-    } catch (error) {
-        res.status(500).send(error);
-    }
-}
+  if (!imageUrl || typeof imageUrl !== "string" || !name || typeof name !== "string") {
+    return res.status(400).json({ message: "Invalid image data." });
+  }
 
-module.exports.deleteGame = async (req, res) => {
-    try {
-        const id = req.params.id;
-        await Game.findByIdAndDelete(id);
-        res.send("Game deleted");
-    } catch (error) {
-        res.status(500).send(error);
-    }
-}
-
-module.exports.searchGame = async (req, res) => {
-    try {
-        const { score, moves } = req.query;
-        const games = await Game.find({ score, moves });
-        res.send(games);
-    } catch (error) {
-        res.status(500).send(error);
-    }
-}
+  try {
+    const newImage = new CardImage({ imageUrl, name });
+    await newImage.save();
+    res.status(201).json({ message: "Image added successfully.", image: newImage });
+  } catch (error) {
+    res.status(500).json({ message: "An error occurred while adding the image." });
+  }
+};

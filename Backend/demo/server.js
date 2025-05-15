@@ -36,7 +36,7 @@ app.use(cors({
   origin: '*', // السماح لكل الـ origins
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true
+  //credentials: true
 }));
 
 app.use(express.json());
@@ -54,10 +54,11 @@ const userBookingRouter = require('./routers/userBooking.routes');
 const doctorRouter = require('./routers/doctor.route');
 const eventRouter = require('./routers/event.routes');
 const gameRouter = require('./routers/game.route');
-const bubbleRouter = require('./routers/bubble.route');
 const patternRouter = require('./routers/pattern.route');
 const authRouter = require('./routers/auth.route');
 const scheduleRouter = require('./routers/schedule.routes');
+const milestoneRouter = require('./routers/milestone.routes');
+const cardImageRoutes = require("./routers/cardImages.routes");
 
 // Try to load these routers but don't crash if they don't exist
 let stagesRouter, uploadRouter;
@@ -82,11 +83,12 @@ app.use('/Emotions', userEmotionsRouter);
 app.use('/Booking', userBookingRouter);
 app.use('/doctor', doctorRouter);
 app.use('/game', gameRouter);
-app.use('/api/bubble', bubbleRouter);
 app.use('/pattern', patternRouter);
 app.use('/events', eventRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/schedules', scheduleRouter);
+app.use('/milestones', milestoneRouter);
+app.use("/api/card-images", cardImageRoutes);
 
 // Optional routes
 if (stagesRouter) {

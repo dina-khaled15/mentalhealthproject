@@ -1,0 +1,322 @@
+/* Navbar.module.css */
+.appBar {
+  background-color: transparent;
+  box-shadow: none;
+  padding: 8px 0;
+}
+
+.toolbar {
+  justify-content: space-between;
+  padding: 0;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-grow: 0;
+  margin-right: 16px;
+}
+
+.brandName {
+  font-family: 'Manrope', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: #222222;
+}
+
+.navLinks {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.navLink {
+  color: #222222;
+  font-size: 15px;
+  font-weight: 400;
+  font-family: 'Manrope', sans-serif;
+  text-transform: none;
+  padding: 6px 10px;
+  min-width: unset;
+  white-space: nowrap;
+}
+
+.activeNavLink {
+  background-color: black;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: 'Manrope', sans-serif;
+  text-transform: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  min-width: unset;
+}
+
+.authContainer {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-grow: 0;
+  justify-content: flex-end;
+  margin-left: 16px;
+}
+
+.languageButton {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #333;
+  text-transform: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+}
+
+.languageButton:hover {
+  background-color: #e0e0e0;
+}
+
+.translateIcon {
+  color: #1976d2;
+}
+
+.languageMenu {
+  margin-top: 8px;
+}
+
+.registerButton {
+  border-radius: 4px;
+  text-transform: none;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  border-color: black;
+  color: black;
+  padding: 6px 16px;
+}
+
+.registerButton:hover {
+  border-color: #333;
+  background-color: #f5f5f5;
+}
+
+.loginButton {
+  background-color: black;
+  color: white;
+  border-radius: 4px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  text-transform: none;
+  padding: 6px 16px;
+  white-space: nowrap;
+}
+
+.loginButton:hover {
+  background-color: #333;
+}
+
+.profileLink {
+  display: flex;
+  align-items: center;
+  color: #222;
+}
+
+.profileIcon {
+  font-size: 28px;
+  color: #222222;
+}
+
+/* Dialog Styles */
+.dialogPaper {
+  width: 100%;
+  max-width: 400px;
+  padding: 16px;
+  border-radius: 8px;
+  margin: 16px;
+}
+
+.dialogHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.dialogTitle {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  padding: 0;
+}
+
+.dialogLogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.dialogContent {
+  padding: 0 24px;
+  overflow-x: hidden;
+}
+
+.textField {
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.forgotPassword {
+  color: #1976d2;
+  font-family: 'Manrope', sans-serif;
+  cursor: pointer;
+  margin-bottom: 16px;
+  text-align: right;
+}
+
+.dialogActions {
+  padding: 0 24px;
+  width: 100%;
+}
+
+.submitButton {
+  margin-top: 16px;
+  background-color: black;
+  color: white;
+  border-radius: 4px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  text-transform: none;
+  width: 100%;
+  padding: 12px;
+}
+
+.submitButton:hover {
+  background-color: #333;
+}
+
+.dividerContainer {
+  margin: 24px 0;
+  width: 100%;
+}
+
+.divider {
+  width: 100%;
+}
+
+.dividerText {
+  color: #6c6c6c;
+  font-family: 'Manrope', sans-serif;
+}
+
+.socialButtonsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  padding: 0 24px;
+}
+
+.socialButton {
+  border-radius: 4px;
+  text-transform: none;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+  border-color: #dddddd;
+  color: #333333;
+  width: 100%;
+  padding: 8px;
+}
+
+.socialButton:hover {
+  border-color: #bbbbbb;
+  background-color: #f5f5f5;
+}
+
+.dialogFooter {
+  margin-top: 24px;
+  text-align: center;
+  width: 100%;
+  padding: 0 24px 24px;
+}
+
+.switchAuthText {
+  font-family: 'Manrope', sans-serif;
+  color: #666;
+}
+
+.switchAuthLink {
+  color: #1976d2;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 960px) {
+  .navLinks {
+    gap: 8px;
+  }
+
+  .navLink,
+  .activeNavLink {
+    padding: 6px 8px;
+    font-size: 14px;
+  }
+
+  .authContainer {
+    gap: 4px;
+  }
+
+  .registerButton,
+  .loginButton {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navLinks {
+    display: none;
+  }
+
+  .navLinks[style*="display: flex"] {
+    display: flex !important;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .logoContainer,
+  .authContainer {
+    flex-grow: 0;
+  }
+
+  .dialogPaper {
+    margin: 8px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .toolbar {
+    padding: 0 8px;
+  }
+
+  .brandName {
+    font-size: 20px;
+  }
+
+  .dialogTitle {
+    font-size: 1.25rem;
+  }
+
+  .textField {
+    margin-bottom: 12px;
+  }
+
+  .submitButton {
+    padding: 10px;
+  }
+}
