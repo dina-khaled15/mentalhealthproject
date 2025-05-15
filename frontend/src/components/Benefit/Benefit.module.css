@@ -1,267 +1,142 @@
+/* الأساسيات */
 .container {
-  font-family: "Manrope" !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  align-items: center !important;
-  padding: 1.5rem !important;
-  gap: 2rem !important;
-  min-height: 100vh !important;
-  overflow: hidden !important;
-  box-sizing: border-box !important;
-  text-align: center !important;
+  display: flex;
+  flex-direction: column; /* افتراضيًا عمودي عشان موبايل */
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  gap: 2rem;
+  /* min-height: 100vh; */
+  box-sizing: border-box;
+  text-align: center;
 }
 
 .containerRow {
-  flex-direction: row !important;
+  flex-direction: row; /* على الديسكتوب يبقى صف */
 }
 
+/* الصورة */
 .imageContainer {
-  flex: 1 !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  order: 1 !important; 
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  order: 1; /* موبايل: الصورة تحت */
 }
 
 .imageWrapper {
-  position: relative !important;
-  width: 100% !important;
-  max-width: 600px !important;
+  position: relative;
+  width: 100%;
+  max-width: 600px;
 }
 
 .image {
-  width: 100% !important;
-  max-width: 600px !important;
-  height: auto !important;
-  aspect-ratio: 6 / 7 !important;
-  border-radius: 20px !important;
-  border: 1px solid black !important;
-  object-fit: cover !important;
-  display: block !important;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  aspect-ratio: 6 / 7;
+  border-radius: 20px;
+  border: 1px solid black;
+  object-fit: cover;
+  display: block;
 }
 
+/* اوفلاي المربع الصغير فوق الصورة */
 .overlay {
-  position: absolute !important;
-  bottom: 24px !important;
-  right: 24px !important;
-  padding: 0.75rem !important;
-  width: 70% !important;
-  max-width: 250px !important;
-  display: none !important;
-  background-color: white !important;
-  border-radius: 10px !important;
-  text-align: left !important;
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  padding: 0.75rem;
+  width: 70%;
+  max-width: 250px;
+  display: none;
+  background-color: white;
+  border-radius: 10px;
+  text-align: left;
 }
 
 .overlayShow {
-  display: block !important;
+  display: block;
 }
 
+/* النص */
 .textContent {
-  flex: 1 !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  align-items: flex-start !important;
-  gap: 0.75rem !important;
-  order: 2 !important; 
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.75rem;
+  order: 2; /* موبايل: النص فوق */
+  text-align: left;
+  padding: 0 1rem;
 }
 
-.chip {
-  font-family: "Manrope" !important;
-  font-size: 0.75rem !important;
-  color: black !important;
-  background-color: white !important;
-  border: 1px solid #D0D5DD !important;
-  font-weight: 500 !important;
-  padding: 0.75rem 0.5rem !important;
-}
+/* بقية الكلاسات تبقى زي ما هي */
 
-.title {
-  font-weight: 600 !important;
-  font-family: "Manrope" !important;
-  color: black !important;
-  font-size: 1.8rem !important;
-  margin-top: 15px !important;
-  margin-bottom: 8px !important;
-}
-
-.description {
-  color: #444 !important;
-  line-height: 1.6 !important;
-  font-weight: 500 !important;
-  font-family: "Manrope" !important;
-  font-size: 0.9rem !important;
-}
-
-.titlee {
-  font-weight: 600 !important;
-  font-family: "Manrope" !important;
-  color: black !important;
-  font-size: 1.6rem !important;
-  margin-top: 15px !important;
-  margin-bottom: 20px !important;
-  margin-left: -15px !important;
-}
-
-.listItem {
-  font-size: 1.2rem !important;
-  color: #555 !important;
-  font-weight: 600 !important;
-  font-family: "Manrope" !important;
-  margin-bottom: 0.75rem !important;
-}
-
-.listItemStrong {
-  font-weight: 600 !important;
-}
+/* ---- ميديا كويريز ---- */
 
 @media (min-width: 768px) {
   .container {
-    text-align: left !important;
-    padding: 3rem !important;
-    gap: 4rem !important;
-  }
-
-  .containerRow {
-    flex-direction: row !important;
+    flex-direction: row; /* ديسكتوب: أفقي */
+    text-align: left;
+    padding: 3rem;
+    gap: 4rem;
   }
 
   .imageContainer {
-    order: 0 !important; 
+    order: 0; /* ديسكتوب: الصورة على اليسار */
   }
 
   .textContent {
-    order: 0 !important;
+    order: 0; /* ديسكتوب: النص على اليمين */
+    padding-left: 0;
+    padding-right: 0;
+    gap: 1rem;
   }
 
   .overlay {
-    position: absolute !important;
-    bottom: 24px !important;
-    right: 24px !important;
-    padding: 1rem 1.25rem !important; 
-    width: 90% !important;         
-    max-width: 340px !important;  
-    height: 24% !important;
-    max-height: 165px !important;
-  }
-  
-  .overlayTitle {
-    font-family: "Manrope" !important;
-    font-weight: bold !important;
-    font-size: 24px !important;
-    line-height: 1.7 !important;
-  }
-  
-  .overlayDescription {
-    font-family: "Manrope" !important;
-    font-weight: 500 !important;
-    color: #444 !important; 
-    font-size: 16px !important;
-    line-height: 1.5 !important;
-  }
-  
-  .textContent {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    gap: 1rem !important;
+    width: 90%;
+    max-width: 340px;
+    height: auto;
+    max-height: 165px;
+    padding: 1rem 1.25rem;
   }
 
-  .chip {
-    font-size: 0.875rem !important;
-    padding: 1rem 0.5rem !important;
-  }
-
-  .title {
-    font-size: 2.6rem !important;
-    margin-top: 20px !important;
-    margin-bottom: 10px !important;
-  }
-
-  .description {
-    font-size: 1.04rem !important;
-    font-family: "Manrope" !important;
-    width: 95% !important;         
-    max-width: 550px !important;  
-  }
-
-  .titlee {
-    font-size: 2.3rem !important;
-    font-family: "Manrope" !important;
-    margin-top: 20px !important;
-    margin-bottom: 30px !important;
-    margin-left: -25px !important;
-  }
-
-  .listItem {
-    font-size: 1.5rem !important;
-    font-family: "Manrope" !important;
-    margin-bottom: 1rem !important;
-  }
+  /* ممكن تضبط خطوط العنوان والاوڤيرلاي هنا حسب الحاجة */
 }
 
 @media (max-width: 767px) {
   .container {
-    flex-direction: column !important;
-    padding: 1.5rem !important;
-    gap: 2rem !important;
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 2rem;
   }
 
   .imageContainer {
-    order: 1 !important; 
+    order: 1; /* الصورة تحت */
   }
 
   .textContent {
-    order: 2 !important; 
-    align-items: center !important; 
+    order: 2; /* النص فوق */
+    align-items: center;
+    text-align: center;
+    padding: 0 0.5rem;
   }
 }
 
 @media (max-width: 480px) {
-  .container {
-    padding: 1rem !important;
-    gap: 1.5rem !important;
-  }
-
   .imageWrapper {
-    max-width: 100% !important;
+    max-width: 100%;
   }
 
   .image {
-    max-width: 100% !important;
-    aspect-ratio: 6 / 7 !important;
+    max-width: 100%;
+    aspect-ratio: 6 / 7;
   }
 
   .textContent {
-    gap: 0.5rem !important;
-  }
-
-  .chip {
-    font-size: 0.7rem !important;
-    padding: 0.5rem 0.4rem !important;
-  }
-
-  .title {
-    font-size: 1.5rem !important;
-    margin-top: 10px !important;
-    margin-bottom: 5px !important;
-  }
-
-  .description {
-    font-size: 0.8rem !important;
-    font-family: "Manrope" !important;
-  }
-
-  .titlee {
-    font-size: 1.4rem !important;
-    margin-top: 10px !important;
-    margin-bottom: 15px !important;
-    margin-left: -10px !important;
-  }
-
-  .listItem {
-    font-size: 1rem !important;
-    margin-bottom: 0.5rem !important;
+    gap: 0.5rem;
+    padding: 0 0.5rem;
   }
 }
