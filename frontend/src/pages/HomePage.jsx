@@ -28,15 +28,18 @@ export default function HomePage() {
   return (
     <div>
       <Navbar />
+      <div>
+
       <Hero />
-      <div >
-      <div className="container" style={{ backgroundColor: "#222222" }}>
-      <AboutSection />
       </div>
+      <div style={{ backgroundColor: "#222222" }} className="mb-5"> 
+        <div className="container " style={{ backgroundColor: "#222222" }}>
+          <AboutSection />
+        </div>
       </div>
       
     
-      <div className="container mb-5">
+      <div className="container mb-5 mt-5">
         
         <Title />
         <div className="d-flex justify-content-center gap-4 mb-4">
