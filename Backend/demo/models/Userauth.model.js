@@ -214,7 +214,15 @@ const UserAuthSchema = new mongoose.Schema({
   patternMaxScore: {  // New field for Pattern game max score
     type: Number,
     default: 0
-  }
+  },
+
+  age: {
+    type: Number,
+    min: 0, // العمر مش هيبقى سالب
+    default: null, // اختياري
+  },
+
+
 });
 
 // Sign JWT and return

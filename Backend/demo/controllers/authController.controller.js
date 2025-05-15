@@ -274,7 +274,8 @@ exports.googleLogin = asyncHandler(async (req, res, next) => {
                 userName,
                 fullName: name,
                 phone: '1234567890',
-                avatar: picture || ''
+                avatar: picture || '',
+                age,
             });
             console.log('User created with username:', user.userName);
         } else if (!user.googleId) {
@@ -322,7 +323,8 @@ exports.microsoftLogin = asyncHandler(async (req, res, next) => {
                 userName,
                 fullName: name,
                 phone: '1234567890',
-                avatar: picture || ''
+                avatar: picture || '',
+                age,
             });
             console.log('User created with username:', user.userName);
         } else if (!user.microsoftId) {
@@ -376,7 +378,8 @@ const sendTokenResponse = (user, statusCode, res) => {
                     phone: user.phone,
                     location: user.location,
                     postalCode: user.postalCode,
-                    avatar: user.avatar
+                    avatar: user.avatar,
+                    age : user.age
                 }
             });
     } catch (error) {

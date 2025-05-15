@@ -1,16 +1,13 @@
-const express = require('express');
+// routes/cardImageRoutes.js
+const express = require("express");
 const router = express.Router();
-const { getAllGames, createGame, updateGame, deleteGame, searchGame } = require('../controllers/game.controller');
 
-router.get('/', getAllGames);
+const {
+  getAllCardImages,
+  addCardImage,
+} = require("../controllers/cardImages.controller");
 
-router.post('/', createGame);
-
-
-router.put('/:id', updateGame);
-
-router.delete('/:id', deleteGame);
-
-router.get('/search', searchGame);
+router.get("/", getAllCardImages);
+router.post("/", addCardImage);
 
 module.exports = router;

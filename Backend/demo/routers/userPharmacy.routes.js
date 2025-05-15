@@ -1,10 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const { createPharmacy, getAllPharmacies, deletePharmacy, getPharmacyById } = require('../controllers/Pharmacydb.controller');
+const { getAllPharmacies, createPharmacy, updatePharmacy, deletePharmacy, searchPharmacy } = require('../controllers/Pharmacydb.controller');
+
+router.get('/search', searchPharmacy);
 
 router.get('/', getAllPharmacies);
+
 router.post('/', createPharmacy);
+
+router.put('/:id', updatePharmacy);
+
 router.delete('/:id', deletePharmacy);
-router.get('/:id', getPharmacyById);
+
 
 module.exports = router;
