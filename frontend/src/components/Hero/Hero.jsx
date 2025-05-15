@@ -15,7 +15,7 @@ function CustomPlayArrowIcon() {
 export default function HeroSection() {
   return (
     <div className="d-md-flex justify-content-center">
-      <Container fluid={false} className="p-3">
+      <Container fluid={false} >
         <Box className={styles.heroSection}>
           <Grid container spacing={4} alignItems="center">
             <Grid item xs={12} md={6}>
@@ -34,7 +34,7 @@ export default function HeroSection() {
 
               <Stack direction="row" spacing={2} mt={2}>
                 <Button variant="contained" className={styles.primaryBtn} startIcon={<CustomPlayArrowIcon />}>Start your journey</Button>
-                <Button variant="text" className={styles.textBtn} startIcon={<CustomPlayArrowIcon />}>How can we help you start fresh?</Button>
+                <Button variant="text" className={styles.textBtn} startIcon={<CustomPlayArrowIcon />}>How can we help you start </Button>
               </Stack>
             </Grid>
           </Grid>

@@ -15,7 +15,11 @@ export default function HeroSection() {
   const navigate = useNavigate(); // ← 2. إنشاء الدالة
 
   return (
+<<<<<<< HEAD
     <Box sx={{ px: 4, py: 6, backgroundColor: "#FCFCFB", overflowX: "auto", padding: "90px 125px" }}>
+=======
+    <Box sx={{ px: { xs: 2, md: 4 }, py: { xs: 4, md: 6 }, backgroundColor: "#FCFCFB", overflowX: "auto", padding: { xs: "40px 20px", md: "90px 125px" } }}>
+>>>>>>> b9e32a491afb77ce058ae7b5d696b8d1aa22c6b9
       <Box
         sx={{
           display: "flex",
@@ -24,7 +28,10 @@ export default function HeroSection() {
           alignItems: { xs: "flex-start", md: "center" },
           gap: { xs: 2, md: 0 },
           width: "100%",
+<<<<<<< HEAD
           px: 0,
+=======
+>>>>>>> b9e32a491afb77ce058ae7b5d696b8d1aa22c6b9
         }}
       >
         <Box sx={{ width: { xs: "100%", md: "50%" }, pr: { xs: 0, md: 2 } }}>
@@ -33,8 +40,9 @@ export default function HeroSection() {
             fontWeight="bold"
             gutterBottom
             sx={{
-              fontSize: "clamp(2rem, 5vw, 5rem)",
+              fontSize: "clamp(1.5rem, 4vw, 5rem)",
               fontFamily: "Manrope",
+              textAlign: { xs: "center", md: "left" },
             }}
           >
             Find Peace of Mind with Wellthy
@@ -46,17 +54,16 @@ export default function HeroSection() {
             variant="body1"
             color="text.secondary"
             sx={{
-              fontSize: "1.5rem",
+              fontSize: "clamp(1rem, 2.5vw, 1.5rem)",
               mb: 3,
               fontFamily: "Manrope",
+              textAlign: { xs: "center", md: "left" },
             }}
           >
-            Experience a comprehensive holistic approach to mental health care,
-            fostering balance, tranquility, resilience, and renewed vitality in
-            every aspect of your life.
+            Experience a holistic approach to mental health care, fostering balance and resilience in your life.
           </Typography>
 
-          <Stack direction="row" spacing={2}>
+          <Stack direction={{ xs: "column", md: "row" }} spacing={2} alignItems={{ xs: "center", md: "flex-start" }}>
             <Button
               variant="contained"
               sx={{
@@ -64,13 +71,13 @@ export default function HeroSection() {
                 backgroundColor: "#000",
                 "&:hover": { backgroundColor: "#333" },
                 fontFamily: "Manrope",
+                width: { xs: "100%", md: "auto" },
               }}
               startIcon={<CustomPlayArrowIcon />}
               onClick={() => navigate("/booking")} 
             >
               Start your journey
             </Button>
-
             <Button
               variant="text"
               startIcon={<CustomPlayArrowIcon />}
@@ -78,6 +85,7 @@ export default function HeroSection() {
                 textTransform: "none",
                 color: "#000",
                 fontFamily: "Manrope",
+                width: { xs: "100%", md: "auto" },
               }}
               onClick={() => navigate("/about")} 
             >
@@ -87,7 +95,7 @@ export default function HeroSection() {
         </Box>
       </Box>
 
-      <Box width="100%" mt={{ xs: 0, md: -10 }}>
+      <Box width="100%" mt={{ xs: 2, md: -10 }}>
         <Box
           component="img"
           src={HeaderImg}
@@ -100,7 +108,6 @@ export default function HeroSection() {
             borderRadius: "20px",
           }}
         />
-
         <Box
           sx={{
             display: "flex",
@@ -114,10 +121,9 @@ export default function HeroSection() {
             variant="h1"
             fontWeight="bold"
             sx={{
-              fontSize: "clamp(3rem, 15vw, 15rem)",
+              fontSize: "clamp(2.5rem, 12vw, 12rem)",
               fontFamily: "Manrope",
               textAlign: "center",
-              margin: "auto",
             }}
           >
             <span style={{ letterSpacing: "0.35em" }}>WELLTH</span>Y
