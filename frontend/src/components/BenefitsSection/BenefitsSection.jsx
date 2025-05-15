@@ -53,13 +53,12 @@ const iconMap = {
   SpaIcon: <SpaIcon className={styles.icon} />,
 };
 
-// Map لتحديد الأيقونات الافتراضية لكل حالة وكل فائدة بناءً على ترتيبها
 const defaultIconMap = {
   Anxiety: [
-    <PsychologyIcon className={styles.icon} />, // أول فائدة
-    <ChatIcon className={styles.icon} />, // تاني فائدة
-    <SpaIcon className={styles.icon} />, // تالت فائدة
-    <LocalDrinkIcon className={styles.icon} />, // رابع فائدة
+    <PsychologyIcon className={styles.icon} />,
+    <ChatIcon className={styles.icon} />,
+    <SpaIcon className={styles.icon} />,
+    <LocalDrinkIcon className={styles.icon} />,
   ],
   Depression: [
     <FavoriteIcon className={styles.icon} />,
@@ -83,7 +82,7 @@ const defaultIconMap = {
 
 const BenefitsSection = ({ issueData }) => (
   <div className={`container ${styles.container}`}>
-    <h2 className={`text-center mb-4 ${styles.title}`}>
+    <h2 className={`mb-4 ${styles.title}`}>
       What will you get?
     </h2>
     <div className="row mb-3">
@@ -91,7 +90,7 @@ const BenefitsSection = ({ issueData }) => (
         <div className="col-12 col-md-6 mb-3" key={index}>
           <div className={`d-flex align-items-start ${styles.benefitItem}`}>
             {iconMap[benefit.icon] || (defaultIconMap[issueData.title] && defaultIconMap[issueData.title][index]) || <SpaIcon className={styles.icon} />}
-            <div className="ms-3">
+            <div className={styles.iconTitle}>
               <h6 className={styles.benefitTitle}>
                 {benefit.title.split(" ").map((word, i, arr) => (
                   <React.Fragment key={i}>
@@ -101,10 +100,10 @@ const BenefitsSection = ({ issueData }) => (
                   </React.Fragment>
                 ))}
               </h6>
-              <p className={styles.benefitDescription}>
-                {benefit.description}
-              </p>
             </div>
+            <p className={styles.benefitDescription}>
+              {benefit.description}
+            </p>
           </div>
         </div>
       ))}
@@ -114,7 +113,7 @@ const BenefitsSection = ({ issueData }) => (
         <div className="col-12 col-md-6 mb-3" key={index + 2}>
           <div className={`d-flex align-items-start ${styles.benefitItem}`}>
             {iconMap[benefit.icon] || (defaultIconMap[issueData.title] && defaultIconMap[issueData.title][index + 2]) || <SpaIcon className={styles.icon} />}
-            <div className="ms-3">
+            <div className={styles.iconTitle}>
               <h6 className={styles.benefitTitle}>
                 {benefit.title.split(" ").map((word, i, arr) => (
                   <React.Fragment key={i}>
@@ -124,10 +123,10 @@ const BenefitsSection = ({ issueData }) => (
                   </React.Fragment>
                 ))}
               </h6>
-              <p className={styles.benefitDescription}>
-                {benefit.description}
-              </p>
             </div>
+            <p className={styles.benefitDescription}>
+              {benefit.description}
+            </p>
           </div>
         </div>
       ))}

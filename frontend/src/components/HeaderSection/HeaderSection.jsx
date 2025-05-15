@@ -1,30 +1,28 @@
 import React from "react";
-import { Typography, Box } from "@mui/material";
 import styles from "./HeaderSection.module.css";
 
 const HeaderSection = ({ issueData }) => (
-  <Box className={styles.wrapper}>
-    {/* النص والعنوان */}
-    <Box className={styles.textContainer}>
-    <Typography variant="h3" className={styles.title}>
-      {issueData.title}
-    </Typography>
+  <div className="container-fluid px-3 px-md-4">
+    <div className={`row ${styles.wrapper}`}>
+      <div className={`col-12 col-lg-6 ${styles.textContainer}`}>
+        <h1 className={`${styles.title}`}>
+          {issueData.title}
+        </h1>
+        <p className={`${styles.description} text-muted`}>
+          {issueData.description}
+        </p>
+      </div>
 
-      <Typography variant="body1" className={styles.description}>
-        {issueData.description}
-      </Typography>
-    </Box>
-
-    {/* الصورة */}
-    <Box className={styles.imageContainer}>
-      <img
-        src={issueData.mainImage}
-        alt={issueData.title}
-        className={styles.mainImage}
-        loading="lazy"
-      />
-    </Box>
-  </Box>
+      <div className={`col-12 col-lg-5 ${styles.imageContainer}`}>
+        <img
+          src={issueData.mainImage}
+          alt={issueData.title}
+          className={`img-fluid rounded-2 ${styles.mainImage}`}
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </div>
 );
 
 export default HeaderSection;

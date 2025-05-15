@@ -6,14 +6,14 @@ import styles from "./Benefit.module.css";
 
 const Benefit = () => {
   return (
-    <Box className={`${styles.container} ${styles.containerRow}`}>
+<Box className={`${styles.container} ${styles.containerRow}`}>
       <Box className={styles.imageContainer}>
         <Box className={styles.imageWrapper}>
           <Box component="img" src={benefitImg} alt="benefit"className={styles.image}/>
 
 
-          <Paper elevation={3} className={`${styles.overlay} ${styles.overlayShow}`} >
-            <Typography className={styles.overlayTitle}>
+          <Paper elevation={3} className={`${styles.overlay} ${styles.overlayShow}`}>
+          <Typography className={styles.overlayTitle}>
               Experience Professionals
             </Typography>
             <Typography variant="body2" className={styles.overlayDescription}>
