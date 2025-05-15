@@ -2,7 +2,7 @@ import React from "react";
 import { Box, TextField, IconButton, InputAdornment } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import ReplayIcon from "@mui/icons-material/Replay";
-import { colors } from "../../data/chatbotData"; // Named import
+import { colors } from "../../data/chatbotData"; 
 
 export default function ChatInput({ input, setInput, onSubmit, onReset, inputRef }) {
   return (

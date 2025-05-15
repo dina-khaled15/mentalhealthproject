@@ -1,57 +1,77 @@
 .sectionContainer {
     background-color: white;
-    padding-top: 0;
-    padding-bottom: 0;
+    padding: 0;
 }
 
 .container {
-    margin-top: 10rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 10%;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.textArea {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    padding-left: 160px;
-    padding-right: 160px;
-    width: 100%;
-    max-width: 1920px;
-    padding-bottom: 2rem;
-    position: relative;
-    
+    align-items: flex-start;
 }
 
 .button {
     border-radius: 50px !important;
-    margin-bottom: 32px !important;
-    padding-left: 18px !important;
-    padding-right: 18px !important;
+    margin-bottom: 1.5rem !important;
+    padding: 0.6rem 1.2rem !important;
     text-transform: none !important;
     border-color: #D0D5DD !important;
     background-color: white !important;
     color: #344054 !important;
     font-weight: 600 !important;
-    font-family: "Manrope" !important;
+    font-family: "Manrope", sans-serif !important;
     font-size: 15px !important;
-    align-self: flex-start !important;
-}
-
-.textContainer {
-    position: relative;
-    
 }
 
 .heading {
     font-weight: 500 !important;
-    font-family: "Manrope" !important;
-    font-size: 80px !important;
-    max-width: 19200px !important;
-    width: 100% !important;
+    font-family: "Manrope", sans-serif !important;
+    font-size: 3.5vw !important;
     color: #474747 !important;
-    text-overflow: ellipsis !important;
-}
-
-.heading:last-of-type {
-    margin-bottom: 18px !important;
+    text-align: left;
+    margin-bottom: 0.5rem;
+    max-width: 100%;
 }
 
 .image {
-    padding: auto;
+    flex: 1;
+    max-width: 100%;
     border-radius: 20px;
+    height: auto;
+    object-fit: contain;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 2rem;
+        text-align: center;
+    }
+
+    .textArea {
+        align-items: center;
+    }
+
+    .heading {
+        font-size: 6vw !important;
+        text-align: center;
+    }
+
+    .button {
+        align-self: center;
+    }
+
+    .image {
+        width: 100%;
+    }
 }

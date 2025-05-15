@@ -4,14 +4,14 @@ import RoomIcon from '@mui/icons-material/Room';
 import styles from './Location.module.css';
 
 const LocationSection = () => {
-    const [locations, setLocations] = useState([]); // استخدم state لتخزين المواقع
+    const [locations, setLocations] = useState([]); 
 
     useEffect(() => {
-        fetch("http://localhost:5000/api/locations")
+        fetch("http://localhost:4000/locations")
             .then((res) => res.json())
-            .then((data) => setLocations(data)) // تحديث الـ state بالمواقع
+            .then((data) => setLocations(data))
             .catch((err) => console.error("Error fetching locations:", err));
-    }, []); // فقط عند تحميل المكون لأول مرة
+    }, []); 
 
     return (
         <Box className={styles.container}>

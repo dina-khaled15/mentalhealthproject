@@ -1,6 +1,5 @@
 const Goal = require('../models/Goal.model');
 
-// Get all goals
 const getGoals = async (req, res) => {
     try {
         const goals = await Goal.find().sort({ createdAt: 1 });
@@ -11,7 +10,6 @@ const getGoals = async (req, res) => {
     }
 };
 
-// Add a new goal
 const addGoal = async (req, res) => {
     try {
         const { text } = req.body;
@@ -27,7 +25,6 @@ const addGoal = async (req, res) => {
     }
 };
 
-// Update goal (text and/or completed)
 const updateGoal = async (req, res) => {
     try {
         const { id } = req.params;
@@ -38,14 +35,12 @@ const updateGoal = async (req, res) => {
             return res.status(404).json({ error: 'Goal not found' });
         }
 
-        // Update fields if provided, otherwise toggle completed
         if (text !== undefined && text.trim() !== '') {
             goal.text = text;
         }
         if (completed !== undefined) {
             goal.completed = completed;
         } else if (Object.keys(req.body).length === 0) {
-            // If no body is provided, toggle completed (backward compatibility)
             goal.completed = !goal.completed;
         }
 
@@ -57,7 +52,6 @@ const updateGoal = async (req, res) => {
     }
 };
 
-// Delete a goal
 const deleteGoal = async (req, res) => {
     try {
         const { id } = req.params;

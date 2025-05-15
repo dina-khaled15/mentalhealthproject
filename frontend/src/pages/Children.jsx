@@ -16,7 +16,6 @@ const Children = () => {
         <HomeCards />
       </Box>
 
-      {/* Footer */}
       <Box sx={{ mt: 4, width: "100%" }}>
         <FooterComponent variant="dark" />
       </Box>

@@ -3,7 +3,6 @@ const User = require('../models/UserCommunity.model');
 const path = require('path');
 const fs = require('fs').promises;
 
-// Get all messages
 const getMessages = async (req, res) => {
     try {
         const messages = await Message.find()
@@ -16,7 +15,6 @@ const getMessages = async (req, res) => {
     }
 };
 
-// Upload audio message
 const uploadAudioMessage = async (req, res) => {
     try {
         if (!req.files || !req.files.audio) {
@@ -32,10 +30,8 @@ const uploadAudioMessage = async (req, res) => {
         const audioName = `audio_${Date.now()}_${user._id}.mp3`;
         const uploadPath = path.join(__dirname, '../Uploads/audios', audioName);
 
-        // Create audios directory if it doesn't exist
         await fs.mkdir(path.dirname(uploadPath), { recursive: true });
 
-        // Save audio file
         await audio.mv(uploadPath);
 
         const message = new Message({

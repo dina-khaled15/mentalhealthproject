@@ -1,6 +1,5 @@
 const Plan = require("../models/plan.model");
 
-// Get all plans
 module.exports.getAllPlans = async (req, res) => {
   try {
     const plans = await Plan.find();
@@ -11,18 +10,15 @@ module.exports.getAllPlans = async (req, res) => {
   }
 };
 
-// Create a new plan
 module.exports.createPlan = async (req, res) => {
   try {
-    // التحقق من الحقول المطلوبة
-    const requiredFields = ['name', 'description', 'price'];  // تعديل الحقول حسب متطلباتك
+    const requiredFields = ['title', 'description', 'price'];  
     for (const field of requiredFields) {
       if (!req.body[field]) {
         return res.status(400).json({ message: `Missing required field: ${field}` });
       }
     }
 
-    // Create the new plan
     const newPlan = new Plan(req.body);
 
     await newPlan.save();
@@ -33,7 +29,6 @@ module.exports.createPlan = async (req, res) => {
   }
 };
 
-// Update an existing plan
 module.exports.updatePlan = async (req, res) => {
   try {
     const { id } = req.params;
@@ -48,7 +43,6 @@ module.exports.updatePlan = async (req, res) => {
   }
 };
 
-// Delete a plan
 module.exports.deletePlan = async (req, res) => {
   try {
     const { id } = req.params;
@@ -63,13 +57,12 @@ module.exports.deletePlan = async (req, res) => {
   }
 };
 
-// Search plans by name or description
 module.exports.searchPlans = async (req, res) => {
   try {
     const { name, description } = req.query;
     const query = {};
 
-    if (name) query.name = { $regex: name, $options: 'i' };  // البحث بنمط جزئي
+    if (name) query.name = { $regex: name, $options: 'i' };  
     if (description) query.description = { $regex: description, $options: 'i' };
 
     const plans = await Plan.find(query);
@@ -80,10 +73,9 @@ module.exports.searchPlans = async (req, res) => {
   }
 };
 
-// Get Top 5 Plans based on rating (if applicable)
 module.exports.getTopPlans = async (req, res) => {
   try {
-    const topPlans = await Plan.find().sort({ rating: -1 }).limit(5);  // Assuming plans have a rating field
+    const topPlans = await Plan.find().sort({ rating: -1 }).limit(5); 
     res.status(200).json(topPlans);
   } catch (err) {
     console.error("Error fetching top plans:", err.message);

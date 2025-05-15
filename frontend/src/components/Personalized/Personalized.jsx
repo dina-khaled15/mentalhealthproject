@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, Paper, Stack } from "@mui/material";
+import { Typography, Paper, Stack } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStairs } from "@fortawesome/free-solid-svg-icons";
 import styles from "./Personalized.module.css";
