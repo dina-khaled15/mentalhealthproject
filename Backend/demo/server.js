@@ -56,6 +56,7 @@ const scheduleRoutes = require('./routers/Schedule.routes');
 const faqRouter = require('./routers/faq.routes');
 const valueRouter = require('./routers/value.routes');
 const cardRouter = require('./routers/card.routes');
+const chartRoutes = require('./routers/chartRoutes');
 
 
 let stagesRouter, uploadRouter;
@@ -88,6 +89,7 @@ app.use('/api/plan', planRouter);
 app.use('/api/faq', faqRouter);
 app.use('/api/value', valueRouter);
 app.use('/api/cards', cardRouter);
+app.use('/api/chart', chartRoutes);
 
 if (stagesRouter) {
   app.use('/api/stages', stagesRouter);
