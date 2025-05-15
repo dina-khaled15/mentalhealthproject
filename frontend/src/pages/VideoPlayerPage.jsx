@@ -1,33 +1,48 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Box, Container, Typography, Paper, Grid } from "@mui/material";
 import Navbar from "../components/Navbar/Navbar";
 import FooterComponent from "../components/footer/contact";
-import storyVideos from "../data/video";
 
 const VideoPlayerPage = () => {
   const { videoId } = useParams(); 
-  const videoData = storyVideos[videoId];
 
-  if (!videoData) {
+  const [videoData, setVideoData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetch(`http://localhost:4000/api/videos/${videoId}`)
+      .then((res) => {
+        if (!res.ok) throw new Error("Video not found");
+        return res.json();
+      })
+      .then((data) => {
+        setVideoData(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, [videoId]);
+
+  if (loading) return <Typography align="center">Loading...</Typography>;
+
+  if (error)
     return (
       <Container sx={{ pt: 20, pb: 10, minHeight: "70vh" }}>
         <Typography variant="h4" align="center" sx={{ color: "#d32f2f" }}>
-          Video not found
+          {error}
         </Typography>
       </Container>
     );
-  }
+
   return (
     <Box sx={{ bgcolor: "#F8F7F4", minHeight: "100vh" }}>
       <Navbar />
       <Container sx={{ pt: 12, pb: 10 }}>
-        <Typography
-          variant="h3"
-          gutterBottom
-          align="center"
-          sx={{ fontWeight: "bold", color: "#333" }}
-        >
+        <Typography variant="h3" gutterBottom align="center" sx={{ fontWeight: "bold", color: "#333" }}>
           {videoData.title}
         </Typography>
 

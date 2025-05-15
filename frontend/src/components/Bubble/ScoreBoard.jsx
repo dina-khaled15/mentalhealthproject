@@ -4,10 +4,11 @@ import { Box, Typography } from "@mui/material";
 const ScoreBoard = ({ hitrm, timer, score, maxScore }) => (
   <Box sx={{ display: "flex", justifyContent: "space-around", backgroundColor: "#000", color: "#fff", padding: 2, flexWrap: "wrap" }}>
     {[
-      { label: "الهدف", value: hitrm },
-      { label: "الوقت", value: timer },
-      { label: "النتيجة", value: score },
-      { label: "أعلى نتيجة", value: maxScore },
+     { label: "Target", value: hitrm },
+     { label: "Time", value: timer },
+     { label: "Score", value: score },
+     { label: "High Score", value: maxScore },
+
     ].map((item, index) => (
       <Box key={index} sx={{ textAlign: "center", margin: 1 }}>
         <Typography variant="h6">{item.label}</Typography>

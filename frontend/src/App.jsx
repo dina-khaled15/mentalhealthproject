@@ -160,7 +160,7 @@ function App() {
               <Route path="/issues" element={<Issues />} />
               <Route path="/details/:title" element={<Details />} />
               <Route path="/pharmacies" element={<PartnerPharmaciesPage />} />
-              <Route path="/card-match" element={<CardMatchGame />} />
+              <Route path="/card-matching" element={<CardMatchGame />} />
               <Route path="/stories" element={<StoryVideosPage />} />
               <Route path="/story/:videoId" element={<VideoPlayerPage />} />
               <Route path="/feelings" element={<EmotionAdventure />} />

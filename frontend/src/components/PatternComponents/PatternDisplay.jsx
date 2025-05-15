@@ -1,4 +1,3 @@
-// PatternGame/PatternDisplay.jsx
 
 import React from "react";
 import { Box, Typography } from "@mui/material";
@@ -21,7 +20,7 @@ const PatternDisplay = ({ pattern, showPattern, userPattern }) => {
         ))
       ) : userPattern.length < pattern.length ? (
         <Typography sx={{ fontSize: "18px", color: "#000" }}>
-          الآن حان دورك لإعادة النمط!
+          try again you can do it don't give up
         </Typography>
       ) : null}
     </Box>

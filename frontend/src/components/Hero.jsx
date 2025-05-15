@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Typography, Button, Stack } from "@mui/material";
+import { useNavigate } from "react-router-dom"; // ← 1. استيراد useNavigate
 import HeaderImg from "../images/HeaderImg.png";
 
 function CustomPlayArrowIcon() {
@@ -11,8 +12,14 @@ function CustomPlayArrowIcon() {
 }
 
 export default function HeroSection() {
+  const navigate = useNavigate(); // ← 2. إنشاء الدالة
+
   return (
+<<<<<<< HEAD
+    <Box sx={{ px: 4, py: 6, backgroundColor: "#FCFCFB", overflowX: "auto", padding: "90px 125px" }}>
+=======
     <Box sx={{ px: { xs: 2, md: 4 }, py: { xs: 4, md: 6 }, backgroundColor: "#FCFCFB", overflowX: "auto", padding: { xs: "40px 20px", md: "90px 125px" } }}>
+>>>>>>> b9e32a491afb77ce058ae7b5d696b8d1aa22c6b9
       <Box
         sx={{
           display: "flex",
@@ -21,6 +28,10 @@ export default function HeroSection() {
           alignItems: { xs: "flex-start", md: "center" },
           gap: { xs: 2, md: 0 },
           width: "100%",
+<<<<<<< HEAD
+          px: 0,
+=======
+>>>>>>> b9e32a491afb77ce058ae7b5d696b8d1aa22c6b9
         }}
       >
         <Box sx={{ width: { xs: "100%", md: "50%" }, pr: { xs: 0, md: 2 } }}>
@@ -63,6 +74,7 @@ export default function HeroSection() {
                 width: { xs: "100%", md: "auto" },
               }}
               startIcon={<CustomPlayArrowIcon />}
+              onClick={() => navigate("/booking")} 
             >
               Start your journey
             </Button>
@@ -75,6 +87,7 @@ export default function HeroSection() {
                 fontFamily: "Manrope",
                 width: { xs: "100%", md: "auto" },
               }}
+              onClick={() => navigate("/about")} 
             >
               How can we help you start fresh?
             </Button>
