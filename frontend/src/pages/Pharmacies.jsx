@@ -9,7 +9,7 @@ import DoneOutlineIcon from '@mui/icons-material/DoneOutline';
 import Rating from '@mui/material/Rating';
 import Navbar from '../components/Navbar/Navbar';
 import FooterComponent from "../components/footer/contact";
-import {pharmacies,cities} from '../data/pharmacyData';
+import { useEffect } from 'react';
 
 const PartnerPharmaciesPage = () => {
     
@@ -21,6 +21,31 @@ const PartnerPharmaciesPage = () => {
     confidential: false
   });
 
+  const [pharmacies, setPharmacies] = useState([]);
+  const [cities, setCities] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const pharmacyResponse = await fetch('http://localhost:4000/PharmacyList');
+        const cityResponse = await fetch('http://localhost:4000/Cities');
+
+        if (!pharmacyResponse.ok || !cityResponse.ok) {
+          throw new Error('Error fetching data');
+        }
+
+        const pharmacyData = await pharmacyResponse.json();
+        const cityData = await cityResponse.json();
+
+        setPharmacies(pharmacyData);
+        setCities(cityData);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setForm({ ...form, [name]: type === 'checkbox' ? checked : value });

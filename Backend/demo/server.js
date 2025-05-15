@@ -33,7 +33,6 @@ app.use(cors({
   origin: '*', 
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true
 }));
 
 app.use(express.json());
@@ -49,13 +48,17 @@ const userBookingRouter = require('./routers/userBooking.routes');
 const doctorRouter = require('./routers/doctor.route');
 const eventRouter = require('./routers/event.routes');
 const gameRouter = require('./routers/game.route');
-const bubbleRouter = require('./routers/bubble.route');
+const cardImageRoutes = require("./routers/cardImages.routes");
 const patternRouter = require('./routers/pattern.route');
 const locationRouter = require('./routers/location.routes');
 const milestoneRouter = require('./routers/milestone.routes');
 const planRouter = require('./routers/plan.routes');
 const authRouter = require('./routers/auth.route');
 const scheduleRouter = require('./routers/schedule.routes');
+const faqRouter = require('./routers/faq.routes');
+const valueRouter = require('./routers/value.routes');
+
+
 
 let stagesRouter, uploadRouter;
 try {
@@ -77,12 +80,16 @@ app.use('/Emotions', userEmotionsRouter);
 app.use('/Booking', userBookingRouter);
 app.use('/doctor', doctorRouter);
 app.use('/game', gameRouter);
-app.use('/api/bubble', bubbleRouter);
+app.use("/api/card-images", cardImageRoutes);
 app.use('/pattern', patternRouter);
 app.use('/locations', locationRouter);
 app.use('/events', eventRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/schedules', scheduleRouter);
+app.use('/api/milestones', milestoneRouter);
+app.use('/api/plan', planRouter);
+app.use('/api/faq', faqRouter);
+app.use('/api/value', valueRouter);
 
 if (stagesRouter) {
   app.use('/api/stages', stagesRouter);
