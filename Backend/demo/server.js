@@ -57,7 +57,7 @@ const authRouter = require('./routers/auth.route');
 const scheduleRouter = require('./routers/schedule.routes');
 const faqRouter = require('./routers/faq.routes');
 const valueRouter = require('./routers/value.routes');
-
+const cardRouter = require('./routers/card.routes');
 
 
 let stagesRouter, uploadRouter;
@@ -90,6 +90,7 @@ app.use('/api/milestones', milestoneRouter);
 app.use('/api/plan', planRouter);
 app.use('/api/faq', faqRouter);
 app.use('/api/value', valueRouter);
+app.use('/api/cards', cardRouter);
 
 if (stagesRouter) {
   app.use('/api/stages', stagesRouter);
