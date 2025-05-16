@@ -5,7 +5,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import TopBar from "./components/TopBar";
 import SideBar from "./components/SideBar";
 import { getDesignTokens } from "./theme";
-import { Routes, Route } from "react-router-dom"; // هذه هي الطريقة الصحيحة لاستخدام الـ Routes هنا
+import { Routes, Route } from "react-router-dom"; 
 import Dashboard from "./page/Dashboard/Dashboard";
 import Counselling from "./page/Counselling/Counselling";
 import Doctors from "./page/Doctors/Doctors";

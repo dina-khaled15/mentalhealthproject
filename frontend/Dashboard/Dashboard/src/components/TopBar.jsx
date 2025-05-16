@@ -24,8 +24,8 @@ const AppBar = styled(MuiAppBar, {
 })(({ theme, open }) => ({
   zIndex: theme.zIndex.drawer + 1,
   backgroundColor:
-    theme.palette.mode === "light" ? "#F4F2ED" : "#121212", // Dark: أسود أنيق
-  color: theme.palette.mode === "light" ? "#000" : "#E0E0E0", // Dark: رمادي فاتح
+    theme.palette.mode === "light" ? "#F4F2ED" : "#121212", 
+  color: theme.palette.mode === "light" ? "#000" : "#E0E0E0",
   transition: theme.transitions.create(
     ["width", "margin", "background-color", "color"],
     {
@@ -71,7 +71,6 @@ const TopBar = ({ open, handleDrawerOpen, setMode }) => {
           <MenuIcon />
         </IconButton>
 
-        {/* ممكن تحطي هنا عنوان أو لوجو */}
         <Typography
           variant="h6"
           noWrap

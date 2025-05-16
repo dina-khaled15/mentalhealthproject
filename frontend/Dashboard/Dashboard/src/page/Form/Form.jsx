@@ -39,33 +39,29 @@ const AddDoctorForm = () => {
 
   const navigate = useNavigate();
 
-  // Social Media
   const { fields: socialMediaFields, append: appendSocialMedia, remove: removeSocialMedia } = useFieldArray({
     control,
     // @ts-ignore
     name: 'socialMedia',
   });
 
-  // Education
   const { fields: educationFields, append: appendEducation, remove: removeEducation } = useFieldArray({
     control,
     name: 'education',
   });
 
-  // Experience
   const { fields: experienceFields, append: appendExperience, remove: removeExperience } = useFieldArray({
     control,
     name: 'experience',
   });
 
-  // Certificates
+
   const { fields: certificateFields, append: appendCertificate, remove: removeCertificate } = useFieldArray({
     control,
     // @ts-ignore
     name: 'certificates',
   });
 
-  // Expertise
   const { fields: expertiseFields, append: appendExpertise, remove: removeExpertise } = useFieldArray({
     control,
     // @ts-ignore
@@ -119,25 +115,19 @@ const AddDoctorForm = () => {
       <Typography variant="h4" gutterBottom>Add New Doctor</Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Stack spacing={2}>
-          {/* Name */}
           <TextField label="Name" fullWidth {...register('name', { required: 'Name is required' })} error={!!errors.name} helperText={errors.name?.message} />
 
-          {/* Title */}
           <TextField label="Title" fullWidth {...register('title')} />
 
-          {/* Avatar */}
           <TextField label="Avatar URL" fullWidth {...register('avatar')} />
 
-          {/* Description */}
           <TextField label="Description" multiline rows={4} fullWidth {...register('description')} />
 
-          {/* Contact Phone & Email */}
           <Stack direction="row" spacing={2}>
             <TextField label="Contact Phone" fullWidth {...register('contactPhone', { required: 'Phone is required' })} error={!!errors.contactPhone} helperText={errors.contactPhone?.message} />
             <TextField label="Contact Email" fullWidth {...register('contactEmail', { required: 'Email is required' })} error={!!errors.contactEmail} helperText={errors.contactEmail?.message} />
           </Stack>
 
-          {/* Social Media */}
           <Typography variant="h6">Social Media Links</Typography>
           {socialMediaFields.map((item, index) => (
             <Stack direction="row" spacing={2} key={item.id}>
@@ -149,7 +139,6 @@ const AddDoctorForm = () => {
 // @ts-ignore
           '')}>Add Social Media Link</Button>
 
-          {/* Education */}
           <Typography variant="h6">Education</Typography>
           {educationFields.map((item, index) => (
             <Stack direction="row" spacing={2} key={item.id}>
@@ -161,7 +150,6 @@ const AddDoctorForm = () => {
           ))}
           <Button variant="outlined" startIcon={<Add />} onClick={() => appendEducation({ year: '', degree: '', school: '' })}>Add Education</Button>
 
-          {/* Experience */}
           <Typography variant="h6">Experience</Typography>
           {experienceFields.map((item, index) => (
             <Stack direction="row" spacing={2} key={item.id}>
@@ -173,7 +161,6 @@ const AddDoctorForm = () => {
           ))}
           <Button variant="outlined" startIcon={<Add />} onClick={() => appendExperience({ year: '', role: '', place: '' })}>Add Experience</Button>
 
-          {/* Certificates */}
           <Typography variant="h6">Certificates</Typography>
           {certificateFields.map((item, index) => (
             <Stack direction="row" spacing={2} key={item.id}>
@@ -185,7 +172,6 @@ const AddDoctorForm = () => {
 // @ts-ignore
           '')}>Add Certificate</Button>
 
-          {/* Expertise */}
           <Typography variant="h6">Expertise</Typography>
           {expertiseFields.map((item, index) => (
             <Stack direction="row" spacing={2} key={item.id}>
@@ -197,19 +183,16 @@ const AddDoctorForm = () => {
 // @ts-ignore
           '')}>Add Expertise</Button>
 
-          {/* Submit Button */}
           <Box sx={{ textAlign: 'right' }}>
             <Button type="submit" variant="contained">Save Doctor</Button>
           </Box>
         </Stack>
       </form>
 
-      {/* Success Snackbar */}
       <Snackbar open={open} autoHideDuration={3000} onClose={handleClose} anchorOrigin={{ vertical: 'top', horizontal: 'right' }}>
         <Alert severity="success" onClose={handleClose}>Doctor added successfully!</Alert>
       </Snackbar>
 
-      {/* Error Snackbar */}
       <Snackbar open={errorOpen} autoHideDuration={3000} onClose={handleClose} anchorOrigin={{ vertical: 'top', horizontal: 'right' }}>
         <Alert severity="error" onClose={handleClose}>{errorMessage}</Alert>
       </Snackbar>

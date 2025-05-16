@@ -21,7 +21,7 @@ const getColorByPhrase = (phrase) => {
 const Row2 = () => {
   const theme = useTheme();
   return (
-    <Stack direction={"row"} flexWrap={"wrap"} gap={1.2} mt={1.3}>
+    <Stack direction={"row"} flexWrap={"wrap"} gap={1.2} mt={1.3} >
       <Paper sx={{ maxWidth: 900, flexGrow: 1, minWidth: "400px" }}>
         <Stack alignItems={"center"} direction={"row"} flexWrap={"wrap"} justifyContent={"space-between"}>
           <Box>
@@ -44,8 +44,8 @@ const Row2 = () => {
           <Line isDahboard={true} />
           </Paper>
       
-      <Box sx={{overflow:"auto",borderRadius:"4px",minWidth: "280px",maxHeight: 355,flexGrow: 1,backgroundColor: "#F4F2ED",}}>
-        <Paper>
+          <Box sx={{ overflow: "auto", borderRadius: "4px", minWidth: "280px", maxHeight: 600, flexGrow: 1, backgroundColor: "#F4F2ED" }}>
+          <Paper>
           <Typography p={1.2} variant="h6" color="black"
             sx={{backgroundColor: "#F4F2ED",fontWeight: 900,fontFamily: "Manrope",fontSize: "24px",}} >
             Doctor List

@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import React, { useState, useEffect } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
@@ -39,11 +40,9 @@ const Calendar = () => {
   const [successOpen, setSuccessOpen] = useState(false);
   const [errorOpen, setErrorOpen] = useState(false);
 
-  // جلب الأحداث من الـ Backend
   const fetchEvents = async () => {
     try {
       const response = await axios.get('http://localhost:4000/events');
-      // تحويل _id إلى id لـ FullCalendar
       const formattedEvents = response.data.map((event) => ({
         id: event._id,
         title: event.title,
@@ -59,7 +58,6 @@ const Calendar = () => {
     }
   };
 
-  // جلب الأحداث لما الكومبوننت يتحمل
   useEffect(() => {
     fetchEvents();
   }, []);
@@ -71,8 +69,7 @@ const Calendar = () => {
   const handleDateSelect = async (selectInfo) => {
     let title = prompt('Please enter a new title for your event');
     let calendarApi = selectInfo.view.calendar;
-
-    calendarApi.unselect(); // clear date selection
+    calendarApi.unselect();
 
     if (title) {
       const newEvent = {
@@ -86,14 +83,14 @@ const Calendar = () => {
         const response = await axios.post('http://localhost:4000/events', newEvent, {
           headers: { 'Content-Type': 'application/json' },
         });
-        // إضافة الحدث للتقويم مع _id من الـ Backend
-        calendarApi.addEvent({
+        const addedEvent = {
           id: response.data.event._id,
           title: response.data.event.title,
           start: response.data.event.start,
           end: response.data.event.end,
           allDay: response.data.event.allDay,
-        });
+        };
+        setCurrentEvents((prev) => [...prev, addedEvent]);
         setSuccessOpen(true);
       } catch (error) {
         console.error('Error adding event:', error.response?.data || error.message);
@@ -104,10 +101,10 @@ const Calendar = () => {
   };
 
   const handleEventClick = async (clickInfo) => {
-    if (confirm(`Are you sure you want to delete the event '${clickInfo.event.title}'`)) {
+    if (confirm(`Are you sure you want to delete the event '${clickInfo.event.title}'?`)) {
       try {
         await axios.delete(`http://localhost:4000/events/${clickInfo.event.id}`);
-        clickInfo.event.remove();
+        setCurrentEvents((prev) => prev.filter((event) => event.id !== clickInfo.event.id));
         setSuccessOpen(true);
       } catch (error) {
         console.error('Error deleting event:', error.response?.data || error.message);
@@ -115,10 +112,6 @@ const Calendar = () => {
         setErrorOpen(true);
       }
     }
-  };
-
-  const handleEvents = (events) => {
-    setCurrentEvents(events);
   };
 
   const handleClose = (_, reason) => {
@@ -130,12 +123,12 @@ const Calendar = () => {
 
   return (
     <Stack direction={'row'}>
-      <Paper className="demo-app-sidebar">
+      <Paper className="demo-app-sidebar" sx={{ width: 300, padding: 2, maxHeight: '80vh', overflowY: 'auto' }}>
         <h2 style={{ textAlign: 'center' }}>All Events ({currentEvents.length})</h2>
         <ul>{currentEvents.map(renderSidebarEvent)}</ul>
       </Paper>
 
-      <div className="demo-app-main">
+      <div className="demo-app-main" style={{ flex: 1 }}>
         <FullCalendar
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
           headerToolbar={{
@@ -152,7 +145,7 @@ const Calendar = () => {
           select={handleDateSelect}
           eventContent={renderEventContent}
           eventClick={handleEventClick}
-          eventsSet={handleEvents}
+          events={currentEvents} 
         />
       </div>
 
@@ -174,7 +167,7 @@ const Calendar = () => {
         anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
       >
         <Alert severity="error" onClose={handleClose}>
-          {error}
+          {error || 'An unknown error occurred.'}
         </Alert>
       </Snackbar>
     </Stack>

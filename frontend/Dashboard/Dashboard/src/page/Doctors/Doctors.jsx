@@ -14,7 +14,6 @@ import Header from '../../components/Header';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-// تعريف الأعمدة
 const columns = [
   { field: 'id', headerName: 'ID', width: 90 },
   { field: 'name', headerName: 'Name', width: 200 },
@@ -39,7 +38,6 @@ const Doctors = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  // 🔁 جلب البيانات من الـ API
   const fetchDoctors = async () => {
     try {
       setLoading(true);
@@ -50,7 +48,7 @@ const Doctors = () => {
         title: doctor.title,
         avatar: doctor.avatar,
         description: doctor.description,
-        contactPhone: doctor.contact?.phone || '-', // ✅ تجنب undefined
+        contactPhone: doctor.contact?.phone || '-', 
         contactEmail: doctor.contact?.email || '-',
         socialMedia: Array.isArray(doctor.socialMedia)
           ? doctor.socialMedia.join(', ')
@@ -85,7 +83,6 @@ const Doctors = () => {
     fetchDoctors();
   }, []);
 
-  // 🔍 البحث
   const handleSearch = (e) => setSearchText(e.target.value);
 
   const filteredRows = rows.filter((row) =>
@@ -94,7 +91,6 @@ const Doctors = () => {
     )
   );
 
-  // 🗑️ حذف الأطباء المحددين
   const handleDelete = async () => {
     try {
       await Promise.all(
@@ -116,7 +112,6 @@ const Doctors = () => {
     <Box>
       <Header title="Doctors" subTitle={undefined} />
 
-      {/* بحث وإضافة */}
       <Box sx={{ my: 2 }}>
         <Stack direction="row" spacing={2} justifyContent="space-between">
           <Stack direction="row" spacing={2}>
@@ -143,14 +138,12 @@ const Doctors = () => {
         </Stack>
       </Box>
 
-      {/* رسالة الخطأ */}
       {error && (
         <Box sx={{ mb: 2 }}>
           <Alert severity="error">{error}</Alert>
         </Box>
       )}
 
-      {/* الجدول */}
       <Box sx={{ height: 750 }}>
         <DataGrid
           checkboxSelection
@@ -163,7 +156,6 @@ const Doctors = () => {
         />
       </Box>
 
-      {/* نافذة التأكيد عند الحذف */}
       <Dialog open={openDialog} onClose={() => setOpenDialog(false)}>
         <DialogTitle>Are you sure you want to delete selected rows?</DialogTitle>
         <DialogActions>

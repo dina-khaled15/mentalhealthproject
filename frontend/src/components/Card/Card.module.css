@@ -30,8 +30,8 @@
 }
 
 .dialogCustom {
-  max-width: 600% !important; 
-  width: 300 !important;
+  max-width: 500px !important;
+  width: 400px !important;
   margin: auto !important;
   border-radius: 16px !important;
 }
@@ -40,11 +40,11 @@
   background-color: #F2F0E9 !important;
   font-family: 'Manrope' !important;
   padding: 24px 32px;
-
 }
 
 .dialogActions {
   background-color: #F2F0E9 !important;
+  padding: 16px 32px;
 }
 
 .dialogTitle {
@@ -61,12 +61,52 @@
   font-size: 17px !important;
   color: black !important;
 }
+
+.inputLabel {
+  font-family: 'Manrope' !important;
+  font-weight: 500 !important;
+  font-size: 17px !important;
+  color: rgba(0, 0, 0, 0.6) !important;
+}
+
+.inputLabel.Mui-focused {
+  color: black !important;
+}
+
+.textField .MuiInputLabel-root {
+  font-family: 'Manrope' !important;
+  font-size: 17px !important;
+  color: rgba(0, 0, 0, 0.6) !important;
+}
+
+.textField .MuiInputLabel-root.Mui-focused {
+  color: black !important;
+}
+
+/* Select component */
+.selectField .MuiOutlinedInput-root {
+  font-family: 'Manrope' !important;
+  font-size: 17px !important;
+}
+
+.selectField .MuiInputLabel-root {
+  font-family: 'Manrope' !important;
+  font-size: 17px !important;
+  color: rgba(0, 0, 0, 0.6) !important;
+}
+
+.selectField .MuiInputLabel-root.Mui-focused {
+  color: black !important;
+}
+
 .blackButton {
   background-color: black !important;
   color: white !important;
   text-transform: none !important;
+  font-family: 'Manrope' !important;
   font-size: 16px !important;
   border-radius: 8px !important;
+  padding: 8px 16px !important;
 }
 
 .blackButton:hover {

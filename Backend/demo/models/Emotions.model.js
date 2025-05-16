@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const emotionSchema = new mongoose.Schema({
   emoji: { type: String, required: true },
+  name: { type: String, required: true },
   description: { type: String, required: true }, 
   questions: [
     {

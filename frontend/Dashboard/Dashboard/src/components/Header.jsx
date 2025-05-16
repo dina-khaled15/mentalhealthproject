@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, Typography } from "@mui/material";
 
 const Header = ({ title, subTitle, isDashboard = false }) => {
@@ -17,10 +16,6 @@ const Header = ({ title, subTitle, isDashboard = false }) => {
       <Typography
         variant="body1"
         sx={{
-        //   xs: "16px", // موبايل
-        // sm: "18px", // تابلت صغير
-        // md: "20px", // تابلت كبير
-        //  lg: "24px", // لابتوب
           color: "#000",
           fontSize: "18px",
           fontFamily: "Manrope",

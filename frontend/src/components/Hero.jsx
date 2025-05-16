@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Typography, Button, Stack } from "@mui/material";
 import { useNavigate } from "react-router-dom"; // ← 1. استيراد useNavigate
-import HeaderImg from "../images/HeaderImg.png";
+
 
 function CustomPlayArrowIcon() {
   return (
@@ -12,7 +12,7 @@ function CustomPlayArrowIcon() {
 }
 
 export default function HeroSection() {
-  const navigate = useNavigate(); // ← 2. إنشاء الدالة
+  const navigate = useNavigate(); 
 
   return (
     <Box sx={{ px: { xs: 2, md: 4 }, py: { xs: 4, md: 6 }, backgroundColor: "#FCFCFB", overflowX: "auto", padding: { xs: "40px 20px", md: "90px 125px" } }}>
@@ -90,7 +90,7 @@ export default function HeroSection() {
       <Box width="100%" mt={{ xs: 2, md: -10 }}>
         <Box
           component="img"
-          src={HeaderImg}
+          src={"http://res.cloudinary.com/defus4mj2/image/upload/v1747347047/jwnphftbdcoefpog8vyw.png"}
           alt="Happy Woman"
           sx={{
             py: 2,

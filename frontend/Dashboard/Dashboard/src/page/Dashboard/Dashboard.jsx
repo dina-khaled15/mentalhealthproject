@@ -13,7 +13,7 @@ const Dashboard = () => {
         <Grid item xs={12} md={6}>
           <Card sx={{ backgroundColor: "#F4F2ED", color: "#000" }}>
             <CardContent>
-              <Header isDashboard title="Hello, Milla Willow!"
+              <Header isDashboard title="Hello, Malak!"
                 subTitle="Welcome to your dashboard. Here's a quick look at your clinic's schedule today."/>
              
             </CardContent>

@@ -6,21 +6,8 @@ import Bar from "../BarChart/Bar";
 const Row3 = () => {
   const theme = useTheme();
   return (
-    <Stack
-      gap={1.5}
-      direction={"row"}
-      flexWrap={"wrap"}
-      mt={1.4}
-      justifyContent={"space-between"} // Pushes items to the edges
-    >
-      <Paper
-        sx={{
-          flexGrow: 1,
-          minWidth: "400px",
-          width: "28%",
-          backgroundColor: "#F4F2ED",
-        }}
-      >
+    <Stack gap={1.5} direction={"row"} flexWrap={"wrap"} mt={1.4} justifyContent={"space-between"} >
+      <Paper sx={{flexGrow: 1,minWidth: "400px",width: "90%",maxWidth: "550px", backgroundColor: "#F4F2ED",}}>
         <Typography
           color="black"
           variant="h6"
@@ -48,8 +35,7 @@ const Row3 = () => {
         sx={{
           flexGrow: 1,
           minWidth: "400px",
-          width: "33%",
-        }}
+          width: "80%",maxWidth: "780px" }}
       >
         <Typography
           variant="h6"
@@ -57,7 +43,7 @@ const Row3 = () => {
             padding: "30px 30px 0 30px",
             fontWeight: "600",
             fontFamily: "Manrope",
-            fontSize: "24px",
+            fontSize: "20px",
           }}
         >
           Patients by Age Stages

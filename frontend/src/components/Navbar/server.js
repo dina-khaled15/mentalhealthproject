@@ -2,10 +2,8 @@ import axios from 'axios';
 
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:4000';
 
-// Configure axios defaults
-axios.defaults.withCredentials = true; // Include cookies in requests
+axios.defaults.withCredentials = true; 
 
-// Add token to requests if available
 axios.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token');
@@ -19,15 +17,11 @@ axios.interceptors.request.use(
   }
 );
 
-// Handle token expiration
 axios.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response && error.response.status === 401) {
-      // Token expired or invalid
       localStorage.removeItem('token');
-      // Optionally redirect to login page
-      // window.location.href = '/login';
     }
     return Promise.reject(error);
   }
